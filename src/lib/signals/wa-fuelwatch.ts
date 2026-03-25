@@ -65,6 +65,7 @@ export async function fetchWaDiesel(): Promise<Signal | null> {
       value: `$${avgDollars.toFixed(2)}/L`,
       trend,
       source: `FuelWatch WA — ${date ?? "today"}`,
+      sourceUrl: "https://www.fuelwatch.wa.gov.au/",
       context:
         `Average across ${prices.length} WA stations. ` +
         `Range: $${minDollars.toFixed(2)}–$${maxDollars.toFixed(2)}/L. ` +

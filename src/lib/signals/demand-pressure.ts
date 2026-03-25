@@ -34,6 +34,7 @@ interface ManualData {
     retailDieselChange: number;
     baselinePetrol: number;
     baselineDiesel: number;
+    sourceUrl?: string;
   };
 }
 
@@ -89,6 +90,7 @@ export async function fetchDemandPressure(): Promise<Signal | null> {
       value: `${d.stationsDry} stations dry`,
       trend,
       source: `AIP / Energy Minister — week ending ${d.retailWeekEnding}`,
+      sourceUrl: d.sourceUrl || "https://www.aip.com.au/pricing/retail-prices",
       context,
       lastUpdated: new Date(d.retailWeekEnding).toISOString(),
       automated: false,

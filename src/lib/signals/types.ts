@@ -5,6 +5,7 @@ export interface Signal {
   value: string;
   trend: Trend;
   source: string;
+  sourceUrl?: string; // link to verify the data directly
   context: string;
   lastUpdated: string | null; // ISO date or null if manual
   automated: boolean;

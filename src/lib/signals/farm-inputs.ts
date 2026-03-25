@@ -21,6 +21,7 @@ interface ManualFarmData {
   farmInputs: {
     fertiliserIncreasePercent: number;
     source: string;
+    sourceUrl?: string;
     context: string;
     asOf: string;
   };
@@ -186,6 +187,7 @@ export async function fetchFarmInputs(): Promise<Signal | null> {
       value: `+${value.toFixed(1)}% YoY`,
       trend,
       source: `ABS PPI — ${period}`,
+      sourceUrl: "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/producer-price-indexes-australia/latest-release",
       context,
       lastUpdated: new Date().toISOString(),
       automated: true,
@@ -194,11 +196,13 @@ export async function fetchFarmInputs(): Promise<Signal | null> {
 
   // Fallback to manual data from JSON or hardcoded defaults
   const fallback = getManualFallback();
+  const manual = loadManualFarmData();
   return {
     label: "Farm input costs",
     value: `Fertiliser +${fallback.fertiliserIncrease}%`,
     trend: "critical" as const,
     source: fallback.source,
+    sourceUrl: manual?.sourceUrl || "https://www.agriculture.gov.au/abares/data",
     context: fallback.context,
     lastUpdated: new Date(fallback.asOf).toISOString(),
     automated: false,

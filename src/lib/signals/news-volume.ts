@@ -110,6 +110,7 @@ export async function fetchNewsVolume(): Promise<Signal | null> {
       value: `${label} (${last7d.length}/7d)`,
       trend,
       source: "Google News AU",
+      sourceUrl: "https://news.google.com/search?q=australia%20fuel%20supply%20diesel&hl=en-AU&gl=AU&ceid=AU%3Aen",
       context,
       lastUpdated: recentHeadline
         ? recentHeadline.pubDate.toISOString()

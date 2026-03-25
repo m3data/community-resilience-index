@@ -159,6 +159,7 @@ export async function fetchFuelReserves(): Promise<Signal | null> {
       value: `~${avgDays} days`,
       trend,
       source: `DCCEEW Petroleum Statistics — ${reportMonth}`,
+      sourceUrl: "https://www.energy.gov.au/government-priorities/energy-data/australian-petroleum-statistics",
       context,
       lastUpdated: latest.month.toISOString(),
       automated: true,

@@ -92,6 +92,7 @@ export async function fetchFoodCpi(): Promise<Signal | null> {
       value: `${yoyChange > 0 ? "+" : ""}${yoyChange.toFixed(1)}% YoY`,
       trend,
       source: `ABS CPI — ${latest.TIME_PERIOD}`,
+      sourceUrl: "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/latest-release",
       context,
       lastUpdated: new Date().toISOString(),
       automated: true,

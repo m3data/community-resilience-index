@@ -135,6 +135,9 @@ export async function fetchDieselPrice(): Promise<Signal | null> {
     value: `$${price.toFixed(2)}/L`,
     trend,
     source,
+    sourceUrl: source.includes("QLD")
+      ? "https://www.data.qld.gov.au/dataset/fuel-price-reporting-2025"
+      : "https://www.aip.com.au/pricing/terminal-gate-prices",
     context:
       `${increase > 0 ? "Up" : "Down"} ${Math.abs(increase).toFixed(0)}% from pre-crisis levels ($${preCrisis.toFixed(2)}/L). ` +
       "Terminal gate price sets the floor — retail adds margin. " +

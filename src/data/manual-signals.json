@@ -21,12 +21,14 @@
     "retailPetrolChange": 0.185,
     "retailDieselChange": 0.368,
     "baselinePetrol": 1.72,
-    "baselineDiesel": 1.78
+    "baselineDiesel": 1.78,
+    "sourceUrl": "https://www.aip.com.au/pricing/retail-prices"
   },
 
   "farmInputs": {
     "fertiliserIncreasePercent": 30,
     "source": "Industry reporting / ABARES — March 2026",
+    "sourceUrl": "https://www.agriculture.gov.au/abares/data",
     "context": "Fertiliser prices up ~30% since the Strait of Hormuz disruption. Australia imports the majority of its fertiliser (urea, DAP, MAP) — primarily from the Middle East and Asia, through the same shipping routes now under pressure. This is a double hit for agriculture: fuel costs up AND input costs up simultaneously. Planting decisions for winter crops are being made now. Downstream effect: food prices will follow with a 3–6 month lag.",
     "asOf": "2026-03-25"
   },

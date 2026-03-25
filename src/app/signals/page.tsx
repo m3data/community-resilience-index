@@ -64,7 +64,7 @@ export default async function SignalsPage() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-red-900 bg-topo text-white">
+      <section className="bg-amber-950 bg-topo text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <div className="flex items-center gap-3 mb-4">
             <Warning size={24} weight="duotone" className="text-amber-400" />
@@ -75,15 +75,15 @@ export default async function SignalsPage() {
           <h1 className="font-heading text-3xl sm:text-4xl font-bold leading-tight">
             Signals
           </h1>
-          <p className="mt-4 text-red-100 text-lg max-w-2xl">
+          <p className="mt-4 text-amber-100 text-lg max-w-2xl">
             Australia is in a fuel supply crisis. The Strait of Hormuz
             disruption has cut access to the shipping routes that supply 90% of
             our refined fuel. These are the numbers the public needs to see
             — sourced from government data, with the caveats the
             government isn&apos;t making clear.
           </p>
-          <div className="mt-6 bg-red-950/50 border border-red-700/40 rounded-lg p-4 max-w-2xl">
-            <p className="text-sm text-red-200 leading-relaxed">
+          <div className="mt-6 bg-amber-950/60 border border-amber-700/40 rounded-lg p-4 max-w-2xl">
+            <p className="text-sm text-amber-200 leading-relaxed">
               <strong className="text-amber-400">
                 A note on government figures:
               </strong>{" "}
@@ -96,10 +96,10 @@ export default async function SignalsPage() {
               gap.
             </p>
           </div>
-          <p className="mt-4 text-sm text-red-300/60">
+          <p className="mt-4 text-sm text-amber-300/60">
             Last fetched: {fetchDate}
             {automatedCount > 0 && (
-              <span className="ml-2 text-red-300">
+              <span className="ml-2 text-amber-300">
                 ({automatedCount} live sources)
               </span>
             )}
@@ -275,7 +275,7 @@ export default async function SignalsPage() {
   );
 }
 
-function SignalCard({ label, value, trend, source, context, automated }: Signal) {
+function SignalCard({ label, value, trend, source, sourceUrl, context, automated }: Signal) {
   const trendStyles: Record<Trend, string> = {
     critical: "bg-red-50 text-red-700 border-red-200",
     down: "bg-red-50 text-red-700 border-red-200",
@@ -316,7 +316,19 @@ function SignalCard({ label, value, trend, source, context, automated }: Signal)
           </span>
         </div>
         <p className="text-xs text-gray-400 mt-1">
-          {source}
+          {sourceUrl ? (
+            <a
+              href={sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-gray-600 transition-colors"
+              title="Verify this data at source"
+            >
+              {source}
+            </a>
+          ) : (
+            source
+          )}
           {automated && (
             <span
               className="ml-1 inline-flex items-center gap-0.5 text-green-600"
