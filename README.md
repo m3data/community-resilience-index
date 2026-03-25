@@ -6,7 +6,7 @@ Postcode-level resilience intelligence for Australian communities. Live at [aust
 
 Two layers of information for citizens trying to understand how exposed their community is to supply chain disruption:
 
-1. **Structural scoring** — postcode-level composite index combining baseline capacity (economic diversity, infrastructure, social cohesion) with crisis exposure (remoteness, refinery distance, fuel pricing). 3,193 postcodes scored.
+1. **Structural scoring** — postcode-level composite index combining baseline capacity via BRIC (Baseline Resilience Indicators for Communities — economic diversity, infrastructure, social cohesion) with crisis exposure via an INFORM-adapted model (remoteness, refinery distance, fuel pricing). 3,193 postcodes scored.
 
 2. **Live signals** — fuel reserves, diesel prices, demand-side pressure, farm input costs, food prices, news coverage. Sourced from public APIs and government data. Updated daily. We show the official numbers and name the gaps the government doesn't.
 
@@ -30,4 +30,4 @@ Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS, INFORM).
 
 ---
 
-Built by [EarthianLabs](https://github.com/m3data). Research connection: transformative adaptation under systemic stress.
+Built by [Mat Mytka](https://mathewmytka.com) / [EarthianLabs](https://github.com/m3data). Research connection: transformative adaptation under systemic stress.
