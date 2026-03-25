@@ -32,7 +32,7 @@ const CATEGORIES: SignalCategory[] = [
     description:
       "Reserve levels, pricing, and demand behaviour. Government headline figures include fuel on water and in pipelines — we flag that distinction.",
     icon: <Lightning size={20} weight="duotone" />,
-    keys: ["reserves", "demandPressure", "diesel", "waDiesel"],
+    keys: ["reserves", "demandPressure", "diesel", "nswDiesel", "waDiesel"],
   },
   {
     heading: "Food & Agricultural Inputs",
@@ -249,6 +249,10 @@ export default async function SignalsPage() {
           <p>
             Australian Bureau of Statistics — Consumer Price Index, Producer
             Price Index (quarterly)
+          </p>
+          <p>
+            NSW FuelCheck — diesel prices across New South Wales via
+            data.nsw.gov.au (daily)
           </p>
           <p>
             WA FuelWatch — daily diesel prices across Western Australia (RSS)

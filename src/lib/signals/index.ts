@@ -4,6 +4,7 @@ import { fetchDieselPrice } from "./diesel-price";
 import { fetchFuelReserves } from "./fuel-reserves";
 import { fetchWaDiesel } from "./wa-fuelwatch";
 import { fetchNewsVolume } from "./news-volume";
+import { fetchNswDiesel } from "./nsw-fuelcheck";
 import { fetchDemandPressure } from "./demand-pressure";
 import { fetchFarmInputs } from "./farm-inputs";
 
@@ -43,12 +44,13 @@ const FALLBACK_SIGNALS: Record<string, Signal> = {
 
 export async function fetchSignals(): Promise<SignalSet> {
   // Fetch all signals in parallel
-  const [reserves, diesel, food, waDiesel, newsVolume, demandPressure, farmInputs] =
+  const [reserves, diesel, food, waDiesel, nswDiesel, newsVolume, demandPressure, farmInputs] =
     await Promise.all([
       fetchFuelReserves(),
       fetchDieselPrice(),
       fetchFoodCpi(),
       fetchWaDiesel(),
+      fetchNswDiesel(),
       fetchNewsVolume(),
       fetchDemandPressure(),
       fetchFarmInputs(),
@@ -61,6 +63,7 @@ export async function fetchSignals(): Promise<SignalSet> {
       ...(demandPressure ? { demandPressure } : {}),
       diesel: diesel ?? FALLBACK_SIGNALS.diesel,
       ...(waDiesel ? { waDiesel } : {}),
+      ...(nswDiesel ? { nswDiesel } : {}),
       food: food ?? FALLBACK_SIGNALS.food,
       ...(farmInputs ? { farmInputs } : {}),
       ...(newsVolume ? { newsVolume } : {}),

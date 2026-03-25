@@ -22,7 +22,7 @@
     "retailDieselChange": 0.368,
     "baselinePetrol": 1.72,
     "baselineDiesel": 1.78,
-    "sourceUrl": "https://www.aip.com.au/pricing/retail-prices"
+    "sourceUrl": "https://www.aip.com.au/pricing"
   },
 
   "farmInputs": {
