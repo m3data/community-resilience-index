@@ -17,7 +17,12 @@ const AIP_API = "http://api.aip.com.au/public/tgp";
 
 // QLD open data as backup — diesel prices updated daily
 const QLD_CKAN = "https://www.data.qld.gov.au/api/3/action";
-const QLD_DATASET = "fuel-price-reporting-2025";
+// Dataset ID changes yearly — try current year first, then previous
+function getQldDatasetId(): string {
+  const year = new Date().getFullYear();
+  return `fuel-price-reporting-${year}`;
+}
+const QLD_DATASET_FALLBACK = "fuel-price-reporting-2025";
 
 interface AipPrice {
   State?: string;
@@ -32,6 +37,10 @@ async function fetchFromAip(): Promise<{ price: number; source: string } | null>
       signal: AbortSignal.timeout(5000),
     });
     if (!res.ok) return null;
+
+    // AIP API sometimes returns HTML instead of JSON — verify content type
+    const contentType = res.headers.get("content-type") ?? "";
+    if (!contentType.includes("json")) return null;
 
     const data: AipPrice[] = await res.json();
     if (!Array.isArray(data) || data.length === 0) return null;
@@ -55,16 +64,27 @@ async function fetchFromAip(): Promise<{ price: number; source: string } | null>
 
 async function fetchFromQld(): Promise<{ price: number; source: string } | null> {
   try {
-    // Get latest resource from QLD fuel price dataset
-    const pkgUrl = `${QLD_CKAN}/package_show?id=${QLD_DATASET}`;
-    const pkgRes = await fetch(pkgUrl, {
-      next: { revalidate: 3600 },
-      signal: AbortSignal.timeout(5000),
-    });
-    if (!pkgRes.ok) return null;
+    // Try current year dataset first, fall back to previous year
+    const datasets = [getQldDatasetId(), QLD_DATASET_FALLBACK];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let pkg: any = null;
 
-    const pkg = await pkgRes.json();
-    if (!pkg.success) return null;
+    for (const datasetId of datasets) {
+      const pkgUrl = `${QLD_CKAN}/package_show?id=${datasetId}`;
+      const res = await fetch(pkgUrl, {
+        next: { revalidate: 3600 },
+        signal: AbortSignal.timeout(5000),
+      });
+      if (res.ok) {
+        const parsed = await res.json();
+        if (parsed.success && parsed.result?.resources?.length > 0) {
+          pkg = parsed;
+          break;
+        }
+      }
+    }
+
+    if (!pkg?.success) return null;
 
     // Find the most recent CSV resource (last in the list)
     const csvResources = pkg.result.resources?.filter(
