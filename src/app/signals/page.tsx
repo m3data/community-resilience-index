@@ -32,7 +32,7 @@ const CATEGORIES: SignalCategory[] = [
     description:
       "Reserve levels, pricing, and demand behaviour. Government headline figures include fuel on water and in pipelines — we flag that distinction.",
     icon: <Lightning size={20} weight="duotone" />,
-    keys: ["reserves", "demandPressure", "diesel", "waDiesel"],
+    keys: ["reserves", "demandPressure", "waDiesel"],
   },
   {
     heading: "Food & Agricultural Inputs",
@@ -243,8 +243,7 @@ export default async function SignalsPage() {
             Australian Petroleum Statistics (monthly)
           </p>
           <p>
-            Australian Institute of Petroleum — Terminal Gate Prices &amp;
-            weekly retail reports (daily/weekly)
+            Australian Institute of Petroleum — weekly retail reports
           </p>
           <p>
             Australian Bureau of Statistics — Consumer Price Index, Producer
