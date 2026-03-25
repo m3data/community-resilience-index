@@ -1,0 +1,2 @@
+# Override root EarthianLabs gitignore (*) so Tailwind v4 oxide scanner can find source files
+!*
