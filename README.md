@@ -30,4 +30,4 @@ Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS, INFORM).
 
 ---
 
-Built by [Mat Mytka](https://mathewmytka.com) / [EarthianLabs](https://github.com/m3data). Research connection: transformative adaptation under systemic stress.
+Built by [Mat Mytka](https://moralimagineer.com) / [EarthianLabs](https://github.com/m3data). Research connection: transformative adaptation under systemic stress.
