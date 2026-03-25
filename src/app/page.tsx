@@ -165,14 +165,16 @@ export default function Home() {
             description="Enter your postcode. See your resilience score, crisis exposure, and what's driving each number. Every score decomposes to the indicator level."
             color="green"
           />
-          <Card
-            href="/signals"
-            icon={<Pulse size={24} weight="duotone" />}
-            label="Signals"
-            title="Live situation data"
-            description="Fuel reserves, diesel prices, food costs, and media attention. Updated from public sources. Contextual intelligence for your community."
-            color="amber"
-          />
+          {process.env.NEXT_PUBLIC_ENABLE_SIGNALS === "1" && (
+            <Card
+              href="/signals"
+              icon={<Pulse size={24} weight="duotone" />}
+              label="Signals"
+              title="Live situation data"
+              description="Fuel reserves, diesel prices, food costs, and media attention. Updated from public sources. Contextual intelligence for your community."
+              color="amber"
+            />
+          )}
           <Card
             href="/guide"
             icon={<HandHeart size={24} weight="duotone" />}

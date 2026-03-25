@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -49,6 +50,12 @@ const CATEGORIES: SignalCategory[] = [
 ];
 
 export default async function SignalsPage() {
+  // Feature flag — signals page disabled in production until signal coverage
+  // is broad and accurate enough for public use. Enable via NEXT_PUBLIC_ENABLE_SIGNALS=1.
+  if (process.env.NEXT_PUBLIC_ENABLE_SIGNALS !== "1") {
+    notFound();
+  }
+
   const { lastFetched, signals } = await fetchSignals();
 
   const fetchDate = new Date(lastFetched).toLocaleDateString("en-AU", {
