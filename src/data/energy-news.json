@@ -1,10 +1,10 @@
 {
   "meta": {
-    "scraped": "2026-03-27T10:33:32.003Z",
+    "scraped": "2026-03-27T19:04:22.080Z",
     "sources": 7,
-    "totalArticles": 210,
-    "highRelevance": 39,
-    "newSinceLastRun": 180,
+    "totalArticles": 208,
+    "highRelevance": 40,
+    "newSinceLastRun": 186,
     "queries": [
       "fuel-security",
       "fuel-deals",
@@ -15,9 +15,9 @@
     ],
     "authority": {
       "authoritative": 3,
-      "established": 67,
-      "unrated": 140,
-      "biased": 38
+      "established": 66,
+      "unrated": 139,
+      "biased": 37
     }
   },
   "articles": [
@@ -63,19 +63,6 @@
       "queryLabel": "International fuel agreements"
     },
     {
-      "title": "Donald Trump ‘very surprised’ Australia declined to send troops to strait of Hormuz amid fuel crisis - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMldDOXkxRnM3dzQzM09MM1Vjb1JtV3F5ZjBTNmJXWXRvalh2ZFRMRkpmeDc4bWxZdDFnMFF3UGRVcEFfZzg0WVdNRWdlUklUWGxMYV9FM2Y1X2xUSmd2OFR0V2ZyZnJtMnBiejRMRkVlal81UGZpb2hHQmFRd2ZGVnZWTDBZYUZJSHBKa1ptWmw1YXgzQS1WcVVxUzZUcm4yRDFod3hhaFNfTTJtc1E?oc=5",
-      "published": "2026-03-21T04:59:00.000Z",
-      "source": "The Guardian",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPMldDOXkxRnM3dzQzM09MM1Vjb1JtV3F5ZjBTNmJXWXRvalh2ZFRMRkpmeDc4bWxZdDFnMFF3UGRVcEFfZzg0WVdNRWdlUklUWGxMYV9FM2Y1X2xUSmd2OFR0V2ZyZnJtMnBiejRMRkVlal81UGZpb2hHQmFRd2ZGVnZWTDBZYUZJSHBKa1ptWmw1YXgzQS1WcVVxUzZUcm4yRDFod3hhaFNfTTJtc1E?oc=5\" target=\"",
-      "relevance": 6,
-      "authority": "established",
-      "bias": null,
-      "combinedScore": 10,
-      "queryId": "fuel-deals",
-      "queryLabel": "International fuel agreements"
-    },
-    {
       "title": "Man Who Moved Our Petrol Reserves To US When Energy Minister Complains About Fuel Security - The Betoota Advocate",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNS0ZaSXZwcl9XSFNPckx1VFdUdnZET2RmUXFkdnFuQUZ2TFE0OFk1MGs1VTNMN1lGZkliczRMZUcxOW11bVlrYVFlYzBIbUtfVWVjS3l3SGJGZlZrQ0d2MWdYR2RKZUk3dEtLVGZsYm5GYWtXZ082Rm5vV0xzOGEwbTN3SUR4bTRSY2xhdEhKUkNOcHF4elpBQTd3MXpSRjAtaW53SElsOTRTX3JNa2ZoRHkteGxQOVFDNDRwWmxsNHY?oc=5",
       "published": "2026-03-27T03:22:33.000Z",
@@ -86,8 +73,8 @@
       "bias": null,
       "directQuote": true,
       "combinedScore": 9,
-      "queryId": "energy-policy",
-      "queryLabel": "Energy policy & regulation"
+      "queryId": "fuel-security",
+      "queryLabel": "Fuel security & reserves"
     },
     {
       "title": "IEA CHIEF BIROL: NOT YET TERRIBLY WORRIED ABOUT FUEL STOCKS IN AUSTRALIA - news.cgtn.com",
@@ -117,17 +104,30 @@
       "queryLabel": "Energy policy & regulation"
     },
     {
-      "title": "Australia’s ACCC monitors petrol prices amid Middle East tensions - Retail Insight Network",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPUzZqV3ZvVHlfaVVnRTFoUlJYdEU2MWQxRUhMVG9ldlNpNzRjcnR3U09yR1ZwdEJ5SVNmOW9zc0x6TFkwMHJsNkl3N3BQTEsyMDlDZTdVVzUxRmJkNU1Hb2FZZDF5VzlxMDUwa1FwUXk4Z04zRHk0bU45MlpsNUFrOGdrdldOMk9na0RRMl90TUh2TWxGZWpiRlFSN0hQbFp4ZVRpazRMRFhOTlFGOEE?oc=5",
-      "published": "2026-03-23T08:22:17.000Z",
-      "source": "Retail Insight Network",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPUzZqV3ZvVHlfaVVnRTFoUlJYdEU2MWQxRUhMVG9ldlNpNzRjcnR3U09yR1ZwdEJ5SVNmOW9zc0x6TFkwMHJsNkl3N3BQTEsyMDlDZTdVVzUxRmJkNU1Hb2FZZDF5VzlxMDUwa1FwUXk4Z04zRHk0bU45MlpsNUFrOGdrdldOMk9na0RRMl90TUh2TWxGZWpiRlFSN0hQbFp4ZVRpazRMRFhOTlFGOEE?oc=5\" target=\"",
-      "relevance": 4,
+      "title": "The ACCC has been given stronger powers to crack down on fuel pricing. What does this mean for Canberra? - The Canberra Times",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQjJTb1VkdU80MWFqYUlieE9oZ2prTWpuaVpUbTNxa2lMekEwbFNDcEFxSDB1OWNFTXFMWWVjaDQxQmtlWFJuM0lnLVI1Tzc3ekVXMWZ3OVZHU0VYUFFZMlMtckNfZWVBOWVMTWplWnFfTVEwZERTdU5MMGUyYS1ncGZ0M2FYZXNKZW9wT2c4b0RqcEZlM2hKc2NKcTE0SnVjRFExbGx2SkJaZGdwM1JjemJ3?oc=5",
+      "published": "2026-03-27T18:36:15.000Z",
+      "source": "The Canberra Times",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxQQjJTb1VkdU80MWFqYUlieE9oZ2prTWpuaVpUbTNxa2lMekEwbFNDcEFxSDB1OWNFTXFMWWVjaDQxQmtlWFJuM0lnLVI1Tzc3ekVXMWZ3OVZHU0VYUFFZMlMtckNfZWVBOWVMTWplWnFfTVEwZERTdU5MMGUyYS1ncGZ0M2FYZXNKZW9wT2c4b0RqcEZlM2hKc2NKcTE0SnVjRFExbGx2SkJaZGdwM1JjemJ3?oc=5\" tar",
+      "relevance": 3,
       "authority": "established",
       "bias": null,
-      "combinedScore": 8,
+      "combinedScore": 7,
       "queryId": "energy-policy",
       "queryLabel": "Energy policy & regulation"
+    },
+    {
+      "title": "Older Australians in ‘immediate danger’ as fuel crisis affects travel for aged care workers - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPeTA4SjlhcUhRUVhjcDdKSTBkM1FIbzhwVG84UFdmMmVIWnUySE5rbllqaTlwOG1Hc191c3VnSGlrX1AxTmxkRXJVS1luUHRVTXpFSUtXV3NYQ1ljN2NIT3ZaUmsyZ01OSlJya0tSZEZOU0ZPSlJxMWRzU0F6RGNWRXdkWnFXRXp1UW9UT3pCT1ktQTVld3JBZVZZbTRNQ1JLVEJ0RzJ2VzVrcE0zbGxBWnMxVDRCcE50VHdiUXJTVTRsQ0hk?oc=5",
+      "published": "2026-03-27T14:00:00.000Z",
+      "source": "The Guardian",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxPeTA4SjlhcUhRUVhjcDdKSTBkM1FIbzhwVG84UFdmMmVIWnUySE5rbllqaTlwOG1Hc191c3VnSGlrX1AxTmxkRXJVS1luUHRVTXpFSUtXV3NYQ1ljN2NIT3ZaUmsyZ01OSlJya0tSZEZOU0ZPSlJxMWRzU0F6RGNWRXdkWnFXRXp1UW9UT3pCT1ktQTVld3JBZVZZbTRNQ1JLVEJ0RzJ2VzVrcE0zbGxBWnMxVDRCcE50VH",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "combinedScore": 7,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
     },
     {
       "title": "Albanese government says fuel supply ‘same, if not higher’ in coming weeks as Coalition calls for halving of excise - The Guardian",
@@ -157,20 +157,6 @@
       "queryLabel": "Fuel supply disruption"
     },
     {
-      "title": "Chris Bowen steps up fuel interventions as petrol stations run dry - Crikey",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOemJ6bTllejUxYUZKYW9JWWROTXhHOUJCSFl1aHhGQ3RxZDVuSlBBeWVTRUVpNEJvNklTVVZkQUxjYmQ5YkM1WDVEcldlV3RGYlhseUJHMEJVVTBNYlV2VkEtMzh6cFMwR3ZaUll0aExGYjlEMDRDQ3BoTmRtNldzUEdaSW8xbHd6alptYUtWY0ZsTGZZSzlBVE5rWW8?oc=5",
-      "published": "2026-03-26T19:55:05.000Z",
-      "source": "Crikey",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxOemJ6bTllejUxYUZKYW9JWWROTXhHOUJCSFl1aHhGQ3RxZDVuSlBBeWVTRUVpNEJvNklTVVZkQUxjYmQ5YkM1WDVEcldlV3RGYlhseUJHMEJVVTBNYlV2VkEtMzh6cFMwR3ZaUll0aExGYjlEMDRDQ3BoTmRtNldzUEdaSW8xbHd6alptYUtWY0ZsTGZZSzlBVE5rWW8?oc=5\" target=\"_blank\">Chris Bowen step",
-      "relevance": 0,
-      "authority": "established",
-      "bias": null,
-      "directQuote": true,
-      "combinedScore": 7,
-      "queryId": "diesel-crisis",
-      "queryLabel": "Fuel supply disruption"
-    },
-    {
       "title": "Fines for dodgy petrol pricing doubled as fuel crisis continues - 9News",
       "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNYkZFNDY5NjBCLVRfT3JJOFhucXczd2p0c1FTUHlyQmJlM0xYM3N2RDc2OEtTT1ppdmJlZ3Y5LVpNNjQ2SkZpU0hobklNMkYxTnZWLTE2aG93eF8wYXJlRGRpVy1XcDZ4WFpNczZxSlJia2tQU1VkZWFrZ1pGQ29vQ19YdkJjM2ZnbmFTTC0xQVVTRWpvbEdSZHZ5dFRER0xGSHNhR0JuX0JCdHl6WVJTU3IzbnY1WXZTaDZNQVNVYk1qcVZ3N1g4aHpodTQ3T1FZRTBHcVlaVW5qSjFxdnNZcE1R0gF4QVVfeXFMTThuc000elJBV2FvbGxGRUpONElNblpCWFpvMC15M21yTHd2THYwVUtNbWxEWUFFZXlaZ0t0b3lrVk5IZ2puYzBHZkp4c0NYa2RLajNWX202RzFNS2xpeHFDNERuYWtZaGI3UllKaGxxcl9nWDRUb25F?oc=5",
       "published": "2026-03-26T12:47:46.000Z",
@@ -180,21 +166,8 @@
       "authority": "established",
       "bias": null,
       "combinedScore": 7,
-      "queryId": "diesel-crisis",
-      "queryLabel": "Fuel supply disruption"
-    },
-    {
-      "title": "'Hanging our keys up': Truck driver's warning as diesel shortage poses deadly risk on remote highways - 9News",
-      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOWVo5VEpNREFxRkFOSjc0ZlZKY0VkYWVjV2V5Ykpnb3RrZlhoRUxEVmJZNy13TkI4WEVPY0dDUXllX21KTnU1VENUZ0IwaDdGQTJ6dS1kWS1Sb1BkamdGeDkxd21xYkdfVEg0RlFxUmhMdjhhejhaYVBXZzVaSTJoVFM3SEtKWWUxdkFLY0UxZmlOTVpLWEJJcWcwczJZaXRQejAxZWtBbldWLXdibUg2NW9USVdpU29fLWlUcEFCZWp2S0RtU2ZZRWFIZGlfMEVUa1g3ZFR4WUlCVVNYd05iQjRiZm1wUnlEaTNUNDhOUnpMSmNKMF9CT2NISdIBeEFVX3lxTFBlamlpTmc3b0dfcUhMT0tCdkhqVU1wSjkybzdKUmZMXzBua0Frd3pMSDRtZFE2TFRZc21NLUxwRGN3YXo0TkQyd2RRZmN1b0M4MXg0Tlh5Z3V1RlBBYjJLWlIzMkFWaEZ1Mm1Nc1dPMDkyWHI2MUoycQ?oc=5",
-      "published": "2026-03-26T01:01:10.000Z",
-      "source": "9News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi-wFBVV95cUxOWVo5VEpNREFxRkFOSjc0ZlZKY0VkYWVjV2V5Ykpnb3RrZlhoRUxEVmJZNy13TkI4WEVPY0dDUXllX21KTnU1VENUZ0IwaDdGQTJ6dS1kWS1Sb1BkamdGeDkxd21xYkdfVEg0RlFxUmhMdjhhejhaYVBXZzVaSTJoVFM3SEtKWWUxdkFLY0UxZmlOTVpLWEJJcWcwczJZaXRQejAxZWtBbldWLXdibUg2NW9USVdpU29fLW",
-      "relevance": 3,
-      "authority": "established",
-      "bias": null,
-      "combinedScore": 7,
-      "queryId": "diesel-crisis",
-      "queryLabel": "Fuel supply disruption"
+      "queryId": "energy-policy",
+      "queryLabel": "Energy policy & regulation"
     },
     {
       "title": "Tradies hit hardest by fuel crisis forced to raise prices or go bust - and every Aussie will pay for it - 9News",
@@ -221,6 +194,61 @@
       "combinedScore": 7,
       "queryId": "refinery-supply",
       "queryLabel": "Refinery & supply chain"
+    },
+    {
+      "title": "Why expert believes a four-day week to manage fuel crisis in Australia should be under consideration - 9News",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOQm9EdldTbWlRTUNOV0F5UzlUQnhqZGQwa3BwVDJjZmF6S1B5ZnJ2S0VVdVBreHl3NUh6Tk04M3dkMWI0a2NoTlk4UHlMamR0MGxqcnhnUTctZHFuNGxoN0Mxel9qaUxYeFZBcnpaQVBrN25pUzFvc0hGN0ZzVzlnU2dVb01wb2JpdDFOWkNEXzNzTlNsQkswb2RBanJ4b1RhbFB4b3JkZnBfUDI5TWh0MjBOMWYteDcwbDU4bU9BZ9IBeEFVX3lxTE5QM1lHTVpaWDBrNEpyTkpmRlhyWUV3YTUxTExiZlc5cVFVWlBUN1EtQTdta2JfelZ0V0M2SUVMUjREckFHMHk1ZnhoUnN2TnhOZTRBcTI0REtCNzVnRXRXYjJ0NXdWU0xYRElHckJfMEhuSkFEb2ZLSg?oc=5",
+      "published": "2026-03-23T18:24:38.000Z",
+      "source": "9News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxOQm9EdldTbWlRTUNOV0F5UzlUQnhqZGQwa3BwVDJjZmF6S1B5ZnJ2S0VVdVBreHl3NUh6Tk04M3dkMWI0a2NoTlk4UHlMamR0MGxqcnhnUTctZHFuNGxoN0Mxel9qaUxYeFZBcnpaQVBrN25pUzFvc0hGN0ZzVzlnU2dVb01wb2JpdDFOWkNEXzNzTlNsQkswb2RBanJ4b1RhbFB4b3JkZnBfUDI5TWh0MjBOMWYteDcwbD",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "combinedScore": 7,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
+    },
+    {
+      "title": "Six fuel ships bound for Australia cancelled as Bowen concedes ‘flow of oil to Asian refineries has slowed’ - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNQ1RsRERKZWVDV1k4UF9vU254Ukd1Y0JZQjJ3WmZMcTNnTHFXWFpMQ0pZN1V1cTVCZlpCNlJVQ2FoOHUwVTYwdHdrMHROYkZVTTBqd0N4cGtxNjUwT0NGWWVCMDgzcDRwV2xZcEJVTFd0SkRCRHdDRzVlMGd2MVdYUms4eG4xby1DNEFId1BtR1ZPTnljU2ZWRTZua0JlaUtKTnJtbE1aV1NMX2lEUW1CaF9jVFgxcVU4eXY4US03RDVSLUo1Z0YwN0VwVjliUDZMdm55TkpRNU9GRENhdDBWcEF4dncyc0owSmcwNHY2UGR5UQ?oc=5",
+      "published": "2026-03-23T02:18:00.000Z",
+      "source": "The Guardian",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxNQ1RsRERKZWVDV1k4UF9vU254Ukd1Y0JZQjJ3WmZMcTNnTHFXWFpMQ0pZN1V1cTVCZlpCNlJVQ2FoOHUwVTYwdHdrMHROYkZVTTBqd0N4cGtxNjUwT0NGWWVCMDgzcDRwV2xZcEJVTFd0SkRCRHdDRzVlMGd2MVdYUms4eG4xby1DNEFId1BtR1ZPTnljU2ZWRTZua0JlaUtKTnJtbE1aV1NMX2lEUW1CaF9jVFgxcVU4eX",
+      "relevance": 0,
+      "authority": "established",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 7,
+      "queryId": "fuel-deals",
+      "queryLabel": "International fuel agreements"
+    },
+    {
+      "title": "Australia Faces Escalating Fuel Crisis, Says PM Albanese - Tempo.co English",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMGVwTW1tdDF4MC0zX2xKWmlaYTFpeUpTcTJiYnlpb0NLeWNqU052ZGtITDFTYWJQM20zdjA0MXduYlBFTUlxUFR5RzEycWU5N09JRHBzWVFLcVlyVmFuc0NTYW9oVUxWbkllS3MzVVY0dkFoVFZ4RzVXYVdhTHlzeFdrN3BGSnZaM09WWkVMdXVxQQ?oc=5",
+      "published": "2026-03-27T16:06:34.000Z",
+      "source": "Tempo.co English",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxQMGVwTW1tdDF4MC0zX2xKWmlaYTFpeUpTcTJiYnlpb0NLeWNqU052ZGtITDFTYWJQM20zdjA0MXduYlBFTUlxUFR5RzEycWU5N09JRHBzWVFLcVlyVmFuc0NTYW9oVUxWbkllS3MzVVY0dkFoVFZ4RzVXYVdhTHlzeFdrN3BGSnZaM09WWkVMdXVxQQ?oc=5\" target=\"_blank\">Australia Faces Escalating Fu",
+      "relevance": 3,
+      "authority": "unrated",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 6,
+      "queryId": "fuel-deals",
+      "queryLabel": "International fuel agreements"
+    },
+    {
+      "title": "Albanese’s next step must address the fuel crisis and assure the public - SMH.com.au",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTTRtMzJxMmRLUXRCVDh5RmF0eUNiRkpISWdRNWNCeEVFOGpkb05DWC1nWTZod0k2U0ZXLXdET3JPMDdnMF9FZm1NbF9uY0ZPdHBYWERrYzdHTHFpTlV6V0Y4cUFTYzVxaHp3TjhtazRRdWRKRUhVdTdKRnlkbVdIWEJtQkdjSjczUzB2alRBdUo2by1Vb1B5M09GS2VVcm5uOFA5X2w3U2lPdGxJVTdsYzN4bEhvYk84anBVZFJ2S3haZw?oc=5",
+      "published": "2026-03-27T08:45:00.000Z",
+      "source": "SMH.com.au",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTTRtMzJxMmRLUXRCVDh5RmF0eUNiRkpISWdRNWNCeEVFOGpkb05DWC1nWTZod0k2U0ZXLXdET3JPMDdnMF9FZm1NbF9uY0ZPdHBYWERrYzdHTHFpTlV6V0Y4cUFTYzVxaHp3TjhtazRRdWRKRUhVdTdKRnlkbVdIWEJtQkdjSjczUzB2alRBdUo2by1Vb1B5M09GS2VVcm5uOFA5X2w3U2lPdGxJVTdsYzN4bEhvYk84an",
+      "relevance": 3,
+      "authority": "unrated",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 6,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
     },
     {
       "title": "Panic buying prompts PM to reassure Australians over fuel supply - BBC",
@@ -289,34 +317,6 @@
       "queryLabel": "Energy policy & regulation"
     },
     {
-      "title": "Shane Jones: Associate Energy Minister on the Government changing fuel specifications to align with Australia - The Mike Hosking Breakfast - iHeart",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOd2dHdl9vWV84TThFcWxvelE1UmVJSERNODBEQi1RV09XNFpONnltWGZFT2pVc0lkTVkyZUNCTnhyX3dDZW5WdWpRYWttaWNsWDVqWkJuVXhlVk1HX0RsUHJSOGpTVllJV2pfZHdyS21EYXRBdDVzanNzLXNyLVVoVXV4eFA1QVNneEtaMFF5WFc5LThrTjFuM0xVVkNtMFhkYmlnTXNnTEFtemJFdEtfaUNELWg4Zw?oc=5",
-      "published": "2026-03-24T00:56:55.000Z",
-      "source": "iHeart",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxOd2dHdl9vWV84TThFcWxvelE1UmVJSERNODBEQi1RV09XNFpONnltWGZFT2pVc0lkTVkyZUNCTnhyX3dDZW5WdWpRYWttaWNsWDVqWkJuVXhlVk1HX0RsUHJSOGpTVllJV2pfZHdyS21EYXRBdDVzanNzLXNyLVVoVXV4eFA1QVNneEtaMFF5WFc5LThrTjFuM0xVVkNtMFhkYmlnTXNnTEFtemJFdEtfaUNELWg4Zw?oc=",
-      "relevance": 3,
-      "authority": "unrated",
-      "bias": null,
-      "directQuote": true,
-      "combinedScore": 6,
-      "queryId": "energy-policy",
-      "queryLabel": "Energy policy & regulation"
-    },
-    {
-      "title": "Households in dark about ‘worst energy crisis’ says IEA - AFR",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQTk5CallzXy1DbjlUSm1KZGN6T3YzWFZpdGx1LUZibXdPeWNVWU5TZklSSWFXS2xNb0tBOWJPRE1FbVFMYjRWbmJQcXl2S0NTcEprMkRBZG9kUGswU2dKUXBxLUJ4WVpGTVVFcVdLMDJwS3k1YnNmeEdZWER0VzJUdTdTbkJZT0o0YnlQbG1qWU1LMUZFeFZvV2xJM1F6QmRKSlg5d290VzhIV0dicmhUUmlVSkxjWlRHelZFNWNR?oc=5",
-      "published": "2026-03-23T08:30:00.000Z",
-      "source": "AFR",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxQTk5CallzXy1DbjlUSm1KZGN6T3YzWFZpdGx1LUZibXdPeWNVWU5TZklSSWFXS2xNb0tBOWJPRE1FbVFMYjRWbmJQcXl2S0NTcEprMkRBZG9kUGswU2dKUXBxLUJ4WVpGTVVFcVdLMDJwS3k1YnNmeEdZWER0VzJUdTdTbkJZT0o0YnlQbG1qWU1LMUZFeFZvV2xJM1F6QmRKSlg5d290VzhIV0dicmhUUmlVSkxjWlRHel",
-      "relevance": 3,
-      "authority": "unrated",
-      "bias": null,
-      "directQuote": true,
-      "combinedScore": 6,
-      "queryId": "diesel-crisis",
-      "queryLabel": "Fuel supply disruption"
-    },
-    {
       "title": "IEA boss warns Australia against ‘abrupt’ changes to oil and gas taxes - AFR",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQb1ZtT3dDVlFSSkt1Tmh6eF9ENUk0MUtuM2ZiVk10ZHBpdDgwX1U5Ry1pTWJmd3d3cWpoY1N4bFNTUFllbzQ2RnNwcW96T1FjdlVwSldnSF9TZTE5QWNrU3hhVG1meFNrS1Vna2pXNVVJOExENi1mTVhfaF9EX2NQU2lzS2hEbE1KbW1NcWhmNElveWhKMHdMNElzMW5VRmhHMzVCVUplc1ViQzlPaVFCdFZ3?oc=5",
       "published": "2026-03-23T07:01:00.000Z",
@@ -345,24 +345,25 @@
       "queryLabel": "Fuel supply disruption"
     },
     {
-      "title": "Australia’s fuel crisis moves from bowser to the high seas - The Australian",
-      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPdXJPRGFqVkk4V3VTZmthWmFqMHdMX3oyOE1UaHhsYk42S01hZER1X2M5N01LczNXeURLWGVNUUkzNUZSd2F1czhhdkVTUWJRcXNyajkzaVpBZHFaM2VSZFMweFRtTU5oRkpfRmYxZTZjeTlOcTd4b0NiOHl5OWQyRFRrQWJfcldla05odWI2YzY5LTA0bm04WlhGMHZvYlE5UXBSWU9yeElMMzB0VXkzeVVYWmc4R0t2dDJpTmdmR3BTeTNzNTFRbnZ4LVhrZldKb0FqdThPTjdFU1pWNHlhLUVzSkg3aFFfQ3ZKMlRR0gHzAUFVX3lxTFB6RG95aUNpLVFabHhIUzY0dmh2QTZvNTRKQ0ZGZFViOWk1ZXFXdlMwSklzYURWamc0UFMzVm1vZXY0d1BoYThYRzhTb3hnV3RwVDZEM0ZSWlZYYW95TnpvcWNDMndmY3RDbThZRTJ5ZHBHekZfeWRDSWlqMGUtZXNmc2xfVk15eVh5RThKSjAwTlZCWUx3LTRGZFpSRkN6UmtPRzdNLUd2Vnl2WHBDOEMwT3puQ3EtRmVWYV9YOU1uMXZGX3hzRllCSFdtWERLT2hzX3VMMFJ2YTVsRVFjR2hhLXJyaFNfRVNiVk9sck9VSFdaUQ?oc=5",
-      "published": "2026-03-27T09:03:20.000Z",
-      "source": "The Australian",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxPdXJPRGFqVkk4V3VTZmthWmFqMHdMX3oyOE1UaHhsYk42S01hZER1X2M5N01LczNXeURLWGVNUUkzNUZSd2F1czhhdkVTUWJRcXNyajkzaVpBZHFaM2VSZFMweFRtTU5oRkpfRmYxZTZjeTlOcTd4b0NiOHl5OWQyRFRrQWJfcldla05odWI2YzY5LTA0bm04WlhGMHZvYlE5UXBSWU9yeElMMzB0VXkzeVVYWmc4R0t2dD",
+      "title": "Bowen warns fuel security ends in April - MSN",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNRmVXQXA4VkoxV2FCWTVPbWxmTjJmd05FSWNnRkNyV2lXc1M1czN0YU9uRDlfZU1wdnRuVHV5Qk03OW5taWlyb1JTbml0dTM5MEdNdHdaR1FFal9QYllFR3ZqZ04yanEtTEtuWXBwMWJUNThDY0VjcUZySUtBOGZrOVNjWjNhWldvcXB0TDZuelV0VW9NMGtNZnh5MV9QVV94Mko4T0FfS2hsdUN6X0I2WHBTdWRXLVBhdXJXZV94aWdxX1EtYVotM1hqOXZxeF8wMUdnVlZuWW5kdw?oc=5",
+      "published": "2026-03-21T15:07:06.000Z",
+      "source": "MSN",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxNRmVXQXA4VkoxV2FCWTVPbWxmTjJmd05FSWNnRkNyV2lXc1M1czN0YU9uRDlfZU1wdnRuVHV5Qk03OW5taWlyb1JTbml0dTM5MEdNdHdaR1FFal9QYllFR3ZqZ04yanEtTEtuWXBwMWJUNThDY0VjcUZySUtBOGZrOVNjWjNhWldvcXB0TDZuelV0VW9NMGtNZnh5MV9QVV94Mko4T0FfS2hsdUN6X0I2WHBTdWRXLVBhdX",
       "relevance": 3,
-      "authority": "established",
-      "bias": "news-corp-right-leaning",
-      "combinedScore": 5,
-      "queryId": "diesel-crisis",
-      "queryLabel": "Fuel supply disruption"
+      "authority": "unrated",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 6,
+      "queryId": "fuel-security",
+      "queryLabel": "Fuel security & reserves"
     },
     {
-      "title": "Cuba fuel crisis: US oil blockade damaging Cuba’s tourism sector - The Australian",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPcDRSaFpSQ3NudW9wTTVjMVRraGZncVk0WnJJdERNOVgxVnVlZzVvdm9ySk9XSXNES2ZhRHk0NUdIZ2U3eEJpcVZEelQ0dEQ3US1sSkNraFhYeTlsQk5ZVkFKN0NMM0ItZlNRUGwxUTJwV2djRkZnUDk4RWdGUDRDTmZNN1lybFByVm5uVFhNMFZOVDhUS0l3bFRlWU8tSlVHSG9wX1VBem9VUXAzajJabU56dEpPekFjVl8xaUhnbFVac19fSkw2STI3WHRZQ2xSTDFPNVV30gHbAUFVX3lxTE5IV0hlamtzbVNkbC00X2FmU045d3loRFBDQU1PMGI3Qjd2RGh3QXRtR29VN2ZDWUpUNDBORzBaX2YxUUF0bnFvMU5YWWtSTHRtSERHRGpqUnA0cVJmSE10aUEtVUFtT1JJVFBhZmxhYjNwaGtoSVhKNUlkeEhNWVNza2twVTloSU53N3BvU3VZdFBKaVZSUHFFMS1PRWs5SDNKdnV3R0ZqZmh2VWs4cWJqTGR6SDNVcGdYRkFYeG1KSFluWnRmNno0dW9EVzVDdUViQlN0Zk9SM2lNUQ?oc=5",
-      "published": "2026-03-27T06:50:28.000Z",
+      "title": "Australia’s fuel crisis moves from bowser to the high seas - The Australian",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPdXJPRGFqVkk4V3VTZmthWmFqMHdMX3oyOE1UaHhsYk42S01hZER1X2M5N01LczNXeURLWGVNUUkzNUZSd2F1czhhdkVTUWJRcXNyajkzaVpBZHFaM2VSZFMweFRtTU5oRkpfRmYxZTZjeTlOcTd4b0NiOHl5OWQyRFRrQWJfcldla05odWI2YzY5LTA0bm04WlhGMHZvYlE5UXBSWU9yeElMMzB0VXkzeVVYWmc4R0t2dDJpTmdmR3BTeTNzNTFRbnZ4LVhrZldKb0FqdThPTjdFU1pWNHlhLUVzSkg3aFFfQ3ZKMlRR0gHzAUFVX3lxTFB6RG95aUNpLVFabHhIUzY0dmh2QTZvNTRKQ0ZGZFViOWk1ZXFXdlMwSklzYURWamc0UFMzVm1vZXY0d1BoYThYRzhTb3hnV3RwVDZEM0ZSWlZYYW95TnpvcWNDMndmY3RDbThZRTJ5ZHBHekZfeWRDSWlqMGUtZXNmc2xfVk15eVh5RThKSjAwTlZCWUx3LTRGZFpSRkN6UmtPRzdNLUd2Vnl2WHBDOEMwT3puQ3EtRmVWYV9YOU1uMXZGX3hzRllCSFdtWERLT2hzX3VMMFJ2YTVsRVFjR2hhLXJyaFNfRVNiVk9sck9VSFdaUQ?oc=5",
+      "published": "2026-03-27T09:38:28.000Z",
       "source": "The Australian",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxPcDRSaFpSQ3NudW9wTTVjMVRraGZncVk0WnJJdERNOVgxVnVlZzVvdm9ySk9XSXNES2ZhRHk0NUdIZ2U3eEJpcVZEelQ0dEQ3US1sSkNraFhYeTlsQk5ZVkFKN0NMM0ItZlNRUGwxUTJwV2djRkZnUDk4RWdGUDRDTmZNN1lybFByVm5uVFhNMFZOVDhUS0l3bFRlWU8tSlVHSG9wX1VBem9VUXAzajJabU56dEpPekFjVl",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxPdXJPRGFqVkk4V3VTZmthWmFqMHdMX3oyOE1UaHhsYk42S01hZER1X2M5N01LczNXeURLWGVNUUkzNUZSd2F1czhhdkVTUWJRcXNyajkzaVpBZHFaM2VSZFMweFRtTU5oRkpfRmYxZTZjeTlOcTd4b0NiOHl5OWQyRFRrQWJfcldla05odWI2YzY5LTA0bm04WlhGMHZvYlE5UXBSWU9yeElMMzB0VXkzeVVYWmc4R0t2dD",
       "relevance": 3,
       "authority": "established",
       "bias": "news-corp-right-leaning",
@@ -398,11 +399,11 @@
       "queryLabel": "Energy policy & regulation"
     },
     {
-      "title": "Unexpected victim of Australia’s fuel crisis - The Australian",
-      "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNa19kSUlGOUZLcFFqc2dyTS01cXFQeVM3d1NPU0dnVlZWREhhNHdYUGZWUW5qeXhnU040SGVjWERERGhFaEgtOG1JckJ4QVhhVmRZSTE5QkNma0VuSDQzYk1tSWlZRlhZNG12eS1oSXhUSUJ2cHRCQWRkSFh1d0ljdU9wajI0NTJLRWp3bXlQVGE5MVpLdkhfLXlCVFZLMnFIWGVBYU91cW1KSUFhc3RicW8ycTVkMVFrSGxSUmdLMWozYUV3WTRfcXFqTDhjM2h3NlEyRVdXQXZsRmhtZjhNcnY4aXMtLU1ZVUF0TGR2MHN6TzZBWGU4LUIxMmxidTNydnfSAYcCQVVfeXFMT0g2WUp0bERobVZLcUtLcEEwWTFadmJhaWU4NjBydGpJSzBrcndzOGd2VDVvQ2U5cl9tME9ROV9XRXBpRm5wVFA5QnBTX3JXSjJ6cU4taDk0aEtfRmhwR05wc0lORzIxTjZxZ2l3ckxCZTFYY1E1WGgycE9MZ05wd2lITGJXdzZGWlJUWTlsTHlvQjQ4clBsdVI5RVotOHd4d3ZEeW4tOVBqUnZwQWlCS203QUpULXQ4elNXaV94LThXMzdBektzeGg1YXlNSzlrS2xPeEhFNnNtb01ISFVEdHFwRDY1R2hwcHUwb2VPNXdfd19PN3hwTTRBbG9kRV82RXNCbkFQVEE?oc=5",
-      "published": "2026-03-26T22:41:49.000Z",
-      "source": "The Australian",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggJBVV95cUxNa19kSUlGOUZLcFFqc2dyTS01cXFQeVM3d1NPU0dnVlZWREhhNHdYUGZWUW5qeXhnU040SGVjWERERGhFaEgtOG1JckJ4QVhhVmRZSTE5QkNma0VuSDQzYk1tSWlZRlhZNG12eS1oSXhUSUJ2cHRCQWRkSFh1d0ljdU9wajI0NTJLRWp3bXlQVGE5MVpLdkhfLXlCVFZLMnFIWGVBYU91cW1KSUFhc3RicW8ycTVkMVFrSG",
+      "title": "Proof Aussies ditching cars amid fuel crisis - News.com.au",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQWmQ0T04xaG1NYmpuR01ETnRGM0dhdVNGblRla05nQXMtR1NrTzktQUs4eVhueHhzLXFtMTl1TEpfVDAzdFMzVm0wTUEzR3Q0WjF3aktock9tQUNXTU1VbEtSdTdiZ0F5ZmNXS2hVaGxUNXQ2cElTU1FwcXZjbHB0SV9sc0plRkNUa0pYRFd5T0JHLUdVbTFvenhUZEF1NFVkWnIyWThhNFRYbDEtdzUzclFzM0l3eUVMb0FmSnFFYzd3RVQwTmFWWU5LS0pnZHN2blVHYXBOVU5tSkhPQkItMlg2d2VDeThOMDZUUEJR0gHzAUFVX3lxTE9WYW1KcFhCT2puZWJIMHl3VzNXVjlvOUYxdEdYbkVtbFN2UkloajBFQTUwOERlVUx1Z0FrcXctcUVhLUtUX0RlNEdDM2p1NnFoUGZuTWNVa0s5TUgzRkdVTGtxcUhSd0lLQ2lnQmh3RVJESTZlUGRwcnBta0hOYWpXbWVFMWhOWWpkWGwxdk9RYldPWVZTYmZjckJEUjdMOWYtc3E4aGE1ZFgtUlI2WXBzMlJTOEkwM1NUSnh4S0VXSk1MdlpFLXh1MTg2TGpleDlsdWw0ME1DNW4xYW9GVDg1SGpVYzV0cE4wZE5rSlB1R1Jlbw?oc=5",
+      "published": "2026-03-27T00:06:54.000Z",
+      "source": "News.com.au",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxQWmQ0T04xaG1NYmpuR01ETnRGM0dhdVNGblRla05nQXMtR1NrTzktQUs4eVhueHhzLXFtMTl1TEpfVDAzdFMzVm0wTUEzR3Q0WjF3aktock9tQUNXTU1VbEtSdTdiZ0F5ZmNXS2hVaGxUNXQ2cElTU1FwcXZjbHB0SV9sc0plRkNUa0pYRFd5T0JHLUdVbTFvenhUZEF1NFVkWnIyWThhNFRYbDEtdzUzclFzM0l3eUVMb0",
       "relevance": 3,
       "authority": "established",
       "bias": "news-corp-right-leaning",
@@ -452,18 +453,18 @@
       "bias": null
     },
     {
-      "title": "Donald Trump ‘very surprised’ Australia declined to send troops to strait of Hormuz amid fuel crisis - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMldDOXkxRnM3dzQzM09MM1Vjb1JtV3F5ZjBTNmJXWXRvalh2ZFRMRkpmeDc4bWxZdDFnMFF3UGRVcEFfZzg0WVdNRWdlUklUWGxMYV9FM2Y1X2xUSmd2OFR0V2ZyZnJtMnBiejRMRkVlal81UGZpb2hHQmFRd2ZGVnZWTDBZYUZJSHBKa1ptWmw1YXgzQS1WcVVxUzZUcm4yRDFod3hhaFNfTTJtc1E?oc=5",
-      "published": "2026-03-21T04:59:00.000Z",
-      "source": "The Guardian",
-      "authority": "established",
-      "bias": null
-    },
-    {
       "title": "Australia's ACCC Says Diesel Prices Rising Faster Than Petrol - TradingView",
       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPaFZsQk5wSFVTRzNGV1hhRnNlR1NNekFVdzBZYTVJWnUxMkU4QUlXV1U5UXJDV3VLNVowYV9ldHYwYk5IZmk3RDg3anFubmtIRGpMVVBCM2tzTk1NUzB4SjBpSDdNN3p1bHhGTWZJVzdndXB3ZXk2YmJkMzdBTVdrei1KRUYyUFRlT184N0xlM1dmQ284N2pQRGxkbG0tU2JXRndJMjhidDdFdzZaLWlXM3FLZGN4ZFMwOFA3WFIwbHJHMndBVUxDYUlhUQ?oc=5",
       "published": "2026-03-27T03:09:00.000Z",
       "source": "TradingView",
+      "authority": "established",
+      "bias": null
+    },
+    {
+      "title": "The ACCC has been given stronger powers to crack down on fuel pricing. What does this mean for Canberra? - The Canberra Times",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQjJTb1VkdU80MWFqYUlieE9oZ2prTWpuaVpUbTNxa2lMekEwbFNDcEFxSDB1OWNFTXFMWWVjaDQxQmtlWFJuM0lnLVI1Tzc3ekVXMWZ3OVZHU0VYUFFZMlMtckNfZWVBOWVMTWplWnFfTVEwZERTdU5MMGUyYS1ncGZ0M2FYZXNKZW9wT2c4b0RqcEZlM2hKc2NKcTE0SnVjRFExbGx2SkJaZGdwM1JjemJ3?oc=5",
+      "published": "2026-03-27T18:36:15.000Z",
+      "source": "The Canberra Times",
       "authority": "established",
       "bias": null
     }
