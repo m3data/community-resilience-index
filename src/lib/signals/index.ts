@@ -5,6 +5,8 @@ import { fetchFoodCpi } from "./abs-cpi";
 // WA FuelWatch is the only reliable live diesel signal.
 // import { fetchDieselPrice } from "./diesel-price";
 import { fetchFuelReserves } from "./fuel-reserves";
+import { fetchProductReserves, fetchIeaCompliance, fetchStockVolumes } from "./fuel-reserves-expanded";
+import { fetchEnergyPolicyNews } from "./energy-policy-news";
 import { fetchWaDiesel, fetchWaPetrol, computeRetailMargin } from "./wa-fuelwatch";
 import { fetchNewsVolume } from "./news-volume";
 // NSW FuelCheck: real-time API requires OneGov API key (free registration).
@@ -30,6 +32,7 @@ import { fetchAipDieselTgp, fetchAipPetrolTgp } from "./aip-tgp";
 
 // Layer 4: Retail impact — food basket
 import { fetchFoodBasket } from "./food-basket";
+import { fetchSupermarketPrices } from "./supermarket-prices";
 
 // Derived: Cascade pressure indicator (synthesised from other signals)
 import { computeCascadePressure } from "./cascade-pressure";
@@ -61,15 +64,22 @@ const FALLBACK_SIGNALS: Record<string, Signal> = {
 export async function fetchSignals(): Promise<SignalSet> {
   // Fetch all signals in parallel — existing + Tier 1
   const [
-    reserves, food, foodBasket, waDiesel, waPetrol, newsVolume, demandPressure, farmInputs,
+    reserves, productReserves, ieaCompliance, stockVolumes, energyPolicyNews,
+    food, foodBasket, supermarketPrices, waDiesel, waPetrol, newsVolume, demandPressure, farmInputs,
     brentCrude, asxEnergy, asxFood, audUsd, crackSpread, aemoElectricity,
     dieselTgp, petrolTgp,
     rbaCashRate, nswRfs, vicEmv,
   ] = await Promise.all([
     // Existing signals
     fetchFuelReserves(),
+    // Layer 2: DCCEEW expanded — product breakdown, IEA compliance, stock volumes
+    fetchProductReserves(),
+    fetchIeaCompliance(),
+    fetchStockVolumes(),
+    Promise.resolve(fetchEnergyPolicyNews()),
     fetchFoodCpi(),
     fetchFoodBasket(),
+    Promise.resolve(fetchSupermarketPrices()),
     fetchWaDiesel(),
     fetchWaPetrol(),
     fetchNewsVolume(),
@@ -102,6 +112,7 @@ export async function fetchSignals(): Promise<SignalSet> {
     ...(waPetrol ? { waPetrol } : {}),
     food: food ?? FALLBACK_SIGNALS.food,
     ...(foodBasket ? { foodBasket } : {}),
+    ...(supermarketPrices ? { supermarketPrices } : {}),
     ...(farmInputs ? { farmInputs } : {}),
     ...(newsVolume ? { newsVolume } : {}),
     // Layer 1: Upstream market signals
@@ -111,6 +122,10 @@ export async function fetchSignals(): Promise<SignalSet> {
     ...(audUsd ? { audUsd } : {}),
     ...(crackSpread ? { crackSpread } : {}),
     // Layer 2: Supply position
+    ...(productReserves ? { productReserves } : {}),
+    ...(ieaCompliance ? { ieaCompliance } : {}),
+    ...(stockVolumes ? { stockVolumes } : {}),
+    ...(energyPolicyNews ? { energyPolicyNews } : {}),
     ...(aemoElectricity ? { aemoElectricity } : {}),
     // Layer 3: Wholesale price transmission
     ...(dieselTgp ? { dieselTgp } : {}),

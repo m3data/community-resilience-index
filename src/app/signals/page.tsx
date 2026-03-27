@@ -50,7 +50,7 @@ const CASCADE_LAYERS: {
     description:
       "Physical fuel stocks and energy supply. What the government knows but doesn't always communicate clearly.",
     icon: <Lightning size={18} weight="duotone" />,
-    keys: ["reserves", "aemoElectricity"],
+    keys: ["reserves", "productReserves", "ieaCompliance", "stockVolumes", "energyPolicyNews", "aemoElectricity"],
     defaultExpanded: false,
   },
   {
@@ -70,7 +70,7 @@ const CASCADE_LAYERS: {
     description:
       "Pump prices, food costs, station closures. This is where most public attention sits — but it lags the layers above.",
     icon: <TrendUp size={18} weight="duotone" />,
-    keys: ["cascadePressure", "retailMargin", "demandPressure", "waDiesel", "waPetrol", "food", "foodBasket", "newsVolume"],
+    keys: ["cascadePressure", "retailMargin", "demandPressure", "waDiesel", "waPetrol", "food", "foodBasket", "supermarketPrices", "newsVolume"],
     defaultExpanded: true,
   },
   {
