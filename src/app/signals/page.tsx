@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -175,10 +174,6 @@ function getCascadeStatus(signals: Record<string, Signal>): {
 }
 
 export default async function SignalsPage() {
-  if (process.env.NEXT_PUBLIC_ENABLE_SIGNALS !== "1") {
-    notFound();
-  }
-
   const { lastFetched, signals } = await fetchSignals();
 
   const fetchTime = new Date(lastFetched).toLocaleString("en-AU", {
