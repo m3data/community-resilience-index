@@ -4,29 +4,24 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Community Resilience Index — Australia",
   description:
-    "Postcode-level resilience intelligence for Australian communities. Structural capacity, crisis exposure, and what you can do about it.",
+    "Postcode-level exposure profiles for Australian communities. Structural shape, live signals, and what to do about it.",
   openGraph: {
     title: "Community Resilience Index — Australia",
     description:
-      "How resilient is your community? See your postcode's structural capacity and crisis exposure.",
+      "Enter your postcode. See what pressures reach your community hardest and what to do about them.",
   },
 };
 import Image from "next/image";
 import { ScrollReveal } from "@/app/components/ui";
 import {
-  ShieldCheck,
-  Lightning,
   MapPin,
-  Pulse,
   HandHeart,
-  TreeStructure,
   Plant,
   Database,
   BookOpen,
   Scales,
   Target,
   ArrowRight,
-  UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 
 export default function Home() {
@@ -40,13 +35,13 @@ export default function Home() {
               Australia
             </p>
             <h1 className="font-heading text-4xl sm:text-5xl font-bold leading-tight animate-fade-up delay-100">
-              How resilient is your community?
+              What pressures reach your community hardest?
             </h1>
             <p className="mt-6 text-lg text-green-100 max-w-2xl leading-relaxed">
-              The Community Resilience Index measures structural capacity and crisis
-              exposure for every Australian postcode. Official data. Peer-reviewed
-              methods. Built for people who want to know what they&apos;re actually
-              dealing with.
+              Enter your postcode. See your community&apos;s exposure profile &mdash;
+              the structural shape that determines how fuel shocks, food prices, and
+              economic pressure hit where you live. Official data. Transparent methods.
+              Actions you can take.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -74,58 +69,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Two layers */}
+      {/* What you get */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         <h2 className="font-heading text-2xl font-bold text-green-900 mb-3">
-          Two questions, not one number
+          A profile, not a score
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mb-10">
-          Most resilience tools produce a single score. The trouble is that a
-          low score on infrastructure and a high score on crisis exposure call
-          for completely different responses. Collapsing them loses the signal.
+          A single number hides the most useful information: <em>why</em> your
+          community is exposed and <em>what</em> you can do about it. We show
+          you the shape of your exposure instead.
         </p>
-        <div className="grid sm:grid-cols-2 gap-8">
-          <div className="border-2 border-green-200 rounded-xl p-6 bg-white">
-            <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mb-4">
-              <ShieldCheck size={24} className="text-green-700" weight="duotone" />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">
-              Layer 1: Baseline Resilience
-            </p>
-            <h3 className="font-heading text-lg font-bold text-gray-900">
-              How strong is your community&apos;s foundation?
-            </h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-              Social networks, economic diversity, housing, infrastructure,
-              community organisations. The structural capacity that exists before
-              any crisis hits. Measured across six capitals using the BRIC
-              framework &mdash; the most replicated method for community resilience
-              measurement globally.
-            </p>
-            <p className="mt-3 text-xs text-gray-400">Score range: 0&ndash;6</p>
-          </div>
-          <div className="border-2 border-amber-200 rounded-xl p-6 bg-white">
-            <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center mb-4">
-              <Lightning size={24} className="text-amber-700" weight="duotone" />
-            </div>
+        <div className="grid sm:grid-cols-3 gap-6">
+          <div className="border border-gray-200 rounded-xl p-6 bg-white">
             <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">
-              Layer 2: Crisis Pressure
+              Your structure
             </p>
             <h3 className="font-heading text-lg font-bold text-gray-900">
-              How hard is the current situation hitting your area?
+              What shapes your exposure
             </h3>
             <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-              Remoteness, fuel dependency, cost-of-living exposure, transport
-              options, energy independence. The specific pressures your community
-              faces right now. Adapted from the INFORM framework used by the
-              European Commission for humanitarian risk assessment.
+              Car dependency, refinery distance, industry concentration,
+              remoteness, housing stress. The characteristics that determine
+              how supply chain disruptions reach your community.
             </p>
-            <p className="mt-3 text-xs text-gray-400">Score range: 0&ndash;10</p>
+          </div>
+          <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">
+              Your exposures
+            </p>
+            <h3 className="font-heading text-lg font-bold text-gray-900">
+              Where pressure hits hardest
+            </h3>
+            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+              Six domains &mdash; fuel, food, electricity, economic, housing,
+              emergency &mdash; ranked by how exposed your specific community is.
+              With the live signals most relevant to you.
+            </p>
+          </div>
+          <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">
+              Your actions
+            </p>
+            <h3 className="font-heading text-lg font-bold text-gray-900">
+              What to do about it
+            </h3>
+            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+              Actions ranked by urgency, driven by your structural profile.
+              Household steps, community organising, and advocacy &mdash; with
+              links to the full resilience guide.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Coherence vs entrainment */}
+      {/* Diversity section */}
       <section className="bg-green-50 border-y border-green-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <div className="flex items-center gap-3 mb-4">
@@ -137,52 +134,61 @@ export default function Home() {
           <p className="mt-6 text-gray-700 text-lg leading-relaxed">
             A community where 90% of workers are in one industry looks stable
             &mdash; right up until that industry contracts. Then everything fails
-            at once. Standard indices miss this because they measure volume, not
-            diversity.
+            at once.
           </p>
           <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-            This index measures both. A community with moderate employment across
-            five sectors is scored as more resilient than one with high employment
-            concentrated in a single sector. The same logic applies to transport
-            options, community organisations, and land use.
+            We measure not just how much of something a community has, but
+            how diversified those holdings are. Moderate employment across five
+            sectors is more resilient than high employment concentrated in one.
+            The same applies to transport options and land use.
           </p>
           <p className="mt-4 text-gray-600 text-base leading-relaxed">
-            We call this the difference between <strong>coherence</strong> (diverse
-            connections that can reorganise under stress) and <strong>entrainment</strong> (locked
-            dependencies that fail together).
+            Communities with concentrated dependencies face higher urgency in
+            their action recommendations, because when the dominant system fails
+            there is no fallback.
           </p>
         </div>
       </section>
 
-      {/* Three paths */}
+      {/* Two paths */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid sm:grid-cols-3 gap-8">
-          <Card
+        <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <Link
             href="/your-place"
-            icon={<MapPin size={24} weight="duotone" />}
-            label="Your Place"
-            title="Check your community"
-            description="Enter your postcode. See your resilience score, crisis exposure, and what's driving each number. Every score decomposes to the indicator level."
-            color="green"
-          />
-          {process.env.NEXT_PUBLIC_ENABLE_SIGNALS === "1" && (
-            <Card
-              href="/signals"
-              icon={<Pulse size={24} weight="duotone" />}
-              label="Signals"
-              title="Live situation data"
-              description="Fuel reserves, diesel prices, food costs, and media attention. Updated from public sources. Contextual intelligence for your community."
-              color="amber"
-            />
-          )}
-          <Card
+            className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+          >
+            <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mb-3 text-green-700">
+              <MapPin size={24} weight="duotone" />
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">
+              Your Place
+            </p>
+            <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-green-800 transition-colors">
+              Check your community
+            </h3>
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+              Enter your postcode. See your exposure profile, the signals that
+              matter most for your area, and the top actions to take.
+            </p>
+          </Link>
+          <Link
             href="/guide"
-            icon={<HandHeart size={24} weight="duotone" />}
-            label="Take Action"
-            title="Organise your community"
-            description="A practical guide for running community circles, mapping local resources, and building mutual aid networks that outlast any single crisis."
-            color="green"
-          />
+            className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+          >
+            <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mb-3 text-green-700">
+              <HandHeart size={24} weight="duotone" />
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">
+              Take Action
+            </p>
+            <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-green-800 transition-colors">
+              Organise your community
+            </h3>
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+              A practical guide for running community circles, mapping local
+              resources, and building mutual support that outlasts any single crisis.
+            </p>
+          </Link>
         </div>
       </section>
 
@@ -197,15 +203,10 @@ export default function Home() {
             From understanding to action
           </h2>
           <p className="mt-6 text-green-100 text-lg leading-relaxed">
-            Knowing your community&apos;s resilience score is the starting
-            point. What matters is what you do with it. The strongest
-            communities are the ones where people know each other, trust each
-            other, and can coordinate when it counts.
-          </p>
-          <p className="mt-4 text-green-100 text-lg leading-relaxed">
-            Schools, community halls, local networks — the infrastructure is
-            already there in most postcodes. The question is whether it&apos;s
-            been tested yet.
+            Knowing your community&apos;s exposure is the starting point.
+            What matters is what you do with it. The strongest communities
+            are the ones where people know each other, trust each other,
+            and can coordinate when it counts.
           </p>
           <Link
             href="/guide"
@@ -231,73 +232,26 @@ export default function Home() {
           <Principle
             icon={<Database size={22} weight="duotone" className="text-green-700" />}
             title="Official data"
-            description="ABS Census, SEIFA, Modified Monash Model, Clean Energy Regulator, state fuel price feeds. Every data source is named. Every indicator is documented."
+            description="ABS Census, SEIFA, Modified Monash Model, Clean Energy Regulator, state fuel price feeds. Every data source is named and dated."
           />
           <Principle
             icon={<BookOpen size={22} weight="duotone" className="text-green-700" />}
-            title="Peer-reviewed methods"
-            description="BRIC (Cutter et al. 2010, 30+ replications), INFORM (JRC European Commission), OECD 10-step quality framework. Not invented here &mdash; adapted and extended."
+            title="Transparent rules"
+            description="Exposure weights are algorithmic, not machine-learned. Every mapping rule is documented. No black boxes."
           />
           <Principle
             icon={<Scales size={22} weight="duotone" className="text-green-700" />}
-            title="Transparent methodology"
-            description="Full indicator catalogue, weighting rationale, validation results, and sensitivity analysis. See exactly how scores are calculated and where the data has gaps."
+            title="Honest about gaps"
+            description="We show what data is available and name what is missing. Most structural data is from the 2021 Census. We say so."
           />
           <Principle
             icon={<Target size={22} weight="duotone" className="text-green-700" />}
             title="Action-oriented"
-            description="Scores are structural factors, not predictions. Every result connects to something a person or community can do."
+            description="Every profile connects to things a person or community can do. Structural factors are not predictions — they're starting points for conversation."
           />
         </div>
       </section>
     </div>
-  );
-}
-
-function Card({
-  href,
-  icon,
-  label,
-  title,
-  description,
-  color,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  label: string;
-  title: string;
-  description: string;
-  color: "amber" | "green";
-}) {
-  const labelColor =
-    color === "amber" ? "text-amber-700" : "text-green-700";
-  const borderColor =
-    color === "amber"
-      ? "border-amber-200 hover:border-amber-400"
-      : "border-green-200 hover:border-green-400";
-  const iconBg =
-    color === "amber" ? "bg-amber-100" : "bg-green-100";
-
-  return (
-    <Link
-      href={href}
-      className={`block border-2 ${borderColor} rounded-xl p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2`}
-    >
-      <div className={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center mb-3 ${labelColor}`}>
-        {icon}
-      </div>
-      <p
-        className={`text-xs font-semibold uppercase tracking-wide ${labelColor} mb-2`}
-      >
-        {label}
-      </p>
-      <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-green-800 transition-colors">
-        {title}
-      </h3>
-      <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-        {description}
-      </p>
-    </Link>
   );
 }
 

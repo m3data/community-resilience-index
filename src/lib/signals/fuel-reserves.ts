@@ -163,6 +163,9 @@ export async function fetchFuelReserves(): Promise<Signal | null> {
       context,
       lastUpdated: latest.month.toISOString(),
       automated: true,
+      layer: 2,
+      layerLabel: "Supply position",
+      propagatesTo: "Days of buffer before supply disruption hits retail",
     };
   } catch {
     return null;

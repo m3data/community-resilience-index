@@ -4,29 +4,35 @@ Postcode-level resilience intelligence for Australian communities. Live at [aust
 
 ## What it does
 
-Two layers of information for citizens trying to understand how exposed their community is to supply chain disruption:
+Enter a postcode. Get your community's exposure profile: what structural characteristics shape your vulnerability, which pressures reach you hardest, what to do about them, and which signals to watch.
 
-1. **Structural scoring** — postcode-level composite index combining baseline capacity via BRIC (Baseline Resilience Indicators for Communities — economic diversity, infrastructure, social cohesion) with crisis exposure via an INFORM-adapted model (remoteness, refinery distance, fuel pricing). 3,193 postcodes scored.
+Three layers of intelligence:
 
-2. **Live signals** — fuel reserves, diesel prices, demand-side pressure, farm input costs, food prices, news coverage. Sourced from public APIs and government data. Updated daily. We show the official numbers and name the gaps the government doesn't.
+1. **Structural profile** — per-postcode characteristics from official data (car dependency, refinery distance, industry diversity, remoteness, housing stress, solar capacity, SEIFA). These are the shape of your community. They explain why some pressures hit you harder than others.
+
+2. **Exposure mapping** — algorithmic computation of how exposed your community is across six domains (fuel, food, electricity, economic, housing, emergency). Driven by structural data, not opinion. Transparent rules, auditable logic.
+
+3. **Live signals** — fuel reserves, diesel prices, crude oil, refining margins, electricity wholesale prices, food and agriculture equities, farm input costs, RBA cash rate, AUD/USD, emergency feeds. Sourced from public APIs and government data. Contextualised per-postcode: the same signal means different things for a remote mining town versus an inner-suburban commuter belt.
+
+Actions are computed from exposure weights, structural drivers, and diversity. The top three things to do are shown inline, ranked by urgency.
 
 ## Why
 
 Australia imports ~90% of its refined fuel. It has been non-compliant with the IEA's 90-day reserve obligation since 2012 — the only member nation failing this requirement. Government headline reserve figures include fuel on water, in pipelines, and in the exclusive economic zone. Actual onshore controllable reserves are lower than reported.
 
-Citizens deserve higher fidelity information.
-
-## Tech
-
-Next.js 16, Tailwind v4, TypeScript. Scoring engine is pure (no I/O, deterministic). Signals layer fetches from DCCEEW, ABS, AIP, FuelWatch, Google News. Manual signals (demand pressure, farm inputs) update via `src/data/manual-signals.json`.
+Citizens deserve higher fidelity information about how systemic pressures reach their communities.
 
 ## Methodology
 
-Adapted from the [INFORM Risk Index](https://drmkc.jrc.ec.europa.eu/inform-index) (JRC European Commission). Full methodology at [australia.communityresilienceindex.net/methodology](https://australia.communityresilienceindex.net/methodology).
+Structural data from ABS Census 2021, SEIFA 2021, Modified Monash Model 2023, Clean Energy Regulator, and derived refinery distance calculations. Exposure mapping uses algorithmic rules (not ML or LLM generation) documented in SPEC-003. Diversity measured via Shannon index. Coherence/entrainment spectrum distinguishes between communities that can reorganise under stress and those locked into brittle dependencies. Full methodology at [australia.communityresilienceindex.net/methodology](https://australia.communityresilienceindex.net/methodology).
+
+## Tech
+
+Next.js 16, Tailwind v4, TypeScript. Profile engine is deterministic (algorithmic exposure weights, parameterised contextualisation templates). Signals layer fetches from DCCEEW, ABS, FuelWatch, Yahoo Finance, AEMO, Google News. Manual signals (demand pressure, farm inputs) update via `src/data/manual-signals.json`.
 
 ## Licence
 
-Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS, INFORM).
+Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS).
 
 ---
 

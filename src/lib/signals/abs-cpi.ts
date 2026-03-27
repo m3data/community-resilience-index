@@ -96,6 +96,9 @@ export async function fetchFoodCpi(): Promise<Signal | null> {
       context,
       lastUpdated: new Date().toISOString(),
       automated: true,
+      layer: 4,
+      layerLabel: "Retail impact",
+      propagatesTo: "Household food budgets and community food security",
     };
   } catch {
     return null;

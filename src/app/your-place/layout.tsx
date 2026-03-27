@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Your Place",
+  title: "Your Place — Exposure Profile",
   description:
-    "Look up your postcode to see your community's structural resilience score and crisis exposure profile. Powered by ABS Census data and peer-reviewed methodology.",
+    "Your community's structural shape, which pressures reach you hardest, and the signals worth watching. Per-postcode intelligence from official data.",
 };
 
 export default function YourPlaceLayout({

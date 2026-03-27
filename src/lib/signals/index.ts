@@ -14,6 +14,20 @@ import { fetchNewsVolume } from "./news-volume";
 import { fetchDemandPressure } from "./demand-pressure";
 import { fetchFarmInputs } from "./farm-inputs";
 
+// Tier 1 signal modules — direct API integrations (no scraping)
+import { fetchBrentCrude } from "./brent-crude";
+import { fetchAsxEnergy } from "./asx-energy";
+import { fetchAsxFood } from "./asx-food";
+import { fetchAudUsd } from "./aud-usd";
+import { fetchCrackSpread } from "./crack-spread";
+import { fetchAemoElectricity } from "./aemo-electricity";
+import { fetchRbaCashRate } from "./rba-cash-rate";
+import { fetchNswRfs } from "./nsw-rfs";
+import { fetchVicEmv } from "./vic-emv";
+
+// Layer 3: Wholesale price transmission
+import { fetchAipDieselTgp, fetchAipPetrolTgp } from "./aip-tgp";
+
 // Fallback values — used when automated APIs are unreachable
 const FALLBACK_SIGNALS: Record<string, Signal> = {
   reserves: {
@@ -39,26 +53,64 @@ const FALLBACK_SIGNALS: Record<string, Signal> = {
 };
 
 export async function fetchSignals(): Promise<SignalSet> {
-  // Fetch all signals in parallel
-  const [reserves, food, waDiesel, newsVolume, demandPressure, farmInputs] =
-    await Promise.all([
-      fetchFuelReserves(),
-      fetchFoodCpi(),
-      fetchWaDiesel(),
-      fetchNewsVolume(),
-      fetchDemandPressure(),
-      fetchFarmInputs(),
-    ]);
+  // Fetch all signals in parallel — existing + Tier 1
+  const [
+    reserves, food, waDiesel, newsVolume, demandPressure, farmInputs,
+    brentCrude, asxEnergy, asxFood, audUsd, crackSpread, aemoElectricity,
+    dieselTgp, petrolTgp,
+    rbaCashRate, nswRfs, vicEmv,
+  ] = await Promise.all([
+    // Existing signals
+    fetchFuelReserves(),
+    fetchFoodCpi(),
+    fetchWaDiesel(),
+    fetchNewsVolume(),
+    fetchDemandPressure(),
+    fetchFarmInputs(),
+    // Layer 1: Upstream market signals
+    fetchBrentCrude(),
+    fetchAsxEnergy(),
+    fetchAsxFood(),
+    fetchAudUsd(),
+    fetchCrackSpread(),
+    // Layer 2: Supply position
+    fetchAemoElectricity(),
+    // Layer 3: Wholesale price transmission
+    fetchAipDieselTgp(),
+    fetchAipPetrolTgp(),
+    // Layer 5: Macro indicators
+    fetchRbaCashRate(),
+    // Layer 6: Emergency feeds
+    fetchNswRfs(),
+    fetchVicEmv(),
+  ]);
 
   return {
     lastFetched: new Date().toISOString(),
     signals: {
+      // Existing signals
       reserves: reserves ?? FALLBACK_SIGNALS.reserves,
       ...(demandPressure ? { demandPressure } : {}),
       ...(waDiesel ? { waDiesel } : {}),
       food: food ?? FALLBACK_SIGNALS.food,
       ...(farmInputs ? { farmInputs } : {}),
       ...(newsVolume ? { newsVolume } : {}),
+      // Layer 1: Upstream market signals
+      ...(brentCrude ? { brentCrude } : {}),
+      ...(asxEnergy ? { asxEnergy } : {}),
+      ...(asxFood ? { asxFood } : {}),
+      ...(audUsd ? { audUsd } : {}),
+      ...(crackSpread ? { crackSpread } : {}),
+      // Layer 2: Supply position
+      ...(aemoElectricity ? { aemoElectricity } : {}),
+      // Layer 3: Wholesale price transmission
+      ...(dieselTgp ? { dieselTgp } : {}),
+      ...(petrolTgp ? { petrolTgp } : {}),
+      // Layer 5: Macro indicators
+      ...(rbaCashRate ? { rbaCashRate } : {}),
+      // Layer 6: Emergency feeds
+      ...(nswRfs ? { nswRfs } : {}),
+      ...(vicEmv ? { vicEmv } : {}),
     },
   };
 }

@@ -73,6 +73,9 @@ export async function fetchWaDiesel(): Promise<Signal | null> {
         `Regional WA stations typically 20–60c/L above metro.`,
       lastUpdated: date ? new Date(date).toISOString() : new Date().toISOString(),
       automated: true,
+      layer: 4,
+      layerLabel: "Retail impact",
+      propagatesTo: "Household transport and business operating costs",
     };
   } catch {
     return null;

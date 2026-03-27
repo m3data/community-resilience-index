@@ -94,6 +94,9 @@ export async function fetchDemandPressure(): Promise<Signal | null> {
       context,
       lastUpdated: new Date(d.retailWeekEnding).toISOString(),
       automated: false,
+      layer: 4,
+      layerLabel: "Retail impact",
+      propagatesTo: "Station availability, rationing risk, and community anxiety",
     };
   } catch {
     return null;

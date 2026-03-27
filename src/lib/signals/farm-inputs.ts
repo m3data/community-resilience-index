@@ -191,6 +191,9 @@ export async function fetchFarmInputs(): Promise<Signal | null> {
       context,
       lastUpdated: new Date().toISOString(),
       automated: true,
+      layer: 5,
+      layerLabel: "Downstream cascade",
+      propagatesTo: "Planting decisions and next-season food supply",
     };
   }
 
@@ -206,5 +209,8 @@ export async function fetchFarmInputs(): Promise<Signal | null> {
     context: fallback.context,
     lastUpdated: new Date(fallback.asOf).toISOString(),
     automated: false,
+    layer: 5,
+    layerLabel: "Downstream cascade",
+    propagatesTo: "Planting decisions and next-season food supply",
   };
 }

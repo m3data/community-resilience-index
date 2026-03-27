@@ -116,6 +116,9 @@ export async function fetchNewsVolume(): Promise<Signal | null> {
         ? recentHeadline.pubDate.toISOString()
         : new Date().toISOString(),
       automated: true,
+      layer: 4,
+      layerLabel: "Retail impact",
+      propagatesTo: "Public awareness, policy pressure, and demand-side behaviour",
     };
   } catch {
     return null;
