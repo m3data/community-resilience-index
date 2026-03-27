@@ -1,0 +1,2563 @@
+{
+  "meta": {
+    "version": "2025.12.16",
+    "region": "AU-NSW",
+    "region_name": "New South Wales, Australia",
+    "currency": "AUD",
+    "generated": "2025-12-16T12:00:00Z",
+    "sources": [
+      "Numbeo Cost of Living Index (Dec 2025)",
+      "CHOICE Supermarket Survey (Dec 2025)",
+      "Australian Bureau of Statistics CPI (Oct 2025)",
+      "Harris Farm Markets",
+      "Sydney Fish Market",
+      "Selinawamucii Market Prices",
+      "ALDI Australia",
+      "Canstar Blue Surveys"
+    ],
+    "ingredient_count": 247,
+    "notes": "Prices reflect NSW metropolitan area averages. Actual prices vary by retailer and location."
+  },
+  "ingredients": {
+    "all_purpose_flour": {
+      "price": 2.45,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.45
+    },
+    "bread_flour": {
+      "price": 3.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.50
+    },
+    "self_raising_flour": {
+      "price": 2.60,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.60
+    },
+    "plain_flour": {
+      "price": 2.45,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.45
+    },
+    "cornflour": {
+      "price": 4.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 300,
+      "typical_pack_price": 1.20
+    },
+    "white_sugar": {
+      "price": 2.02,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.02
+    },
+    "brown_sugar": {
+      "price": 2.80,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 500,
+      "typical_pack_price": 1.40
+    },
+    "caster_sugar": {
+      "price": 2.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.50
+    },
+    "icing_sugar": {
+      "price": 3.20,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 500,
+      "typical_pack_price": 1.60
+    },
+    "salt": {
+      "price": 1.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 1.50
+    },
+    "sea_salt": {
+      "price": 4.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "pantry_staples",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.00
+    },
+    "white_rice": {
+      "price": 3.12,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.12
+    },
+    "basmati_rice": {
+      "price": 5.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 5.00
+    },
+    "jasmine_rice": {
+      "price": 4.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.50
+    },
+    "arborio_rice": {
+      "price": 7.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 3.50
+    },
+    "long_grain_rice": {
+      "price": 3.12,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.12
+    },
+    "pasta": {
+      "price": 3.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 1.75
+    },
+    "spaghetti": {
+      "price": 3.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 1.75
+    },
+    "penne": {
+      "price": 3.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 1.75
+    },
+    "fettuccine": {
+      "price": 4.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.00
+    },
+    "tagliatelle": {
+      "price": 4.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.00
+    },
+    "risoni": {
+      "price": 5.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.50
+    },
+    "lasagne_sheets": {
+      "price": 5.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 375,
+      "typical_pack_price": 1.88
+    },
+    "egg_noodles": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 400,
+      "typical_pack_price": 2.40
+    },
+    "rice_noodles": {
+      "price": 5.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 400,
+      "typical_pack_price": 2.20
+    },
+    "rolled_oats": {
+      "price": 3.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.00
+    },
+    "couscous": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 3.00
+    },
+    "quinoa": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "grains",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.00
+    },
+    "lentils": {
+      "price": 4.20,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Selinawamucii",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.10
+    },
+    "red_lentils": {
+      "price": 4.20,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Selinawamucii",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.10
+    },
+    "green_lentils": {
+      "price": 4.25,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Selinawamucii",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.13
+    },
+    "chickpeas": {
+      "price": 4.22,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Selinawamucii",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.69
+    },
+    "canned_chickpeas": {
+      "price": 3.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.40
+    },
+    "black_beans": {
+      "price": 4.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.80
+    },
+    "kidney_beans": {
+      "price": 4.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.60
+    },
+    "cannellini_beans": {
+      "price": 4.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "legumes",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.80
+    },
+    "milk": {
+      "price": 2.46,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.46
+    },
+    "full_cream_milk": {
+      "price": 2.46,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.46
+    },
+    "skim_milk": {
+      "price": 2.46,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 2.46
+    },
+    "almond_milk": {
+      "price": 3.50,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy_alternatives",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.50
+    },
+    "oat_milk": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy_alternatives",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "coconut_milk": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy_alternatives",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.60
+    },
+    "coconut_cream": {
+      "price": 5.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy_alternatives",
+      "typical_pack_size": 400,
+      "typical_pack_price": 2.00
+    },
+    "butter": {
+      "price": 16.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 8.25
+    },
+    "unsalted_butter": {
+      "price": 15.40,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 7.70
+    },
+    "salted_butter": {
+      "price": 16.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Coles 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 8.25
+    },
+    "eggs": {
+      "price": 0.58,
+      "unit": "each",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 12,
+      "typical_pack_price": 7.01
+    },
+    "egg": {
+      "price": 0.58,
+      "unit": "each",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 12,
+      "typical_pack_price": 7.01
+    },
+    "cheese": {
+      "price": 13.84,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.92
+    },
+    "cheddar_cheese": {
+      "price": 13.84,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.92
+    },
+    "parmesan": {
+      "price": 32.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 250,
+      "typical_pack_price": 8.00
+    },
+    "parmigiano_reggiano": {
+      "price": 45.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 200,
+      "typical_pack_price": 9.00
+    },
+    "mozzarella": {
+      "price": 14.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 250,
+      "typical_pack_price": 3.50
+    },
+    "feta_cheese": {
+      "price": 18.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 200,
+      "typical_pack_price": 3.60
+    },
+    "cream_cheese": {
+      "price": 14.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 250,
+      "typical_pack_price": 3.50
+    },
+    "ricotta": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 5.00
+    },
+    "haloumi": {
+      "price": 24.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 200,
+      "typical_pack_price": 4.80
+    },
+    "cream": {
+      "price": 6.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 300,
+      "typical_pack_price": 1.80
+    },
+    "thickened_cream": {
+      "price": 6.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 300,
+      "typical_pack_price": 1.80
+    },
+    "sour_cream": {
+      "price": 7.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 300,
+      "typical_pack_price": 2.10
+    },
+    "yogurt": {
+      "price": 5.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.50
+    },
+    "greek_yogurt": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "dairy",
+      "typical_pack_size": 500,
+      "typical_pack_price": 4.00
+    },
+    "chicken_breast": {
+      "price": 13.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Woolworths 2025",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.50
+    },
+    "chicken_thigh": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 5.00
+    },
+    "chicken_drumsticks": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 6.00
+    },
+    "chicken_wings": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 8.00
+    },
+    "whole_chicken": {
+      "price": 7.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 1800,
+      "typical_pack_price": 12.60
+    },
+    "chicken_mince": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.00
+    },
+    "chicken_livers": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 4.00
+    },
+    "beef_mince": {
+      "price": 14.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 7.00
+    },
+    "ground_beef": {
+      "price": 14.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 7.00
+    },
+    "beef_steak": {
+      "price": 28.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 400,
+      "typical_pack_price": 11.20
+    },
+    "beef_round": {
+      "price": 21.10,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 10.55
+    },
+    "beef_chuck": {
+      "price": 18.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 9.00
+    },
+    "beef_stir_fry": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Woolworths 2025",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 10.00
+    },
+    "lamb_chops": {
+      "price": 28.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 14.00
+    },
+    "lamb_mince": {
+      "price": 18.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 9.00
+    },
+    "lamb_leg": {
+      "price": 16.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 2000,
+      "typical_pack_price": 32.00
+    },
+    "pork_mince": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.00
+    },
+    "pork_chops": {
+      "price": 14.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 7.00
+    },
+    "pork_shoulder": {
+      "price": 9.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Woolworths 2025",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 1500,
+      "typical_pack_price": 13.50
+    },
+    "pork_belly": {
+      "price": 16.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 800,
+      "typical_pack_price": 12.80
+    },
+    "bacon": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 250,
+      "typical_pack_price": 5.00
+    },
+    "pancetta": {
+      "price": 35.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 150,
+      "typical_pack_price": 5.25
+    },
+    "prosciutto": {
+      "price": 50.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 100,
+      "typical_pack_price": 5.00
+    },
+    "sausages": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "meat",
+      "typical_pack_size": 500,
+      "typical_pack_price": 5.00
+    },
+    "salmon": {
+      "price": 40.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Harris Farm 2025",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 300,
+      "typical_pack_price": 12.00
+    },
+    "salmon_fillet": {
+      "price": 40.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Harris Farm 2025",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 300,
+      "typical_pack_price": 12.00
+    },
+    "ocean_trout": {
+      "price": 39.99,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Harris Farm Dec 2025",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 300,
+      "typical_pack_price": 12.00
+    },
+    "white_fish": {
+      "price": 25.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 400,
+      "typical_pack_price": 10.00
+    },
+    "cod": {
+      "price": 30.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 400,
+      "typical_pack_price": 12.00
+    },
+    "barramundi": {
+      "price": 28.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 400,
+      "typical_pack_price": 11.20
+    },
+    "prawns": {
+      "price": 25.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Coles/Woolworths 2025",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 500,
+      "typical_pack_price": 12.50
+    },
+    "king_prawns": {
+      "price": 45.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Aptus Seafoods 2025",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 500,
+      "typical_pack_price": 22.50
+    },
+    "green_prawns": {
+      "price": 32.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 500,
+      "typical_pack_price": 16.00
+    },
+    "calamari": {
+      "price": 22.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 500,
+      "typical_pack_price": 11.00
+    },
+    "mussels": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 12.00
+    },
+    "canned_tuna": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "seafood",
+      "typical_pack_size": 185,
+      "typical_pack_price": 2.22
+    },
+    "olive_oil": {
+      "price": 18.00,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Market average 2025",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 500,
+      "typical_pack_price": 9.00
+    },
+    "extra_virgin_olive_oil": {
+      "price": 27.50,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Market average 2025",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 750,
+      "typical_pack_price": 20.63
+    },
+    "vegetable_oil": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "canola_oil": {
+      "price": 4.50,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.50
+    },
+    "sunflower_oil": {
+      "price": 5.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 5.00
+    },
+    "sesame_oil": {
+      "price": 20.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 250,
+      "typical_pack_price": 5.00
+    },
+    "coconut_oil": {
+      "price": 12.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "oils",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.00
+    },
+    "onion": {
+      "price": 3.33,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.33
+    },
+    "brown_onion": {
+      "price": 3.33,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.33
+    },
+    "red_onion": {
+      "price": 4.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.25
+    },
+    "white_onion": {
+      "price": 4.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.00
+    },
+    "spring_onion": {
+      "price": 2.50,
+      "unit": "bunch",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "shallot": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 200,
+      "typical_pack_price": 2.40
+    },
+    "green_shallot": {
+      "price": 2.50,
+      "unit": "bunch",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "garlic": {
+      "price": 18.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 100,
+      "typical_pack_price": 1.80
+    },
+    "ginger": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 100,
+      "typical_pack_price": 2.00
+    },
+    "potato": {
+      "price": 3.89,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 2000,
+      "typical_pack_price": 7.78
+    },
+    "potatoes": {
+      "price": 3.89,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 2000,
+      "typical_pack_price": 7.78
+    },
+    "sweet_potato": {
+      "price": 5.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.50
+    },
+    "carrot": {
+      "price": 3.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.00
+    },
+    "carrots": {
+      "price": 3.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 3.00
+    },
+    "celery": {
+      "price": 4.50,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "broccoli": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 350,
+      "typical_pack_price": 2.10
+    },
+    "cauliflower": {
+      "price": 5.00,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "cabbage": {
+      "price": 4.00,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "lettuce": {
+      "price": 3.50,
+      "unit": "each",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "spinach": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 120,
+      "typical_pack_price": 1.44
+    },
+    "baby_spinach": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 120,
+      "typical_pack_price": 2.40
+    },
+    "rocket": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 120,
+      "typical_pack_price": 2.40
+    },
+    "kale": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 150,
+      "typical_pack_price": 1.80
+    },
+    "pak_choy": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 300,
+      "typical_pack_price": 2.40
+    },
+    "bok_choy": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 300,
+      "typical_pack_price": 2.40
+    },
+    "tomato": {
+      "price": 6.89,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 3.45
+    },
+    "tomatoes": {
+      "price": 6.89,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 3.45
+    },
+    "cherry_tomatoes": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.50
+    },
+    "capsicum": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 200,
+      "typical_pack_price": 1.60
+    },
+    "red_capsicum": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 200,
+      "typical_pack_price": 2.00
+    },
+    "zucchini": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 300,
+      "typical_pack_price": 1.80
+    },
+    "eggplant": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 400,
+      "typical_pack_price": 2.40
+    },
+    "cucumber": {
+      "price": 3.00,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "mushrooms": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 200,
+      "typical_pack_price": 2.40
+    },
+    "button_mushrooms": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 200,
+      "typical_pack_price": 2.40
+    },
+    "corn": {
+      "price": 1.50,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "peas": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 4.00
+    },
+    "green_beans": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.50
+    },
+    "snow_peas": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 150,
+      "typical_pack_price": 3.00
+    },
+    "asparagus": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 250,
+      "typical_pack_price": 5.00
+    },
+    "leek": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 300,
+      "typical_pack_price": 1.80
+    },
+    "pumpkin": {
+      "price": 3.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 2000,
+      "typical_pack_price": 7.00
+    },
+    "chilli": {
+      "price": 25.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 50,
+      "typical_pack_price": 1.25
+    },
+    "red_chilli": {
+      "price": 25.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 50,
+      "typical_pack_price": 1.25
+    },
+    "apple": {
+      "price": 4.97,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.97
+    },
+    "apples": {
+      "price": 4.97,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.97
+    },
+    "banana": {
+      "price": 4.25,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.25
+    },
+    "bananas": {
+      "price": 4.25,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.25
+    },
+    "orange": {
+      "price": 4.54,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.54
+    },
+    "oranges": {
+      "price": 4.54,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.54
+    },
+    "lemon": {
+      "price": 0.80,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "lime": {
+      "price": 1.00,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "avocado": {
+      "price": 2.50,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "mango": {
+      "price": 3.00,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average (seasonal)",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "strawberries": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.00
+    },
+    "blueberries": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 125,
+      "typical_pack_price": 2.50
+    },
+    "raspberries": {
+      "price": 32.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 125,
+      "typical_pack_price": 4.00
+    },
+    "grapes": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 4.00
+    },
+    "watermelon": {
+      "price": 2.50,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce"
+    },
+    "pear": {
+      "price": 5.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 5.00
+    },
+    "kiwi_fruit": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "produce",
+      "typical_pack_size": 500,
+      "typical_pack_price": 4.00
+    },
+    "coriander": {
+      "price": 2.49,
+      "unit": "bunch",
+      "confidence": "high",
+      "source": "Wholefarms NSW",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "parsley": {
+      "price": 2.50,
+      "unit": "bunch",
+      "confidence": "high",
+      "source": "Wholefarms NSW",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "continental_parsley": {
+      "price": 2.50,
+      "unit": "bunch",
+      "confidence": "high",
+      "source": "Wholefarms NSW",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "basil": {
+      "price": 3.99,
+      "unit": "bunch",
+      "confidence": "high",
+      "source": "Wholefarms NSW",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "mint": {
+      "price": 1.99,
+      "unit": "bunch",
+      "confidence": "high",
+      "source": "Wholefarms NSW",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "dill": {
+      "price": 2.99,
+      "unit": "bunch",
+      "confidence": "high",
+      "source": "Wholefarms NSW",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "thyme": {
+      "price": 3.50,
+      "unit": "bunch",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "rosemary": {
+      "price": 3.50,
+      "unit": "bunch",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "sage": {
+      "price": 3.50,
+      "unit": "bunch",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "bay_leaf": {
+      "price": 0.10,
+      "unit": "each",
+      "confidence": "low",
+      "source": "Estimated from pack price",
+      "updated": "2025-12-16",
+      "category": "fresh_herbs"
+    },
+    "black_pepper": {
+      "price": 73.80,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 50,
+      "typical_pack_price": 3.69
+    },
+    "white_pepper": {
+      "price": 80.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 50,
+      "typical_pack_price": 4.00
+    },
+    "paprika": {
+      "price": 64.75,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.59
+    },
+    "smoked_paprika": {
+      "price": 64.75,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.59
+    },
+    "cumin": {
+      "price": 62.83,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 46,
+      "typical_pack_price": 2.89
+    },
+    "ground_cumin": {
+      "price": 62.83,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 46,
+      "typical_pack_price": 2.89
+    },
+    "cumin_seeds": {
+      "price": 50.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 50,
+      "typical_pack_price": 2.50
+    },
+    "cinnamon": {
+      "price": 58.29,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 41,
+      "typical_pack_price": 2.39
+    },
+    "ground_cinnamon": {
+      "price": 58.29,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 41,
+      "typical_pack_price": 2.39
+    },
+    "coriander_seeds": {
+      "price": 69.75,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.79
+    },
+    "ground_coriander": {
+      "price": 69.75,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "ALDI (Stonemill)",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.79
+    },
+    "turmeric": {
+      "price": 60.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.40
+    },
+    "ground_turmeric": {
+      "price": 60.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.40
+    },
+    "nutmeg": {
+      "price": 120.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 30,
+      "typical_pack_price": 3.60
+    },
+    "garam_masala": {
+      "price": 70.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 45,
+      "typical_pack_price": 3.15
+    },
+    "curry_powder": {
+      "price": 50.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 50,
+      "typical_pack_price": 2.50
+    },
+    "chilli_flakes": {
+      "price": 60.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 40,
+      "typical_pack_price": 2.40
+    },
+    "chilli_powder": {
+      "price": 55.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 45,
+      "typical_pack_price": 2.48
+    },
+    "cayenne_pepper": {
+      "price": 70.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 35,
+      "typical_pack_price": 2.45
+    },
+    "garlic_powder": {
+      "price": 64.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 50,
+      "typical_pack_price": 3.20
+    },
+    "onion_powder": {
+      "price": 55.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 50,
+      "typical_pack_price": 2.75
+    },
+    "dried_oregano": {
+      "price": 80.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 25,
+      "typical_pack_price": 2.00
+    },
+    "dried_basil": {
+      "price": 90.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 25,
+      "typical_pack_price": 2.25
+    },
+    "dried_thyme": {
+      "price": 100.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 20,
+      "typical_pack_price": 2.00
+    },
+    "mixed_herbs": {
+      "price": 70.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "spices",
+      "typical_pack_size": 30,
+      "typical_pack_price": 2.10
+    },
+    "baking_powder": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 200,
+      "typical_pack_price": 2.40
+    },
+    "bicarbonate_of_soda": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.00
+    },
+    "baking_soda": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.00
+    },
+    "yeast": {
+      "price": 40.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 125,
+      "typical_pack_price": 5.00
+    },
+    "instant_yeast": {
+      "price": 56.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 125,
+      "typical_pack_price": 7.00
+    },
+    "vanilla_extract": {
+      "price": 80.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 100,
+      "typical_pack_price": 8.00
+    },
+    "vanilla_essence": {
+      "price": 40.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 100,
+      "typical_pack_price": 4.00
+    },
+    "cocoa_powder": {
+      "price": 25.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 250,
+      "typical_pack_price": 6.25
+    },
+    "chocolate_chips": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 200,
+      "typical_pack_price": 4.00
+    },
+    "dark_chocolate": {
+      "price": 18.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 200,
+      "typical_pack_price": 3.60
+    },
+    "desiccated_coconut": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.50
+    },
+    "almond_meal": {
+      "price": 18.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 400,
+      "typical_pack_price": 7.20
+    },
+    "breadcrumbs": {
+      "price": 6.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 350,
+      "typical_pack_price": 2.10
+    },
+    "panko_breadcrumbs": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "baking",
+      "typical_pack_size": 200,
+      "typical_pack_price": 2.00
+    },
+    "honey": {
+      "price": 12.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.00
+    },
+    "maple_syrup": {
+      "price": 40.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 250,
+      "typical_pack_price": 10.00
+    },
+    "soy_sauce": {
+      "price": 8.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 4.00
+    },
+    "fish_sauce": {
+      "price": 10.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.50
+    },
+    "oyster_sauce": {
+      "price": 10.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 5.00
+    },
+    "worcestershire_sauce": {
+      "price": 12.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 250,
+      "typical_pack_price": 3.00
+    },
+    "tomato_sauce": {
+      "price": 5.00,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Selinawamucii",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.50
+    },
+    "ketchup": {
+      "price": 5.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Selinawamucii",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 2.75
+    },
+    "tomato_paste": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 140,
+      "typical_pack_price": 1.12
+    },
+    "passata": {
+      "price": 3.50,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 700,
+      "typical_pack_price": 2.45
+    },
+    "canned_tomatoes": {
+      "price": 2.50,
+      "unit": "kg",
+      "confidence": "high",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 400,
+      "typical_pack_price": 1.00
+    },
+    "mustard": {
+      "price": 10.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 220,
+      "typical_pack_price": 2.20
+    },
+    "dijon_mustard": {
+      "price": 15.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 200,
+      "typical_pack_price": 3.00
+    },
+    "mayonnaise": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 450,
+      "typical_pack_price": 3.60
+    },
+    "vinegar": {
+      "price": 3.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 750,
+      "typical_pack_price": 2.25
+    },
+    "white_wine_vinegar": {
+      "price": 6.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 3.00
+    },
+    "balsamic_vinegar": {
+      "price": 12.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 500,
+      "typical_pack_price": 6.00
+    },
+    "rice_wine_vinegar": {
+      "price": 10.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 250,
+      "typical_pack_price": 2.50
+    },
+    "stock": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "chicken_stock": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "beef_stock": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "vegetable_stock": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "chicken_broth": {
+      "price": 4.00,
+      "unit": "litre",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments",
+      "typical_pack_size": 1000,
+      "typical_pack_price": 4.00
+    },
+    "beef_bouillon_cube": {
+      "price": 0.40,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments"
+    },
+    "chicken_bouillon_cube": {
+      "price": 0.40,
+      "unit": "each",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "condiments"
+    },
+    "bread": {
+      "price": 3.86,
+      "unit": "each",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025 (500g loaf)",
+      "updated": "2025-12-16",
+      "category": "bakery"
+    },
+    "white_bread": {
+      "price": 3.86,
+      "unit": "each",
+      "confidence": "high",
+      "source": "Numbeo Dec 2025 (500g loaf)",
+      "updated": "2025-12-16",
+      "category": "bakery"
+    },
+    "tofu": {
+      "price": 8.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "protein_alternatives",
+      "typical_pack_size": 300,
+      "typical_pack_price": 2.40
+    },
+    "plant_based_mince": {
+      "price": 20.00,
+      "unit": "kg",
+      "confidence": "medium",
+      "source": "Supermarket average",
+      "updated": "2025-12-16",
+      "category": "protein_alternatives",
+      "typical_pack_size": 400,
+      "typical_pack_price": 8.00
+    },
+    "water": {
+      "price": 0.00,
+      "unit": "litre",
+      "confidence": "high",
+      "source": "Tap water",
+      "updated": "2025-12-16",
+      "category": "basics"
+    }
+  },
+  "aliases": {
+    "courgette": "zucchini",
+    "aubergine": "eggplant",
+    "capsicum": "red_capsicum",
+    "bell_pepper": "capsicum",
+    "caster_sugar": "caster_sugar",
+    "superfine_sugar": "caster_sugar",
+    "confectioners_sugar": "icing_sugar",
+    "powdered_sugar": "icing_sugar",
+    "cilantro": "coriander",
+    "scallion": "spring_onion",
+    "green_onion": "spring_onion",
+    "arugula": "rocket",
+    "minced_beef": "beef_mince",
+    "minced_pork": "pork_mince",
+    "minced_chicken": "chicken_mince",
+    "minced_lamb": "lamb_mince",
+    "mince": "beef_mince",
+    "ground_pork": "pork_mince",
+    "ground_chicken": "chicken_mince",
+    "ground_lamb": "lamb_mince",
+    "prawns_peeled": "prawns",
+    "shrimp": "prawns",
+    "king_shrimp": "king_prawns",
+    "heavy_cream": "thickened_cream",
+    "whipping_cream": "thickened_cream",
+    "double_cream": "thickened_cream",
+    "natural_yogurt": "yogurt",
+    "plain_yogurt": "yogurt",
+    "ap_flour": "all_purpose_flour",
+    "unbleached_flour": "all_purpose_flour",
+    "unbleached_all_purpose_flour": "all_purpose_flour",
+    "whole_wheat_flour": "plain_flour",
+    "wholemeal_flour": "plain_flour",
+    "bicarbonate_soda": "bicarbonate_of_soda",
+    "bicarb_soda": "bicarbonate_of_soda",
+    "parmigiano": "parmigiano_reggiano",
+    "parmesan_cheese": "parmesan",
+    "reggiano": "parmigiano_reggiano",
+    "halloumi": "haloumi",
+    "fish_fillet": "white_fish",
+    "white_fish_fillets": "white_fish",
+    "atlantic_salmon": "salmon",
+    "tasmanian_salmon": "salmon",
+    "cherry_tomato": "cherry_tomatoes",
+    "tomato_passata": "passata",
+    "tinned_tomatoes": "canned_tomatoes",
+    "crushed_tomatoes": "canned_tomatoes",
+    "diced_tomatoes": "canned_tomatoes",
+    "lemon_juice": "lemon",
+    "lemon_zest": "lemon",
+    "lime_juice": "lime",
+    "lime_zest": "lime",
+    "lemon_rind": "lemon",
+    "unwaxed_lemon": "lemon",
+    "extra_virgin_olive_oil": "extra_virgin_olive_oil",
+    "evoo": "extra_virgin_olive_oil",
+    "light_olive_oil": "olive_oil",
+    "cooking_oil": "vegetable_oil",
+    "neutral_oil": "vegetable_oil",
+    "rapeseed_oil": "canola_oil",
+    "groundnut_oil": "vegetable_oil",
+    "peanut_oil": "vegetable_oil"
+  },
+  "categories": {
+    "pantry_staples": {
+      "avg_price_per_kg": 3.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "grains": {
+      "avg_price_per_kg": 4.50,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "legumes": {
+      "avg_price_per_kg": 4.20,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "dairy": {
+      "avg_price_per_kg": 12.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "dairy_alternatives": {
+      "avg_price_per_kg": 4.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "meat": {
+      "avg_price_per_kg": 15.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "seafood": {
+      "avg_price_per_kg": 30.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "oils": {
+      "avg_price_per_litre": 10.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "produce": {
+      "avg_price_per_kg": 6.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "fresh_herbs": {
+      "avg_price_per_bunch": 3.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "spices": {
+      "avg_price_per_kg": 70.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "baking": {
+      "avg_price_per_kg": 15.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "condiments": {
+      "avg_price_per_kg": 8.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "bakery": {
+      "avg_price_per_item": 4.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "protein_alternatives": {
+      "avg_price_per_kg": 12.00,
+      "confidence": "low",
+      "source": "category_average"
+    },
+    "basics": {
+      "avg_price_per_kg": 0.00,
+      "confidence": "low",
+      "source": "category_average"
+    }
+  }
+}

@@ -70,7 +70,7 @@ const CASCADE_LAYERS: {
     description:
       "Pump prices, food costs, station closures. This is where most public attention sits — but it lags the layers above.",
     icon: <TrendUp size={18} weight="duotone" />,
-    keys: ["demandPressure", "waDiesel", "food", "newsVolume"],
+    keys: ["cascadePressure", "retailMargin", "demandPressure", "waDiesel", "waPetrol", "food", "foodBasket", "newsVolume"],
     defaultExpanded: true,
   },
   {

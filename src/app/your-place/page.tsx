@@ -85,6 +85,10 @@ const SIGNAL_NAMES: Record<string, string> = {
   newsVolume: 'Media attention',
   dieselTgp: 'Diesel wholesale price (TGP)',
   petrolTgp: 'Petrol wholesale price (TGP)',
+  foodBasket: 'Food basket price pressure',
+  cascadePressure: 'Cascade pressure indicator',
+  waPetrol: 'WA petrol retail price',
+  retailMargin: 'Wholesale→retail margin (diesel)',
 };
 
 // ── Main page ────────────────────────────────────────────────────────────────

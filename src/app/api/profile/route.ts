@@ -359,7 +359,7 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     reason: foodReasons.length > 0
       ? `Elevated: ${foodReasons.join(', ')}`
       : 'Standard food supply dependency',
-    signalKeys: ['asxFood', 'farmInputs', 'food'],
+    signalKeys: ['asxFood', 'farmInputs', 'food', 'foodBasket'],
   });
 
   // Electricity exposure
@@ -514,6 +514,16 @@ function contextualiseSignals(
         : `Food supply chain pressures flow through to retail prices. Remote and regional communities typically feel price increases earlier and harder.`,
     });
   }
+
+  // Food basket — relevant for all communities, weighted by food exposure
+  signals.push({
+    key: 'foodBasket',
+    domain: 'food',
+    relevance: foodExposure * 0.85,
+    context: remoteness !== null && remoteness >= 5
+      ? `Remote communities face higher food prices due to transport costs. When food CPI rises nationally, the impact is amplified in areas with longer supply chains and fewer retail options.`
+      : `Food price changes by category — bread, meat, dairy, fruit and vegetables — show where household budgets are under most pressure. Sub-group breakdowns reveal which items are driving overall inflation.`,
+  });
 
   // Farm inputs
   if (agPct !== null && agPct > 0.05) {

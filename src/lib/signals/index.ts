@@ -5,7 +5,7 @@ import { fetchFoodCpi } from "./abs-cpi";
 // WA FuelWatch is the only reliable live diesel signal.
 // import { fetchDieselPrice } from "./diesel-price";
 import { fetchFuelReserves } from "./fuel-reserves";
-import { fetchWaDiesel } from "./wa-fuelwatch";
+import { fetchWaDiesel, fetchWaPetrol, computeRetailMargin } from "./wa-fuelwatch";
 import { fetchNewsVolume } from "./news-volume";
 // NSW FuelCheck: real-time API requires OneGov API key (free registration).
 // OAuth token endpoint currently returning empty responses (NSW govt issue).
@@ -27,6 +27,12 @@ import { fetchVicEmv } from "./vic-emv";
 
 // Layer 3: Wholesale price transmission
 import { fetchAipDieselTgp, fetchAipPetrolTgp } from "./aip-tgp";
+
+// Layer 4: Retail impact — food basket
+import { fetchFoodBasket } from "./food-basket";
+
+// Derived: Cascade pressure indicator (synthesised from other signals)
+import { computeCascadePressure } from "./cascade-pressure";
 
 // Fallback values — used when automated APIs are unreachable
 const FALLBACK_SIGNALS: Record<string, Signal> = {
@@ -55,7 +61,7 @@ const FALLBACK_SIGNALS: Record<string, Signal> = {
 export async function fetchSignals(): Promise<SignalSet> {
   // Fetch all signals in parallel — existing + Tier 1
   const [
-    reserves, food, waDiesel, newsVolume, demandPressure, farmInputs,
+    reserves, food, foodBasket, waDiesel, waPetrol, newsVolume, demandPressure, farmInputs,
     brentCrude, asxEnergy, asxFood, audUsd, crackSpread, aemoElectricity,
     dieselTgp, petrolTgp,
     rbaCashRate, nswRfs, vicEmv,
@@ -63,7 +69,9 @@ export async function fetchSignals(): Promise<SignalSet> {
     // Existing signals
     fetchFuelReserves(),
     fetchFoodCpi(),
+    fetchFoodBasket(),
     fetchWaDiesel(),
+    fetchWaPetrol(),
     fetchNewsVolume(),
     fetchDemandPressure(),
     fetchFarmInputs(),
@@ -85,32 +93,45 @@ export async function fetchSignals(): Promise<SignalSet> {
     fetchVicEmv(),
   ]);
 
+  // Assemble primary signals first
+  const primarySignals: Record<string, Signal> = {
+    // Existing signals
+    reserves: reserves ?? FALLBACK_SIGNALS.reserves,
+    ...(demandPressure ? { demandPressure } : {}),
+    ...(waDiesel ? { waDiesel } : {}),
+    ...(waPetrol ? { waPetrol } : {}),
+    food: food ?? FALLBACK_SIGNALS.food,
+    ...(foodBasket ? { foodBasket } : {}),
+    ...(farmInputs ? { farmInputs } : {}),
+    ...(newsVolume ? { newsVolume } : {}),
+    // Layer 1: Upstream market signals
+    ...(brentCrude ? { brentCrude } : {}),
+    ...(asxEnergy ? { asxEnergy } : {}),
+    ...(asxFood ? { asxFood } : {}),
+    ...(audUsd ? { audUsd } : {}),
+    ...(crackSpread ? { crackSpread } : {}),
+    // Layer 2: Supply position
+    ...(aemoElectricity ? { aemoElectricity } : {}),
+    // Layer 3: Wholesale price transmission
+    ...(dieselTgp ? { dieselTgp } : {}),
+    ...(petrolTgp ? { petrolTgp } : {}),
+    // Layer 5: Macro indicators
+    ...(rbaCashRate ? { rbaCashRate } : {}),
+    // Layer 6: Emergency feeds
+    ...(nswRfs ? { nswRfs } : {}),
+    ...(vicEmv ? { vicEmv } : {}),
+  };
+
+  // Derived signals — synthesised from primary signals
+  const cascadePressure = computeCascadePressure(primarySignals);
+  const retailMargin = computeRetailMargin(primarySignals);
+
   return {
     lastFetched: new Date().toISOString(),
     signals: {
-      // Existing signals
-      reserves: reserves ?? FALLBACK_SIGNALS.reserves,
-      ...(demandPressure ? { demandPressure } : {}),
-      ...(waDiesel ? { waDiesel } : {}),
-      food: food ?? FALLBACK_SIGNALS.food,
-      ...(farmInputs ? { farmInputs } : {}),
-      ...(newsVolume ? { newsVolume } : {}),
-      // Layer 1: Upstream market signals
-      ...(brentCrude ? { brentCrude } : {}),
-      ...(asxEnergy ? { asxEnergy } : {}),
-      ...(asxFood ? { asxFood } : {}),
-      ...(audUsd ? { audUsd } : {}),
-      ...(crackSpread ? { crackSpread } : {}),
-      // Layer 2: Supply position
-      ...(aemoElectricity ? { aemoElectricity } : {}),
-      // Layer 3: Wholesale price transmission
-      ...(dieselTgp ? { dieselTgp } : {}),
-      ...(petrolTgp ? { petrolTgp } : {}),
-      // Layer 5: Macro indicators
-      ...(rbaCashRate ? { rbaCashRate } : {}),
-      // Layer 6: Emergency feeds
-      ...(nswRfs ? { nswRfs } : {}),
-      ...(vicEmv ? { vicEmv } : {}),
+      ...primarySignals,
+      ...(retailMargin ? { retailMargin } : {}),
+      ...(cascadePressure ? { cascadePressure } : {}),
     },
   };
 }
