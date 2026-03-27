@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const signalsEnabled = process.env.NEXT_PUBLIC_ENABLE_SIGNALS === "1";
-
 const NAV_ITEMS = [
-  ...(signalsEnabled ? [{ href: "/signals", label: "Signals" }] : []),
+  { href: "/signals", label: "Signals" },
   { href: "/your-place", label: "Your Place" },
   { href: "/methodology", label: "Methodology" },
 ] as const;
