@@ -1,10 +1,10 @@
 {
   "date": "2026-03-29",
-  "generated": "2026-03-29T01:03:56.044Z",
+  "generated": "2026-03-29T19:04:28.692Z",
   "sources": {
     "wa_fuelwatch": {
-      "diesel": 440,
-      "petrol": 723
+      "diesel": 439,
+      "petrol": 724
     },
     "nsw_fuelcheck": {
       "diesel": 4633,
@@ -26,18 +26,6 @@
       "price": 199.5
     },
     {
-      "id": "wa:PORT HEDLAND:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Port Hedland",
-      "location": "PORT HEDLAND",
-      "lat": -20.312154,
-      "lng": 118.587326,
-      "price": 290
-    },
-    {
       "id": "wa:JURIEN BAY:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -48,6 +36,18 @@
       "lat": -30.303589,
       "lng": 115.040542,
       "price": 291
+    },
+    {
+      "id": "wa:OAKFORD:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Oakford Truckstop",
+      "location": "OAKFORD",
+      "lat": -32.209305,
+      "lng": 115.952279,
+      "price": 299.2
     },
     {
       "id": "wa:BECKENHAM:diesel",
@@ -242,16 +242,16 @@
       "price": 303.9
     },
     {
-      "id": "wa:JARRAHDALE:diesel",
+      "id": "wa:PORT KENNEDY:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Jarrahdale",
-      "location": "JARRAHDALE",
-      "lat": -32.308753,
-      "lng": 116.006734,
-      "price": 303.9
+      "brand": "Vibe",
+      "name": "Vibe Port Kennedy",
+      "location": "PORT KENNEDY",
+      "lat": -32.371578,
+      "lng": 115.762171,
+      "price": 304.7
     },
     {
       "id": "wa:KWINANA TOWN CENTRE:diesel",
@@ -312,6 +312,18 @@
       "lat": -32.42028,
       "lng": 115.760489,
       "price": 304.9
+    },
+    {
+      "id": "wa:BEECHBORO:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Beechboro",
+      "location": "BEECHBORO",
+      "lat": -31.869,
+      "lng": 115.924439,
+      "price": 305.2
     },
     {
       "id": "wa:BROADWATER:diesel",
@@ -398,42 +410,6 @@
       "price": 305.3
     },
     {
-      "id": "wa:NOLLAMARA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Nollamara",
-      "location": "NOLLAMARA",
-      "lat": -31.880514,
-      "lng": 115.840339,
-      "price": 305.5
-    },
-    {
-      "id": "wa:DALYELLUP:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Liberty",
-      "name": "Liberty Dalyellup",
-      "location": "DALYELLUP",
-      "lat": -33.396215,
-      "lng": 115.636958,
-      "price": 305.5
-    },
-    {
-      "id": "wa:HIGH WYCOMBE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Shell",
-      "name": "Shell High Wycombe",
-      "location": "HIGH WYCOMBE",
-      "lat": -31.938206,
-      "lng": 115.992146,
-      "price": 305.5
-    },
-    {
       "id": "wa:EAST ROCKINGHAM:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -443,18 +419,6 @@
       "location": "EAST ROCKINGHAM",
       "lat": -32.2766666,
       "lng": 115.773403,
-      "price": 305.5
-    },
-    {
-      "id": "wa:GOSNELLS:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Liberty",
-      "name": "Liberty Gosnells",
-      "location": "GOSNELLS",
-      "lat": -32.075216,
-      "lng": 116.005816,
       "price": 305.5
     },
     {
@@ -470,18 +434,6 @@
       "price": 305.5
     },
     {
-      "id": "wa:WEST BUSSELTON:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Liberty",
-      "name": "Liberty Busselton West",
-      "location": "WEST BUSSELTON",
-      "lat": -33.656076,
-      "lng": 115.341215,
-      "price": 305.5
-    },
-    {
       "id": "wa:BALDIVIS:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -494,15 +446,15 @@
       "price": 305.7
     },
     {
-      "id": "wa:PORT KENNEDY:diesel",
+      "id": "wa:PINJARRA:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Vibe",
-      "name": "Vibe Port Kennedy",
-      "location": "PORT KENNEDY",
-      "lat": -32.371578,
-      "lng": 115.762171,
+      "name": "Vibe Pinjarra",
+      "location": "PINJARRA",
+      "lat": -32.63094,
+      "lng": 115.872555,
       "price": 305.7
     },
     {
@@ -542,18 +494,6 @@
       "price": 305.9
     },
     {
-      "id": "wa:PINJARRA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Pinjarra Truck Stop",
-      "location": "PINJARRA",
-      "lat": -32.610785,
-      "lng": 115.848041,
-      "price": 305.9
-    },
-    {
       "id": "wa:BALDIVIS:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -564,30 +504,6 @@
       "lat": -32.309663,
       "lng": 115.796699,
       "price": 305.9
-    },
-    {
-      "id": "wa:OAKFORD:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Oakford Truckstop",
-      "location": "OAKFORD",
-      "lat": -32.209305,
-      "lng": 115.952279,
-      "price": 305.9
-    },
-    {
-      "id": "wa:BEECHBORO:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Beechboro",
-      "location": "BEECHBORO",
-      "lat": -31.869,
-      "lng": 115.924439,
-      "price": 306.7
     },
     {
       "id": "wa:KAMBALDA EAST:diesel",
@@ -614,88 +530,16 @@
       "price": 307.3
     },
     {
-      "id": "wa:BAYONET HEAD:diesel",
+      "id": "wa:GOSNELLS:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Liberty",
-      "name": "Liberty Oyster Harbour",
-      "location": "BAYONET HEAD",
-      "lat": -34.981779,
-      "lng": 117.922103,
+      "name": "Liberty Gosnells",
+      "location": "GOSNELLS",
+      "lat": -32.075216,
+      "lng": 116.005816,
       "price": 307.5
-    },
-    {
-      "id": "wa:MCKAIL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Liberty",
-      "name": "Liberty McKail",
-      "location": "MCKAIL",
-      "lat": -34.985495,
-      "lng": 117.851724,
-      "price": 307.5
-    },
-    {
-      "id": "wa:NARROGIN:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Narrogin",
-      "location": "NARROGIN",
-      "lat": -32.9334,
-      "lng": 117.178861,
-      "price": 307.9
-    },
-    {
-      "id": "wa:DENMARK:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Denmark",
-      "location": "DENMARK",
-      "lat": -34.960883,
-      "lng": 117.353996,
-      "price": 307.9
-    },
-    {
-      "id": "wa:MOORA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Moora Depot",
-      "location": "MOORA",
-      "lat": -30.635255,
-      "lng": 116.008868,
-      "price": 307.9
-    },
-    {
-      "id": "wa:WILLIAMS:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Williams Roadhouse",
-      "location": "WILLIAMS",
-      "lat": -33.032295,
-      "lng": 116.880129,
-      "price": 307.9
-    },
-    {
-      "id": "wa:WEST END:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Geraldton OPT",
-      "location": "WEST END",
-      "lat": -28.783461,
-      "lng": 114.595966,
-      "price": 307.9
     },
     {
       "id": "wa:KUNUNURRA:diesel",
@@ -732,6 +576,54 @@
       "lat": -31.885693,
       "lng": 116.042187,
       "price": 307.9
+    },
+    {
+      "id": "wa:JARRAHDALE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Jarrahdale",
+      "location": "JARRAHDALE",
+      "lat": -32.308753,
+      "lng": 116.006734,
+      "price": 307.9
+    },
+    {
+      "id": "wa:WEST BUSSELTON:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Liberty",
+      "name": "Liberty Busselton West",
+      "location": "WEST BUSSELTON",
+      "lat": -33.656076,
+      "lng": 115.341215,
+      "price": 308.5
+    },
+    {
+      "id": "wa:NOLLAMARA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Nollamara",
+      "location": "NOLLAMARA",
+      "lat": -31.880514,
+      "lng": 115.840339,
+      "price": 308.7
+    },
+    {
+      "id": "wa:PINJARRA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Pinjarra Truck Stop",
+      "location": "PINJARRA",
+      "lat": -32.610785,
+      "lng": 115.848041,
+      "price": 308.9
     },
     {
       "id": "wa:KWINANA BEACH:diesel",
@@ -794,18 +686,6 @@
       "price": 309.2
     },
     {
-      "id": "wa:PINJARRA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Pinjarra",
-      "location": "PINJARRA",
-      "lat": -32.63094,
-      "lng": 115.872555,
-      "price": 309.3
-    },
-    {
       "id": "wa:WANNEROO:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -815,18 +695,6 @@
       "location": "WANNEROO",
       "lat": -31.751382,
       "lng": 115.803426,
-      "price": 309.3
-    },
-    {
-      "id": "wa:NEERABUP:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Neerabup",
-      "location": "NEERABUP",
-      "lat": -31.686965,
-      "lng": 115.783501,
       "price": 309.3
     },
     {
@@ -878,6 +746,30 @@
       "price": 309.5
     },
     {
+      "id": "wa:BAYONET HEAD:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Liberty",
+      "name": "Liberty Oyster Harbour",
+      "location": "BAYONET HEAD",
+      "lat": -34.981779,
+      "lng": 117.922103,
+      "price": 309.5
+    },
+    {
+      "id": "wa:MCKAIL:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Liberty",
+      "name": "Liberty McKail",
+      "location": "MCKAIL",
+      "lat": -34.985495,
+      "lng": 117.851724,
+      "price": 309.5
+    },
+    {
       "id": "wa:BANKSIA GROVE:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -914,15 +806,27 @@
       "price": 309.5
     },
     {
-      "id": "wa:DONGARA:diesel",
+      "id": "wa:DALYELLUP:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Liberty",
-      "name": "Liberty Dongara",
-      "location": "DONGARA",
-      "lat": -29.253038,
-      "lng": 114.956368,
+      "name": "Liberty Dalyellup",
+      "location": "DALYELLUP",
+      "lat": -33.396215,
+      "lng": 115.636958,
+      "price": 309.5
+    },
+    {
+      "id": "wa:HIGH WYCOMBE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Shell",
+      "name": "Shell High Wycombe",
+      "location": "HIGH WYCOMBE",
+      "lat": -31.938206,
+      "lng": 115.992146,
       "price": 309.5
     },
     {
@@ -998,30 +902,6 @@
       "price": 309.7
     },
     {
-      "id": "wa:ARMADALE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Armadale",
-      "location": "ARMADALE",
-      "lat": -32.158168,
-      "lng": 116.001834,
-      "price": 309.7
-    },
-    {
-      "id": "wa:MOUNT HELENA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Mt Helena",
-      "location": "MOUNT HELENA",
-      "lat": -31.878494,
-      "lng": 116.209053,
-      "price": 309.7
-    },
-    {
       "id": "wa:PIARA WATERS:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1055,18 +935,6 @@
       "location": "SHOALWATER",
       "lat": -32.292358,
       "lng": 115.71055,
-      "price": 309.7
-    },
-    {
-      "id": "wa:KALAMUNDA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Kalamunda",
-      "location": "KALAMUNDA",
-      "lat": -31.97362,
-      "lng": 116.059448,
       "price": 309.7
     },
     {
@@ -1118,18 +986,6 @@
       "price": 309.9
     },
     {
-      "id": "wa:EXMOUTH:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Independent",
-      "name": "Ningaloo Reef Fuels",
-      "location": "EXMOUTH",
-      "lat": -21.938372,
-      "lng": 114.12988,
-      "price": 309.9
-    },
-    {
       "id": "wa:BYFORD:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1139,18 +995,6 @@
       "location": "BYFORD",
       "lat": -32.226368,
       "lng": 116.008,
-      "price": 309.9
-    },
-    {
-      "id": "wa:PERTH AIRPORT:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Perth Airport Truck Stop",
-      "location": "PERTH AIRPORT",
-      "lat": -31.956366,
-      "lng": 115.969749,
       "price": 309.9
     },
     {
@@ -1166,16 +1010,16 @@
       "price": 309.9
     },
     {
-      "id": "wa:CHIDLOW:diesel",
+      "id": "wa:BUNBURY:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Independent",
-      "name": "Chidlow Growers Mart Liquor Store",
-      "location": "CHIDLOW",
-      "lat": -31.857699,
-      "lng": 116.265987,
-      "price": 310
+      "brand": "Vibe",
+      "name": "Vibe Bunbury Central",
+      "location": "BUNBURY",
+      "lat": -33.336043,
+      "lng": 115.646957,
+      "price": 310.7
     },
     {
       "id": "wa:EAST BUNBURY:diesel",
@@ -1286,27 +1130,51 @@
       "price": 310.9
     },
     {
-      "id": "wa:GIDGEGANNUP:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Toodyay Rd",
-      "location": "GIDGEGANNUP",
-      "lat": -31.794245,
-      "lng": 116.193148,
-      "price": 311.7
-    },
-    {
-      "id": "wa:BYFORD:diesel",
+      "id": "wa:PERTH AIRPORT:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "United",
-      "name": "United Byford",
-      "location": "BYFORD",
-      "lat": -32.2154436,
-      "lng": 116.0080304,
+      "name": "United Perth Airport Truck Stop",
+      "location": "PERTH AIRPORT",
+      "lat": -31.956366,
+      "lng": 115.969749,
+      "price": 310.9
+    },
+    {
+      "id": "wa:NARROGIN:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Narrogin",
+      "location": "NARROGIN",
+      "lat": -32.9334,
+      "lng": 117.178861,
+      "price": 311.9
+    },
+    {
+      "id": "wa:WILLIAMS:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Williams Roadhouse",
+      "location": "WILLIAMS",
+      "lat": -33.032295,
+      "lng": 116.880129,
+      "price": 311.9
+    },
+    {
+      "id": "wa:WEST END:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Geraldton OPT",
+      "location": "WEST END",
+      "lat": -28.783461,
+      "lng": 114.595966,
       "price": 311.9
     },
     {
@@ -1346,6 +1214,18 @@
       "price": 312.5
     },
     {
+      "id": "wa:DONGARA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Liberty",
+      "name": "Liberty Dongara",
+      "location": "DONGARA",
+      "lat": -29.253038,
+      "lng": 114.956368,
+      "price": 312.5
+    },
+    {
       "id": "wa:O'CONNOR:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1379,18 +1259,6 @@
       "location": "BEDFORD",
       "lat": -31.9,
       "lng": 115.889257,
-      "price": 312.7
-    },
-    {
-      "id": "wa:JANDAKOT:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Jandakot",
-      "location": "JANDAKOT",
-      "lat": -32.090758,
-      "lng": 115.868846,
       "price": 312.7
     },
     {
@@ -1430,6 +1298,18 @@
       "price": 312.9
     },
     {
+      "id": "wa:MOORA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Moora Depot",
+      "location": "MOORA",
+      "lat": -30.635255,
+      "lng": 116.008868,
+      "price": 312.9
+    },
+    {
       "id": "wa:WELSHPOOL:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1466,18 +1346,6 @@
       "price": 312.9
     },
     {
-      "id": "wa:HERNE HILL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Herne Hill General Store",
-      "location": "HERNE HILL",
-      "lat": -31.825036,
-      "lng": 116.016716,
-      "price": 312.9
-    },
-    {
       "id": "wa:MORLEY:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1488,6 +1356,18 @@
       "lat": -31.875866,
       "lng": 115.925309,
       "price": 312.9
+    },
+    {
+      "id": "wa:MIDVALE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Midvale",
+      "location": "MIDVALE",
+      "lat": -31.885583,
+      "lng": 116.030335,
+      "price": 313.5
     },
     {
       "id": "wa:LITTLE GROVE:diesel",
@@ -1502,15 +1382,39 @@
       "price": 313.5
     },
     {
-      "id": "wa:BUNBURY:diesel",
+      "id": "wa:THORNLIE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Thornlie",
+      "location": "THORNLIE",
+      "lat": -32.061092,
+      "lng": 115.939257,
+      "price": 313.5
+    },
+    {
+      "id": "wa:WELSHPOOL:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Welshpool",
+      "location": "WELSHPOOL",
+      "lat": -31.993707,
+      "lng": 115.919139,
+      "price": 313.5
+    },
+    {
+      "id": "wa:MOUNT HELENA:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Vibe",
-      "name": "Vibe Bunbury Central",
-      "location": "BUNBURY",
-      "lat": -33.336043,
-      "lng": 115.646957,
+      "name": "Vibe Mt Helena",
+      "location": "MOUNT HELENA",
+      "lat": -31.878494,
+      "lng": 116.209053,
       "price": 313.7
     },
     {
@@ -1535,6 +1439,18 @@
       "location": "NAVAL BASE",
       "lat": -32.199892,
       "lng": 115.781843,
+      "price": 313.9
+    },
+    {
+      "id": "wa:BYFORD:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Byford",
+      "location": "BYFORD",
+      "lat": -32.2154436,
+      "lng": 116.0080304,
       "price": 313.9
     },
     {
@@ -1586,6 +1502,18 @@
       "price": 314
     },
     {
+      "id": "wa:ARMADALE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Armadale",
+      "location": "ARMADALE",
+      "lat": -32.158168,
+      "lng": 116.001834,
+      "price": 314.7
+    },
+    {
       "id": "wa:MANDURAH:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1595,18 +1523,6 @@
       "location": "MANDURAH",
       "lat": -32.517315,
       "lng": 115.743891,
-      "price": 314.7
-    },
-    {
-      "id": "wa:OSBORNE PARK:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Osborne Park",
-      "location": "OSBORNE PARK",
-      "lat": -31.90631,
-      "lng": 115.813744,
       "price": 314.7
     },
     {
@@ -1670,18 +1586,6 @@
       "price": 314.9
     },
     {
-      "id": "wa:MYAREE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Myaree",
-      "location": "MYAREE",
-      "lat": -32.046212,
-      "lng": 115.812611,
-      "price": 314.9
-    },
-    {
       "id": "wa:UPPER SWAN:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1742,30 +1646,6 @@
       "price": 314.9
     },
     {
-      "id": "wa:THORNLIE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Thornlie",
-      "location": "THORNLIE",
-      "lat": -32.061092,
-      "lng": 115.939257,
-      "price": 314.9
-    },
-    {
-      "id": "wa:WELSHPOOL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Welshpool",
-      "location": "WELSHPOOL",
-      "lat": -31.993707,
-      "lng": 115.919139,
-      "price": 314.9
-    },
-    {
       "id": "wa:WONTHELLA:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1814,6 +1694,18 @@
       "price": 314.9
     },
     {
+      "id": "wa:PORT HEDLAND:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Port Hedland",
+      "location": "PORT HEDLAND",
+      "lat": -20.312154,
+      "lng": 118.587326,
+      "price": 315
+    },
+    {
       "id": "wa:DONNYBROOK:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1850,30 +1742,6 @@
       "price": 315.7
     },
     {
-      "id": "wa:MORLEY:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Morley",
-      "location": "MORLEY",
-      "lat": -31.887832,
-      "lng": 115.889889,
-      "price": 315.7
-    },
-    {
-      "id": "wa:MIDVALE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Midvale",
-      "location": "MIDVALE",
-      "lat": -31.885583,
-      "lng": 116.030335,
-      "price": 315.9
-    },
-    {
       "id": "wa:DJUGUN:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1895,18 +1763,6 @@
       "location": "BASKERVILLE",
       "lat": -31.797752,
       "lng": 116.021245,
-      "price": 315.9
-    },
-    {
-      "id": "wa:KOONDOOLA:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Koondoola",
-      "location": "KOONDOOLA",
-      "lat": -31.841924,
-      "lng": 115.858276,
       "price": 315.9
     },
     {
@@ -1934,18 +1790,6 @@
       "price": 315.9
     },
     {
-      "id": "wa:TUART HILL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Better Choice",
-      "name": "Better Choice Tuart Hill",
-      "location": "TUART HILL",
-      "lat": -31.897268,
-      "lng": 115.841447,
-      "price": 315.9
-    },
-    {
       "id": "wa:DUNSBOROUGH:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -1958,15 +1802,15 @@
       "price": 315.9
     },
     {
-      "id": "wa:MALAGA:diesel",
+      "id": "wa:DENMARK:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Better Choice",
-      "name": "Better Choice Malaga",
-      "location": "MALAGA",
-      "lat": -31.855136,
-      "lng": 115.878229,
+      "brand": "United",
+      "name": "United Denmark",
+      "location": "DENMARK",
+      "lat": -34.960883,
+      "lng": 117.353996,
       "price": 315.9
     },
     {
@@ -1979,18 +1823,6 @@
       "location": "CANNING VALE",
       "lat": -32.059609,
       "lng": 115.930743,
-      "price": 315.9
-    },
-    {
-      "id": "wa:MANJIMUP:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Manjimup",
-      "location": "MANJIMUP",
-      "lat": -34.248114,
-      "lng": 116.140913,
       "price": 315.9
     },
     {
@@ -2015,30 +1847,6 @@
       "location": "AUGUSTA",
       "lat": -34.315893,
       "lng": 115.159351,
-      "price": 315.9
-    },
-    {
-      "id": "wa:BULLSBROOK:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Bullsbrook",
-      "location": "BULLSBROOK",
-      "lat": -31.671935,
-      "lng": 116.031427,
-      "price": 315.9
-    },
-    {
-      "id": "wa:DONNYBROOK:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Liberty",
-      "name": "Fruit Barn",
-      "location": "DONNYBROOK",
-      "lat": -33.569035,
-      "lng": 115.821991,
       "price": 315.9
     },
     {
@@ -2102,16 +1910,28 @@
       "price": 316.5
     },
     {
+      "id": "wa:GIDGEGANNUP:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Toodyay Rd",
+      "location": "GIDGEGANNUP",
+      "lat": -31.794245,
+      "lng": 116.193148,
+      "price": 316.7
+    },
+    {
       "id": "wa:NEERABUP:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Astron",
-      "name": "Astron Neerabup",
+      "brand": "Vibe",
+      "name": "Vibe Neerabup",
       "location": "NEERABUP",
-      "lat": -31.672434,
-      "lng": 115.743141,
-      "price": 316.9
+      "lat": -31.686965,
+      "lng": 115.783501,
+      "price": 316.7
     },
     {
       "id": "wa:KEWDALE:diesel",
@@ -2258,6 +2078,18 @@
       "price": 316.9
     },
     {
+      "id": "wa:KALAMUNDA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Kalamunda",
+      "location": "KALAMUNDA",
+      "lat": -31.97362,
+      "lng": 116.059448,
+      "price": 316.9
+    },
+    {
       "id": "wa:BLUFF POINT:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2270,27 +2102,15 @@
       "price": 317.5
     },
     {
-      "id": "wa:SPEARWOOD:diesel",
+      "id": "wa:JANDAKOT:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Vibe",
-      "name": "Vibe Spearwood",
-      "location": "SPEARWOOD",
-      "lat": -32.105033,
-      "lng": 115.782419,
-      "price": 317.7
-    },
-    {
-      "id": "wa:HAMILTON HILL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Hamilton Hill",
-      "location": "HAMILTON HILL",
-      "lat": -32.086143,
-      "lng": 115.777233,
+      "name": "Vibe Jandakot",
+      "location": "JANDAKOT",
+      "lat": -32.090758,
+      "lng": 115.868846,
       "price": 317.7
     },
     {
@@ -2342,6 +2162,18 @@
       "price": 317.9
     },
     {
+      "id": "wa:KOONDOOLA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Koondoola",
+      "location": "KOONDOOLA",
+      "lat": -31.841924,
+      "lng": 115.858276,
+      "price": 317.9
+    },
+    {
       "id": "wa:KALGOORLIE:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2363,18 +2195,6 @@
       "location": "YILKARI",
       "lat": -30.806356,
       "lng": 121.490051,
-      "price": 317.9
-    },
-    {
-      "id": "wa:BIBRA LAKE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Bibra Lake",
-      "location": "BIBRA LAKE",
-      "lat": -32.103888,
-      "lng": 115.804171,
       "price": 317.9
     },
     {
@@ -2402,30 +2222,6 @@
       "price": 317.9
     },
     {
-      "id": "wa:FORRESTDALE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP Forrestdale",
-      "location": "FORRESTDALE",
-      "lat": -32.137312,
-      "lng": 115.969456,
-      "price": 317.9
-    },
-    {
-      "id": "wa:EAST ROCKINGHAM:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "BP",
-      "name": "BP East Rockingham",
-      "location": "EAST ROCKINGHAM",
-      "lat": -32.276459,
-      "lng": 115.780512,
-      "price": 317.9
-    },
-    {
       "id": "wa:WITCHCLIFFE:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2435,6 +2231,18 @@
       "location": "WITCHCLIFFE",
       "lat": -34.026394,
       "lng": 115.100027,
+      "price": 317.9
+    },
+    {
+      "id": "wa:OSBORNE PARK:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Osborne Park",
+      "location": "OSBORNE PARK",
+      "lat": -31.90631,
+      "lng": 115.813744,
       "price": 317.9
     },
     {
@@ -2462,6 +2270,30 @@
       "price": 317.9
     },
     {
+      "id": "wa:BULLSBROOK:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Bullsbrook",
+      "location": "BULLSBROOK",
+      "lat": -31.671935,
+      "lng": 116.031427,
+      "price": 317.9
+    },
+    {
+      "id": "wa:CHIDLOW:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Independent",
+      "name": "Chidlow Growers Mart Liquor Store",
+      "location": "CHIDLOW",
+      "lat": -31.857699,
+      "lng": 116.265987,
+      "price": 318
+    },
+    {
       "id": "wa:ROSA BROOK:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2472,6 +2304,30 @@
       "lat": -33.940371,
       "lng": 115.196115,
       "price": 318
+    },
+    {
+      "id": "wa:TUART HILL:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Better Choice",
+      "name": "Better Choice Tuart Hill",
+      "location": "TUART HILL",
+      "lat": -31.897268,
+      "lng": 115.841447,
+      "price": 318.5
+    },
+    {
+      "id": "wa:MALAGA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Better Choice",
+      "name": "Better Choice Malaga",
+      "location": "MALAGA",
+      "lat": -31.855136,
+      "lng": 115.878229,
+      "price": 318.5
     },
     {
       "id": "wa:KARRIDALE:diesel",
@@ -2490,18 +2346,6 @@
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Better Choice",
-      "name": "Better Choice Margaret River",
-      "location": "MARGARET RIVER",
-      "lat": -33.95989,
-      "lng": 115.076412,
-      "price": 318.5
-    },
-    {
-      "id": "wa:MARGARET RIVER:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
       "brand": "Liberty",
       "name": "Geographe Petroleum Margaret River",
       "location": "MARGARET RIVER",
@@ -2510,27 +2354,27 @@
       "price": 318.5
     },
     {
-      "id": "wa:LEXIA:diesel",
+      "id": "wa:NEERABUP:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "United",
-      "name": "United Lexia Truck Stop",
-      "location": "LEXIA",
-      "lat": -31.795189,
-      "lng": 115.899559,
+      "brand": "Astron",
+      "name": "Astron Neerabup",
+      "location": "NEERABUP",
+      "lat": -31.672434,
+      "lng": 115.743141,
       "price": 318.9
     },
     {
-      "id": "wa:KELLERBERRIN:diesel",
+      "id": "wa:SPEARWOOD:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "United",
-      "name": "United Kellerberrin Truck Stop",
-      "location": "KELLERBERRIN",
-      "lat": -31.633056,
-      "lng": 117.727173,
+      "brand": "Vibe",
+      "name": "Vibe Spearwood",
+      "location": "SPEARWOOD",
+      "lat": -32.105033,
+      "lng": 115.782419,
       "price": 318.9
     },
     {
@@ -2570,6 +2414,18 @@
       "price": 319.5
     },
     {
+      "id": "wa:MYAREE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Myaree",
+      "location": "MYAREE",
+      "lat": -32.046212,
+      "lng": 115.812611,
+      "price": 319.5
+    },
+    {
       "id": "wa:EDGEWATER:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2603,6 +2459,18 @@
       "location": "BELLEVUE",
       "lat": -31.893058,
       "lng": 116.019419,
+      "price": 319.5
+    },
+    {
+      "id": "wa:KELLERBERRIN:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Kellerberrin Truck Stop",
+      "location": "KELLERBERRIN",
+      "lat": -31.633056,
+      "lng": 117.727173,
       "price": 319.5
     },
     {
@@ -2678,27 +2546,15 @@
       "price": 319.7
     },
     {
-      "id": "wa:COOLGARDIE:diesel",
+      "id": "wa:HAMILTON HILL:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Vibe",
-      "name": "Vibe Coolgardie",
-      "location": "COOLGARDIE",
-      "lat": -30.954992,
-      "lng": 121.172477,
-      "price": 319.7
-    },
-    {
-      "id": "wa:SUBIACO:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Subiaco",
-      "location": "SUBIACO",
-      "lat": -31.952307,
-      "lng": 115.83115,
+      "name": "Vibe Hamilton Hill",
+      "location": "HAMILTON HILL",
+      "lat": -32.086143,
+      "lng": 115.777233,
       "price": 319.7
     },
     {
@@ -2714,15 +2570,15 @@
       "price": 319.7
     },
     {
-      "id": "wa:HARVEY:diesel",
+      "id": "wa:MORLEY:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "Vibe",
-      "name": "Vibe Harvey",
-      "location": "HARVEY",
-      "lat": -33.082471,
-      "lng": 115.905481,
+      "name": "Vibe Morley",
+      "location": "MORLEY",
+      "lat": -31.887832,
+      "lng": 115.889889,
       "price": 319.7
     },
     {
@@ -2735,18 +2591,6 @@
       "location": "COOLUP",
       "lat": -32.727044,
       "lng": 115.881859,
-      "price": 319.7
-    },
-    {
-      "id": "wa:BAYSWATER:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Vibe",
-      "name": "Vibe Bayswater",
-      "location": "BAYSWATER",
-      "lat": -31.9046833,
-      "lng": 115.9163268,
       "price": 319.7
     },
     {
@@ -2810,30 +2654,6 @@
       "price": 319.9
     },
     {
-      "id": "wa:ARMADALE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Armadale",
-      "location": "ARMADALE",
-      "lat": -32.161492,
-      "lng": 116.0176,
-      "price": 319.9
-    },
-    {
-      "id": "wa:HAMILTON HILL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Hamilton Hill",
-      "location": "HAMILTON HILL",
-      "lat": -32.074926,
-      "lng": 115.780931,
-      "price": 319.9
-    },
-    {
       "id": "wa:PADBURY:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2858,18 +2678,6 @@
       "price": 319.9
     },
     {
-      "id": "wa:LOWER KING:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Shell",
-      "name": "Shell Lower King Liquor &amp; General",
-      "location": "LOWER KING",
-      "lat": -34.949189,
-      "lng": 117.943697,
-      "price": 319.9
-    },
-    {
       "id": "wa:COCKBURN CENTRAL:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2879,18 +2687,6 @@
       "location": "COCKBURN CENTRAL",
       "lat": -32.127157,
       "lng": 115.843357,
-      "price": 319.9
-    },
-    {
-      "id": "wa:ELLENBROOK:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Ellenbrook",
-      "location": "ELLENBROOK",
-      "lat": -31.77852,
-      "lng": 115.96699,
       "price": 319.9
     },
     {
@@ -2918,6 +2714,18 @@
       "price": 319.9
     },
     {
+      "id": "wa:BIBRA LAKE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Bibra Lake",
+      "location": "BIBRA LAKE",
+      "lat": -32.103888,
+      "lng": 115.804171,
+      "price": 319.9
+    },
+    {
       "id": "wa:KARRATHA INDUSTRIAL ESTATE:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -2927,6 +2735,18 @@
       "location": "KARRATHA INDUSTRIAL ESTATE",
       "lat": -20.775653,
       "lng": 116.860746,
+      "price": 319.9
+    },
+    {
+      "id": "wa:MANJIMUP:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Manjimup",
+      "location": "MANJIMUP",
+      "lat": -34.248114,
+      "lng": 116.140913,
       "price": 319.9
     },
     {
@@ -2975,6 +2795,30 @@
       "location": "MADDINGTON",
       "lat": -32.045398,
       "lng": 115.988733,
+      "price": 319.9
+    },
+    {
+      "id": "wa:FORRESTDALE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP Forrestdale",
+      "location": "FORRESTDALE",
+      "lat": -32.137312,
+      "lng": 115.969456,
+      "price": 319.9
+    },
+    {
+      "id": "wa:EAST ROCKINGHAM:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "BP",
+      "name": "BP East Rockingham",
+      "location": "EAST ROCKINGHAM",
+      "lat": -32.276459,
+      "lng": 115.780512,
       "price": 319.9
     },
     {
@@ -3086,18 +2930,6 @@
       "price": 319.9
     },
     {
-      "id": "wa:ANKETELL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Anketell",
-      "location": "ANKETELL",
-      "lat": -32.211351,
-      "lng": 115.855637,
-      "price": 319.9
-    },
-    {
       "id": "wa:PORT HEDLAND:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -3119,30 +2951,6 @@
       "location": "MAHOMETS FLATS",
       "lat": -28.792328,
       "lng": 114.616974,
-      "price": 319.9
-    },
-    {
-      "id": "wa:VASSE:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Vasse Truck Stop",
-      "location": "VASSE",
-      "lat": -33.684229,
-      "lng": 115.23136,
-      "price": 319.9
-    },
-    {
-      "id": "wa:ANKETELL:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "United",
-      "name": "United Anketell South",
-      "location": "ANKETELL",
-      "lat": -32.227802,
-      "lng": 115.8558758,
       "price": 319.9
     },
     {
@@ -3218,15 +3026,15 @@
       "price": 319.9
     },
     {
-      "id": "wa:SWANBOURNE:diesel",
+      "id": "wa:HERNE HILL:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Astron",
-      "name": "Astron Swanbourne",
-      "location": "SWANBOURNE",
-      "lat": -31.983608,
-      "lng": 115.767278,
+      "brand": "Vibe",
+      "name": "Herne Hill General Store",
+      "location": "HERNE HILL",
+      "lat": -31.825036,
+      "lng": 116.016716,
       "price": 319.9
     },
     {
@@ -3326,6 +3134,18 @@
       "price": 321
     },
     {
+      "id": "wa:MARGARET RIVER:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Better Choice",
+      "name": "Better Choice Margaret River",
+      "location": "MARGARET RIVER",
+      "lat": -33.95989,
+      "lng": 115.076412,
+      "price": 321.5
+    },
+    {
       "id": "wa:COLLIE:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -3338,15 +3158,39 @@
       "price": 321.7
     },
     {
-      "id": "wa:EAST VICTORIA PARK:diesel",
+      "id": "wa:ARMADALE:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
       "brand": "United",
-      "name": "United East Victoria Park",
-      "location": "EAST VICTORIA PARK",
-      "lat": -31.98781,
-      "lng": 115.905402,
+      "name": "United Armadale",
+      "location": "ARMADALE",
+      "lat": -32.161492,
+      "lng": 116.0176,
+      "price": 321.9
+    },
+    {
+      "id": "wa:HAMILTON HILL:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Hamilton Hill",
+      "location": "HAMILTON HILL",
+      "lat": -32.074926,
+      "lng": 115.780931,
+      "price": 321.9
+    },
+    {
+      "id": "wa:LEXIA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Lexia Truck Stop",
+      "location": "LEXIA",
+      "lat": -31.795189,
+      "lng": 115.899559,
       "price": 321.9
     },
     {
@@ -3371,6 +3215,18 @@
       "location": "NORTHBRIDGE",
       "lat": -31.945612,
       "lng": 115.852438,
+      "price": 321.9
+    },
+    {
+      "id": "wa:ELLENBROOK:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Ellenbrook",
+      "location": "ELLENBROOK",
+      "lat": -31.77852,
+      "lng": 115.96699,
       "price": 321.9
     },
     {
@@ -3410,27 +3266,39 @@
       "price": 321.9
     },
     {
-      "id": "wa:GLENFIELD:diesel",
+      "id": "wa:ANKETELL:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Caltex",
-      "name": "Caltex Glenfield",
-      "location": "GLENFIELD",
-      "lat": -28.671423,
-      "lng": 114.622043,
+      "brand": "United",
+      "name": "United Anketell",
+      "location": "ANKETELL",
+      "lat": -32.211351,
+      "lng": 115.855637,
       "price": 321.9
     },
     {
-      "id": "wa:BEDFORDALE:diesel",
+      "id": "wa:VASSE:diesel",
       "state": "WA",
       "source": "fuelwatch",
       "product": "diesel",
-      "brand": "Caltex",
-      "name": "Caltex Bedfordale",
-      "location": "BEDFORDALE",
-      "lat": -32.18201,
-      "lng": 116.07568,
+      "brand": "United",
+      "name": "United Vasse Truck Stop",
+      "location": "VASSE",
+      "lat": -33.684229,
+      "lng": 115.23136,
+      "price": 321.9
+    },
+    {
+      "id": "wa:ANKETELL:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United Anketell South",
+      "location": "ANKETELL",
+      "lat": -32.227802,
+      "lng": 115.8558758,
       "price": 321.9
     },
     {
@@ -3614,6 +3482,54 @@
       "price": 323.5
     },
     {
+      "id": "wa:SUBIACO:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Subiaco",
+      "location": "SUBIACO",
+      "lat": -31.952307,
+      "lng": 115.83115,
+      "price": 323.7
+    },
+    {
+      "id": "wa:BAYSWATER:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Bayswater",
+      "location": "BAYSWATER",
+      "lat": -31.9046833,
+      "lng": 115.9163268,
+      "price": 323.7
+    },
+    {
+      "id": "wa:EAST VICTORIA PARK:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "United",
+      "name": "United East Victoria Park",
+      "location": "EAST VICTORIA PARK",
+      "lat": -31.98781,
+      "lng": 115.905402,
+      "price": 323.9
+    },
+    {
+      "id": "wa:GLENFIELD:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Caltex",
+      "name": "Caltex Glenfield",
+      "location": "GLENFIELD",
+      "lat": -28.671423,
+      "lng": 114.622043,
+      "price": 323.9
+    },
+    {
       "id": "wa:SCARBOROUGH:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -3743,6 +3659,18 @@
       "location": "LAKELANDS",
       "lat": -32.46906,
       "lng": 115.759677,
+      "price": 323.9
+    },
+    {
+      "id": "wa:BEDFORDALE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Caltex",
+      "name": "Caltex Bedfordale",
+      "location": "BEDFORDALE",
+      "lat": -32.18201,
+      "lng": 116.07568,
       "price": 323.9
     },
     {
@@ -4274,18 +4202,6 @@
       "price": 323.9
     },
     {
-      "id": "wa:BUNBURY:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Shell",
-      "name": "OTR Bunbury",
-      "location": "BUNBURY",
-      "lat": -33.33,
-      "lng": 115.641575,
-      "price": 323.9
-    },
-    {
       "id": "wa:SEVILLE GROVE:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -4442,6 +4358,18 @@
       "price": 323.9
     },
     {
+      "id": "wa:COOLGARDIE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Coolgardie",
+      "location": "COOLGARDIE",
+      "lat": -30.954992,
+      "lng": 121.172477,
+      "price": 324.7
+    },
+    {
       "id": "wa:GREENBUSHES:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -4464,6 +4392,30 @@
       "lat": -32.714003,
       "lng": 116.062545,
       "price": 324.7
+    },
+    {
+      "id": "wa:WAROONA:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Independent",
+      "name": "De Rosa's Highway Motors",
+      "location": "WAROONA",
+      "lat": -32.835836,
+      "lng": 115.917882,
+      "price": 324.9
+    },
+    {
+      "id": "wa:LOWER KING:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Shell",
+      "name": "Shell Lower King Liquor &amp; General",
+      "location": "LOWER KING",
+      "lat": -34.949189,
+      "lng": 117.943697,
+      "price": 324.9
     },
     {
       "id": "wa:COOLGARDIE:diesel",
@@ -4502,6 +4454,18 @@
       "price": 324.9
     },
     {
+      "id": "wa:SWANBOURNE:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Astron",
+      "name": "Astron Swanbourne",
+      "location": "SWANBOURNE",
+      "lat": -31.983608,
+      "lng": 115.767278,
+      "price": 324.9
+    },
+    {
       "id": "wa:MANYPEAKS:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -4524,6 +4488,18 @@
       "lat": -35.013199,
       "lng": 117.522851,
       "price": 325.5
+    },
+    {
+      "id": "wa:HARVEY:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Vibe",
+      "name": "Vibe Harvey",
+      "location": "HARVEY",
+      "lat": -33.082471,
+      "lng": 115.905481,
+      "price": 325.7
     },
     {
       "id": "wa:EXMOUTH:diesel",
@@ -4886,6 +4862,18 @@
       "price": 329.9
     },
     {
+      "id": "wa:DONNYBROOK:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Liberty",
+      "name": "Fruit Barn",
+      "location": "DONNYBROOK",
+      "lat": -33.569035,
+      "lng": 115.821991,
+      "price": 329.9
+    },
+    {
       "id": "wa:BRUNSWICK:diesel",
       "state": "WA",
       "source": "fuelwatch",
@@ -4907,18 +4895,6 @@
       "location": "RAVENSTHORPE",
       "lat": -33.581023,
       "lng": 120.05283,
-      "price": 329.9
-    },
-    {
-      "id": "wa:PORT HEDLAND:diesel",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "diesel",
-      "brand": "Caltex",
-      "name": "Caltex South Hedland",
-      "location": "PORT HEDLAND",
-      "lat": -20.371697,
-      "lng": 118.611974,
       "price": 329.9
     },
     {
@@ -4991,6 +4967,18 @@
       "location": "MEEKATHARRA",
       "lat": -26.596261,
       "lng": 118.493318,
+      "price": 331.9
+    },
+    {
+      "id": "wa:PORT HEDLAND:diesel",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "diesel",
+      "brand": "Caltex",
+      "name": "Caltex South Hedland",
+      "location": "PORT HEDLAND",
+      "lat": -20.371697,
+      "lng": 118.611974,
       "price": 331.9
     },
     {
@@ -5298,24 +5286,36 @@
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Liberty",
-      "name": "Liberty Beckenham",
-      "location": "BECKENHAM",
-      "lat": -32.022054,
-      "lng": 115.954779,
-      "price": 231.3
-    },
-    {
-      "id": "wa:BECKENHAM:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
       "brand": "Burk",
       "name": "Burk Cannington",
       "location": "BECKENHAM",
       "lat": -32.027183,
       "lng": 115.950013,
       "price": 233.3
+    },
+    {
+      "id": "wa:BECKENHAM:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Liberty",
+      "name": "Liberty Beckenham",
+      "location": "BECKENHAM",
+      "lat": -32.022054,
+      "lng": 115.954779,
+      "price": 233.3
+    },
+    {
+      "id": "wa:OAKFORD:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Burk",
+      "name": "Burk Oakford",
+      "location": "OAKFORD",
+      "lat": -32.205041,
+      "lng": 115.926114,
+      "price": 237.1
     },
     {
       "id": "wa:OAKFORD:petrol",
@@ -5330,18 +5330,6 @@
       "price": 237.2
     },
     {
-      "id": "wa:OAKFORD:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Burk",
-      "name": "Burk Oakford",
-      "location": "OAKFORD",
-      "lat": -32.205041,
-      "lng": 115.926114,
-      "price": 237.3
-    },
-    {
       "id": "wa:ASCOT:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -5351,6 +5339,18 @@
       "location": "ASCOT",
       "lat": -31.935968,
       "lng": 115.934361,
+      "price": 238.7
+    },
+    {
+      "id": "wa:PIARA WATERS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Piara Waters",
+      "location": "PIARA WATERS",
+      "lat": -32.146852,
+      "lng": 115.922099,
       "price": 238.7
     },
     {
@@ -5438,16 +5438,16 @@
       "price": 239.9
     },
     {
-      "id": "wa:PIARA WATERS:petrol",
+      "id": "wa:PORT KENNEDY:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "Vibe",
-      "name": "Vibe Piara Waters",
-      "location": "PIARA WATERS",
-      "lat": -32.146852,
-      "lng": 115.922099,
-      "price": 241.7
+      "name": "Vibe Port Kennedy",
+      "location": "PORT KENNEDY",
+      "lat": -32.371578,
+      "lng": 115.762171,
+      "price": 242.3
     },
     {
       "id": "wa:GOLDEN BAY:petrol",
@@ -5474,16 +5474,28 @@
       "price": 242.9
     },
     {
-      "id": "wa:LANDSDALE:petrol",
+      "id": "wa:WANNEROO:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Liberty",
-      "name": "Liberty Landsdale",
-      "location": "LANDSDALE",
-      "lat": -31.802758,
-      "lng": 115.837737,
-      "price": 243.3
+      "brand": "Vibe",
+      "name": "Vibe Wanneroo",
+      "location": "WANNEROO",
+      "lat": -31.751382,
+      "lng": 115.803426,
+      "price": 243.7
+    },
+    {
+      "id": "wa:NEERABUP:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Neerabup",
+      "location": "NEERABUP",
+      "lat": -31.686965,
+      "lng": 115.783501,
+      "price": 243.7
     },
     {
       "id": "wa:BYFORD:petrol",
@@ -5522,6 +5534,30 @@
       "price": 244.9
     },
     {
+      "id": "wa:CHIDLOW:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Independent",
+      "name": "Chidlow Growers Mart Liquor Store",
+      "location": "CHIDLOW",
+      "lat": -31.857699,
+      "lng": 116.265987,
+      "price": 245
+    },
+    {
+      "id": "wa:QUINNS ROCKS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Astron",
+      "name": "Astron Quinns Rocks",
+      "location": "QUINNS ROCKS",
+      "lat": -31.672657,
+      "lng": 115.708282,
+      "price": 245.3
+    },
+    {
       "id": "wa:BASSENDEAN:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -5534,27 +5570,15 @@
       "price": 245.3
     },
     {
-      "id": "wa:BALDIVIS:petrol",
+      "id": "wa:FORRESTFIELD:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "Vibe",
-      "name": "Vibe Baldivis",
-      "location": "BALDIVIS",
-      "lat": -32.29762,
-      "lng": 115.80712,
-      "price": 245.5
-    },
-    {
-      "id": "wa:NEERABUP:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Astron",
-      "name": "Astron Neerabup",
-      "location": "NEERABUP",
-      "lat": -31.672434,
-      "lng": 115.743141,
+      "name": "Vibe Forrestfield",
+      "location": "FORRESTFIELD",
+      "lat": -31.961356,
+      "lng": 115.992227,
       "price": 245.9
     },
     {
@@ -5606,28 +5630,16 @@
       "price": 246.7
     },
     {
-      "id": "wa:CHIDLOW:petrol",
+      "id": "wa:ARMADALE:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Independent",
-      "name": "Chidlow Growers Mart Liquor Store",
-      "location": "CHIDLOW",
-      "lat": -31.857699,
-      "lng": 116.265987,
-      "price": 247
-    },
-    {
-      "id": "wa:QUINNS ROCKS:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Astron",
-      "name": "Astron Quinns Rocks",
-      "location": "QUINNS ROCKS",
-      "lat": -31.672657,
-      "lng": 115.708282,
-      "price": 247.1
+      "brand": "Vibe",
+      "name": "Vibe Armadale",
+      "location": "ARMADALE",
+      "lat": -32.158168,
+      "lng": 116.001834,
+      "price": 247.2
     },
     {
       "id": "wa:CAMILLO:petrol",
@@ -5646,12 +5658,36 @@
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
+      "brand": "Liberty",
+      "name": "Liberty Landsdale",
+      "location": "LANDSDALE",
+      "lat": -31.802758,
+      "lng": 115.837737,
+      "price": 247.3
+    },
+    {
+      "id": "wa:LANDSDALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
       "brand": "Burk",
       "name": "Burk Landsdale",
       "location": "LANDSDALE",
       "lat": -31.79903,
       "lng": 115.847126,
       "price": 247.3
+    },
+    {
+      "id": "wa:BALDIVIS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Baldivis",
+      "location": "BALDIVIS",
+      "lat": -32.29762,
+      "lng": 115.80712,
+      "price": 247.5
     },
     {
       "id": "wa:DALYELLUP:petrol",
@@ -5663,18 +5699,6 @@
       "location": "DALYELLUP",
       "lat": -33.396215,
       "lng": 115.636958,
-      "price": 247.5
-    },
-    {
-      "id": "wa:HIGH WYCOMBE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Shell",
-      "name": "Shell High Wycombe",
-      "location": "HIGH WYCOMBE",
-      "lat": -31.938206,
-      "lng": 115.992146,
       "price": 247.5
     },
     {
@@ -5714,6 +5738,18 @@
       "price": 247.5
     },
     {
+      "id": "wa:JANDAKOT:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Jandakot",
+      "location": "JANDAKOT",
+      "lat": -32.090758,
+      "lng": 115.868846,
+      "price": 247.7
+    },
+    {
       "id": "wa:BEECHBORO:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -5723,6 +5759,18 @@
       "location": "BEECHBORO",
       "lat": -31.869,
       "lng": 115.924439,
+      "price": 248.5
+    },
+    {
+      "id": "wa:HIGH WYCOMBE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Shell",
+      "name": "Shell High Wycombe",
+      "location": "HIGH WYCOMBE",
+      "lat": -31.938206,
+      "lng": 115.992146,
       "price": 248.5
     },
     {
@@ -5750,28 +5798,28 @@
       "price": 248.9
     },
     {
-      "id": "wa:NEERABUP:petrol",
+      "id": "wa:SOUTH LAKE:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Neerabup",
-      "location": "NEERABUP",
-      "lat": -31.686965,
-      "lng": 115.783501,
+      "brand": "United",
+      "name": "United South Lake",
+      "location": "SOUTH LAKE",
+      "lat": -32.111481,
+      "lng": 115.838833,
       "price": 248.9
     },
     {
-      "id": "wa:KEALY:petrol",
+      "id": "wa:PINJARRA:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Siesta Park",
-      "location": "KEALY",
-      "lat": -33.655538,
-      "lng": 115.220151,
-      "price": 249.2
+      "brand": "United",
+      "name": "United Pinjarra Truck Stop",
+      "location": "PINJARRA",
+      "lat": -32.610785,
+      "lng": 115.848041,
+      "price": 248.9
     },
     {
       "id": "wa:BROADWATER:petrol",
@@ -5786,15 +5834,15 @@
       "price": 249.2
     },
     {
-      "id": "wa:WANNEROO:petrol",
+      "id": "wa:PINJARRA:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "Vibe",
-      "name": "Vibe Wanneroo",
-      "location": "WANNEROO",
-      "lat": -31.751382,
-      "lng": 115.803426,
+      "name": "Vibe Pinjarra",
+      "location": "PINJARRA",
+      "lat": -32.63094,
+      "lng": 115.872555,
       "price": 249.3
     },
     {
@@ -5870,6 +5918,18 @@
       "price": 249.3
     },
     {
+      "id": "wa:MIDVALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Midvale",
+      "location": "MIDVALE",
+      "lat": -31.885583,
+      "lng": 116.030335,
+      "price": 249.5
+    },
+    {
       "id": "wa:BYFORD:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -5882,15 +5942,15 @@
       "price": 249.5
     },
     {
-      "id": "wa:PORT KENNEDY:petrol",
+      "id": "wa:WANNEROO:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Port Kennedy",
-      "location": "PORT KENNEDY",
-      "lat": -32.371578,
-      "lng": 115.762171,
+      "brand": "United",
+      "name": "United Tapping",
+      "location": "WANNEROO",
+      "lat": -31.719744,
+      "lng": 115.783408,
       "price": 249.5
     },
     {
@@ -6002,18 +6062,6 @@
       "price": 249.7
     },
     {
-      "id": "wa:ARMADALE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Armadale",
-      "location": "ARMADALE",
-      "lat": -32.158168,
-      "lng": 116.001834,
-      "price": 249.7
-    },
-    {
       "id": "wa:SUBIACO:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -6062,6 +6110,18 @@
       "price": 249.7
     },
     {
+      "id": "wa:OSBORNE PARK:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Osborne Park",
+      "location": "OSBORNE PARK",
+      "lat": -31.90631,
+      "lng": 115.813744,
+      "price": 249.7
+    },
+    {
       "id": "wa:CANNING VALE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -6084,6 +6144,42 @@
       "lat": -32.309663,
       "lng": 115.796699,
       "price": 249.7
+    },
+    {
+      "id": "wa:NEERABUP:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Astron",
+      "name": "Astron Neerabup",
+      "location": "NEERABUP",
+      "lat": -31.672434,
+      "lng": 115.743141,
+      "price": 249.9
+    },
+    {
+      "id": "wa:LEDA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Leda",
+      "location": "LEDA",
+      "lat": -32.260187,
+      "lng": 115.806552,
+      "price": 249.9
+    },
+    {
+      "id": "wa:LEXIA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Lexia Truck Stop",
+      "location": "LEXIA",
+      "lat": -31.795189,
+      "lng": 115.899559,
+      "price": 249.9
     },
     {
       "id": "wa:OSBORNE PARK:petrol",
@@ -6110,18 +6206,6 @@
       "price": 249.9
     },
     {
-      "id": "wa:LANDSDALE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Landsdale",
-      "location": "LANDSDALE",
-      "lat": -31.804934,
-      "lng": 115.835741,
-      "price": 249.9
-    },
-    {
       "id": "wa:REGANS FORD:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -6131,30 +6215,6 @@
       "location": "REGANS FORD",
       "lat": -30.983045,
       "lng": 115.702039,
-      "price": 249.9
-    },
-    {
-      "id": "wa:HARRISDALE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Harrisdale",
-      "location": "HARRISDALE",
-      "lat": -32.125599,
-      "lng": 115.92601,
-      "price": 249.9
-    },
-    {
-      "id": "wa:ASCOT:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Ascot",
-      "location": "ASCOT",
-      "lat": -31.941776,
-      "lng": 115.925077,
       "price": 249.9
     },
     {
@@ -6842,18 +6902,6 @@
       "price": 249.9
     },
     {
-      "id": "wa:BALCATTA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Stirling",
-      "location": "BALCATTA",
-      "lat": -31.8734,
-      "lng": 115.828839,
-      "price": 249.9
-    },
-    {
       "id": "wa:MURDOCH:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -6962,15 +7010,27 @@
       "price": 249.9
     },
     {
-      "id": "wa:BALDIVIS:petrol",
+      "id": "wa:MIRRABOOKA:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Baldivis",
-      "location": "BALDIVIS",
-      "lat": -32.308362,
-      "lng": 115.822017,
+      "brand": "EG Ampol",
+      "name": "EG Ampol Mirrabooka",
+      "location": "MIRRABOOKA",
+      "lat": -31.873567,
+      "lng": 115.861407,
+      "price": 249.9
+    },
+    {
+      "id": "wa:CANNING VALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Canning Vale",
+      "location": "CANNING VALE",
+      "lat": -32.072873,
+      "lng": 115.925469,
       "price": 249.9
     },
     {
@@ -6986,15 +7046,39 @@
       "price": 249.9
     },
     {
-      "id": "wa:GOLDEN BAY:petrol",
+      "id": "wa:GREENWOOD:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Golden Bay",
-      "location": "GOLDEN BAY",
-      "lat": -32.420777,
-      "lng": 115.761055,
+      "brand": "EG Ampol",
+      "name": "EG Ampol Greenwood",
+      "location": "GREENWOOD",
+      "lat": -31.822072,
+      "lng": 115.820539,
+      "price": 249.9
+    },
+    {
+      "id": "wa:JOONDALUP:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Joondalup Winton Road",
+      "location": "JOONDALUP",
+      "lat": -31.74449,
+      "lng": 115.763128,
+      "price": 249.9
+    },
+    {
+      "id": "wa:FALCON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Falcon",
+      "location": "FALCON",
+      "lat": -32.584943,
+      "lng": 115.660354,
       "price": 249.9
     },
     {
@@ -7022,18 +7106,6 @@
       "price": 249.9
     },
     {
-      "id": "wa:RIDGEWOOD:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Ridgewood",
-      "location": "RIDGEWOOD",
-      "lat": -31.653737,
-      "lng": 115.715851,
-      "price": 249.9
-    },
-    {
       "id": "wa:SAWYERS VALLEY:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7043,6 +7115,18 @@
       "location": "SAWYERS VALLEY",
       "lat": -31.903211,
       "lng": 116.205032,
+      "price": 249.9
+    },
+    {
+      "id": "wa:MADDINGTON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Caltex",
+      "name": "Caltex Kelvin Rd",
+      "location": "MADDINGTON",
+      "lat": -32.034609,
+      "lng": 116.000915,
       "price": 249.9
     },
     {
@@ -7082,16 +7166,40 @@
       "price": 249.9
     },
     {
-      "id": "wa:PORT HEDLAND:petrol",
+      "id": "wa:MYAREE:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "BP",
-      "name": "BP Port Hedland",
-      "location": "PORT HEDLAND",
-      "lat": -20.312154,
-      "lng": 118.587326,
-      "price": 250
+      "brand": "United",
+      "name": "United Myaree",
+      "location": "MYAREE",
+      "lat": -32.046212,
+      "lng": 115.812611,
+      "price": 251.9
+    },
+    {
+      "id": "wa:NORTHBRIDGE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Northbridge",
+      "location": "NORTHBRIDGE",
+      "lat": -31.945612,
+      "lng": 115.852438,
+      "price": 251.9
+    },
+    {
+      "id": "wa:BIBRA LAKE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Bibra Lake",
+      "location": "BIBRA LAKE",
+      "lat": -32.093798,
+      "lng": 115.802588,
+      "price": 251.9
     },
     {
       "id": "wa:MOUNT LAWLEY:petrol",
@@ -7106,6 +7214,18 @@
       "price": 251.9
     },
     {
+      "id": "wa:ANKETELL:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Anketell",
+      "location": "ANKETELL",
+      "lat": -32.211351,
+      "lng": 115.855637,
+      "price": 251.9
+    },
+    {
       "id": "wa:WILLIAMS:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7115,6 +7235,18 @@
       "location": "WILLIAMS",
       "lat": -33.029031,
       "lng": 116.879548,
+      "price": 251.9
+    },
+    {
+      "id": "wa:ANKETELL:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Anketell South",
+      "location": "ANKETELL",
+      "lat": -32.227802,
+      "lng": 115.8558758,
       "price": 251.9
     },
     {
@@ -7142,16 +7274,16 @@
       "price": 252.2
     },
     {
-      "id": "wa:BULLSBROOK:petrol",
+      "id": "wa:KEALY:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "Vibe",
-      "name": "Vibe Bullsbrook",
-      "location": "BULLSBROOK",
-      "lat": -31.671935,
-      "lng": 116.031427,
-      "price": 252.3
+      "name": "Vibe Siesta Park",
+      "location": "KEALY",
+      "lat": -33.655538,
+      "lng": 115.220151,
+      "price": 252.7
     },
     {
       "id": "wa:NORTH PERTH:petrol",
@@ -7250,30 +7382,6 @@
       "price": 253.2
     },
     {
-      "id": "wa:PINJARRA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Pinjarra",
-      "location": "PINJARRA",
-      "lat": -32.63094,
-      "lng": 115.872555,
-      "price": 253.3
-    },
-    {
-      "id": "wa:FORRESTFIELD:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Forrestfield",
-      "location": "FORRESTFIELD",
-      "lat": -31.961356,
-      "lng": 115.992227,
-      "price": 253.3
-    },
-    {
       "id": "wa:WEST SWAN:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7307,18 +7415,6 @@
       "location": "MALAGA",
       "lat": -31.855136,
       "lng": 115.878229,
-      "price": 253.5
-    },
-    {
-      "id": "wa:SOUTH LAKE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United South Lake",
-      "location": "SOUTH LAKE",
-      "lat": -32.111481,
-      "lng": 115.838833,
       "price": 253.5
     },
     {
@@ -7382,6 +7478,54 @@
       "price": 253.5
     },
     {
+      "id": "wa:THORNLIE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Thornlie",
+      "location": "THORNLIE",
+      "lat": -32.061092,
+      "lng": 115.939257,
+      "price": 253.5
+    },
+    {
+      "id": "wa:WELSHPOOL:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Atlas",
+      "name": "Atlas Fuel Welshpool",
+      "location": "WELSHPOOL",
+      "lat": -31.993707,
+      "lng": 115.919139,
+      "price": 253.5
+    },
+    {
+      "id": "wa:SPEARWOOD:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Spearwood",
+      "location": "SPEARWOOD",
+      "lat": -32.105033,
+      "lng": 115.782419,
+      "price": 253.7
+    },
+    {
+      "id": "wa:SOUTH BUNBURY:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Bunbury South",
+      "location": "SOUTH BUNBURY",
+      "lat": -33.351866,
+      "lng": 115.641941,
+      "price": 253.7
+    },
+    {
       "id": "wa:BALCATTA:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7415,6 +7559,18 @@
       "location": "KOONDOOLA",
       "lat": -31.841924,
       "lng": 115.858276,
+      "price": 253.9
+    },
+    {
+      "id": "wa:KEWDALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Kewdale Truck Stop",
+      "location": "KEWDALE",
+      "lat": -31.990047,
+      "lng": 115.939258,
       "price": 253.9
     },
     {
@@ -7526,15 +7682,15 @@
       "price": 253.9
     },
     {
-      "id": "wa:JANDAKOT:petrol",
+      "id": "wa:SOUTHERN RIVER:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Jandakot",
-      "location": "JANDAKOT",
-      "lat": -32.090758,
-      "lng": 115.868846,
+      "brand": "United",
+      "name": "United Southern River",
+      "location": "SOUTHERN RIVER",
+      "lat": -32.121136,
+      "lng": 115.954582,
       "price": 253.9
     },
     {
@@ -7562,6 +7718,138 @@
       "price": 253.9
     },
     {
+      "id": "wa:BANKSIA GROVE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Banksia Grove",
+      "location": "BANKSIA GROVE",
+      "lat": -31.70446,
+      "lng": 115.803863,
+      "price": 253.9
+    },
+    {
+      "id": "wa:BULLSBROOK:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Bullsbrook",
+      "location": "BULLSBROOK",
+      "lat": -31.671935,
+      "lng": 116.031427,
+      "price": 253.9
+    },
+    {
+      "id": "wa:OSBORNE PARK:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Osborne Park",
+      "location": "OSBORNE PARK",
+      "lat": -31.91058,
+      "lng": 115.81401,
+      "price": 253.9
+    },
+    {
+      "id": "wa:MADDINGTON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Maddington West",
+      "location": "MADDINGTON",
+      "lat": -32.049324,
+      "lng": 115.977502,
+      "price": 253.9
+    },
+    {
+      "id": "wa:MORLEY:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Morley Galleria",
+      "location": "MORLEY",
+      "lat": -31.896262,
+      "lng": 115.895092,
+      "price": 253.9
+    },
+    {
+      "id": "wa:SOUTHERN RIVER:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Southern River",
+      "location": "SOUTHERN RIVER",
+      "lat": -32.096399,
+      "lng": 115.935881,
+      "price": 253.9
+    },
+    {
+      "id": "wa:WARNBRO:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Warnbro",
+      "location": "WARNBRO",
+      "lat": -32.345819,
+      "lng": 115.761444,
+      "price": 253.9
+    },
+    {
+      "id": "wa:PORT KENNEDY:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Port Kennedy",
+      "location": "PORT KENNEDY",
+      "lat": -32.373781,
+      "lng": 115.75592,
+      "price": 253.9
+    },
+    {
+      "id": "wa:MANDURAH:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Mandurah",
+      "location": "MANDURAH",
+      "lat": -32.509613,
+      "lng": 115.7409,
+      "price": 253.9
+    },
+    {
+      "id": "wa:BRABHAM:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Brabham",
+      "location": "BRABHAM",
+      "lat": -31.832944,
+      "lng": 115.966916,
+      "price": 253.9
+    },
+    {
+      "id": "wa:KALAMUNDA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Vibe",
+      "name": "Vibe Kalamunda",
+      "location": "KALAMUNDA",
+      "lat": -31.97362,
+      "lng": 116.059448,
+      "price": 253.9
+    },
+    {
       "id": "wa:BLUFF POINT:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7574,15 +7862,27 @@
       "price": 253.9
     },
     {
-      "id": "wa:OSBORNE PARK:petrol",
+      "id": "wa:MADDINGTON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Maddington Truck Stop",
+      "location": "MADDINGTON",
+      "lat": -32.042356,
+      "lng": 115.99131,
+      "price": 254.5
+    },
+    {
+      "id": "wa:MANDURAH:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "Vibe",
-      "name": "Vibe Osborne Park",
-      "location": "OSBORNE PARK",
-      "lat": -31.90631,
-      "lng": 115.813744,
+      "name": "Vibe Mandurah",
+      "location": "MANDURAH",
+      "lat": -32.517315,
+      "lng": 115.743891,
       "price": 254.7
     },
     {
@@ -7610,6 +7910,18 @@
       "price": 254.9
     },
     {
+      "id": "wa:PADBURY:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Hepburn Heights",
+      "location": "PADBURY",
+      "lat": -31.81889,
+      "lng": 115.774096,
+      "price": 254.9
+    },
+    {
       "id": "wa:SERPENTINE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7622,159 +7934,15 @@
       "price": 254.9
     },
     {
-      "id": "wa:BYFORD:petrol",
+      "id": "wa:EAST VICTORIA PARK:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Byford South",
-      "location": "BYFORD",
-      "lat": -32.222078,
-      "lng": 116.005916,
-      "price": 254.9
-    },
-    {
-      "id": "wa:EAST ROCKINGHAM:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Rockingham",
-      "location": "EAST ROCKINGHAM",
-      "lat": -32.276643,
-      "lng": 115.777477,
-      "price": 254.9
-    },
-    {
-      "id": "wa:GREENFIELDS:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Greenfields",
-      "location": "GREENFIELDS",
-      "lat": -32.520256,
-      "lng": 115.753611,
-      "price": 254.9
-    },
-    {
-      "id": "wa:CAVERSHAM:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Caversham",
-      "location": "CAVERSHAM",
-      "lat": -31.875469,
-      "lng": 115.974566,
-      "price": 254.9
-    },
-    {
-      "id": "wa:WANNEROO:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Wanneroo South",
-      "location": "WANNEROO",
-      "lat": -31.754313,
-      "lng": 115.804474,
-      "price": 254.9
-    },
-    {
-      "id": "wa:BIBRA LAKE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Bibra Lake",
-      "location": "BIBRA LAKE",
-      "lat": -32.101411,
-      "lng": 115.801664,
-      "price": 254.9
-    },
-    {
-      "id": "wa:SUCCESS:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Success",
-      "location": "SUCCESS",
-      "lat": -32.126356,
-      "lng": 115.839346,
-      "price": 254.9
-    },
-    {
-      "id": "wa:MADDINGTON:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Maddington South",
-      "location": "MADDINGTON",
-      "lat": -32.055377,
-      "lng": 115.9886,
-      "price": 254.9
-    },
-    {
-      "id": "wa:COCKBURN CENTRAL:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Cockburn Central",
-      "location": "COCKBURN CENTRAL",
-      "lat": -32.120001,
-      "lng": 115.846548,
-      "price": 254.9
-    },
-    {
-      "id": "wa:QUEENS PARK:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Queens Park",
-      "location": "QUEENS PARK",
-      "lat": -31.997151,
-      "lng": 115.946773,
-      "price": 254.9
-    },
-    {
-      "id": "wa:BALCATTA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Balcatta",
-      "location": "BALCATTA",
-      "lat": -31.860353,
-      "lng": 115.80964,
-      "price": 254.9
-    },
-    {
-      "id": "wa:GREENFIELDS:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Greenfields South",
-      "location": "GREENFIELDS",
-      "lat": -32.537744,
-      "lng": 115.757395,
-      "price": 254.9
-    },
-    {
-      "id": "wa:GOSNELLS:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Gosnells",
-      "location": "GOSNELLS",
-      "lat": -32.089802,
-      "lng": 115.998682,
+      "brand": "United",
+      "name": "United East Victoria Park",
+      "location": "EAST VICTORIA PARK",
+      "lat": -31.98781,
+      "lng": 115.905402,
       "price": 254.9
     },
     {
@@ -7790,18 +7958,6 @@
       "price": 254.9
     },
     {
-      "id": "wa:KARDINYA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Kardinya",
-      "location": "KARDINYA",
-      "lat": -32.067327,
-      "lng": 115.815185,
-      "price": 254.9
-    },
-    {
       "id": "wa:PERTH AIRPORT:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7814,27 +7970,15 @@
       "price": 254.9
     },
     {
-      "id": "wa:THORNLIE:petrol",
+      "id": "wa:NAVAL BASE:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Thornlie",
-      "location": "THORNLIE",
-      "lat": -32.061092,
-      "lng": 115.939257,
-      "price": 254.9
-    },
-    {
-      "id": "wa:WELSHPOOL:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Welshpool",
-      "location": "WELSHPOOL",
-      "lat": -31.993707,
-      "lng": 115.919139,
+      "brand": "United",
+      "name": "United Naval Base Truck Stop",
+      "location": "NAVAL BASE",
+      "lat": -32.195425,
+      "lng": 115.783106,
       "price": 254.9
     },
     {
@@ -7862,18 +8006,6 @@
       "price": 255
     },
     {
-      "id": "wa:HAMILTON HILL:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Hamilton Hill",
-      "location": "HAMILTON HILL",
-      "lat": -32.086143,
-      "lng": 115.777233,
-      "price": 255.3
-    },
-    {
       "id": "wa:COOLUP:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7886,16 +8018,16 @@
       "price": 255.3
     },
     {
-      "id": "wa:SOUTH BUNBURY:petrol",
+      "id": "wa:HAMILTON HILL:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Bunbury South",
-      "location": "SOUTH BUNBURY",
-      "lat": -33.351866,
-      "lng": 115.641941,
-      "price": 255.3
+      "brand": "United",
+      "name": "United Hamilton Hill",
+      "location": "HAMILTON HILL",
+      "lat": -32.074926,
+      "lng": 115.780931,
+      "price": 255.5
     },
     {
       "id": "wa:KUNUNURRA:petrol",
@@ -7907,18 +8039,6 @@
       "location": "KUNUNURRA",
       "lat": -15.783391,
       "lng": 128.732259,
-      "price": 255.5
-    },
-    {
-      "id": "wa:WANNEROO:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Tapping",
-      "location": "WANNEROO",
-      "lat": -31.719744,
-      "lng": 115.783408,
       "price": 255.5
     },
     {
@@ -7946,18 +8066,6 @@
       "price": 255.5
     },
     {
-      "id": "wa:ANKETELL:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Anketell",
-      "location": "ANKETELL",
-      "lat": -32.211351,
-      "lng": 115.855637,
-      "price": 255.5
-    },
-    {
       "id": "wa:NAVAL BASE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -7970,42 +8078,6 @@
       "price": 255.5
     },
     {
-      "id": "wa:ANKETELL:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Anketell South",
-      "location": "ANKETELL",
-      "lat": -32.227802,
-      "lng": 115.8558758,
-      "price": 255.5
-    },
-    {
-      "id": "wa:SPEARWOOD:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Spearwood",
-      "location": "SPEARWOOD",
-      "lat": -32.105033,
-      "lng": 115.782419,
-      "price": 255.7
-    },
-    {
-      "id": "wa:MIDVALE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Atlas",
-      "name": "Atlas Fuel Midvale",
-      "location": "MIDVALE",
-      "lat": -31.885583,
-      "lng": 116.030335,
-      "price": 255.9
-    },
-    {
       "id": "wa:ALBANY:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -8015,6 +8087,18 @@
       "location": "ALBANY",
       "lat": -35.020486,
       "lng": 117.881858,
+      "price": 255.9
+    },
+    {
+      "id": "wa:ARMADALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Armadale",
+      "location": "ARMADALE",
+      "lat": -32.161492,
+      "lng": 116.0176,
       "price": 255.9
     },
     {
@@ -8066,6 +8150,42 @@
       "price": 255.9
     },
     {
+      "id": "wa:NORTHAM:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Shell",
+      "name": "Dunning's Northam",
+      "location": "NORTHAM",
+      "lat": -31.649776,
+      "lng": 116.677064,
+      "price": 255.9
+    },
+    {
+      "id": "wa:ELLENBROOK:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Ellenbrook",
+      "location": "ELLENBROOK",
+      "lat": -31.77852,
+      "lng": 115.96699,
+      "price": 255.9
+    },
+    {
+      "id": "wa:KARNUP:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "BP",
+      "name": "Karnup Roadhouse",
+      "location": "KARNUP",
+      "lat": -32.427429,
+      "lng": 115.77467,
+      "price": 255.9
+    },
+    {
       "id": "wa:WEST KALGOORLIE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -8087,18 +8207,6 @@
       "location": "WITCHCLIFFE",
       "lat": -34.026394,
       "lng": 115.100027,
-      "price": 255.9
-    },
-    {
-      "id": "wa:PINJARRA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Pinjarra Truck Stop",
-      "location": "PINJARRA",
-      "lat": -32.610785,
-      "lng": 115.848041,
       "price": 255.9
     },
     {
@@ -8126,75 +8234,99 @@
       "price": 255.9
     },
     {
-      "id": "wa:MADDINGTON:petrol",
+      "id": "wa:FLOREAT:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Maddington West",
-      "location": "MADDINGTON",
-      "lat": -32.049324,
-      "lng": 115.977502,
+      "name": "EG Ampol Floreat",
+      "location": "FLOREAT",
+      "lat": -31.93672,
+      "lng": 115.793911,
       "price": 255.9
     },
     {
-      "id": "wa:MIRRABOOKA:petrol",
+      "id": "wa:DIANELLA:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Mirrabooka",
-      "location": "MIRRABOOKA",
-      "lat": -31.873567,
-      "lng": 115.861407,
+      "name": "EG Ampol Dianella",
+      "location": "DIANELLA",
+      "lat": -31.89674,
+      "lng": 115.871865,
       "price": 255.9
     },
     {
-      "id": "wa:CANNING VALE:petrol",
+      "id": "wa:BALLAJURA:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Canning Vale",
-      "location": "CANNING VALE",
-      "lat": -32.072873,
-      "lng": 115.925469,
+      "name": "EG Ampol Ballajura",
+      "location": "BALLAJURA",
+      "lat": -31.847444,
+      "lng": 115.906385,
       "price": 255.9
     },
     {
-      "id": "wa:WARNBRO:petrol",
+      "id": "wa:ELLENBROOK:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Warnbro",
-      "location": "WARNBRO",
-      "lat": -32.345819,
-      "lng": 115.761444,
+      "name": "EG Ampol Ellenbrook",
+      "location": "ELLENBROOK",
+      "lat": -31.780889,
+      "lng": 115.969189,
       "price": 255.9
     },
     {
-      "id": "wa:JOONDALUP:petrol",
+      "id": "wa:AVELEY:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Joondalup Winton Road",
-      "location": "JOONDALUP",
-      "lat": -31.74449,
-      "lng": 115.763128,
+      "name": "EG Ampol Aveley",
+      "location": "AVELEY",
+      "lat": -31.777467,
+      "lng": 115.987368,
       "price": 255.9
     },
     {
-      "id": "wa:FALCON:petrol",
+      "id": "wa:MANDURAH:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Falcon",
-      "location": "FALCON",
-      "lat": -32.584943,
-      "lng": 115.660354,
+      "name": "EG Ampol Mandurah Forum",
+      "location": "MANDURAH",
+      "lat": -32.536347,
+      "lng": 115.740481,
+      "price": 255.9
+    },
+    {
+      "id": "wa:CURRAMBINE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Currambine Marketplace",
+      "location": "CURRAMBINE",
+      "lat": -31.742211,
+      "lng": 115.740365,
+      "price": 255.9
+    },
+    {
+      "id": "wa:ALKIMOS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "EG Ampol",
+      "name": "EG Ampol Alkimos",
+      "location": "ALKIMOS",
+      "lat": -31.601902,
+      "lng": 115.680898,
       "price": 255.9
     },
     {
@@ -8207,18 +8339,6 @@
       "location": "PICTON EAST",
       "lat": -33.339593,
       "lng": 115.723288,
-      "price": 255.9
-    },
-    {
-      "id": "wa:KALAMUNDA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Kalamunda",
-      "location": "KALAMUNDA",
-      "lat": -31.97362,
-      "lng": 116.059448,
       "price": 255.9
     },
     {
@@ -8354,18 +8474,6 @@
       "price": 256.9
     },
     {
-      "id": "wa:BUSSELTON:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "7-Eleven",
-      "name": "7-Eleven Busselton",
-      "location": "BUSSELTON",
-      "lat": -33.654091,
-      "lng": 115.341836,
-      "price": 256.9
-    },
-    {
       "id": "wa:DONNYBROOK:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -8382,12 +8490,12 @@
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "United",
-      "name": "United Hamilton Hill",
+      "brand": "Vibe",
+      "name": "Vibe Hamilton Hill",
       "location": "HAMILTON HILL",
-      "lat": -32.074926,
-      "lng": 115.780931,
-      "price": 257.5
+      "lat": -32.086143,
+      "lng": 115.777233,
+      "price": 257.3
     },
     {
       "id": "wa:EDGEWATER:petrol",
@@ -8411,18 +8519,6 @@
       "location": "BELLEVUE",
       "lat": -31.893058,
       "lng": 116.019419,
-      "price": 257.5
-    },
-    {
-      "id": "wa:SOUTHERN RIVER:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Southern River",
-      "location": "SOUTHERN RIVER",
-      "lat": -32.121136,
-      "lng": 115.954582,
       "price": 257.5
     },
     {
@@ -8450,90 +8546,6 @@
       "price": 257.9
     },
     {
-      "id": "wa:ARMADALE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Armadale",
-      "location": "ARMADALE",
-      "lat": -32.161492,
-      "lng": 116.0176,
-      "price": 257.9
-    },
-    {
-      "id": "wa:LEDA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Leda",
-      "location": "LEDA",
-      "lat": -32.260187,
-      "lng": 115.806552,
-      "price": 257.9
-    },
-    {
-      "id": "wa:KEWDALE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Kewdale Truck Stop",
-      "location": "KEWDALE",
-      "lat": -31.990047,
-      "lng": 115.939258,
-      "price": 257.9
-    },
-    {
-      "id": "wa:LEXIA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Lexia Truck Stop",
-      "location": "LEXIA",
-      "lat": -31.795189,
-      "lng": 115.899559,
-      "price": 257.9
-    },
-    {
-      "id": "wa:EAST VICTORIA PARK:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United East Victoria Park",
-      "location": "EAST VICTORIA PARK",
-      "lat": -31.98781,
-      "lng": 115.905402,
-      "price": 257.9
-    },
-    {
-      "id": "wa:NORTHBRIDGE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Northbridge",
-      "location": "NORTHBRIDGE",
-      "lat": -31.945612,
-      "lng": 115.852438,
-      "price": 257.9
-    },
-    {
-      "id": "wa:ELLENBROOK:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Ellenbrook",
-      "location": "ELLENBROOK",
-      "lat": -31.77852,
-      "lng": 115.96699,
-      "price": 257.9
-    },
-    {
       "id": "wa:DENMARK:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -8558,63 +8570,15 @@
       "price": 257.9
     },
     {
-      "id": "wa:BIBRA LAKE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Bibra Lake",
-      "location": "BIBRA LAKE",
-      "lat": -32.093798,
-      "lng": 115.802588,
-      "price": 257.9
-    },
-    {
-      "id": "wa:MADDINGTON:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Maddington Truck Stop",
-      "location": "MADDINGTON",
-      "lat": -32.042356,
-      "lng": 115.99131,
-      "price": 257.9
-    },
-    {
-      "id": "wa:FLOREAT:petrol",
+      "id": "wa:SOUTH FREMANTLE:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "EG Ampol",
-      "name": "EG Ampol Floreat",
-      "location": "FLOREAT",
-      "lat": -31.93672,
-      "lng": 115.793911,
-      "price": 257.9
-    },
-    {
-      "id": "wa:AVELEY:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Aveley",
-      "location": "AVELEY",
-      "lat": -31.777467,
-      "lng": 115.987368,
-      "price": 257.9
-    },
-    {
-      "id": "wa:GREENWOOD:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Greenwood",
-      "location": "GREENWOOD",
-      "lat": -31.822072,
-      "lng": 115.820539,
+      "name": "EG Ampol South Fremantle",
+      "location": "SOUTH FREMANTLE",
+      "lat": -32.073721,
+      "lng": 115.759177,
       "price": 257.9
     },
     {
@@ -8639,18 +8603,6 @@
       "location": "BASSENDEAN",
       "lat": -31.915476,
       "lng": 115.931768,
-      "price": 257.9
-    },
-    {
-      "id": "wa:MADDINGTON:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Caltex",
-      "name": "Caltex Kelvin Rd",
-      "location": "MADDINGTON",
-      "lat": -32.034609,
-      "lng": 116.000915,
       "price": 257.9
     },
     {
@@ -8711,18 +8663,6 @@
       "location": "SPENCER PARK",
       "lat": -35.009033,
       "lng": 117.899664,
-      "price": 258.9
-    },
-    {
-      "id": "wa:PADBURY:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Hepburn Heights",
-      "location": "PADBURY",
-      "lat": -31.81889,
-      "lng": 115.774096,
       "price": 258.9
     },
     {
@@ -8834,18 +8774,6 @@
       "price": 258.9
     },
     {
-      "id": "wa:DONNYBROOK:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Liberty",
-      "name": "Fruit Barn",
-      "location": "DONNYBROOK",
-      "lat": -33.569035,
-      "lng": 115.821991,
-      "price": 258.9
-    },
-    {
       "id": "wa:STAKE HILL:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -8918,18 +8846,6 @@
       "price": 259.2
     },
     {
-      "id": "wa:MYAREE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Myaree",
-      "location": "MYAREE",
-      "lat": -32.046212,
-      "lng": 115.812611,
-      "price": 259.5
-    },
-    {
       "id": "wa:COMO:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -8939,18 +8855,6 @@
       "location": "COMO",
       "lat": -31.994235,
       "lng": 115.859554,
-      "price": 259.5
-    },
-    {
-      "id": "wa:MOUNT BARKER:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Mount Barker Roadhouse Truck Stop",
-      "location": "MOUNT BARKER",
-      "lat": -34.619755,
-      "lng": 117.662039,
       "price": 259.5
     },
     {
@@ -9050,18 +8954,6 @@
       "price": 259.7
     },
     {
-      "id": "wa:MANDURAH:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Vibe",
-      "name": "Vibe Mandurah",
-      "location": "MANDURAH",
-      "lat": -32.517315,
-      "lng": 115.743891,
-      "price": 259.7
-    },
-    {
       "id": "wa:AUSTRALIND:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9096,6 +8988,18 @@
       "lat": -31.9046833,
       "lng": 115.9163268,
       "price": 259.7
+    },
+    {
+      "id": "wa:TWO ROCKS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Two Rocks",
+      "location": "TWO ROCKS",
+      "lat": -31.49097,
+      "lng": 115.597517,
+      "price": 259.9
     },
     {
       "id": "wa:PERTH:petrol",
@@ -9602,6 +9506,18 @@
       "price": 259.9
     },
     {
+      "id": "wa:BYFORD:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Byford South",
+      "location": "BYFORD",
+      "lat": -32.222078,
+      "lng": 116.005916,
+      "price": 259.9
+    },
+    {
       "id": "wa:BUTLER:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9626,6 +9542,18 @@
       "price": 259.9
     },
     {
+      "id": "wa:EAST ROCKINGHAM:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Rockingham",
+      "location": "EAST ROCKINGHAM",
+      "lat": -32.276643,
+      "lng": 115.777477,
+      "price": 259.9
+    },
+    {
       "id": "wa:BALGA:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9635,6 +9563,30 @@
       "location": "BALGA",
       "lat": -31.856494,
       "lng": 115.83739,
+      "price": 259.9
+    },
+    {
+      "id": "wa:LANDSDALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Landsdale",
+      "location": "LANDSDALE",
+      "lat": -31.804934,
+      "lng": 115.835741,
+      "price": 259.9
+    },
+    {
+      "id": "wa:GREENFIELDS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Greenfields",
+      "location": "GREENFIELDS",
+      "lat": -32.520256,
+      "lng": 115.753611,
       "price": 259.9
     },
     {
@@ -9662,18 +9614,6 @@
       "price": 259.9
     },
     {
-      "id": "wa:MANJIMUP:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Manjimup",
-      "location": "MANJIMUP",
-      "lat": -34.248114,
-      "lng": 116.140913,
-      "price": 259.9
-    },
-    {
       "id": "wa:ARMADALE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9683,6 +9623,18 @@
       "location": "ARMADALE",
       "lat": -32.147485,
       "lng": 115.984399,
+      "price": 259.9
+    },
+    {
+      "id": "wa:CAVERSHAM:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Caversham",
+      "location": "CAVERSHAM",
+      "lat": -31.875469,
+      "lng": 115.974566,
       "price": 259.9
     },
     {
@@ -9710,6 +9662,18 @@
       "price": 259.9
     },
     {
+      "id": "wa:WANNEROO:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Wanneroo South",
+      "location": "WANNEROO",
+      "lat": -31.754313,
+      "lng": 115.804474,
+      "price": 259.9
+    },
+    {
       "id": "wa:SOUTHERN RIVER:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9719,6 +9683,18 @@
       "location": "SOUTHERN RIVER",
       "lat": -32.107884,
       "lng": 115.939718,
+      "price": 259.9
+    },
+    {
+      "id": "wa:BIBRA LAKE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Bibra Lake",
+      "location": "BIBRA LAKE",
+      "lat": -32.101411,
+      "lng": 115.801664,
       "price": 259.9
     },
     {
@@ -9746,6 +9722,30 @@
       "price": 259.9
     },
     {
+      "id": "wa:SUCCESS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Success",
+      "location": "SUCCESS",
+      "lat": -32.126356,
+      "lng": 115.839346,
+      "price": 259.9
+    },
+    {
+      "id": "wa:HARRISDALE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Harrisdale",
+      "location": "HARRISDALE",
+      "lat": -32.125599,
+      "lng": 115.92601,
+      "price": 259.9
+    },
+    {
       "id": "wa:MANDURAH:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9767,6 +9767,30 @@
       "location": "KEWDALE",
       "lat": -31.986384,
       "lng": 115.936881,
+      "price": 259.9
+    },
+    {
+      "id": "wa:ASCOT:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Ascot",
+      "location": "ASCOT",
+      "lat": -31.941776,
+      "lng": 115.925077,
+      "price": 259.9
+    },
+    {
+      "id": "wa:MADDINGTON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Maddington South",
+      "location": "MADDINGTON",
+      "lat": -32.055377,
+      "lng": 115.9886,
       "price": 259.9
     },
     {
@@ -9806,6 +9830,30 @@
       "price": 259.9
     },
     {
+      "id": "wa:COCKBURN CENTRAL:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Cockburn Central",
+      "location": "COCKBURN CENTRAL",
+      "lat": -32.120001,
+      "lng": 115.846548,
+      "price": 259.9
+    },
+    {
+      "id": "wa:QUEENS PARK:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Queens Park",
+      "location": "QUEENS PARK",
+      "lat": -31.997151,
+      "lng": 115.946773,
+      "price": 259.9
+    },
+    {
       "id": "wa:MORLEY:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -9839,6 +9887,18 @@
       "location": "CARLISLE",
       "lat": -31.971624,
       "lng": 115.918341,
+      "price": 259.9
+    },
+    {
+      "id": "wa:BALCATTA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Balcatta",
+      "location": "BALCATTA",
+      "lat": -31.860353,
+      "lng": 115.80964,
       "price": 259.9
     },
     {
@@ -9878,15 +9938,27 @@
       "price": 259.9
     },
     {
-      "id": "wa:KARNUP:petrol",
+      "id": "wa:GREENFIELDS:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "BP",
-      "name": "Karnup Roadhouse",
-      "location": "KARNUP",
-      "lat": -32.427429,
-      "lng": 115.77467,
+      "brand": "7-Eleven",
+      "name": "7-Eleven Greenfields South",
+      "location": "GREENFIELDS",
+      "lat": -32.537744,
+      "lng": 115.757395,
+      "price": 259.9
+    },
+    {
+      "id": "wa:GOSNELLS:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Gosnells",
+      "location": "GOSNELLS",
+      "lat": -32.089802,
+      "lng": 115.998682,
       "price": 259.9
     },
     {
@@ -10046,6 +10118,18 @@
       "price": 259.9
     },
     {
+      "id": "wa:BUSSELTON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Busselton",
+      "location": "BUSSELTON",
+      "lat": -33.654091,
+      "lng": 115.341836,
+      "price": 259.9
+    },
+    {
       "id": "wa:NORTH DANDALUP:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10055,6 +10139,18 @@
       "location": "NORTH DANDALUP",
       "lat": -32.522516,
       "lng": 115.96993,
+      "price": 259.9
+    },
+    {
+      "id": "wa:BALCATTA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Stirling",
+      "location": "BALCATTA",
+      "lat": -31.8734,
+      "lng": 115.828839,
       "price": 259.9
     },
     {
@@ -10106,15 +10202,15 @@
       "price": 259.9
     },
     {
-      "id": "wa:BANKSIA GROVE:petrol",
+      "id": "wa:BALDIVIS:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Banksia Grove",
-      "location": "BANKSIA GROVE",
-      "lat": -31.70446,
-      "lng": 115.803863,
+      "brand": "7-Eleven",
+      "name": "7-Eleven Baldivis",
+      "location": "BALDIVIS",
+      "lat": -32.308362,
+      "lng": 115.822017,
       "price": 259.9
     },
     {
@@ -10127,6 +10223,18 @@
       "location": "MALAGA",
       "lat": -31.862067,
       "lng": 115.894445,
+      "price": 259.9
+    },
+    {
+      "id": "wa:KARDINYA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Kardinya",
+      "location": "KARDINYA",
+      "lat": -32.067327,
+      "lng": 115.815185,
       "price": 259.9
     },
     {
@@ -10178,66 +10286,6 @@
       "price": 259.9
     },
     {
-      "id": "wa:OSBORNE PARK:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Osborne Park",
-      "location": "OSBORNE PARK",
-      "lat": -31.91058,
-      "lng": 115.81401,
-      "price": 259.9
-    },
-    {
-      "id": "wa:DIANELLA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Dianella",
-      "location": "DIANELLA",
-      "lat": -31.89674,
-      "lng": 115.871865,
-      "price": 259.9
-    },
-    {
-      "id": "wa:MORLEY:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Morley Galleria",
-      "location": "MORLEY",
-      "lat": -31.896262,
-      "lng": 115.895092,
-      "price": 259.9
-    },
-    {
-      "id": "wa:BALLAJURA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Ballajura",
-      "location": "BALLAJURA",
-      "lat": -31.847444,
-      "lng": 115.906385,
-      "price": 259.9
-    },
-    {
-      "id": "wa:SOUTHERN RIVER:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Southern River",
-      "location": "SOUTHERN RIVER",
-      "lat": -32.096399,
-      "lng": 115.935881,
-      "price": 259.9
-    },
-    {
       "id": "wa:HAMILTON HILL:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10274,30 +10322,6 @@
       "price": 259.9
     },
     {
-      "id": "wa:ELLENBROOK:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Ellenbrook",
-      "location": "ELLENBROOK",
-      "lat": -31.780889,
-      "lng": 115.969189,
-      "price": 259.9
-    },
-    {
-      "id": "wa:SOUTH FREMANTLE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol South Fremantle",
-      "location": "SOUTH FREMANTLE",
-      "lat": -32.073721,
-      "lng": 115.759177,
-      "price": 259.9
-    },
-    {
       "id": "wa:MIDVALE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10307,66 +10331,6 @@
       "location": "MIDVALE",
       "lat": -31.886391,
       "lng": 116.031862,
-      "price": 259.9
-    },
-    {
-      "id": "wa:PORT KENNEDY:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Port Kennedy",
-      "location": "PORT KENNEDY",
-      "lat": -32.373781,
-      "lng": 115.75592,
-      "price": 259.9
-    },
-    {
-      "id": "wa:MANDURAH:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Mandurah",
-      "location": "MANDURAH",
-      "lat": -32.509613,
-      "lng": 115.7409,
-      "price": 259.9
-    },
-    {
-      "id": "wa:MANDURAH:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Mandurah Forum",
-      "location": "MANDURAH",
-      "lat": -32.536347,
-      "lng": 115.740481,
-      "price": 259.9
-    },
-    {
-      "id": "wa:CURRAMBINE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Currambine Marketplace",
-      "location": "CURRAMBINE",
-      "lat": -31.742211,
-      "lng": 115.740365,
-      "price": 259.9
-    },
-    {
-      "id": "wa:ALKIMOS:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Alkimos",
-      "location": "ALKIMOS",
-      "lat": -31.601902,
-      "lng": 115.680898,
       "price": 259.9
     },
     {
@@ -10418,6 +10382,18 @@
       "price": 259.9
     },
     {
+      "id": "wa:GOLDEN BAY:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Golden Bay",
+      "location": "GOLDEN BAY",
+      "lat": -32.420777,
+      "lng": 115.761055,
+      "price": 259.9
+    },
+    {
       "id": "wa:EAST BUNBURY:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10463,6 +10439,18 @@
       "location": "JOONDALUP",
       "lat": -31.728704,
       "lng": 115.76494,
+      "price": 259.9
+    },
+    {
+      "id": "wa:GWELUP:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Caltex",
+      "name": "Caltex Gwelup",
+      "location": "GWELUP",
+      "lat": -31.876337,
+      "lng": 115.79678,
       "price": 259.9
     },
     {
@@ -10754,18 +10742,6 @@
       "price": 259.9
     },
     {
-      "id": "wa:TARCOOLA BEACH:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Caltex",
-      "name": "Caltex Tarcoola",
-      "location": "TARCOOLA BEACH",
-      "lat": -28.802745,
-      "lng": 114.620996,
-      "price": 259.9
-    },
-    {
       "id": "wa:WELSHPOOL:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10898,18 +10874,6 @@
       "price": 259.9
     },
     {
-      "id": "wa:BRABHAM:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "EG Ampol",
-      "name": "EG Ampol Brabham",
-      "location": "BRABHAM",
-      "lat": -31.832944,
-      "lng": 115.966916,
-      "price": 259.9
-    },
-    {
       "id": "wa:CAREY PARK:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10946,18 +10910,6 @@
       "price": 259.9
     },
     {
-      "id": "wa:NAVAL BASE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Naval Base Truck Stop",
-      "location": "NAVAL BASE",
-      "lat": -32.195425,
-      "lng": 115.783106,
-      "price": 259.9
-    },
-    {
       "id": "wa:WEST PERTH:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -10967,6 +10919,18 @@
       "location": "WEST PERTH",
       "lat": -31.936638,
       "lng": 115.85796,
+      "price": 259.9
+    },
+    {
+      "id": "wa:RIDGEWOOD:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Ridgewood",
+      "location": "RIDGEWOOD",
+      "lat": -31.653737,
+      "lng": 115.715851,
       "price": 259.9
     },
     {
@@ -11447,6 +11411,18 @@
       "location": "FREMANTLE",
       "lat": -32.063235,
       "lng": 115.756663,
+      "price": 259.9
+    },
+    {
+      "id": "wa:CLARKSON:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "7-Eleven",
+      "name": "7-Eleven Clarkson",
+      "location": "CLARKSON",
+      "lat": -31.692797,
+      "lng": 115.718843,
       "price": 259.9
     },
     {
@@ -12338,6 +12314,18 @@
       "price": 261.9
     },
     {
+      "id": "wa:DONNYBROOK:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Liberty",
+      "name": "Fruit Barn",
+      "location": "DONNYBROOK",
+      "lat": -33.569035,
+      "lng": 115.821991,
+      "price": 261.9
+    },
+    {
       "id": "wa:DWELLINGUP:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -12434,18 +12422,6 @@
       "price": 263.9
     },
     {
-      "id": "wa:WAROONA:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Independent",
-      "name": "De Rosa's Highway Motors",
-      "location": "WAROONA",
-      "lat": -32.835836,
-      "lng": 115.917882,
-      "price": 263.9
-    },
-    {
       "id": "wa:LOWER KING:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -12455,6 +12431,18 @@
       "location": "LOWER KING",
       "lat": -34.949189,
       "lng": 117.943697,
+      "price": 263.9
+    },
+    {
+      "id": "wa:MOUNT BARKER:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Mount Barker Roadhouse Truck Stop",
+      "location": "MOUNT BARKER",
+      "lat": -34.619755,
+      "lng": 117.662039,
       "price": 263.9
     },
     {
@@ -12542,15 +12530,15 @@
       "price": 264.5
     },
     {
-      "id": "wa:NORTHAM:petrol",
+      "id": "wa:MANJIMUP:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
-      "brand": "Shell",
-      "name": "Dunning's Northam",
-      "location": "NORTHAM",
-      "lat": -31.649776,
-      "lng": 116.677064,
+      "brand": "United",
+      "name": "United Manjimup",
+      "location": "MANJIMUP",
+      "lat": -34.248114,
+      "lng": 116.140913,
       "price": 264.9
     },
     {
@@ -12794,18 +12782,6 @@
       "price": 265.9
     },
     {
-      "id": "wa:MOUNT MELVILLE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Caltex",
-      "name": "Caltex Mt Melville",
-      "location": "MOUNT MELVILLE",
-      "lat": -35.004623,
-      "lng": 117.866163,
-      "price": 265.9
-    },
-    {
       "id": "wa:LANGE:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -12815,6 +12791,30 @@
       "location": "LANGE",
       "lat": -34.988578,
       "lng": 117.876293,
+      "price": 265.9
+    },
+    {
+      "id": "wa:TARCOOLA BEACH:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Caltex",
+      "name": "Caltex Tarcoola",
+      "location": "TARCOOLA BEACH",
+      "lat": -28.802745,
+      "lng": 114.620996,
+      "price": 265.9
+    },
+    {
+      "id": "wa:HIGH WYCOMBE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Caltex",
+      "name": "Caltex High Wycombe OPT",
+      "location": "HIGH WYCOMBE",
+      "lat": -31.936977,
+      "lng": 116.008034,
       "price": 265.9
     },
     {
@@ -13070,18 +13070,6 @@
       "price": 268.5
     },
     {
-      "id": "wa:RAVENSTHORPE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Shell",
-      "name": "GSG WA Pty Ltd",
-      "location": "RAVENSTHORPE",
-      "lat": -33.581023,
-      "lng": 120.05283,
-      "price": 268.9
-    },
-    {
       "id": "wa:MUNDIJONG:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -13226,15 +13214,15 @@
       "price": 269.9
     },
     {
-      "id": "wa:GWELUP:petrol",
+      "id": "wa:MOUNT MELVILLE:petrol",
       "state": "WA",
       "source": "fuelwatch",
       "product": "petrol",
       "brand": "Caltex",
-      "name": "Caltex Gwelup",
-      "location": "GWELUP",
-      "lat": -31.876337,
-      "lng": 115.79678,
+      "name": "Caltex Mt Melville",
+      "location": "MOUNT MELVILLE",
+      "lat": -35.004623,
+      "lng": 117.866163,
       "price": 269.9
     },
     {
@@ -13319,18 +13307,6 @@
       "location": "HENDERSON",
       "lat": -32.15551,
       "lng": 115.770485,
-      "price": 269.9
-    },
-    {
-      "id": "wa:HIGH WYCOMBE:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Caltex",
-      "name": "Caltex High Wycombe OPT",
-      "location": "HIGH WYCOMBE",
-      "lat": -31.936977,
-      "lng": 116.008034,
       "price": 269.9
     },
     {
@@ -13440,6 +13416,18 @@
       "lat": -30.302857,
       "lng": 115.042198,
       "price": 269.9
+    },
+    {
+      "id": "wa:PORT HEDLAND:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "BP",
+      "name": "BP Port Hedland",
+      "location": "PORT HEDLAND",
+      "lat": -20.312154,
+      "lng": 118.587326,
+      "price": 270
     },
     {
       "id": "wa:YOUNGS SIDING:petrol",
@@ -13598,6 +13586,18 @@
       "price": 274.9
     },
     {
+      "id": "wa:RAVENSTHORPE:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Shell",
+      "name": "GSG WA Pty Ltd",
+      "location": "RAVENSTHORPE",
+      "lat": -33.581023,
+      "lng": 120.05283,
+      "price": 274.9
+    },
+    {
       "id": "wa:WAROONA:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -13730,18 +13730,6 @@
       "price": 277.9
     },
     {
-      "id": "wa:EXMOUTH:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "Independent",
-      "name": "Ningaloo Reef Fuels",
-      "location": "EXMOUTH",
-      "lat": -21.938372,
-      "lng": 114.12988,
-      "price": 277.9
-    },
-    {
       "id": "wa:CARNARVON:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -13754,6 +13742,18 @@
       "price": 277.9
     },
     {
+      "id": "wa:WAROONA:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "Independent",
+      "name": "De Rosa's Highway Motors",
+      "location": "WAROONA",
+      "lat": -32.835836,
+      "lng": 115.917882,
+      "price": 278.9
+    },
+    {
       "id": "wa:NORSEMAN:petrol",
       "state": "WA",
       "source": "fuelwatch",
@@ -13764,6 +13764,18 @@
       "lat": -32.185561,
       "lng": 121.779196,
       "price": 279.1
+    },
+    {
+      "id": "wa:CABLE BEACH:petrol",
+      "state": "WA",
+      "source": "fuelwatch",
+      "product": "petrol",
+      "brand": "United",
+      "name": "United Broome",
+      "location": "CABLE BEACH",
+      "lat": -17.961207,
+      "lng": 122.215105,
+      "price": 279.5
     },
     {
       "id": "wa:DJUGUN:petrol",
@@ -13896,18 +13908,6 @@
       "lat": -17.955401,
       "lng": 122.241773,
       "price": 285.9
-    },
-    {
-      "id": "wa:CABLE BEACH:petrol",
-      "state": "WA",
-      "source": "fuelwatch",
-      "product": "petrol",
-      "brand": "United",
-      "name": "United Broome",
-      "location": "CABLE BEACH",
-      "lat": -17.961207,
-      "lng": 122.215105,
-      "price": 289.5
     },
     {
       "id": "wa:BROOME:petrol",
