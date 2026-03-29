@@ -1,30 +1,39 @@
 /**
  * /methodology/references — Academic citations
  *
- * SPEC-001 REQ-020, CON-002
  * Audience: Researcher / Journalist
- * Content: SPEC-001 References section — full academic citations for all
- *          frameworks and methods used in the Community Resilience Index.
+ * Content: Full academic citations for all frameworks and methods used.
  */
 
 import type { Metadata } from "next";
+import { MethodologyNav } from "../components/MethodologyNav";
 
 export const metadata: Metadata = {
   title: "References",
   description:
-    "Academic citations for the Community Resilience Index methodology: BRIC framework, INFORM model, ABS Census data, and coherence/entrainment analysis.",
+    "Academic citations for the Community Resilience Index methodology: BRIC framework, INFORM model, exposure profile approach, and coherence/entrainment analysis.",
 };
 
 export default function References() {
   return (
-    <main className="methodology-page">
-      <h1>References</h1>
+    <div>
+      <section className="bg-green-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+          <p className="text-amber-500 font-medium text-xs sm:text-sm uppercase tracking-wide mb-2 sm:mb-3">
+            Methodology
+          </p>
+          <h1 className="font-heading text-2xl sm:text-4xl font-bold leading-tight">
+            References
+          </h1>
+          <p className="mt-3 sm:mt-4 text-green-100 text-base sm:text-lg max-w-2xl">
+            Academic citations, data sources, and frameworks.
+          </p>
+        </div>
+      </section>
 
-      <nav className="methodology-nav" aria-label="Methodology sections">
-        <a href="/methodology">Overview</a>
-        <a href="/methodology/indicators">Indicator Catalogue</a>
-        <a href="/methodology/validation">Validation</a>
-      </nav>
+      <MethodologyNav />
+
+      <main className="methodology-page">
 
       <section id="primary-frameworks">
         <h2>Primary Frameworks</h2>
@@ -116,12 +125,14 @@ export default function References() {
 
       <section id="data-sources">
         <h2>Data Sources</h2>
+
+        <h3>Structural Profile</h3>
         <table>
           <thead>
             <tr>
               <th>Source</th>
               <th>Provider</th>
-              <th>Update Frequency</th>
+              <th>Frequency</th>
               <th>Coverage</th>
             </tr>
           </thead>
@@ -141,32 +152,14 @@ export default function References() {
             <tr>
               <td>Modified Monash Model 2023</td>
               <td>Australian Bureau of Statistics</td>
-              <td>Periodic</td>
+              <td>Annual</td>
               <td>National</td>
             </tr>
             <tr>
               <td>CER Postcode Solar Installations</td>
               <td>Clean Energy Regulator</td>
-              <td>Quarterly</td>
+              <td>Annual</td>
               <td>National</td>
-            </tr>
-            <tr>
-              <td>FuelWatch</td>
-              <td>Government of Western Australia</td>
-              <td>Daily</td>
-              <td>WA only</td>
-            </tr>
-            <tr>
-              <td>QLD Fuel Prices (CKAN)</td>
-              <td>Queensland Government</td>
-              <td>Daily</td>
-              <td>QLD only</td>
-            </tr>
-            <tr>
-              <td>NSW FuelCheck</td>
-              <td>NSW Government</td>
-              <td>Daily</td>
-              <td>NSW only</td>
             </tr>
             <tr>
               <td>Refinery distances</td>
@@ -174,21 +167,90 @@ export default function References() {
               <td>Static</td>
               <td>National</td>
             </tr>
+          </tbody>
+        </table>
+
+        <h3>Live Signals</h3>
+        <table>
+          <thead>
             <tr>
-              <td>ACNC Register</td>
-              <td>Australian Charities and Not-for-profits Commission</td>
-              <td>Annual</td>
+              <th>Source</th>
+              <th>Provider</th>
+              <th>Frequency</th>
+              <th>Coverage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Brent crude, ASX equities, AUD/USD, crack spread</td>
+              <td>Yahoo Finance (delayed)</td>
+              <td>Intraday</td>
+              <td>Global / National</td>
+            </tr>
+            <tr>
+              <td>Petroleum Statistics (reserves, IEA compliance)</td>
+              <td>DCCEEW via data.gov.au</td>
+              <td>Weekly</td>
               <td>National</td>
             </tr>
             <tr>
-              <td>GTFS Transit Feeds</td>
-              <td>State transport agencies</td>
-              <td>Varies</td>
-              <td>State-level</td>
+              <td>Terminal gate prices (diesel + petrol)</td>
+              <td>Australian Institute of Petroleum</td>
+              <td>Daily</td>
+              <td>National (city-level)</td>
+            </tr>
+            <tr>
+              <td>NEM wholesale electricity</td>
+              <td>AEMO Visualisations API</td>
+              <td>5-minute dispatch</td>
+              <td>NEM regions (5 states)</td>
+            </tr>
+            <tr>
+              <td>FuelWatch (diesel + petrol, station-level)</td>
+              <td>Government of Western Australia</td>
+              <td>Daily</td>
+              <td>WA</td>
+            </tr>
+            <tr>
+              <td>FuelCheck (diesel + petrol, station-level)</td>
+              <td>NSW Government (CKAN)</td>
+              <td>Daily</td>
+              <td>NSW + ACT</td>
+            </tr>
+            <tr>
+              <td>Cash rate target (F1 table)</td>
+              <td>Reserve Bank of Australia</td>
+              <td>Board meetings</td>
+              <td>National</td>
+            </tr>
+            <tr>
+              <td>CPI food sub-groups (SDMX)</td>
+              <td>Australian Bureau of Statistics</td>
+              <td>Quarterly</td>
+              <td>National</td>
+            </tr>
+            <tr>
+              <td>Major bushfire incidents (GeoJSON)</td>
+              <td>NSW Rural Fire Service</td>
+              <td>Live feed (~30 min)</td>
+              <td>NSW</td>
+            </tr>
+            <tr>
+              <td>Emergency incidents (OSOM GeoJSON)</td>
+              <td>VIC Emergency Management</td>
+              <td>Live feed (~5 min)</td>
+              <td>Victoria</td>
+            </tr>
+            <tr>
+              <td>Energy policy news</td>
+              <td>Google News RSS (filtered)</td>
+              <td>Rolling</td>
+              <td>National</td>
             </tr>
           </tbody>
         </table>
       </section>
     </main>
+    </div>
   );
 }

@@ -7,6 +7,7 @@
  */
 
 import type { Metadata } from "next";
+import { MethodologyNav } from "./components/MethodologyNav";
 
 export const metadata: Metadata = {
   title: "Methodology",
@@ -16,14 +17,25 @@ export const metadata: Metadata = {
 
 export default function MethodologyOverview() {
   return (
-    <main className="methodology-page">
-      <h1>How We Build Exposure Profiles</h1>
+    <div>
+      <section className="bg-green-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+          <p className="text-amber-500 font-medium text-xs sm:text-sm uppercase tracking-wide mb-2 sm:mb-3">
+            Methodology
+          </p>
+          <h1 className="font-heading text-2xl sm:text-4xl font-bold leading-tight">
+            How We Build Exposure Profiles
+          </h1>
+          <p className="mt-3 sm:mt-4 text-green-100 text-base sm:text-lg max-w-2xl">
+            Structural data, algorithmic exposure mapping, contextualised signals,
+            and coherence analysis. No black boxes.
+          </p>
+        </div>
+      </section>
 
-      <nav className="methodology-nav" aria-label="Methodology sections">
-        <a href="/methodology/indicators">Indicator Catalogue</a>
-        <a href="/methodology/validation">Validation</a>
-        <a href="/methodology/references">References</a>
-      </nav>
+      <MethodologyNav />
+
+      <main className="methodology-page">
 
       <section id="what-we-measure">
         <h2>What This Tool Does</h2>
@@ -333,5 +345,6 @@ export default function MethodologyOverview() {
         </ul>
       </section>
     </main>
+    </div>
   );
 }
