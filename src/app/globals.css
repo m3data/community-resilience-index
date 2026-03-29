@@ -265,6 +265,39 @@ body::before {
   display: inline-block;
 }
 
+/* ── Guide page scroll anchors ── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.guide-phase-section {
+  scroll-margin-top: 60px;
+}
+
+.guide-anchor-section {
+  scroll-margin-top: 60px;
+}
+
+@media (max-width: 1023px) {
+  /* Account for mobile phase band (44px) */
+  .guide-phase-section,
+  .guide-anchor-section {
+    scroll-margin-top: 60px;
+  }
+}
+
+/* Brief highlight when arriving via anchor */
+.guide-phase-section:target > div:first-child,
+.guide-anchor-section:target {
+  animation: anchorHighlight 1s ease-out;
+}
+
+@keyframes anchorHighlight {
+  0% { background-color: rgba(214, 138, 89, 0.12); }
+  100% { background-color: transparent; }
+}
+
 /* ── Reduced motion ── */
 
 @media (prefers-reduced-motion: reduce) {

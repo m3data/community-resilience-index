@@ -136,11 +136,11 @@ export default function MethodologyOverview() {
           Structural characteristics are mapped to exposure domains using
           transparent, algorithmic rules grounded in published research from
           the{' '}
-          <a href="https://www.accc.gov.au/by-industry/petrol-and-fuel" className="text-green-700 underline underline-offset-2">ACCC</a>,{' '}
-          <a href="https://www.bitre.gov.au/" className="text-green-700 underline underline-offset-2">BITRE</a>,{' '}
-          <a href="https://www.agriculture.gov.au/abares" className="text-green-700 underline underline-offset-2">ABARES</a>,{' '}
+          <a href="https://www.accc.gov.au/by-industry/petrol-and-fuel" target="_blank" rel="noopener noreferrer" className="text-green-700 underline underline-offset-2">ACCC</a>,{' '}
+          <a href="https://www.bitre.gov.au/" target="_blank" rel="noopener noreferrer" className="text-green-700 underline underline-offset-2">BITRE</a>,{' '}
+          <a href="https://www.agriculture.gov.au/abares" target="_blank" rel="noopener noreferrer" className="text-green-700 underline underline-offset-2">ABARES</a>,{' '}
           and the{' '}
-          <a href="https://www.rba.gov.au/" className="text-green-700 underline underline-offset-2">RBA</a>.
+          <a href="https://www.rba.gov.au/" target="_blank" rel="noopener noreferrer" className="text-green-700 underline underline-offset-2">RBA</a>.
           These are not machine-learned or LLM-generated. Every rule is
           documented and auditable. Full evidence base on the{' '}
           <a href="/methodology/references#domain-evidence" className="text-green-700 underline underline-offset-2">references page</a>.

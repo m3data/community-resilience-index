@@ -75,6 +75,7 @@ export default function References() {
             103870.{' '}
             <a
               href="https://doi.org/10.1016/j.ijdrr.2023.103870"
+              target="_blank"
               rel="noopener noreferrer"
             >
               doi:10.1016/j.ijdrr.2023.103870
@@ -89,6 +90,7 @@ export default function References() {
             , 21(8), 1012.{' '}
             <a
               href="https://doi.org/10.3390/ijerph21081012"
+              target="_blank"
               rel="noopener noreferrer"
             >
               doi:10.3390/ijerph21081012
@@ -105,6 +107,7 @@ export default function References() {
             Methodology and User Guide. OECD Publishing.{' '}
             <a
               href="https://doi.org/10.1787/9789264043466-en"
+              target="_blank"
               rel="noopener noreferrer"
             >
               doi:10.1787/9789264043466-en
