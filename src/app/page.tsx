@@ -34,10 +34,10 @@ export default function Home() {
             <p className="text-amber-400 font-medium text-sm uppercase tracking-wide mb-4 animate-fade-up">
               Australia
             </p>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold leading-tight animate-fade-up delay-100">
+            <h1 className="font-heading text-3xl sm:text-5xl font-bold leading-tight animate-fade-up delay-100">
               What pressures reach your community hardest?
             </h1>
-            <p className="mt-6 text-lg text-green-100 max-w-2xl leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-green-100 max-w-2xl leading-relaxed">
               Enter your postcode. See your community&apos;s exposure profile &mdash;
               the structural shape that determines how fuel shocks, food prices, and
               economic pressure hit where you live. Official data. Transparent methods.
@@ -70,50 +70,50 @@ export default function Home() {
       </section>
 
       {/* What you get */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <h2 className="font-heading text-2xl font-bold text-green-900 mb-3">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <h2 className="font-heading text-xl sm:text-2xl font-bold text-green-900 mb-2 sm:mb-3">
           A profile, not a score
         </h2>
-        <p className="text-gray-600 text-lg max-w-2xl mb-10">
+        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-6 sm:mb-10">
           A single number hides the most useful information: <em>why</em> your
           community is exposed and <em>what</em> you can do about it. We show
           you the shape of your exposure instead.
         </p>
-        <div className="grid sm:grid-cols-3 gap-6">
-          <div className="border border-gray-200 rounded-xl p-6 bg-white">
+        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-white">
             <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">
               Your structure
             </p>
-            <h3 className="font-heading text-lg font-bold text-gray-900">
+            <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">
               What shapes your exposure
             </h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-sm text-gray-600 leading-relaxed">
               Car dependency, refinery distance, industry concentration,
               remoteness, housing stress. The characteristics that determine
               how supply chain disruptions reach your community.
             </p>
           </div>
-          <div className="border border-gray-200 rounded-xl p-6 bg-white">
+          <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-white">
             <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">
               Your exposures
             </p>
-            <h3 className="font-heading text-lg font-bold text-gray-900">
+            <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">
               Where pressure hits hardest
             </h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-sm text-gray-600 leading-relaxed">
               Six domains &mdash; fuel, food, electricity, economic, housing,
               emergency &mdash; ranked by how exposed your specific community is.
               With the live signals most relevant to you.
             </p>
           </div>
-          <div className="border border-gray-200 rounded-xl p-6 bg-white">
+          <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-white">
             <p className="text-xs font-semibold uppercase tracking-wide text-green-700 mb-2">
               Your actions
             </p>
-            <h3 className="font-heading text-lg font-bold text-gray-900">
+            <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">
               What to do about it
             </h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-sm text-gray-600 leading-relaxed">
               Actions ranked by urgency, driven by your structural profile.
               Household steps, community organising, and advocacy &mdash; with
               links to the full resilience guide.
@@ -124,25 +124,25 @@ export default function Home() {
 
       {/* Diversity section */}
       <section className="bg-green-50 border-y border-green-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
           <div className="flex items-center gap-3 mb-4">
-            <Plant size={32} className="text-green-700" weight="duotone" />
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-green-900">
+            <Plant size={28} className="text-green-700 flex-shrink-0" weight="duotone" />
+            <h2 className="font-heading text-xl sm:text-3xl font-bold text-green-900">
               Diversity is resilience
             </h2>
           </div>
-          <p className="mt-6 text-gray-700 text-lg leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-gray-700 text-base sm:text-lg leading-relaxed">
             A community where 90% of workers are in one industry looks stable
             &mdash; right up until that industry contracts. Then everything fails
             at once.
           </p>
-          <p className="mt-4 text-gray-700 text-lg leading-relaxed">
+          <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
             We measure not just how much of something a community has, but
             how diversified those holdings are. Moderate employment across five
             sectors is more resilient than high employment concentrated in one.
             The same applies to transport options and land use.
           </p>
-          <p className="mt-4 text-gray-600 text-base leading-relaxed">
+          <p className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
             Communities with concentrated dependencies face higher urgency in
             their action recommendations, because when the dominant system fails
             there is no fallback.
@@ -151,11 +151,11 @@ export default function Home() {
       </section>
 
       {/* Two paths */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-8 max-w-3xl mx-auto">
           <Link
             href="/your-place"
-            className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+            className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-5 sm:p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
           >
             <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mb-3 text-green-700">
               <MapPin size={24} weight="duotone" />
@@ -173,7 +173,7 @@ export default function Home() {
           </Link>
           <Link
             href="/guide"
-            className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+            className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-5 sm:p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
           >
             <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mb-3 text-green-700">
               <HandHeart size={24} weight="duotone" />
@@ -194,12 +194,12 @@ export default function Home() {
 
       {/* From understanding to action */}
       <section className="bg-green-900 bg-topo text-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 flex items-center gap-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 flex items-center gap-8">
           <ScrollReveal direction="left" delay={200} className="hidden md:block flex-shrink-0 opacity-85">
             <Image src="/peeps/standing-1.svg" alt="" width={100} height={240} aria-hidden="true" />
           </ScrollReveal>
           <div className="flex-1 text-center">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold">
+          <h2 className="font-heading text-xl sm:text-3xl font-bold">
             From understanding to action
           </h2>
           <p className="mt-6 text-green-100 text-lg leading-relaxed">
@@ -224,11 +224,11 @@ export default function Home() {
       </section>
 
       {/* How it's built */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <h2 className="font-heading text-2xl font-bold text-green-900 mb-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <h2 className="font-heading text-xl sm:text-2xl font-bold text-green-900 mb-6 sm:mb-8">
           Built in the open
         </h2>
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-8">
           <Principle
             icon={<Database size={22} weight="duotone" className="text-green-700" />}
             title="Official data"

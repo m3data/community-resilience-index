@@ -12,9 +12,31 @@ Three layers of intelligence:
 
 2. **Exposure mapping** — algorithmic computation of how exposed your community is across six domains (fuel, food, electricity, economic, housing, emergency). Driven by structural data, not opinion. Transparent rules, auditable logic.
 
-3. **Live signals** — fuel reserves, diesel prices, crude oil, refining margins, electricity wholesale prices, food and agriculture equities, farm input costs, RBA cash rate, AUD/USD, emergency feeds. Sourced from public APIs and government data. Contextualised per-postcode: the same signal means different things for a remote mining town versus an inner-suburban commuter belt.
+3. **Live signals** — 20+ automated feeds across a 6-layer cascade model. Upstream market pressure (Brent crude, crack spread, AUD/USD, ASX energy and food equities), supply position (DCCEEW fuel reserves, AEMO electricity, energy policy news), wholesale prices (AIP terminal gate prices), retail impact (WA FuelWatch, NSW FuelCheck, station availability, supermarket prices, food basket CPI), downstream cascade (RBA cash rate, farm inputs), and emergency feeds (NSW RFS, VIC EMV). Each signal shows its temporal window so you know what you're looking at.
 
 Actions are computed from exposure weights, structural drivers, and diversity. The top three things to do are shown inline, ranked by urgency.
+
+## Signal architecture
+
+Signals are organised as a cascading failure early warning system. Pressure propagates through layers:
+
+```
+Layer 1: Upstream pressure     Brent crude, crack spread, AUD/USD, ASX equities
+    ↓
+Layer 2: Supply position       DCCEEW reserves, AEMO electricity, energy policy
+    ↓
+Layer 3: Wholesale prices      AIP terminal gate prices (diesel + petrol, city-level)
+    ↓
+Layer 4: Retail impact         WA/NSW fuel prices, station availability, food prices
+    ↓
+Layer 5: Downstream cascade    RBA cash rate, farm input costs
+    ↓
+Layer 6: Emergency             NSW RFS bushfires, VIC EMV incidents
+```
+
+**Station availability** is a proxy signal built from daily snapshots of WA FuelWatch (~1,100 stations) and NSW FuelCheck (~5,600 stations). Gap detection compares consecutive days to identify stations that stopped reporting. Other states lack public station-level reporting.
+
+The signals page caches for 5 minutes. Individual API fetches have per-source revalidation windows (5 min for AEMO, 15 min for market data, 1 hour for wholesale prices, 24 hours for quarterly statistics). All external fetches have timeouts and graceful degradation.
 
 ## Why
 
@@ -24,15 +46,71 @@ Citizens deserve higher fidelity information about how systemic pressures reach 
 
 ## Methodology
 
-Structural data from ABS Census 2021, SEIFA 2021, Modified Monash Model 2023, Clean Energy Regulator, and derived refinery distance calculations. Exposure mapping uses algorithmic rules (not ML or LLM generation) documented in SPEC-003. Diversity measured via Shannon index. Coherence/entrainment spectrum distinguishes between communities that can reorganise under stress and those locked into brittle dependencies. Full methodology at [australia.communityresilienceindex.net/methodology](https://australia.communityresilienceindex.net/methodology).
+Structural data from ABS Census 2021, SEIFA 2021, Modified Monash Model 2023, Clean Energy Regulator, and derived refinery distance calculations. Exposure mapping uses algorithmic rules (not ML or LLM generation) documented in SPEC-003. Diversity measured via Shannon index. Coherence/entrainment spectrum distinguishes between communities that can reorganise under stress and those locked into brittle dependencies.
+
+Full methodology at [australia.communityresilienceindex.net/methodology](https://australia.communityresilienceindex.net/methodology).
 
 ## Tech
 
-Next.js 16, Tailwind v4, TypeScript. Profile engine is deterministic (algorithmic exposure weights, parameterised contextualisation templates). Signals layer fetches from DCCEEW, ABS, FuelWatch, Yahoo Finance, AEMO, Google News. Manual signals (demand pressure, farm inputs) update via `src/data/manual-signals.json`.
+- **Framework:** Next.js 16 (app router, React 19, Turbopack)
+- **Styling:** Tailwind CSS v4
+- **Language:** TypeScript 5
+- **Icons:** Phosphor Icons (duotone, SSR imports)
+- **Data parsing:** ExcelJS for DCCEEW/AIP XLSX files
+- **Fonts:** Fraunces (headings), DM Sans (body), DM Mono (code)
+
+Profile engine is deterministic — algorithmic exposure weights, parameterised contextualisation templates. No ML, no LLM generation.
+
+Signal layer fetches from: Yahoo Finance, DCCEEW (data.gov.au CKAN), ABS (SDMX API), WA FuelWatch (RSS), NSW FuelCheck (CKAN), AIP (XLSX), AEMO (Visualisations API), RBA (CSV), NSW RFS (GeoJSON), VIC EMV (GeoJSON), Google News (RSS).
+
+Daily automated refresh via launchd agent (6am, runs on wake): supermarket price scraping, energy news, station snapshots. Auto-commits and pushes to trigger Vercel deploy.
+
+## Test coverage
+
+337 tests across 21 test files. All passing. ~830ms.
+
+| Area | Tests |
+|------|-------|
+| Scoring engine (BRIC, INFORM, quadrant, normalise, diversity, confidence, weights) | ~200 |
+| Profile API (`/api/profile`) | 28 |
+| Score API (`/api/score`) | ~10 |
+| Data loader | ~15 |
+| Layer 1 signals (brent, asx-energy, asx-food, aud-usd, crack-spread) | 28 |
+| Layer 2-6 signals (aemo, rba, nsw-rfs, vic-emv, food-basket) | 25 |
+| Signal aggregator | 7 |
+| Station availability (gap detection) | 6 |
+| WA FuelWatch, NSW FuelCheck, ABS CPI, fuel reserves, news volume | ~18 |
+
+```bash
+npm test
+```
+
+## Data sources
+
+| Source | Frequency | Auth required |
+|--------|-----------|---------------|
+| ABS Census 2021 | Static (next: Aug 2026) | No |
+| ABS SEIFA 2021 | Static | No |
+| ABS CPI (SDMX) | Quarterly | No |
+| Modified Monash Model 2023 | Annual | No |
+| Clean Energy Regulator | Annual | No |
+| DCCEEW Petroleum Statistics | Weekly | No |
+| AIP Terminal Gate Prices | Daily | No |
+| WA FuelWatch | Daily | No |
+| NSW FuelCheck | Daily | No |
+| Yahoo Finance | Intraday (delayed) | No |
+| AEMO NEM | 5-minute dispatch | No |
+| RBA Statistical Tables | Monthly | No |
+| NSW RFS | Live feed | No |
+| VIC EMV | Live feed | No |
+| Google News RSS | Rolling | No |
+| Coles/Woolworths prices | Manual scrape | No |
+
+All data sources are public and free. No API keys required.
 
 ## Licence
 
-Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS).
+Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS, DCCEEW). INFORM methodology: JRC, CC BY 4.0.
 
 ---
 

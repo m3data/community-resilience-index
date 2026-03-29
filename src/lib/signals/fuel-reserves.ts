@@ -80,37 +80,45 @@ function parseIeaDays(wb: ExcelJS.Workbook): IeaRow[] {
   return rows;
 }
 
+// In-process cache — DCCEEW XLSX is 3.6MB, exceeds Next.js 2MB fetch cache limit
+let cachedWb: ExcelJS.Workbook | null = null;
+
 export async function fetchFuelReserves(): Promise<Signal | null> {
   try {
-    // Get dataset metadata from CKAN
-    const pkgRes = await fetch(`${CKAN_API}/package_show?id=${DATASET_ID}`, {
-      next: { revalidate: 86400 },
-      signal: AbortSignal.timeout(5000),
-    });
-    if (!pkgRes.ok) return null;
+    let wb = cachedWb;
 
-    const pkg = await pkgRes.json();
-    if (!pkg.success) return null;
+    if (!wb) {
+      // Get dataset metadata from CKAN
+      const pkgRes = await fetch(`${CKAN_API}/package_show?id=${DATASET_ID}`, {
+        next: { revalidate: 86400 },
+        signal: AbortSignal.timeout(5000),
+      });
+      if (!pkgRes.ok) return null;
 
-    // Find the XLSX resource — format string is "excel (.xlsx)" not "XLSX"
-    const xlsResource = pkg.result.resources?.find(
-      (r: { format: string }) =>
-        r.format?.toUpperCase().includes("XLS") ||
-        r.format?.toUpperCase().includes("EXCEL")
-    );
-    if (!xlsResource?.url) return null;
+      const pkg = await pkgRes.json();
+      if (!pkg.success) return null;
 
-    // Download and parse
-    const xlsRes = await fetch(xlsResource.url, {
-      cache: "no-store", // XLSX can be large
-      signal: AbortSignal.timeout(30000),
-    });
-    if (!xlsRes.ok) return null;
+      // Find the XLSX resource — format string is "excel (.xlsx)" not "XLSX"
+      const xlsResource = pkg.result.resources?.find(
+        (r: { format: string }) =>
+          r.format?.toUpperCase().includes("XLS") ||
+          r.format?.toUpperCase().includes("EXCEL")
+      );
+      if (!xlsResource?.url) return null;
 
-    const buf = await xlsRes.arrayBuffer();
-    const wb = new ExcelJS.Workbook();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await wb.xlsx.load(Buffer.from(buf) as any);
+      // Download and parse
+      const xlsRes = await fetch(xlsResource.url, {
+        next: { revalidate: 21600 }, // hint — silently ignored for >2MB, but harmless
+        signal: AbortSignal.timeout(30000),
+      });
+      if (!xlsRes.ok) return null;
+
+      const buf = await xlsRes.arrayBuffer();
+      wb = new ExcelJS.Workbook();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await wb.xlsx.load(Buffer.from(buf) as any);
+      cachedWb = wb;
+    }
 
     // Parse consumption cover (days by product type)
     const consumption = parseConsumptionCover(wb);

@@ -40,7 +40,7 @@ export function Nav() {
           href="/"
           className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 rounded"
         >
-          <span className="font-heading font-bold text-green-900 text-lg">
+          <span className="font-heading font-bold text-green-900 text-base sm:text-lg">
             Community Resilience Index
           </span>
         </Link>

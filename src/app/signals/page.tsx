@@ -16,6 +16,8 @@ import {
 import { fetchSignals } from "@/lib/signals";
 import type { Signal, Trend, CascadeLayer } from "@/lib/signals/types";
 
+export const revalidate = 300; // cache rendered page for 5 minutes
+
 export const metadata: Metadata = {
   title: "Signal Intelligence — Community Resilience Index",
   description:
@@ -69,7 +71,7 @@ const CASCADE_LAYERS: {
     description:
       "Pump prices, food costs, station closures. This is where most public attention sits — but it lags the layers above.",
     icon: <TrendUp size={18} weight="duotone" />,
-    keys: ["cascadePressure", "retailMargin", "demandPressure", "waDiesel", "waPetrol", "food", "foodBasket", "supermarketPrices", "newsVolume"],
+    keys: ["cascadePressure", "retailMargin", "stationAvailability", "waDiesel", "waPetrol", "nswDiesel", "food", "foodBasket", "supermarketPrices", "newsVolume"],
     defaultExpanded: true,
   },
   {
@@ -124,7 +126,7 @@ function getCascadeStatus(signals: Record<string, Signal>): {
   const upstreamStress = upstreamKeys.some(
     (k) => signals[k]?.trend === "critical" || signals[k]?.trend === "up"
   );
-  const retailKeys = ["demandPressure", "waDiesel", "food"];
+  const retailKeys = ["stationAvailability", "waDiesel", "nswDiesel", "food"];
   const retailStress = retailKeys.some(
     (k) => signals[k]?.trend === "critical" || signals[k]?.trend === "up"
   );
@@ -194,33 +196,33 @@ export default async function SignalsPage() {
     <div>
       {/* Status layer — the single read above the fold */}
       <section className="bg-amber-950 bg-topo text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
-          <div className="flex items-center gap-3 mb-6">
-            <Warning size={22} weight="duotone" className="text-amber-400" />
-            <p className="text-amber-400 font-medium text-sm uppercase tracking-wide">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
+          <div className="flex items-center gap-2 mb-4 sm:mb-6">
+            <Warning size={20} weight="duotone" className="text-amber-400" />
+            <p className="text-amber-400 font-medium text-xs sm:text-sm uppercase tracking-wide">
               Signal intelligence
             </p>
           </div>
 
-          <h1 className="font-heading text-2xl sm:text-3xl font-bold leading-tight max-w-2xl">
+          <h1 className="font-heading text-xl sm:text-3xl font-bold leading-tight max-w-2xl">
             {cascadeStatus.headline}
           </h1>
-          <p className="mt-3 text-amber-100 text-base sm:text-lg max-w-2xl leading-relaxed">
+          <p className="mt-2 sm:mt-3 text-amber-100 text-sm sm:text-lg max-w-2xl leading-relaxed">
             {cascadeStatus.detail}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
-            <span className="text-amber-300/60">{fetchTime}</span>
+          <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-sm">
+            <span className="text-amber-300/60 text-xs sm:text-sm">{fetchTime}</span>
             {automatedCount > 0 && (
-              <span className="inline-flex items-center gap-1.5 text-amber-300 bg-amber-900/40 px-2.5 py-1 rounded-full text-xs">
+              <span className="inline-flex items-center gap-1.5 text-amber-300 bg-amber-900/40 px-2.5 py-1 rounded-full text-[11px] sm:text-xs">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                 {automatedCount} live sources
               </span>
             )}
           </div>
 
-          <div className="mt-6 bg-amber-950/60 border border-amber-700/30 rounded-lg p-4 max-w-2xl">
-            <p className="text-sm text-amber-200/80 leading-relaxed">
+          <div className="mt-4 sm:mt-6 bg-amber-950/60 border border-amber-700/30 rounded-lg p-3 sm:p-4 max-w-2xl">
+            <p className="text-xs sm:text-sm text-amber-200/80 leading-relaxed">
               This page shows where pressure is building in the supply chain
               — from upstream markets to the prices you pay. Signals are
               sourced from public data. We name the gaps the government
@@ -295,12 +297,12 @@ export default async function SignalsPage() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-        <div className="bg-green-900 bg-topo text-white rounded-xl p-8 sm:p-10 text-center">
-          <h2 className="font-heading text-2xl font-bold mb-4">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="bg-green-900 bg-topo text-white rounded-xl p-6 sm:p-10 text-center">
+          <h2 className="font-heading text-lg sm:text-2xl font-bold mb-3 sm:mb-4">
             Data without action is anxiety. Data with structure is agency.
           </h2>
-          <p className="text-green-100 text-lg max-w-2xl mx-auto mb-6">
+          <p className="text-green-100 text-base sm:text-lg max-w-2xl mx-auto mb-4 sm:mb-6">
             Understanding the cascade is step one. Organising your community
             is what makes the difference.
           </p>
@@ -351,44 +353,84 @@ function CascadeLayerSection({
 }) {
   return (
     <details open={layer.defaultExpanded || status === "critical"}>
-      <summary className={`cursor-pointer select-none rounded-lg border border-gray-200 bg-white px-5 py-4 hover:bg-gray-50 transition-colors list-none [&::-webkit-details-marker]:hidden`}>
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
+      <summary className={`cursor-pointer select-none rounded-lg border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-4 hover:bg-gray-50 transition-colors list-none [&::-webkit-details-marker]:hidden`}>
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <span className="text-gray-400 flex-shrink-0">
               {layer.icon}
             </span>
             <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <h2 className="font-heading font-semibold text-green-900">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h2 className="font-heading text-sm sm:text-base font-semibold text-green-900">
                   {layer.heading}
                 </h2>
                 <span
-                  className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${layerStatusStyles[status]}`}
+                  className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${layerStatusStyles[status]}`}
                 >
                   {layerStatusLabel[status]}
                 </span>
               </div>
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-[11px] text-gray-400 mt-0.5 hidden sm:block">
                 {layer.timing}
               </p>
             </div>
           </div>
-          <span className="text-xs text-gray-400 flex-shrink-0">
+          <span className="text-[11px] text-gray-400 flex-shrink-0">
             {signals.length} signal{signals.length !== 1 ? "s" : ""}
           </span>
         </div>
       </summary>
 
-      <div className={`mt-1 border-l-4 ${layerBorderStyles[status]} ml-3 pl-5 pb-2 space-y-3`}>
-        <p className="text-sm text-gray-500 pt-2">{layer.description}</p>
+      <div className={`mt-1 border-l-4 ${layerBorderStyles[status]} ml-1 sm:ml-3 pl-3 sm:pl-5 pb-2 space-y-3`}>
+        <p className="text-xs sm:text-sm text-gray-500 pt-2">{layer.description}</p>
 
         {signals.map(({ key, signal }) => (
-          <SignalCard key={key} signal={signal} />
+          <SignalCard key={key} signalKey={key} signal={signal} />
         ))}
       </div>
     </details>
   );
 }
+
+/* ─── Temporal window labels ─── */
+
+/** How often the underlying data refreshes and what window it represents.
+ *  This is a presentation concern — the cadence of the source, not when we last fetched. */
+const TEMPORAL_WINDOW: Record<string, string> = {
+  // Layer 1: Upstream market — intraday feeds
+  brentCrude: "Intraday",
+  crackSpread: "Intraday",
+  audUsd: "Intraday",
+  asxEnergy: "Intraday",
+  asxFood: "Intraday",
+  // Layer 2: Supply position
+  reserves: "Weekly report",
+  productReserves: "Weekly report",
+  ieaCompliance: "Weekly report",
+  stockVolumes: "Weekly report",
+  energyPolicyNews: "Rolling 7 days",
+  aemoElectricity: "5-min intervals",
+  // Layer 3: Wholesale
+  dieselTgp: "Daily",
+  petrolTgp: "Daily",
+  // Layer 4: Retail
+  waDiesel: "Daily",
+  waPetrol: "Daily",
+  nswDiesel: "Daily",
+  retailMargin: "Daily (derived)",
+  cascadePressure: "Daily (derived)",
+  stationAvailability: "Daily snapshot comparison",
+  food: "Quarterly",
+  foodBasket: "Quarterly",
+  supermarketPrices: "Point-in-time scrape",
+  newsVolume: "Rolling 7 days",
+  // Layer 5: Downstream
+  rbaCashRate: "Set at RBA board meetings",
+  farmInputs: "Periodic estimate",
+  // Layer 6: Emergency
+  nswRfs: "Live feed",
+  vicEmv: "Live feed",
+};
 
 /* ─── Signal Card ─── */
 
@@ -406,7 +448,24 @@ const trendIcon: Record<Trend, string> = {
   stable: "\u2192",
 };
 
-function SignalCard({ signal }: { signal: Signal }) {
+function formatLastUpdated(iso: string | null): string | null {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return null;
+  const now = new Date();
+  const diffMs = now.getTime() - d.getTime();
+  const diffMins = Math.floor(diffMs / 60000);
+  if (diffMins < 1) return "Just now";
+  if (diffMins < 60) return `${diffMins}m ago`;
+  const diffHrs = Math.floor(diffMins / 60);
+  if (diffHrs < 24) return `${diffHrs}h ago`;
+  const diffDays = Math.floor(diffHrs / 24);
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 7) return `${diffDays} days ago`;
+  return d.toLocaleDateString("en-AU", { day: "numeric", month: "short" });
+}
+
+function SignalCard({ signalKey, signal }: { signalKey: string; signal: Signal }) {
   const {
     label,
     value,
@@ -415,32 +474,24 @@ function SignalCard({ signal }: { signal: Signal }) {
     sourceUrl,
     context,
     automated,
+    lastUpdated,
     components,
     regions,
     secondary,
     propagatesTo,
   } = signal;
 
+  const updatedLabel = formatLastUpdated(lastUpdated);
+  const temporalWindow = TEMPORAL_WINDOW[signalKey];
+
   return (
     <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-5">
-      {/* Header row */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-            {label}
-          </p>
-          <div className="flex items-baseline gap-2 mt-1">
-            <p className="font-heading text-xl sm:text-2xl font-bold text-green-900">
-              {value}
-            </p>
-            <span
-              className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-semibold border ${trendStyles[trend]}`}
-            >
-              {trendIcon[trend]}
-            </span>
-          </div>
-        </div>
-        <p className="text-xs text-gray-400 flex-shrink-0 text-right">
+      {/* Label + source row */}
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <p className="text-xs text-gray-400 uppercase tracking-wide font-medium truncate">
+          {label}
+        </p>
+        <p className="text-[11px] text-gray-400 flex-shrink-0 text-right flex items-center gap-1.5">
           {sourceUrl ? (
             <a
               href={sourceUrl}
@@ -454,11 +505,33 @@ function SignalCard({ signal }: { signal: Signal }) {
             source
           )}
           {automated && (
-            <span className="ml-1 inline-flex items-center gap-0.5 text-green-600" title="Live data">
+            <span className="inline-flex items-center gap-0.5 text-green-600" title="Live data">
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
             </span>
           )}
         </p>
+      </div>
+      {/* Value row — prominent */}
+      <div className="flex items-baseline gap-2">
+        <p className="font-heading text-2xl sm:text-3xl font-bold text-green-900 leading-tight">
+          {value}
+        </p>
+        <span
+          className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-semibold border ${trendStyles[trend]}`}
+        >
+          {trendIcon[trend]}
+        </span>
+      </div>
+      {/* Temporal window + last updated */}
+      <div className="flex items-center gap-2 mt-1 text-[11px] text-gray-400">
+        {temporalWindow && (
+          <span className="bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded font-medium">
+            {temporalWindow}
+          </span>
+        )}
+        {updatedLabel && (
+          <span>{updatedLabel}</span>
+        )}
       </div>
 
       {/* Secondary insight (e.g. futures curve) */}
@@ -474,14 +547,14 @@ function SignalCard({ signal }: { signal: Signal }) {
 
       {/* Composite components (ASX tickers etc.) */}
       {components && components.length > 0 && (
-        <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div className="mt-3 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2">
           {components.map((c) => (
             <div
               key={c.label}
               className="bg-gray-50 rounded px-3 py-2 text-sm"
             >
-              <p className="text-xs text-gray-500">{c.label}</p>
-              <p className="font-medium text-gray-900">
+              <p className="text-[11px] text-gray-500">{c.label}</p>
+              <p className="font-medium text-gray-900 text-sm">
                 {c.value}
                 {c.change && (
                   <span

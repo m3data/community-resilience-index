@@ -72,7 +72,8 @@ const SIGNAL_NAMES: Record<string, string> = {
   crackSpread: 'Refining margin (crack spread)',
   reserves: 'National fuel reserves',
   waDiesel: 'WA diesel price',
-  demandPressure: 'Demand-side pressure',
+  stationAvailability: 'Station availability (WA + NSW)',
+  nswDiesel: 'NSW diesel price',
   asxFood: 'Food & agriculture equities',
   asxEnergy: 'Energy sector equities',
   farmInputs: 'Farm input costs',
@@ -130,19 +131,19 @@ export default function YourPlacePage() {
     <div>
       {/* Hero + search */}
       <section className="bg-green-900 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <p className="text-amber-500 font-medium text-sm uppercase tracking-wide mb-3">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+          <p className="text-amber-500 font-medium text-xs sm:text-sm uppercase tracking-wide mb-2 sm:mb-3">
             Community Resilience Index
           </p>
-          <h1 className="font-heading text-3xl sm:text-4xl font-bold leading-tight">
+          <h1 className="font-heading text-2xl sm:text-4xl font-bold leading-tight">
             Your Place
           </h1>
-          <p className="mt-4 text-green-100 text-lg max-w-2xl">
+          <p className="mt-3 sm:mt-4 text-green-100 text-base sm:text-lg max-w-2xl">
             Enter your postcode to see what pressures reach your community hardest,
             what to do about them, and which signals to watch.
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-8 flex gap-3 max-w-md">
+          <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 flex gap-3 max-w-md">
             <div className="relative flex-1">
               <MagnifyingGlass size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               <input
@@ -173,7 +174,7 @@ export default function YourPlacePage() {
 
       {/* Profile results — ordered by user need: orientation → action → understanding */}
       {profile && (
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-10">
           {/* 1. Orientation */}
           <ProfileHeader profile={profile} />
           {/* 2. Action */}
@@ -205,19 +206,19 @@ function ProfileHeader({ profile }: { profile: ExposureProfile }) {
 
   return (
     <div>
-      <div className="flex items-baseline gap-3">
-        <h2 className="font-heading text-2xl font-bold text-gray-900">
+      <div className="flex items-baseline gap-2 sm:gap-3 flex-wrap">
+        <h2 className="font-heading text-xl sm:text-2xl font-bold text-gray-900">
           {profile.locality || profile.postcode}
         </h2>
-        <span className="text-sm text-gray-400">
+        <span className="text-xs sm:text-sm text-gray-400">
           {profile.locality ? `${profile.postcode} \u00b7 ` : ''}{profile.state}
         </span>
       </div>
 
       {/* Lede finding — expanded from a badge into a sentence */}
       {top && topColor && (
-        <div className={`mt-4 rounded-xl border-2 ${topColor.border} ${topColor.bg} p-5`}>
-          <p className="text-base text-gray-900 leading-relaxed">
+        <div className={`mt-3 sm:mt-4 rounded-xl border-2 ${topColor.border} ${topColor.bg} p-4 sm:p-5`}>
+          <p className="text-sm sm:text-base text-gray-900 leading-relaxed">
             <strong className={topColor.text}>{top.label} </strong> is this
             community&rsquo;s highest exposure
             {second && second.weight > 0.3 ? (
@@ -253,8 +254,8 @@ function TopActions({ actions }: { actions: ProfileAction[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <ArrowRight size={22} weight="duotone" className="text-green-700" />
-        <h3 className="font-heading text-lg font-bold text-gray-900">What to do</h3>
+        <ArrowRight size={20} weight="duotone" className="text-green-700" />
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">What to do</h3>
       </div>
 
       <div className="space-y-3 mt-4">
@@ -264,15 +265,15 @@ function TopActions({ actions }: { actions: ProfileAction[] }) {
           const cat = CATEGORY_LABELS[action.category] ?? CATEGORY_LABELS.household;
 
           return (
-            <div key={i} className="rounded-xl border border-gray-200 bg-white p-5">
+            <div key={i} className="rounded-xl border border-gray-200 bg-white p-4 sm:p-5">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon size={18} weight="duotone" className="text-green-700" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon size={16} weight="duotone" className="text-green-700" />
                 </div>
                 <div className="flex-1 min-w-0">
                   {/* Action leads */}
-                  <div className="flex items-center gap-2 flex-wrap mb-2">
-                    <h4 className="text-base font-bold text-gray-900">{action.title}</h4>
+                  <div className="flex items-center gap-2 flex-wrap mb-1.5 sm:mb-2">
+                    <h4 className="text-sm sm:text-base font-bold text-gray-900">{action.title}</h4>
                     <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${urg.color}`}>
                       {urg.label}
                     </span>
@@ -367,8 +368,8 @@ function ExposureMap({ exposures }: { exposures: ExposureWeight[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Pulse size={22} weight="duotone" className="text-amber-700" />
-        <h3 className="font-heading text-lg font-bold text-gray-900">Where pressure reaches you hardest</h3>
+        <Pulse size={20} weight="duotone" className="text-amber-700" />
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">Where pressure reaches you hardest</h3>
       </div>
       {topNames.length > 0 && (
         <p className="text-sm text-gray-600 mb-4">
@@ -413,13 +414,13 @@ function ExposureBar({ exposure }: { exposure: ExposureWeight }) {
   const pct = Math.round(exposure.weight * 100);
 
   return (
-    <div className={`rounded-lg border ${colors.border} p-4 ${colors.bg}`}>
+    <div className={`rounded-lg border ${colors.border} p-3 sm:p-4 ${colors.bg}`}>
       <div className="flex items-center gap-2 mb-2">
-        <Icon size={18} weight="duotone" className={colors.text} />
+        <Icon size={16} weight="duotone" className={colors.text} />
         <span className="text-sm font-semibold text-gray-900 flex-1">{exposure.label}</span>
         <span className={`text-xs font-bold ${colors.text}`}>{pct}%</span>
       </div>
-      <div className="h-2 bg-white/60 rounded-full overflow-hidden">
+      <div className="h-1.5 sm:h-2 bg-white/60 rounded-full overflow-hidden">
         <div
           className={`h-full ${colors.bar} rounded-full transition-all`}
           style={{ width: `${pct}%` }}
@@ -440,8 +441,8 @@ function SignalRecommendations({ signals }: { signals: ContextualisedSignal[] })
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Pulse size={22} weight="duotone" className="text-green-700" />
-        <h3 className="font-heading text-lg font-bold text-gray-900">Signals to watch</h3>
+        <Pulse size={20} weight="duotone" className="text-green-700" />
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">Signals to watch</h3>
       </div>
       <p className="text-sm text-gray-500 mb-4">
         Live data feeds ranked by relevance to your community.
@@ -453,9 +454,9 @@ function SignalRecommendations({ signals }: { signals: ContextualisedSignal[] })
           const humanName = SIGNAL_NAMES[sig.key] ?? sig.key.replace(/([A-Z])/g, ' $1').trim();
 
           return (
-            <div key={sig.key} className="flex gap-3 p-4 rounded-lg border border-gray-100 bg-white">
-              <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
-                <Icon size={16} weight="duotone" className="text-gray-500" />
+            <div key={sig.key} className="flex gap-3 p-3 sm:p-4 rounded-lg border border-gray-100 bg-white">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
+                <Icon size={14} weight="duotone" className="text-gray-500" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -497,8 +498,8 @@ function StructuralShape({
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <TreeStructure size={22} weight="duotone" className="text-green-700" />
-        <h3 className="font-heading text-lg font-bold text-gray-900">What shapes this community&rsquo;s exposure</h3>
+        <TreeStructure size={20} weight="duotone" className="text-green-700" />
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">What shapes this community&rsquo;s exposure</h3>
       </div>
       <p className="text-sm text-gray-500 mb-4">
         The structural characteristics that drive the exposure profile above.
@@ -558,8 +559,8 @@ function StructuralCard({ char, highlight }: { char: StructuralCharacteristic; h
 
   return (
     <div className={`p-3 rounded-lg border ${highlight ? 'border-green-200 bg-green-50/30' : 'border-gray-100 bg-white'}`}>
-      <p className="text-xs text-gray-400 font-medium">{char.label}</p>
-      <p className="text-sm font-semibold text-gray-900 mt-0.5">{char.formatted}</p>
+      <p className="text-[11px] text-gray-400 font-medium">{char.label}</p>
+      <p className="text-sm font-bold text-gray-900 mt-0.5">{char.formatted}</p>
       {pct !== null && (
         <div className="mt-2">
           <div className="flex items-center gap-2">
@@ -589,8 +590,8 @@ function DiversitySection({ spectra }: { spectra: DiversitySpectrum[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Eye size={22} weight="duotone" className="text-green-700" />
-        <h3 className="font-heading text-lg font-bold text-gray-900">Concentrated or diversified?</h3>
+        <Eye size={20} weight="duotone" className="text-green-700" />
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">Concentrated or diversified?</h3>
         <button
           type="button"
           onClick={() => setModalOpen(true)}
@@ -683,8 +684,8 @@ function CascadeTimeline({ cascade }: { cascade: CascadeEstimate[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Timer size={22} weight="duotone" className="text-amber-700" />
-        <h3 className="font-heading text-lg font-bold text-gray-900">How long before it reaches here?</h3>
+        <Timer size={20} weight="duotone" className="text-amber-700" />
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">How long before it reaches here?</h3>
         <button
           type="button"
           onClick={() => setModalOpen(true)}

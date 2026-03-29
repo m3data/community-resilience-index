@@ -94,7 +94,7 @@ async function fetchFromQld(): Promise<{ price: number; source: string } | null>
     if (!csvResource?.url) return null;
 
     const csvRes = await fetch(csvResource.url, {
-      cache: "no-store", // CSV is >2MB, can't use Next.js fetch cache
+      next: { revalidate: 21600 }, // cache 6h — monthly data dumps
       signal: AbortSignal.timeout(10000),
     });
     if (!csvRes.ok) return null;

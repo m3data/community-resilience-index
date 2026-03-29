@@ -24,9 +24,15 @@ import type { Signal, SignalComponent } from "./types";
 const CKAN_API = "https://data.gov.au/data/api/3/action";
 const DATASET_ID = "d889484e-fb65-4190-a2e3-1739517cbf9b";
 
-// --- Shared XLSX fetching ---
+// --- Shared XLSX fetching with in-process cache ---
+// The DCCEEW XLSX is 3.6MB — exceeds Next.js 2MB fetch cache limit.
+// In-process cache avoids re-downloading on every request within the same worker.
+
+let cachedWb: ExcelJS.Workbook | null = null;
 
 async function fetchWorkbook(): Promise<ExcelJS.Workbook | null> {
+  if (cachedWb) return cachedWb;
+
   try {
     const pkgRes = await fetch(`${CKAN_API}/package_show?id=${DATASET_ID}`, {
       next: { revalidate: 86400 },
@@ -45,7 +51,7 @@ async function fetchWorkbook(): Promise<ExcelJS.Workbook | null> {
     if (!xlsResource?.url) return null;
 
     const xlsRes = await fetch(xlsResource.url, {
-      cache: "no-store",
+      next: { revalidate: 21600 }, // hint — silently ignored for >2MB, but harmless
       signal: AbortSignal.timeout(30000),
     });
     if (!xlsRes.ok) return null;
@@ -54,6 +60,7 @@ async function fetchWorkbook(): Promise<ExcelJS.Workbook | null> {
     const wb = new ExcelJS.Workbook();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await wb.xlsx.load(Buffer.from(buf) as any);
+    cachedWb = wb;
     return wb;
   } catch {
     return null;
