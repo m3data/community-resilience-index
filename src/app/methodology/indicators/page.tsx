@@ -202,13 +202,29 @@ export default function DataSourcesIndicators() {
             </div>
           </div>
 
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-gray-700 leading-relaxed mb-4">
             Each community receives exposure weights across six domains — fuel
             and transport, food and agriculture, electricity and grid, economic,
             housing, and emergency services. The weights are not
             machine-learned. They follow transparent rules: if a structural
-            indicator crosses a threshold, the relevant domain's weight
+            indicator crosses a threshold, the relevant domain&rsquo;s weight
             increases.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            The thresholds and cost relationships are drawn from published
+            domain research:{' '}
+            <a href="/methodology/references#ref-accc-fuel-2023" className="text-green-700 underline underline-offset-2">ACCC fuel monitoring</a>{' '}
+            (diesel as 30&ndash;40% of freight costs, regional price differentials),{' '}
+            <a href="/methodology/references#ref-bitre-freight-2022" className="text-green-700 underline underline-offset-2">BITRE freight economics</a>{' '}
+            (distance-based cost modelling),{' '}
+            <a href="/methodology/references#ref-abares-outlook-2024" className="text-green-700 underline underline-offset-2">ABARES commodity reports</a>{' '}
+            (freight share of food cost: 8&ndash;12%),{' '}
+            <a href="/methodology/references#ref-rba-transmission-2023" className="text-green-700 underline underline-offset-2">RBA transmission research</a>{' '}
+            (rate-to-mortgage lag), and{' '}
+            <a href="/methodology/references#ref-iea-australia-2023" className="text-green-700 underline underline-offset-2">IEA energy policy reviews</a>{' '}
+            (import dependency, stockholding obligations).
+            Full citations on the{' '}
+            <a href="/methodology/references#domain-evidence" className="text-green-700 underline underline-offset-2">references page</a>.
           </p>
 
           <div className="overflow-x-auto">

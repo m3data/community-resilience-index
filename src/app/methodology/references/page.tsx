@@ -113,6 +113,112 @@ export default function References() {
         </ol>
       </section>
 
+      <section id="domain-evidence">
+        <h2>Exposure Domain Evidence Base</h2>
+        <p>
+          The exposure mapping rules draw on the following domain-specific
+          research and regulatory data. These sources ground the thresholds
+          and cost relationships used in the algorithmic exposure weights.
+        </p>
+
+        <h3>Fuel &amp; Transport</h3>
+        <ol className="reference-list">
+          <li id="ref-accc-fuel-2023">
+            Australian Competition &amp; Consumer Commission (2023).{' '}
+            <em>Report on the Australian petroleum market: December quarter 2023</em>.
+            ACCC. [Diesel share of road freight costs: 30&ndash;40%.
+            Wholesale&ndash;retail margin analysis. Regional price differentials.]
+          </li>
+          <li id="ref-bitre-freight-2022">
+            Bureau of Infrastructure and Transport Research Economics (2022).{' '}
+            <em>Road freight estimates and forecasts</em>. BITRE.
+            [Freight cost structure: fuel as proportion of operating costs.
+            Distance-based cost modelling for regional supply chains.]
+          </li>
+          <li id="ref-accc-fuel-security">
+            Australian Competition &amp; Consumer Commission (2024).{' '}
+            <em>Inquiry into the National Anti-Profiteering Mechanism: Interim Report</em>.
+            [Ampol, Viva, BP, Mobil pricing conduct. Vertical integration
+            in Australian fuel supply.]
+          </li>
+          <li id="ref-iea-australia-2023">
+            International Energy Agency (2023).{' '}
+            <em>Australia 2023: Energy Policy Review</em>. IEA.
+            [90-day stockholding obligation. Import dependency ~90%.
+            MSO structure and reporting methodology.]
+          </li>
+        </ol>
+
+        <h3>Food &amp; Agriculture</h3>
+        <ol className="reference-list">
+          <li id="ref-abares-outlook-2024">
+            Australian Bureau of Agricultural and Resource Economics and Sciences (2024).{' '}
+            <em>Agricultural Commodities: March quarter 2024</em>. ABARES.
+            [Farm input cost transmission. Fertiliser import dependency.
+            Freight share of retail food cost: 8&ndash;12% average,
+            ~15% for fresh produce, ~6% for shelf-stable.]
+          </li>
+          <li id="ref-abs-cpi-methodology">
+            Australian Bureau of Statistics (2024).{' '}
+            <em>Consumer Price Index: Concepts, Sources and Methods</em>.
+            ABS Cat. No. 6461.0. [Food sub-group CPI methodology.
+            Quarterly measurement. Seasonal adjustment.]
+          </li>
+        </ol>
+
+        <h3>Electricity &amp; Grid</h3>
+        <ol className="reference-list">
+          <li id="ref-aemo-nem-2024">
+            Australian Energy Market Operator (2024).{' '}
+            <em>Quarterly Energy Dynamics Q4 2024</em>. AEMO.
+            [NEM dispatch pricing. Gas-peaker marginal price setting.
+            Renewable generation negative pricing.]
+          </li>
+        </ol>
+
+        <h3>Economic &amp; Housing</h3>
+        <ol className="reference-list">
+          <li id="ref-rba-transmission-2023">
+            Reserve Bank of Australia (2023).{' '}
+            <em>The Transmission of Monetary Policy</em>. RBA Bulletin.
+            [Cash rate to mortgage rate transmission lag: 4&ndash;6 weeks.
+            Compound stress on households with existing housing pressure.]
+          </li>
+          <li id="ref-abs-seifa-2021">
+            Australian Bureau of Statistics (2023).{' '}
+            <em>Socio-Economic Indexes for Areas (SEIFA) 2021</em>.
+            ABS Cat. No. 2033.0.55.001. [IRSD methodology.
+            Postcode-level socioeconomic classification.]
+          </li>
+        </ol>
+
+        <h3>Emergency Services</h3>
+        <ol className="reference-list">
+          <li id="ref-nsw-rfs-data">
+            NSW Rural Fire Service (2024).{' '}
+            <em>NSW RFS Major Incidents GeoJSON Feed</em>.
+            [Incident classification: Emergency Warning, Watch and Act, Advice.
+            Live feed, ~30 minute refresh.]
+          </li>
+          <li id="ref-vic-emv-data">
+            Emergency Management Victoria (2024).{' '}
+            <em>OSOM Public GeoJSON Feed</em>.
+            [Incident severity weighting. Active status classification.
+            Live feed, ~5 minute refresh.]
+          </li>
+        </ol>
+
+        <h3>Diversity &amp; Concentration</h3>
+        <ol className="reference-list">
+          <li id="ref-shannon-1948">
+            Shannon, C.E. (1948). A mathematical theory of communication.{' '}
+            <em>The Bell System Technical Journal</em>, 27(3),
+            379&ndash;423. [Shannon diversity index: original formulation
+            applied here to industry employment and transport mode diversity.]
+          </li>
+        </ol>
+      </section>
+
       <section id="theoretical-contribution">
         <h2>Coherence/Entrainment Theoretical Frame</h2>
         <ol className="reference-list">
