@@ -333,7 +333,7 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     reason: fuelReasons.length > 0
       ? `High exposure: ${fuelReasons.join(', ')}`
       : 'Baseline fuel dependency',
-    signalKeys: ['brentCrude', 'crackSpread', 'dieselTgp', 'waDiesel', 'nswDiesel', 'reserves', 'stationAvailability'],
+    signalKeys: ['brentCrude', 'crackSpread', 'dieselTgp', 'waFuel', 'nswFuel', 'reserves', 'stationAvailability'],
   });
 
   // Food & agriculture exposure

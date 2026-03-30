@@ -116,7 +116,7 @@ export function fetchEnergyPolicyNews(): Signal | null {
   const headlineArticle = data.critical[0] || data.articles[0];
   const headlineDate = formatRelativeDate(headlineArticle.published);
   const value = headlineArticle
-    ? `${data.meta.highRelevance} high-relevance articles`
+    ? `${data.articles.length} articles tracked`
     : "No recent policy developments";
 
   // Context narrative
@@ -134,7 +134,7 @@ export function fetchEnergyPolicyNews(): Signal | null {
     context += ". ";
   }
 
-  context += `${data.articles.length} articles tracked across ${byCategory.size} categories in the last 7 days. `;
+  context += `${data.articles.length} top articles tracked across ${byCategory.size} categories (from ${data.meta.totalArticles} scanned, ${data.meta.highRelevance} scored high-relevance). `;
 
   if (data.meta.newSinceLastRun > 0) {
     context += `${data.meta.newSinceLastRun} new since the previous scan. `;

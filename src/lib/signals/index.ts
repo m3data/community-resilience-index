@@ -1,16 +1,11 @@
 import type { Signal, SignalSet } from "./types";
-import { fetchFoodCpi } from "./abs-cpi";
-// AIP API broken (returns HTML), QLD CKAN is monthly historical (weeks behind).
-// Neither gives near-real-time prices. Disabled until a live source is available.
-// WA FuelWatch is the only reliable live diesel signal.
-// import { fetchDieselPrice } from "./diesel-price";
-import { fetchFuelReserves } from "./fuel-reserves";
+// Removed: fetchFoodCpi (redundant with foodBasket), fetchFuelReserves (redundant with per-product),
+// fetchNewsVolume (redundant with energyPolicyNews)
 import { fetchProductReserves, fetchIeaCompliance, fetchStockVolumes } from "./fuel-reserves-expanded";
 import { fetchEnergyPolicyNews } from "./energy-policy-news";
-import { fetchWaDiesel, fetchWaPetrol, computeRetailMargin } from "./wa-fuelwatch";
-import { fetchNewsVolume } from "./news-volume";
-import { fetchNswDiesel } from "./nsw-fuelcheck";
-import { fetchStationAvailability } from "./station-availability";
+import { fetchWaFuel, computeRetailMargin } from "./wa-fuelwatch";
+import { fetchNswFuel } from "./nsw-fuelcheck";
+// Station availability removed from signals page — gap detection needs more data before it's meaningful
 import { fetchFarmInputs } from "./farm-inputs";
 
 // Tier 1 signal modules — direct API integrations (no scraping)
@@ -34,29 +29,6 @@ import { fetchSupermarketPrices } from "./supermarket-prices";
 // Derived: Cascade pressure indicator (synthesised from other signals)
 import { computeCascadePressure } from "./cascade-pressure";
 
-// Fallback values — used when automated APIs are unreachable
-const FALLBACK_SIGNALS: Record<string, Signal> = {
-  reserves: {
-    label: "Fuel reserves (headline)",
-    value: "~30 days",
-    trend: "down",
-    source: "DCCEEW Petroleum Statistics",
-    context:
-      "Australia holds less than the IEA's recommended 90-day minimum — the only IEA member failing this obligation since 2012. Net import dependency ~90%. These are MSO headline figures that include fuel on water, in pipelines, and in Australia's exclusive economic zone. Actual onshore controllable reserves are materially lower.",
-    lastUpdated: null,
-    automated: false,
-  },
-  food: {
-    label: "Food price index",
-    value: "Unavailable",
-    trend: "stable",
-    source: "ABS CPI",
-    context:
-      "Food prices reflect transport, energy, and input costs across the supply chain. Communities with fewer local food sources and lower household buffers are more exposed to price movements.",
-    lastUpdated: null,
-    automated: false,
-  },
-};
 
 /** Wrap a signal fetch so a rejected promise returns null instead of crashing the batch */
 function safe<T>(p: Promise<T | null>): Promise<T | null> {
@@ -65,30 +37,24 @@ function safe<T>(p: Promise<T | null>): Promise<T | null> {
 
 export async function fetchSignals(): Promise<SignalSet> {
   // Fetch all signals in parallel — each wrapped so failures degrade gracefully
-  // Station availability is sync (reads local files) — call outside Promise.all
-  const stationAvailability = fetchStationAvailability();
-
   const [
-    reserves, productReserves, ieaCompliance, stockVolumes, energyPolicyNews,
-    food, foodBasket, supermarketPrices, waDiesel, waPetrol, nswDiesel, newsVolume, farmInputs,
+    productReserves, ieaCompliance, stockVolumes, energyPolicyNews,
+    foodBasket, supermarketPrices, waFuel, nswFuel, farmInputs,
     brentCrude, asxEnergy, asxFood, audUsd, crackSpread, aemoElectricity,
     dieselTgp, petrolTgp,
     rbaCashRate, nswRfs, vicEmv,
   ] = await Promise.all([
-    // Existing signals
-    safe(fetchFuelReserves()),
-    // Layer 2: DCCEEW expanded — product breakdown, IEA compliance, stock volumes
+    // Layer 2: DCCEEW — product breakdown, IEA compliance, stock volumes
     safe(fetchProductReserves()),
     safe(fetchIeaCompliance()),
     safe(fetchStockVolumes()),
     safe(Promise.resolve(fetchEnergyPolicyNews())),
-    safe(fetchFoodCpi()),
+    // Layer 4: Retail impact — food
     safe(fetchFoodBasket()),
     safe(Promise.resolve(fetchSupermarketPrices())),
-    safe(fetchWaDiesel()),
-    safe(fetchWaPetrol()),
-    safe(fetchNswDiesel()),
-    safe(fetchNewsVolume()),
+    // Layer 4: Retail impact — fuel
+    safe(fetchWaFuel()),
+    safe(fetchNswFuel()),
     safe(fetchFarmInputs()),
     // Layer 1: Upstream market signals
     safe(fetchBrentCrude()),
@@ -108,19 +74,13 @@ export async function fetchSignals(): Promise<SignalSet> {
     safe(fetchVicEmv()),
   ]);
 
-  // Assemble primary signals first
+  // Assemble primary signals
   const primarySignals: Record<string, Signal> = {
-    // Existing signals
-    reserves: reserves ?? FALLBACK_SIGNALS.reserves,
-    ...(stationAvailability ? { stationAvailability } : {}),
-    ...(waDiesel ? { waDiesel } : {}),
-    ...(waPetrol ? { waPetrol } : {}),
-    ...(nswDiesel ? { nswDiesel } : {}),
-    food: food ?? FALLBACK_SIGNALS.food,
+    ...(waFuel ? { waFuel } : {}),
+    ...(nswFuel ? { nswFuel } : {}),
     ...(foodBasket ? { foodBasket } : {}),
     ...(supermarketPrices ? { supermarketPrices } : {}),
     ...(farmInputs ? { farmInputs } : {}),
-    ...(newsVolume ? { newsVolume } : {}),
     // Layer 1: Upstream market signals
     ...(brentCrude ? { brentCrude } : {}),
     ...(asxEnergy ? { asxEnergy } : {}),

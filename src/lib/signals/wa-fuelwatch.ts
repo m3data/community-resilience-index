@@ -6,12 +6,9 @@
  *
  * Products: 1=ULP, 2=PULP, 4=Diesel, 5=LPG, 6=98RON, 11=E10
  *
- * We extract:
- *   - State average, median, min, max
- *   - Metro vs regional spread (Perth metro lat/lng box)
- *   - Brand-level averages (majors vs independents)
- *   - Wholesale→retail margin (Perth TGP vs WA metro pump)
- *   - Station count and availability indicator
+ * We fetch diesel, ULP, P98, and E10 — presenting all fuel types in
+ * one card with diesel as the headline (it drives the cascade).
+ * Metro/regional split, brand analytics on diesel.
  */
 
 import type { Signal, SignalComponent, RegionalValue } from "./types";
@@ -33,6 +30,14 @@ const MAJOR_BRANDS = new Set([
   "Reddy Express", // Viva subsidiary
 ]);
 
+// Fuel types to fetch
+const FUEL_TYPES = [
+  { id: 4, name: "Diesel", preCrisis: 178 },
+  { id: 1, name: "ULP 91", preCrisis: 165 },
+  { id: 6, name: "P98", preCrisis: 195 },
+  { id: 11, name: "E10", preCrisis: 160 },
+] as const;
+
 interface Station {
   brand: string;
   price: number; // cents per litre
@@ -44,7 +49,6 @@ interface Station {
 
 function parseStations(xml: string): Station[] {
   const stations: Station[] = [];
-  // Match each <item> block
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
   let match;
 
@@ -91,16 +95,15 @@ function avg(arr: number[]): number {
   return arr.reduce((a, b) => a + b, 0) / arr.length;
 }
 
-interface RetailAnalytics {
+interface FuelAnalytics {
+  name: string;
+  preCrisis: number;
   stationCount: number;
-  date: string | null;
-  prices: {
-    mean: number;
-    median: number;
-    min: number;
-    max: number;
-    spread: number;
-  };
+  mean: number;
+  median: number;
+  min: number;
+  max: number;
+  spread: number;
   metro: { mean: number; count: number } | null;
   regional: { mean: number; count: number } | null;
   metroRegionalGap: number | null;
@@ -113,7 +116,7 @@ interface RetailAnalytics {
   };
 }
 
-function computeAnalytics(stations: Station[]): RetailAnalytics | null {
+function computeAnalytics(stations: Station[], name: string, preCrisis: number): FuelAnalytics | null {
   if (stations.length === 0) return null;
 
   const prices = stations.map((s) => s.price);
@@ -134,25 +137,23 @@ function computeAnalytics(stations: Station[]): RetailAnalytics | null {
     else indyPrices.push(s.price);
   }
 
-  // Find cheapest and dearest brand (min 3 stations)
   const brandAvgs = Array.from(brandMap.entries())
     .filter(([, p]) => p.length >= 3)
-    .map(([name, p]) => ({ name, mean: avg(p), count: p.length }))
+    .map(([bName, p]) => ({ name: bName, mean: avg(p), count: p.length }))
     .sort((a, b) => a.mean - b.mean);
 
   const cheapestBrand = brandAvgs[0] ?? { name: "Unknown", mean: 0, count: 0 };
   const dearestBrand = brandAvgs[brandAvgs.length - 1] ?? { name: "Unknown", mean: 0, count: 0 };
 
   return {
+    name,
+    preCrisis,
     stationCount: stations.length,
-    date: null, // set by caller
-    prices: {
-      mean: avg(prices),
-      median: median(prices),
-      min: Math.min(...prices),
-      max: Math.max(...prices),
-      spread: Math.max(...prices) - Math.min(...prices),
-    },
+    mean: avg(prices),
+    median: median(prices),
+    min: Math.min(...prices),
+    max: Math.max(...prices),
+    spread: Math.max(...prices) - Math.min(...prices),
     metro: metroStations.length > 0
       ? { mean: avg(metroStations.map((s) => s.price)), count: metroStations.length }
       : null,
@@ -167,8 +168,7 @@ function computeAnalytics(stations: Station[]): RetailAnalytics | null {
       majors: { mean: majorPrices.length > 0 ? avg(majorPrices) : 0, count: majorPrices.length },
       independents: { mean: indyPrices.length > 0 ? avg(indyPrices) : 0, count: indyPrices.length },
       majorIndyGap: majorPrices.length > 0 && indyPrices.length > 0
-        ? avg(majorPrices) - avg(indyPrices)
-        : 0,
+        ? avg(majorPrices) - avg(indyPrices) : 0,
       cheapestBrand,
       dearestBrand,
     },
@@ -189,145 +189,121 @@ async function fetchFuelWatchRSS(product: number): Promise<{ xml: string; date: 
   }
 }
 
-// ── Diesel signal ────────────────────────────────────────────────────────────
+// ── Combined WA fuel signal ─────────────────────────────────────────────────
 
-export async function fetchWaDiesel(): Promise<Signal | null> {
-  const feed = await fetchFuelWatchRSS(4); // diesel
-  if (!feed) return null;
+export async function fetchWaFuel(): Promise<Signal | null> {
+  // Fetch all fuel types in parallel
+  const feeds = await Promise.all(
+    FUEL_TYPES.map(async (ft) => {
+      const feed = await fetchFuelWatchRSS(ft.id);
+      if (!feed) return null;
+      const stations = parseStations(feed.xml);
+      const analytics = computeAnalytics(stations, ft.name, ft.preCrisis);
+      return { feed, analytics, ...ft };
+    })
+  );
 
-  const stations = parseStations(feed.xml);
-  const analytics = computeAnalytics(stations);
-  if (!analytics) return null;
+  // Diesel is required — it's the headline
+  const dieselResult = feeds[0];
+  if (!dieselResult?.analytics) return null;
+  const diesel = dieselResult.analytics;
 
-  const preCrisis = 178; // c/L pre-crisis baseline
-  const increase = ((analytics.prices.mean - preCrisis) / preCrisis) * 100;
-
+  const dieselIncrease = ((diesel.mean - diesel.preCrisis) / diesel.preCrisis) * 100;
   const trend =
-    analytics.prices.mean > 300
+    diesel.mean > 300
       ? ("critical" as const)
-      : analytics.prices.mean > 220
+      : diesel.mean > 220
         ? ("up" as const)
         : ("stable" as const);
 
-  // Components: the analytical breakdown
+  // Components: fuel type overview first, then diesel metro/regional + brand breakdown
   const components: SignalComponent[] = [];
 
-  if (analytics.metro && analytics.regional) {
+  // Fuel type price overview
+  for (const result of feeds) {
+    if (!result?.analytics) continue;
+    const a = result.analytics;
+    const increase = ((a.median - a.preCrisis) / a.preCrisis) * 100;
     components.push({
-      label: "Perth metro average",
-      value: `${analytics.metro.mean.toFixed(1)} c/L`,
-      change: `${analytics.metro.count} stations`,
-      trend: analytics.metro.mean > 300 ? "critical" : analytics.metro.mean > 220 ? "up" : "stable",
-    });
-    components.push({
-      label: "Regional WA average",
-      value: `${analytics.regional.mean.toFixed(1)} c/L`,
-      change: `${analytics.regional.count} stations (+${analytics.metroRegionalGap!.toFixed(0)} c/L gap)`,
-      trend: analytics.regional.mean > 300 ? "critical" : analytics.regional.mean > 220 ? "up" : "stable",
+      label: a.name,
+      value: `$${(a.median / 100).toFixed(2)}/L`,
+      change: `${a.stationCount} stations — ${increase > 0 ? "+" : ""}${increase.toFixed(0)}% from pre-crisis`,
+      trend: a.mean > 300 ? "critical" : a.mean > 220 ? "up" : "stable",
     });
   }
 
+  // Diesel metro/regional breakdown
+  if (diesel.metro && diesel.regional) {
+    components.push({
+      label: "Diesel — Perth metro",
+      value: `${diesel.metro.mean.toFixed(1)} c/L`,
+      change: `${diesel.metro.count} stations`,
+      trend: diesel.metro.mean > 300 ? "critical" : diesel.metro.mean > 220 ? "up" : "stable",
+    });
+    components.push({
+      label: "Diesel — Regional WA",
+      value: `${diesel.regional.mean.toFixed(1)} c/L`,
+      change: `${diesel.regional.count} stations (+${diesel.metroRegionalGap!.toFixed(0)} c/L gap)`,
+      trend: diesel.regional.mean > 300 ? "critical" : diesel.regional.mean > 220 ? "up" : "stable",
+    });
+  }
+
+  // Diesel brand breakdown
   components.push({
-    label: "Major brands (BP, Shell, Ampol)",
-    value: `${analytics.brands.majors.mean.toFixed(1)} c/L`,
-    change: `${analytics.brands.majors.count} stations`,
-    trend: analytics.brands.majorIndyGap > 5 ? "up" : "stable",
+    label: "Diesel — Major brands (BP, Shell, Ampol)",
+    value: `${diesel.brands.majors.mean.toFixed(1)} c/L`,
+    change: `${diesel.brands.majors.count} stations`,
+    trend: diesel.brands.majorIndyGap > 5 ? "up" : "stable",
   });
   components.push({
-    label: `Independents (cheapest: ${analytics.brands.cheapestBrand.name})`,
-    value: `${analytics.brands.independents.mean.toFixed(1)} c/L`,
-    change: `${analytics.brands.independents.count} stations (${analytics.brands.majorIndyGap.toFixed(0)} c/L cheaper)`,
+    label: `Diesel — Independents (cheapest: ${diesel.brands.cheapestBrand.name})`,
+    value: `${diesel.brands.independents.mean.toFixed(1)} c/L`,
+    change: `${diesel.brands.independents.count} stations (${diesel.brands.majorIndyGap.toFixed(0)} c/L cheaper)`,
     trend: "stable",
   });
 
-  // Context narrative
+  // Context narrative — diesel-led since it drives the cascade
   let context =
-    `${analytics.stationCount} WA stations reporting diesel today. ` +
-    `Median ${analytics.prices.median.toFixed(1)} c/L, range ${analytics.prices.min.toFixed(0)}–${analytics.prices.max.toFixed(0)} c/L (spread: ${analytics.prices.spread.toFixed(0)} c/L). ` +
-    `Up ${increase.toFixed(0)}% from pre-crisis levels.`;
+    `${diesel.stationCount} WA stations reporting diesel today. ` +
+    `Diesel median ${diesel.median.toFixed(1)} c/L, range ${diesel.min.toFixed(0)}–${diesel.max.toFixed(0)} c/L (spread: ${diesel.spread.toFixed(0)} c/L). ` +
+    `Up ${dieselIncrease.toFixed(0)}% from pre-crisis levels.`;
 
-  if (analytics.metroRegionalGap !== null) {
-    context += ` Regional stations are ${analytics.metroRegionalGap.toFixed(0)} c/L above Perth metro on average — ${analytics.metroRegionalGap > 20 ? "a significant gap that compounds cost-of-living pressure in remote communities" : "a typical metro-regional differential"}.`;
+  if (diesel.metroRegionalGap !== null) {
+    context += ` Regional stations are ${diesel.metroRegionalGap.toFixed(0)} c/L above Perth metro on average — ${diesel.metroRegionalGap > 20 ? "a significant gap that compounds cost-of-living pressure in remote communities" : "a typical metro-regional differential"}.`;
   }
 
-  if (analytics.brands.majorIndyGap > 3) {
+  if (diesel.brands.majorIndyGap > 3) {
     context +=
-      ` Major brands (BP, Shell, Ampol) are ${analytics.brands.majorIndyGap.toFixed(0)} c/L above independents. ` +
-      `${analytics.brands.cheapestBrand.name} is cheapest at ${analytics.brands.cheapestBrand.mean.toFixed(1)} c/L. ` +
+      ` Major brands are ${diesel.brands.majorIndyGap.toFixed(0)} c/L above independents. ` +
+      `${diesel.brands.cheapestBrand.name} is cheapest at ${diesel.brands.cheapestBrand.mean.toFixed(1)} c/L. ` +
       `The spread between brands is itself a signal of market power — where there's competition, prices are lower.`;
+  }
+
+  // Add other fuel type summaries
+  const otherFuels = feeds.filter((f) => f?.analytics && f.name !== "Diesel");
+  if (otherFuels.length > 0) {
+    const summaries = otherFuels
+      .map((f) => `${f!.analytics!.name} $${(f!.analytics!.median / 100).toFixed(2)}/L`)
+      .join(", ");
+    context += ` Other fuels: ${summaries}.`;
   }
 
   context += ` WA is the only state with fully transparent pricing. This data is a proxy for national retail conditions.`;
 
+  const feedDate = dieselResult.feed.date;
+
   return {
-    label: "WA diesel retail",
-    value: `$${(analytics.prices.median / 100).toFixed(2)}/L`,
+    label: "WA fuel retail",
+    value: `Diesel $${(diesel.median / 100).toFixed(2)}/L`,
     trend,
-    source: `FuelWatch WA — ${feed.date ?? "today"}`,
+    source: `FuelWatch WA — ${feedDate ?? "today"}`,
     sourceUrl: "https://www.fuelwatch.wa.gov.au/",
     context,
-    lastUpdated: feed.date ? new Date(feed.date).toISOString() : new Date().toISOString(),
+    lastUpdated: feedDate ? new Date(feedDate).toISOString() : new Date().toISOString(),
     automated: true,
     layer: 4,
     layerLabel: "Retail impact",
     propagatesTo: "Household transport costs, freight costs, business operating costs",
-    components,
-  };
-}
-
-// ── Petrol signal ────────────────────────────────────────────────────────────
-
-export async function fetchWaPetrol(): Promise<Signal | null> {
-  const feed = await fetchFuelWatchRSS(1); // ULP
-  if (!feed) return null;
-
-  const stations = parseStations(feed.xml);
-  const analytics = computeAnalytics(stations);
-  if (!analytics) return null;
-
-  const preCrisis = 165; // c/L
-  const increase = ((analytics.prices.mean - preCrisis) / preCrisis) * 100;
-
-  const trend =
-    analytics.prices.mean > 260
-      ? ("critical" as const)
-      : analytics.prices.mean > 200
-        ? ("up" as const)
-        : ("stable" as const);
-
-  const components: SignalComponent[] = [];
-
-  if (analytics.metro && analytics.regional) {
-    components.push({
-      label: "Perth metro",
-      value: `${analytics.metro.mean.toFixed(1)} c/L`,
-      change: `${analytics.metro.count} stations`,
-    });
-    components.push({
-      label: "Regional WA",
-      value: `${analytics.regional.mean.toFixed(1)} c/L`,
-      change: `+${analytics.metroRegionalGap!.toFixed(0)} c/L gap`,
-    });
-  }
-
-  const context =
-    `${analytics.stationCount} WA stations reporting ULP today. ` +
-    `Median ${analytics.prices.median.toFixed(1)} c/L, range ${analytics.prices.min.toFixed(0)}–${analytics.prices.max.toFixed(0)} c/L. ` +
-    `Up ${increase.toFixed(0)}% from pre-crisis. ` +
-    `Majors at ${analytics.brands.majors.mean.toFixed(1)} c/L vs independents at ${analytics.brands.independents.mean.toFixed(1)} c/L.`;
-
-  return {
-    label: "WA petrol retail",
-    value: `$${(analytics.prices.median / 100).toFixed(2)}/L`,
-    trend,
-    source: `FuelWatch WA — ${feed.date ?? "today"}`,
-    sourceUrl: "https://www.fuelwatch.wa.gov.au/",
-    context,
-    lastUpdated: feed.date ? new Date(feed.date).toISOString() : new Date().toISOString(),
-    automated: true,
-    layer: 4,
-    layerLabel: "Retail impact",
-    propagatesTo: "Household transport costs — 70% of Australian commuters drive",
     components,
   };
 }
@@ -343,16 +319,16 @@ export function computeRetailMargin(
   signals: Record<string, Signal>
 ): Signal | null {
   const dieselTgp = signals.dieselTgp;
-  const waDiesel = signals.waDiesel;
+  const waFuel = signals.waFuel;
 
-  if (!dieselTgp || !waDiesel) return null;
+  if (!dieselTgp || !waFuel) return null;
 
   // Extract Perth TGP from regions
   const perthTgp = dieselTgp.regions?.find((r) => r.region === "Perth");
   const perthTgpValue = perthTgp ? parseFloat(perthTgp.value) : null;
 
   // Extract WA metro retail from components
-  const metroComp = waDiesel.components?.find((c) => c.label.includes("metro"));
+  const metroComp = waFuel.components?.find((c) => c.label.includes("Perth metro"));
   const metroRetail = metroComp ? parseFloat(metroComp.value) : null;
 
   if (perthTgpValue === null || isNaN(perthTgpValue) || metroRetail === null || isNaN(metroRetail)) {
@@ -363,7 +339,6 @@ export function computeRetailMargin(
   const marginPct = (margin / perthTgpValue) * 100;
 
   // Historical context: pre-crisis retail margins were typically 10-15 c/L (6-9%)
-  const historicalMargin = 12; // c/L typical
   const isElevated = margin > 20;
   const isCompressed = margin < 5;
 
