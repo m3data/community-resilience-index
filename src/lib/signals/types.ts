@@ -40,6 +40,9 @@ export interface Signal {
   // Sparkline — recent historical values for inline trend visualisation
   sparkline?: { values: number[]; label?: string };
 
+  // Linked articles (e.g. energy policy news sources)
+  articles?: { title: string; url: string; source?: string; date?: string }[];
+
   // Secondary insight (e.g. futures curve shape)
   secondary?: {
     label: string; // citizen-facing: "Market outlook"

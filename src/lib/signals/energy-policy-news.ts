@@ -171,5 +171,14 @@ export function fetchEnergyPolicyNews(): Signal | null {
             : formatRelativeDate(headlineArticle.published),
         }
       : undefined,
+    articles: data.articles
+      .filter((a) => a.relevance >= 7)
+      .slice(0, 10)
+      .map((a) => ({
+        title: a.title,
+        url: a.url,
+        source: a.source ?? undefined,
+        date: a.published ? formatRelativeDate(a.published) : undefined,
+      })),
   };
 }

@@ -711,6 +711,29 @@ function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Si
         </div>
       )}
 
+      {/* Linked articles */}
+      {signal.articles && signal.articles.length > 0 && (
+        <details className="mt-3 border-t border-gray-200 pt-3">
+          <summary className="text-xs text-gray-500 cursor-pointer hover:text-gray-700 select-none font-medium">
+            {signal.articles.length} source articles
+          </summary>
+          <ul className="mt-2 space-y-1.5">
+            {signal.articles.map((a) => (
+              <li key={a.url} className="text-sm leading-snug">
+                <a href={a.url} target="_blank" rel="noopener noreferrer" className="text-green-800 underline underline-offset-2 hover:text-green-600">
+                  {a.title}
+                </a>
+                {(a.source || a.date) && (
+                  <span className="text-xs text-gray-400 ml-1">
+                    {[a.source, a.date].filter(Boolean).join(" — ")}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+
       {/* Supporting detail — the rest of the context */}
       {supportingDetail && (
         <details className="mt-3">
