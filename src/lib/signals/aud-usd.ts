@@ -66,18 +66,37 @@ function rangeContext(
   return `Mid-range within 52-week band (${formatRate(low)}–${formatRate(high)}).`;
 }
 
+async function fetchSparkline(): Promise<number[]> {
+  try {
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/AUDUSD%3DX?range=3mo&interval=1d`;
+    const res = await fetch(url, {
+      next: { revalidate: 3600 },
+      signal: AbortSignal.timeout(10000),
+      headers: { "User-Agent": "CRI-Signals/1.0" },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const closes: (number | null)[] = data?.chart?.result?.[0]?.indicators?.quote?.[0]?.close ?? [];
+    return closes.filter((v): v is number => typeof v === "number" && !isNaN(v));
+  } catch {
+    return [];
+  }
+}
+
 export async function fetchAudUsd(): Promise<Signal | null> {
   try {
     const url = `${YAHOO_QUOTE_URL}?symbols=AUDUSD%3DX&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketTime,fiftyTwoWeekHigh,fiftyTwoWeekLow,regularMarketPreviousClose`;
 
-    const res = await fetch(url, {
-      next: { revalidate: 900 }, // cache 15min
-      signal: AbortSignal.timeout(10000),
-      headers: {
-        "User-Agent": "CRI-Signals/1.0",
-      },
-    });
+    const [quoteRes, closes] = await Promise.all([
+      fetch(url, {
+        next: { revalidate: 900 },
+        signal: AbortSignal.timeout(10000),
+        headers: { "User-Agent": "CRI-Signals/1.0" },
+      }),
+      fetchSparkline(),
+    ]);
 
+    const res = quoteRes;
     if (!res.ok) return null;
 
     const data: YahooResponse = await res.json();
@@ -124,6 +143,7 @@ export async function fetchAudUsd(): Promise<Signal | null> {
       layer: 1,
       layerLabel: "Upstream market signal",
       propagatesTo: "All USD-denominated imports including crude oil and refined fuel",
+      sparkline: closes.length >= 2 ? { values: closes, label: "3 months" } : undefined,
     };
   } catch {
     return null;

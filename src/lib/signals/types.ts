@@ -37,6 +37,9 @@ export interface Signal {
   components?: SignalComponent[]; // for composite multi-ticker signals
   regions?: RegionalValue[]; // for regional breakdown signals
 
+  // Sparkline — recent historical values for inline trend visualisation
+  sparkline?: { values: number[]; label?: string };
+
   // Secondary insight (e.g. futures curve shape)
   secondary?: {
     label: string; // citizen-facing: "Market outlook"

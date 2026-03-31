@@ -74,6 +74,41 @@ async function fetchQuotes(): Promise<Map<string, YahooQuote>> {
   return map;
 }
 
+async function fetchSpreadHistory(): Promise<number[]> {
+  try {
+    const chartUrl = "https://query1.finance.yahoo.com/v8/finance/chart/";
+    const [hoRes, bzRes] = await Promise.all([
+      fetch(`${chartUrl}${ULSD_TICKER}?range=3mo&interval=1d`, {
+        next: { revalidate: 3600 },
+        signal: AbortSignal.timeout(10000),
+        headers: { "User-Agent": "CRI-Signals/1.0" },
+      }),
+      fetch(`${chartUrl}${BRENT_TICKER}?range=3mo&interval=1d`, {
+        next: { revalidate: 3600 },
+        signal: AbortSignal.timeout(10000),
+        headers: { "User-Agent": "CRI-Signals/1.0" },
+      }),
+    ]);
+    if (!hoRes.ok || !bzRes.ok) return [];
+    const hoData = await hoRes.json();
+    const bzData = await bzRes.json();
+    const hoCloses: (number | null)[] = hoData?.chart?.result?.[0]?.indicators?.quote?.[0]?.close ?? [];
+    const bzCloses: (number | null)[] = bzData?.chart?.result?.[0]?.indicators?.quote?.[0]?.close ?? [];
+    const len = Math.min(hoCloses.length, bzCloses.length);
+    const spreads: number[] = [];
+    for (let i = 0; i < len; i++) {
+      const ho = hoCloses[i];
+      const bz = bzCloses[i];
+      if (typeof ho === "number" && typeof bz === "number" && !isNaN(ho) && !isNaN(bz)) {
+        spreads.push(ho * GALLONS_PER_BARREL - bz);
+      }
+    }
+    return spreads;
+  } catch {
+    return [];
+  }
+}
+
 function classifySpread(spreadPerBarrel: number): Trend {
   if (spreadPerBarrel < SPREAD_THRESHOLDS.stressed) return "critical";
   if (spreadPerBarrel < SPREAD_THRESHOLDS.tight) return "down";
@@ -87,7 +122,10 @@ function formatUsd(value: number): string {
 
 export async function fetchCrackSpread(): Promise<Signal | null> {
   try {
-    const quotes = await fetchQuotes();
+    const [quotes, spreadHistory] = await Promise.all([
+      fetchQuotes(),
+      fetchSpreadHistory(),
+    ]);
 
     const ho = quotes.get(ULSD_TICKER);
     const bz = quotes.get(BRENT_TICKER);
@@ -138,6 +176,7 @@ export async function fetchCrackSpread(): Promise<Signal | null> {
       layer: 1,
       layerLabel: "Upstream market signal",
       propagatesTo: "Refinery production decisions and wholesale fuel supply",
+      sparkline: spreadHistory.length >= 2 ? { values: spreadHistory, label: "3 months" } : undefined,
     };
   } catch {
     return null;

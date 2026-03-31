@@ -231,6 +231,9 @@ export async function fetchAipDieselTgp(): Promise<Signal | null> {
       ` Averages across BP, Ampol, Viva Energy, and ExxonMobil.` +
       ` When TGP rises, retail pump prices follow within days.`;
 
+    // Sparkline: last 30 trading days of national average
+    const sparklineSlice = dieselRows.slice(-30).map((r) => r.national).filter((v) => v > 0);
+
     return {
       label: "Diesel wholesale (TGP)",
       value: `${latest.national.toFixed(1)} c/L`,
@@ -246,6 +249,7 @@ export async function fetchAipDieselTgp(): Promise<Signal | null> {
       propagatesTo:
         "Retail diesel prices, typically within 1-3 days for metro, 3-7 days for regional",
       regions,
+      sparkline: sparklineSlice.length >= 2 ? { values: sparklineSlice, label: "30 trading days" } : undefined,
     };
   } catch {
     return null;
@@ -303,6 +307,9 @@ export async function fetchAipPetrolTgp(): Promise<Signal | null> {
       ` ${dearest.city} highest at ${dearest.price.toFixed(1)} c/L, ${cheapest.city} lowest at ${cheapest.price.toFixed(1)} c/L (spread: ${spread.toFixed(1)} c/L).` +
       ` Averages across BP, Ampol, Viva Energy, and ExxonMobil.`;
 
+    // Sparkline: last 30 trading days of national average
+    const sparklineSlice = petrolRows.slice(-30).map((r) => r.national).filter((v) => v > 0);
+
     return {
       label: "Petrol wholesale (TGP)",
       value: `${latest.national.toFixed(1)} c/L`,
@@ -318,6 +325,7 @@ export async function fetchAipPetrolTgp(): Promise<Signal | null> {
       propagatesTo:
         "Retail petrol prices, typically within 1-3 days for metro, 3-7 days for regional",
       regions,
+      sparkline: sparklineSlice.length >= 2 ? { values: sparklineSlice, label: "30 trading days" } : undefined,
     };
   } catch {
     return null;

@@ -26,6 +26,9 @@ interface ChartResult {
     previousClose: number;
     currency: string;
   };
+  indicators?: {
+    quote?: { close?: (number | null)[] }[];
+  };
 }
 
 interface ChartResponse {
@@ -46,10 +49,11 @@ function getDeferredTicker(): string {
 }
 
 async function fetchChart(
-  ticker: string
-): Promise<{ price: number; previousClose: number } | null> {
+  ticker: string,
+  range = "5d",
+): Promise<{ price: number; previousClose: number; closes: number[] } | null> {
   try {
-    const url = `${YAHOO_CHART_URL}${encodeURIComponent(ticker)}?range=5d&interval=1d`;
+    const url = `${YAHOO_CHART_URL}${encodeURIComponent(ticker)}?range=${range}&interval=1d`;
     const res = await fetch(url, {
       next: { revalidate: 3600 },
       signal: AbortSignal.timeout(10000),
@@ -67,7 +71,11 @@ async function fetchChart(
     const previousClose = result.meta.previousClose;
     if (typeof price !== "number" || isNaN(price) || price <= 0) return null;
 
-    return { price, previousClose: previousClose ?? price };
+    // Extract historical closes for sparkline
+    const closes = (result.indicators?.quote?.[0]?.close ?? [])
+      .filter((v): v is number => typeof v === "number" && !isNaN(v));
+
+    return { price, previousClose: previousClose ?? price, closes };
   } catch {
     return null;
   }
@@ -78,7 +86,7 @@ export async function fetchBrentCrude(): Promise<Signal | null> {
     // Fetch front-month and deferred contract in parallel
     const deferredTicker = getDeferredTicker();
     const [front, deferred] = await Promise.all([
-      fetchChart("BZ=F"),
+      fetchChart("BZ=F", "3mo"),
       fetchChart(deferredTicker),
     ]);
 
@@ -152,6 +160,7 @@ export async function fetchBrentCrude(): Promise<Signal | null> {
       layerLabel: "Upstream market signal",
       propagatesTo: "Wholesale fuel prices, typically within 1-2 weeks",
       secondary,
+      sparkline: front.closes.length >= 2 ? { values: front.closes, label: "3 months" } : undefined,
     };
   } catch {
     return null;

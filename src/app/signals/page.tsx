@@ -496,6 +496,47 @@ function formatLastUpdated(iso: string | null): string | null {
   return d.toLocaleDateString("en-AU", { day: "numeric", month: "short" });
 }
 
+/* ─── Sparkline ─── */
+
+const SPARKLINE_COLORS: Record<Trend, { stroke: string; fill: string }> = {
+  critical: { stroke: "#dc2626", fill: "rgba(220,38,38,0.08)" },
+  up: { stroke: "#b45309", fill: "rgba(180,83,9,0.08)" },
+  down: { stroke: "#2563eb", fill: "rgba(37,99,235,0.08)" },
+  stable: { stroke: "#4d7c0f", fill: "rgba(77,124,15,0.08)" },
+};
+
+function Sparkline({ values, trend, label }: { values: number[]; trend: Trend; label?: string }) {
+  if (values.length < 2) return null;
+
+  const w = 120;
+  const h = 32;
+  const pad = 1;
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+
+  const points = values.map((v, i) => {
+    const x = pad + (i / (values.length - 1)) * (w - pad * 2);
+    const y = h - pad - ((v - min) / range) * (h - pad * 2);
+    return { x, y };
+  });
+
+  const linePath = points.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`).join(" ");
+  const fillPath = `${linePath} L${points[points.length - 1].x},${h} L${points[0].x},${h} Z`;
+  const colors = SPARKLINE_COLORS[trend];
+
+  return (
+    <div className="mt-2">
+      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="overflow-visible">
+        <path d={fillPath} fill={colors.fill} />
+        <path d={linePath} fill="none" stroke={colors.stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="2" fill={colors.stroke} />
+      </svg>
+      {label && <p className="text-[10px] text-gray-400 mt-0.5">{label}</p>}
+    </div>
+  );
+}
+
 function SourceLine({ source, sourceUrl, automated }: { source: string; sourceUrl?: string; automated: boolean }) {
   return (
     <p className="text-[11px] text-gray-400 flex-shrink-0 text-right flex items-center gap-1.5">
@@ -534,6 +575,11 @@ function MetricCard({ signalKey, signal }: { signalKey: string; signal: Signal }
         {signal.value}
       </p>
       <p className="text-sm text-gray-600 mt-0.5">{signal.label}</p>
+
+      {/* Sparkline */}
+      {signal.sparkline && (
+        <Sparkline values={signal.sparkline.values} trend={signal.trend} label={signal.sparkline.label} />
+      )}
 
       {/* Freshness */}
       <div className="flex items-center gap-2 mt-1.5 text-[11px] text-gray-400">
@@ -619,6 +665,11 @@ function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Si
         {signal.value}
       </h3>
       <p className="text-xs text-gray-400 mt-0.5 uppercase tracking-wide">{signal.label}</p>
+
+      {/* Sparkline */}
+      {signal.sparkline && (
+        <Sparkline values={signal.sparkline.values} trend={signal.trend} label={signal.sparkline.label} />
+      )}
 
       {/* Lead insight — the primary content, elevated from buried context */}
       <p className="mt-3 text-sm text-gray-700 leading-relaxed">
