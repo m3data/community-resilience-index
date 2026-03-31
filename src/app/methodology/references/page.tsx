@@ -351,9 +351,15 @@ export default function References() {
               <td>Victoria</td>
             </tr>
             <tr>
+              <td>Station availability (gap detection)</td>
+              <td>WA FuelWatch + NSW FuelCheck</td>
+              <td>Daily snapshot</td>
+              <td>WA + NSW (~10,800 stations)</td>
+            </tr>
+            <tr>
               <td>Energy policy news</td>
               <td>Google News RSS (filtered)</td>
-              <td>Rolling</td>
+              <td>Twice daily</td>
               <td>National</td>
             </tr>
           </tbody>
