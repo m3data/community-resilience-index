@@ -16,7 +16,7 @@ import { Tip } from "./components/Tip";
 export const metadata: Metadata = {
   title: "Community Resilience Guide",
   description:
-    "A practical guide for schools and communities: how to gather, organise, and build lasting resilience — whatever the pressure.",
+    "A practical guide for schools and communities: how to gather, organise, and build lasting resilience, whatever the pressure.",
 };
 
 export default function GuidePage() {
@@ -32,8 +32,8 @@ export default function GuidePage() {
           </h1>
           <div className="mt-6 sm:mt-8 text-green-100 text-base sm:text-lg leading-relaxed space-y-4">
             <p>
-              You know that feeling. Something shifts — prices climb, shelves
-              thin out, the news gets heavier — and a quiet worry settles in
+              You know that feeling. Something shifts. Prices climb, shelves
+              thin out, the news gets heavier. A quiet worry settles in
               your chest. You start doing arithmetic you never used to do. You
               notice your neighbours looking a bit more tired.
             </p>
@@ -42,8 +42,8 @@ export default function GuidePage() {
               the person across the street is doing the same arithmetic. The
               parent next to you at school pickup is carrying the same worry.
               And between all of you, there are skills, resources,
-              relationships, and knowledge that — if they were visible and
-              connected — would change everything.
+              relationships, and knowledge that, if they were visible and
+              connected, would change everything.
             </p>
             <p className="text-white font-medium">
               This guide is about making those things visible and connected.
@@ -131,7 +131,7 @@ export default function GuidePage() {
             It started with a message in the school WhatsApp group. &ldquo;Anyone
             else worried about what&apos;s happening? I&apos;m thinking of
             organising a get-together at the school to talk about it. Nothing
-            fancy — just tea and honest conversation.&rdquo; Thirty-two people
+            fancy. Just tea and honest conversation.&rdquo; Thirty-two people
             showed up. Most of them had never spoken to each other beyond hello at
             the gate.
           </StoryFragment>
@@ -141,7 +141,7 @@ export default function GuidePage() {
               Your first gathering
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Pick a date in the next seven days. Book a space — the school hall,
+              Pick a date in the next seven days. Book a space: the school hall,
               a church, a community centre, a large lounge room. Send a simple
               message through whatever channels your community already uses: class
               parent groups, the local Facebook page, a notice at the front office,
@@ -184,7 +184,7 @@ export default function GuidePage() {
               kettle on, put up your paper and sticky notes, and greet people
               as they arrive. Then 90 minutes for the conversation itself.
               Then 30 minutes afterwards for people to chat, swap details, and
-              help pack up. Don&apos;t rush the ending — the informal
+              help pack up. Don&apos;t rush the ending. The informal
               conversation after the circle is where a lot of the real
               connecting happens.
             </p>
@@ -199,8 +199,8 @@ export default function GuidePage() {
                 {
                   name: "How are you going?",
                   minutes: 20,
-                  prompt: "We'll go around the circle. You have about a minute each. Just tell us honestly — how are you going?",
-                  description: "Go around the circle. Each person gets a minute to answer honestly. No advice, no fixing — just listening. This is where people discover they're not alone in what they're feeling.",
+                  prompt: "We'll go around the circle. You have about a minute each. Just tell us honestly: how are you going?",
+                  description: "Go around the circle. Each person gets a minute to answer honestly. No advice, no fixing. Just listening. This is where people discover they're not alone in what they're feeling.",
                 },
                 {
                   name: "What do you have?",
@@ -234,7 +234,7 @@ export default function GuidePage() {
                 </span>
               </div>
               <p className="text-gray-700 text-sm leading-relaxed mt-1">
-                This isn&apos;t a meeting — it&apos;s a different kind of
+                This isn&apos;t a meeting. It&apos;s a different kind of
                 conversation. The order matters: first we acknowledge what&apos;s
                 real (feelings), then we discover what we have (capacity), then we
                 name what&apos;s missing (needs), then we connect what&apos;s there
@@ -256,7 +256,7 @@ export default function GuidePage() {
             spreadsheet. Someone made a group chat for the transport roster. A
             retired teacher offered to coordinate a bulk-buying group. The school
             canteen manager said they could store dry goods if people wanted to
-            pool orders. It wasn&apos;t a plan anyone designed — it grew from what
+            pool orders. It wasn&apos;t a plan anyone designed. It grew from what
             people offered.
           </StoryFragment>
 
@@ -305,7 +305,7 @@ export default function GuidePage() {
               <p className="text-gray-700 text-sm leading-relaxed mt-1">
                 You don&apos;t need an app, a website, or a formal structure.
                 Group chats, printed lists, and word of mouth are fine. The goal is
-                speed and accessibility — especially for people who aren&apos;t
+                speed and accessibility, especially for people who aren&apos;t
                 confident with technology. If a spreadsheet helps, use one. If a
                 noticeboard works better, use that.
               </p>
@@ -392,7 +392,7 @@ export default function GuidePage() {
             <p className="text-gray-700 leading-relaxed">
               Your community isn&apos;t the only one doing this. As circles form
               across your area, a network emerges naturally. Different communities
-              have different strengths — one might have strong farm connections,
+              have different strengths. One might have strong farm connections,
               another might have trade skills, another a large hall for
               distribution. Linking up multiplies what everyone has access to.
             </p>
@@ -417,7 +417,7 @@ export default function GuidePage() {
             <Tip
               number={2}
               title="Handle strong emotions with care"
-              text="People may cry, get angry, or feel scared. This is appropriate — it means they feel safe enough to be honest. Don't try to fix it. Acknowledge it, let a moment of silence hold it, and move on."
+              text="People may cry, get angry, or feel scared. This is appropriate. It means they feel safe enough to be honest. Don't try to fix it. Acknowledge it, let a moment of silence hold it, and move on."
             />
             <Tip
               number={3}

@@ -46,19 +46,19 @@ export default function MethodologyOverview() {
         <ol>
           <li>
             <strong>What is your community&rsquo;s structural shape?</strong>
-            &mdash; the characteristics that determine how pressures reach you:
+            The characteristics that determine how pressures reach you:
             car dependency, distance from fuel supply, industry concentration,
             remoteness, housing affordability, energy independence.
           </li>
           <li>
             <strong>Which pressures hit your community hardest?</strong>
-            &mdash; algorithmic exposure mapping across six domains: fuel,
+            Algorithmic exposure mapping across six domains: fuel,
             food, electricity, economic, housing, emergency. Driven by
             structural data, not opinion.
           </li>
           <li>
             <strong>What should you do and what should you watch?</strong>
-            &mdash; actions ranked by urgency and live signals contextualised
+            Actions ranked by urgency and live signals contextualised
             to your specific community.
           </li>
         </ol>
@@ -80,47 +80,47 @@ export default function MethodologyOverview() {
         </p>
         <ul>
           <li>
-            <strong>Car dependency</strong> &mdash; proportion of commuters
+            <strong>Car dependency</strong>: proportion of commuters
             who drive (ABS Census 2021)
           </li>
           <li>
-            <strong>Refinery distance</strong> &mdash; kilometres to the
+            <strong>Refinery distance</strong>: kilometres to the
             nearest operating refinery (derived)
           </li>
           <li>
-            <strong>Industry diversity</strong> &mdash; Shannon index across
+            <strong>Industry diversity</strong>: Shannon index across
             employment sectors (ABS Census 2021)
           </li>
           <li>
-            <strong>Agricultural workforce</strong> &mdash; proportion in
+            <strong>Agricultural workforce</strong>: proportion in
             agriculture, forestry, fishing (ABS Census 2021)
           </li>
           <li>
-            <strong>Remoteness</strong> &mdash; Modified Monash Model
+            <strong>Remoteness</strong>: Modified Monash Model
             category (ABS 2023)
           </li>
           <li>
-            <strong>Housing stress</strong> &mdash; proportion of households
+            <strong>Housing stress</strong>: proportion of households
             spending &gt;30% of income on housing (ABS Census 2021)
           </li>
           <li>
-            <strong>Solar capacity</strong> &mdash; installed kW per postcode
+            <strong>Solar capacity</strong>: installed kW per postcode
             (Clean Energy Regulator 2024)
           </li>
           <li>
-            <strong>Socioeconomic index (IRSD)</strong> &mdash; ABS SEIFA
+            <strong>Socioeconomic index (IRSD)</strong>: ABS SEIFA
             2021
           </li>
           <li>
-            <strong>Median household income</strong> &mdash; weekly (ABS
+            <strong>Median household income</strong>: weekly (ABS
             Census 2021)
           </li>
           <li>
-            <strong>Transport mode diversity</strong> &mdash; Shannon index
+            <strong>Transport mode diversity</strong>: Shannon index
             across commute modes (ABS Census 2021)
           </li>
           <li>
-            <strong>Internet access</strong> &mdash; proportion of dwellings
+            <strong>Internet access</strong>: proportion of dwellings
             connected (ABS Census 2021)
           </li>
         </ul>
@@ -211,7 +211,7 @@ export default function MethodologyOverview() {
           </li>
         </ul>
         <p>
-          Signal context is generated using parameterised templates &mdash;
+          Signal context is generated using parameterised templates.
           deterministic, auditable text that fills in your community&rsquo;s
           actual values. No generative AI is used.
         </p>
@@ -257,13 +257,13 @@ export default function MethodologyOverview() {
         </p>
         <p>
           But they fail differently. The single-industry community is
-          <strong> concentrated</strong> &mdash; locked into one dependency. It
+          <strong> concentrated</strong>: locked into one dependency. It
           looks stable right up until that industry contracts, at which point
           everything falls apart at once. There is nothing else to reorganise
           around.
         </p>
         <p>
-          The diverse-industry community is <strong>diversified</strong> &mdash;
+          The diverse-industry community is <strong>diversified</strong>:
           its parts are connected but not locked together. When one sector
           struggles, others can absorb the shock. People have options. The
           community can reorganise.
@@ -315,7 +315,7 @@ export default function MethodologyOverview() {
         <p>
           Every data point on the profile page includes its source and
           vintage. We show what data is available and name what is missing
-          &mdash; a partial picture honestly labelled is more useful than a
+          because a partial picture honestly labelled is more useful than a
           complete-looking picture hiding its gaps.
         </p>
       </section>
@@ -324,7 +324,7 @@ export default function MethodologyOverview() {
         <h2>Limitations</h2>
         <ul>
           <li>
-            Most structural data is from the 2021 Census &mdash; five years
+            Most structural data is from the 2021 Census, now five years
             old. Communities change. Treat structural characteristics as a
             baseline, not a current snapshot.
           </li>

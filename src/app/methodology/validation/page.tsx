@@ -82,7 +82,7 @@ export default function Validation() {
             The scoring engine underneath the exposure profiles has been
             validated against five quantitative tests. We chose to present
             profiles instead of scores because a profile is more actionable
-            &mdash; but the validated methodology is what gives those profiles
+            but the validated methodology is what gives those profiles
             their grounding.
           </p>
         </div>
@@ -227,7 +227,7 @@ export default function Validation() {
             scoring misses. Communities with concentrated economies appear
             resilient on volume-based indicators but are exposed when diversity
             is weighted. 22 of 28 mining-dependent postcodes score lower under
-            diversity weighting &mdash; consistent with the hypothesis that
+            diversity weighting, consistent with the hypothesis that
             concentration mimics resilience but creates systemic fragility.
           </Note>
         </TestSection>

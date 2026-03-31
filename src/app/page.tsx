@@ -38,7 +38,7 @@ export default function Home() {
               What pressures reach your community hardest?
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-green-100 max-w-2xl leading-relaxed">
-              Enter your postcode. See your community&apos;s exposure profile &mdash;
+              Enter your postcode. See your community&apos;s exposure profile:
               the structural shape that determines how fuel shocks, food prices, and
               economic pressure hit where you live. Official data. Transparent methods.
               Actions you can take.
@@ -101,8 +101,8 @@ export default function Home() {
               Where pressure hits hardest
             </h3>
             <p className="mt-2 sm:mt-3 text-sm text-gray-600 leading-relaxed">
-              Six domains &mdash; fuel, food, electricity, economic, housing,
-              emergency &mdash; ranked by how exposed your specific community is.
+              Six domains (fuel, food, electricity, economic, housing,
+              emergency) ranked by how exposed your specific community is.
               With the live signals most relevant to you.
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function Home() {
             </h3>
             <p className="mt-2 sm:mt-3 text-sm text-gray-600 leading-relaxed">
               Actions ranked by urgency, driven by your structural profile.
-              Household steps, community organising, and advocacy &mdash; with
+              Household steps, community organising, and advocacy, with
               links to the full resilience guide.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
           </div>
           <p className="mt-4 sm:mt-6 text-gray-700 text-base sm:text-lg leading-relaxed">
             A community where 90% of workers are in one industry looks stable
-            &mdash; right up until that industry contracts. Then everything fails
+            until that industry contracts. Then everything fails
             at once.
           </p>
           <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -265,7 +265,7 @@ export default function Home() {
           <Principle
             icon={<Target size={22} weight="duotone" className="text-green-700" />}
             title="Action-oriented"
-            description="Every profile connects to things a person or community can do. Structural factors are not predictions — they're starting points for conversation."
+            description="Every profile connects to things a person or community can do. Structural factors are not predictions. They're starting points for conversation."
           />
         </div>
       </section>

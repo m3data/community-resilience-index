@@ -531,7 +531,7 @@ function StructuralShape({
                 <div className="mt-3 flex flex-wrap gap-2">
                   {withoutData.map((char) => (
                     <span key={char.key} className="text-xs text-gray-400 bg-gray-50 px-2 py-1 rounded">
-                      {char.label} — no data
+                      {char.label} (no data)
                     </span>
                   ))}
                 </div>
@@ -612,7 +612,7 @@ function DiversitySection({ spectra }: { spectra: DiversitySpectrum[] }) {
       {modalOpen && (
         <Modal onClose={() => setModalOpen(false)} title="Concentration vs diversity">
           <p className="text-sm text-gray-600 leading-relaxed">
-            A community where 90% of workers are in one industry looks stable &mdash;
+            A community where 90% of workers are in one industry looks stable
             right up until that industry contracts. Then everything fails at once.
           </p>
           <p className="text-sm text-gray-600 leading-relaxed mt-3">

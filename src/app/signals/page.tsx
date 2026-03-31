@@ -49,7 +49,7 @@ const CASCADE_LAYERS: {
     heading: "What we're working with",
     timing: "Fuel stocks and energy supply",
     description:
-      "How much fuel Australia actually has on hand, and what the government is doing about it. These numbers are often hard to find — we put them in one place.",
+      "How much fuel Australia actually has on hand, and what the government is doing about it. These numbers are often hard to find. We put them in one place.",
     icon: <Lightning size={18} weight="duotone" />,
     keys: ["productReserves", "ieaCompliance", "stockVolumes", "energyPolicyNews", "aemoElectricity"],
     defaultExpanded: false,
@@ -59,7 +59,7 @@ const CASCADE_LAYERS: {
     heading: "The wholesale floor",
     timing: "What retailers pay",
     description:
-      "Terminal gate prices — the minimum that fuel companies charge before adding their retail margin. When these go up, pump prices follow. City-level data from BP, Ampol, Viva Energy, and ExxonMobil.",
+      "Terminal gate prices: the minimum that fuel companies charge before adding their retail margin. When these go up, pump prices follow. City-level data from BP, Ampol, Viva Energy, and ExxonMobil.",
     icon: <TrendUp size={18} weight="duotone" />,
     keys: ["dieselTgp", "petrolTgp"],
     defaultExpanded: true,
@@ -69,7 +69,7 @@ const CASCADE_LAYERS: {
     heading: "What you're paying",
     timing: "Pump prices and grocery costs",
     description:
-      "The prices you actually see — at the bowser, at the supermarket, and in the gap between wholesale and retail.",
+      "The prices you actually see: at the bowser, at the supermarket, and in the gap between wholesale and retail.",
     icon: <TrendUp size={18} weight="duotone" />,
     keys: ["cascadePressure", "retailMargin", "waFuel", "nswFuel", "stationAvailability", "foodBasket", "supermarketPrices"],
     defaultExpanded: true,
@@ -167,7 +167,7 @@ function getCascadeStatus(signals: Record<string, Signal>): {
     return {
       headline: "Costs are rising behind the scenes",
       detail:
-        "Oil prices, refining costs, or the dollar are putting pressure on fuel costs — but it hasn't fully shown up at the pump or supermarket yet. It may be absorbed by retailers, or it may flow through.",
+        "Oil prices, refining costs, or the dollar are putting pressure on fuel costs, but it hasn't fully shown up at the pump or supermarket yet. It may be absorbed by retailers, or it may flow through.",
     };
   }
   if (upstreamStress && retailStress) {
@@ -181,7 +181,7 @@ function getCascadeStatus(signals: Record<string, Signal>): {
     return {
       headline: "Prices are high but the pressure behind them has eased",
       detail:
-        "What you're paying is still elevated, but the upstream costs that caused it have come down. Prices often take time to follow — or retailers may be maintaining margins.",
+        "What you're paying is still elevated, but the upstream costs that caused it have come down. Prices often take time to follow, or retailers may be maintaining margins.",
     };
   }
   if (upCount > 0) {
@@ -246,7 +246,7 @@ export default async function SignalsPage() {
           <div className="mt-4 sm:mt-6 bg-amber-950/60 border border-amber-700/30 rounded-lg p-3 sm:p-4 max-w-2xl">
             <p className="text-xs sm:text-sm text-amber-200/80 leading-relaxed">
               This page shows where pressure is building in the supply chain
-              — from upstream markets to the prices you pay. Signals are
+              from upstream markets to the prices you pay. Signals are
               sourced from public data. We name the gaps the government
               doesn&apos;t.
             </p>
@@ -308,7 +308,7 @@ export default async function SignalsPage() {
               >
                 Community Resilience Index
               </Link>{" "}
-              measures structural capacity — the slow-moving factors that
+              measures structural capacity: the slow-moving factors that
               shape how well a community can absorb shocks. These signals
               provide the real-time context. The structural score tells you
               where the cracks are. The signals tell you how much weight is on

@@ -1,5 +1,5 @@
 /**
- * /methodology/indicators — Data Sources & Indicators
+ * /methodology/indicators.Data Sources & Indicators
  *
  * SPEC-003: Exposure profile approach
  * Audience: Community organiser, journalist, researcher
@@ -68,7 +68,7 @@ export default function DataSourcesIndicators() {
 
           <p className="text-gray-700 leading-relaxed mb-6">
             Every exposure profile is built from 11 indicators that describe the
-            structural shape of a community — how people get around, what work is
+            structural shape of a community: how people get around, what work is
             available, how far away critical supply chains are, and what buffers
             exist against economic pressure. None of these are predictions. They
             describe what is already true about a place.
@@ -179,7 +179,7 @@ export default function DataSourcesIndicators() {
               Most structural data comes from the 2021 Census, now five years
               old. The August 2026 Census will refresh these indicators
               significantly. Until then, the profile reflects structural
-              characteristics that change slowly — how a community is built, not
+              characteristics that change slowly: how a community is built, not
               how it feels today. Live signals provide the current-conditions
               layer.
             </p>
@@ -203,7 +203,7 @@ export default function DataSourcesIndicators() {
           </div>
 
           <p className="text-gray-700 leading-relaxed mb-4">
-            Each community receives exposure weights across six domains — fuel
+            Each community receives exposure weights across six domains: fuel,
             and transport, food and agriculture, electricity and grid, economic,
             housing, and emergency services. The weights are not
             machine-learned. They follow transparent rules: if a structural
@@ -281,7 +281,7 @@ export default function DataSourcesIndicators() {
             many structural factors contribute and how far each factor exceeds
             its threshold. A postcode with high car dependency and long refinery
             distance will have a higher fuel and transport weight than one with
-            only high car dependency. The algorithm is deterministic — the same
+            only high car dependency. The algorithm is deterministic: the same
             inputs always produce the same weights.
           </p>
         </section>
@@ -303,7 +303,7 @@ export default function DataSourcesIndicators() {
           </div>
 
           <p className="text-gray-700 leading-relaxed mb-4">
-            Two indicators use the Shannon diversity index — a measure borrowed
+            Two indicators use the Shannon diversity index, a measure borrowed
             from ecology that quantifies how evenly distributed a set of
             categories is. Higher values mean more even spread across
             categories. Lower values mean concentration in a few.
@@ -336,8 +336,8 @@ export default function DataSourcesIndicators() {
           <p className="text-gray-700 leading-relaxed mb-4">
             The spectrum runs from <strong>concentrated</strong> (low diversity,
             high exposure) to <strong>diversified</strong> (high diversity, lower
-            exposure). Concentration is not inherently bad — a mining town may be
-            wealthy — but it creates structural dependence on a single system. If
+            exposure). Concentration is not inherently bad. A mining town may be
+            wealthy, but it creates structural dependence on a single system. If
             that system is disrupted, there is less to fall back on.
           </p>
 
@@ -345,7 +345,7 @@ export default function DataSourcesIndicators() {
             This is what we call the <strong>entrainment penalty</strong> in the
             action urgency scoring. When a community's economy or transport
             system is entrained to a single mode, the urgency of diversification
-            actions increases — even if current conditions look stable. A system
+            actions increases, even if current conditions look stable. A system
             that appears resilient because it is performing well is not the same
             as a system that can absorb disruption.
           </p>
@@ -368,7 +368,7 @@ export default function DataSourcesIndicators() {
           </div>
 
           <p className="text-gray-700 leading-relaxed mb-4">
-            The exposure profile does not just describe structure — it
+            The exposure profile does not just describe structure. It
             contextualises live signals. The{" "}
             <Link
               href="/signals"
@@ -400,7 +400,7 @@ export default function DataSourcesIndicators() {
             high car dependency and long refinery distance will see fuel price
             signals ranked higher. A community with a large agricultural
             workforce will see farm input cost signals ranked higher. The
-            ranking uses parameterised templates — each signal has a relevance
+            ranking uses parameterised templates: each signal has a relevance
             formula tied to the exposure domain it belongs to.
           </p>
 
@@ -433,7 +433,7 @@ export default function DataSourcesIndicators() {
             The codebase includes a full BRIC (Baseline Resilience Indicators
             for Communities) and INFORM (Index for Risk Management) composite
             scoring engine. It has been validated across 3,193 postcodes with
-            five tests passing — including external validation against the ABS
+            five tests passing, including external validation against the ABS
             SEIFA index (Pearson r = 0.909).
           </p>
 
@@ -484,17 +484,17 @@ export default function DataSourcesIndicators() {
 
           <ol className="text-gray-700 leading-relaxed space-y-3 list-decimal list-inside mb-6">
             <li>
-              <strong>NULL values are excluded</strong> — if an indicator is
+              <strong>NULL values are excluded</strong>: if an indicator is
               missing for a postcode, it is left out of the exposure
               calculation rather than estimated or imputed.
             </li>
             <li>
-              <strong>Confidence drops proportionally</strong> — a profile built
+              <strong>Confidence drops proportionally</strong>: a profile built
               from 8 of 11 indicators carries lower confidence than one built
               from all 11. This is shown to the user.
             </li>
             <li>
-              <strong>Partial profiles are shown honestly</strong> — the system
+              <strong>Partial profiles are shown honestly</strong>: the system
               never hides what it does not know. If a domain's weight is based
               on incomplete indicators, the profile says so.
             </li>
