@@ -540,15 +540,25 @@ function Sparkline({ values, trend, label }: { values: number[]; trend: Trend; l
 }
 
 function SourceLine({ source, sourceUrl, automated }: { source: string; sourceUrl?: string; automated: boolean }) {
+  // On mobile, show just "Source" link (or truncated text if no URL)
+  // On desktop, show the full source attribution
+  const shortLabel = sourceUrl ? "Source" : source.split(" — ")[0].slice(0, 20);
+
   return (
-    <p className="text-[11px] text-gray-400 flex-shrink-0 text-right flex items-center gap-1.5">
+    <p className="text-[11px] text-gray-400 text-right flex items-center gap-1.5 min-w-0">
       {sourceUrl ? (
-        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-gray-600">
-          {source}
+        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-gray-600 truncate" title={source}>
+          <span className="sm:hidden">{shortLabel}</span>
+          <span className="hidden sm:inline">{source}</span>
         </a>
-      ) : source}
+      ) : (
+        <span className="truncate" title={source}>
+          <span className="sm:hidden">{shortLabel}</span>
+          <span className="hidden sm:inline">{source}</span>
+        </span>
+      )}
       {automated && (
-        <span className="inline-flex items-center gap-0.5 text-green-600" title="Live data">
+        <span className="inline-flex items-center gap-0.5 text-green-600 flex-shrink-0" title="Live data">
           <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
         </span>
       )}
