@@ -143,6 +143,7 @@ export default function YourPlacePage() {
       setError('Enter a postcode or suburb name.');
       return;
     }
+    setPostcode(trimmed);
     setLoading(true);
     setError(null);
     setProfile(null);
@@ -293,6 +294,9 @@ export default function YourPlacePage() {
 
       {/* Profile results — ordered by user need: orientation → action → understanding */}
       <div aria-live="polite" aria-atomic="false" ref={resultsRef}>
+      {!profile && !loading && !error && (
+        <SamplePreview onTry={fetchProfile} />
+      )}
       {profile && (
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-10">
           {/* 1. Orientation */}
@@ -313,6 +317,71 @@ export default function YourPlacePage() {
           <DataVintage structural={profile.structural} completeness={profile.dataCompleteness} />
         </div>
       )}
+      </div>
+    </div>
+  );
+}
+
+// ── 0. Sample preview — shown before any search ────────────────────────────
+
+function SamplePreview({ onTry }: { onTry: (pc: string) => void }) {
+  const examples = [
+    { postcode: '2000', name: 'Sydney CBD', highlight: 'High housing stress, grid-dependent' },
+    { postcode: '3000', name: 'Melbourne CBD', highlight: 'Economic concentration, transport options' },
+    { postcode: '6210', name: 'Mandurah, WA', highlight: 'Car dependency, refinery distance' },
+    { postcode: '2480', name: 'Lismore, NSW', highlight: 'Flood-prone, remote supply chains' },
+  ];
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="text-center mb-6">
+        <h2 className="font-heading text-lg sm:text-xl font-bold text-gray-900">
+          See what a profile looks like
+        </h2>
+        <p className="text-sm text-gray-500 mt-1">
+          Try one of these communities, or enter your own postcode above.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+        {examples.map((ex) => (
+          <button
+            key={ex.postcode}
+            type="button"
+            onClick={() => onTry(ex.postcode)}
+            className="text-left p-4 rounded-xl border border-gray-200 bg-white hover:border-green-300 hover:bg-green-50/30 transition-colors group"
+          >
+            <div className="flex items-baseline gap-2">
+              <span className="font-heading font-bold text-green-900 group-hover:text-green-700">{ex.name}</span>
+              <span className="text-xs text-gray-400">{ex.postcode}</span>
+            </div>
+            <p className="text-xs text-gray-500 mt-1">{ex.highlight}</p>
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-8 border-t border-gray-100 pt-8">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 sm:p-6 max-w-2xl mx-auto">
+          <h3 className="font-heading text-base font-bold text-gray-900 mb-3">What you get</h3>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li className="flex items-start gap-2">
+              <ArrowRight size={14} weight="bold" className="text-amber-600 mt-1 shrink-0" aria-hidden="true" />
+              <span><strong>Exposure profile</strong> showing which pressures hit your community hardest</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <ArrowRight size={14} weight="bold" className="text-amber-600 mt-1 shrink-0" aria-hidden="true" />
+              <span><strong>Prioritised actions</strong> tailored to your community's structural shape</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <ArrowRight size={14} weight="bold" className="text-amber-600 mt-1 shrink-0" aria-hidden="true" />
+              <span><strong>Live signals</strong> ranked by relevance to your area</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <ArrowRight size={14} weight="bold" className="text-amber-600 mt-1 shrink-0" aria-hidden="true" />
+              <span><strong>Cascade timelines</strong> showing when upstream pressures reach you</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
