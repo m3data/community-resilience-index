@@ -150,9 +150,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Two paths */}
+      {/* Three paths */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-8 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
           <Link
             href="/your-place"
             className="block border-2 border-green-200 hover:border-green-400 rounded-xl p-5 sm:p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
@@ -169,6 +169,24 @@ export default function Home() {
             <p className="mt-2 text-sm text-gray-600 leading-relaxed">
               Enter your postcode. See your exposure profile, the signals that
               matter most for your area, and the top actions to take.
+            </p>
+          </Link>
+          <Link
+            href="/signals"
+            className="block border-2 border-amber-200 hover:border-amber-400 rounded-xl p-5 sm:p-6 bg-white/80 group cursor-pointer card-hover focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2"
+          >
+            <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center mb-3 text-amber-700">
+              <Target size={24} weight="duotone" />
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">
+              Live Signals
+            </p>
+            <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-amber-800 transition-colors">
+              Follow the cascade
+            </h3>
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+              Oil prices, fuel stocks, wholesale costs, pump prices, station
+              outages. Live data showing where pressure is building right now.
             </p>
           </Link>
           <Link
