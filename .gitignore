@@ -38,3 +38,4 @@ yarn-error.log*
 # Build artifacts
 tsconfig.tsbuildinfo
 validation-results.json
+.vercel

@@ -5,7 +5,7 @@ import { fetchProductReserves, fetchIeaCompliance, fetchStockVolumes } from "./f
 import { fetchEnergyPolicyNews } from "./energy-policy-news";
 import { fetchWaFuel, computeRetailMargin } from "./wa-fuelwatch";
 import { fetchNswFuel } from "./nsw-fuelcheck";
-// Station availability removed from signals page — gap detection needs more data before it's meaningful
+import { fetchStationAvailability } from "./station-availability";
 import { fetchFarmInputs } from "./farm-inputs";
 
 // Tier 1 signal modules — direct API integrations (no scraping)
@@ -39,7 +39,7 @@ export async function fetchSignals(): Promise<SignalSet> {
   // Fetch all signals in parallel — each wrapped so failures degrade gracefully
   const [
     productReserves, ieaCompliance, stockVolumes, energyPolicyNews,
-    foodBasket, supermarketPrices, waFuel, nswFuel, farmInputs,
+    foodBasket, supermarketPrices, waFuel, nswFuel, stationAvailability, farmInputs,
     brentCrude, asxEnergy, asxFood, audUsd, crackSpread, aemoElectricity,
     dieselTgp, petrolTgp,
     rbaCashRate, nswRfs, vicEmv,
@@ -55,6 +55,7 @@ export async function fetchSignals(): Promise<SignalSet> {
     // Layer 4: Retail impact — fuel
     safe(fetchWaFuel()),
     safe(fetchNswFuel()),
+    safe(Promise.resolve(fetchStationAvailability())),
     safe(fetchFarmInputs()),
     // Layer 1: Upstream market signals
     safe(fetchBrentCrude()),
@@ -78,6 +79,7 @@ export async function fetchSignals(): Promise<SignalSet> {
   const primarySignals: Record<string, Signal> = {
     ...(waFuel ? { waFuel } : {}),
     ...(nswFuel ? { nswFuel } : {}),
+    ...(stationAvailability ? { stationAvailability } : {}),
     ...(foodBasket ? { foodBasket } : {}),
     ...(supermarketPrices ? { supermarketPrices } : {}),
     ...(farmInputs ? { farmInputs } : {}),

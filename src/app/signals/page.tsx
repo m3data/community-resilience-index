@@ -71,7 +71,7 @@ const CASCADE_LAYERS: {
     description:
       "The prices you actually see — at the bowser, at the supermarket, and in the gap between wholesale and retail.",
     icon: <TrendUp size={18} weight="duotone" />,
-    keys: ["cascadePressure", "retailMargin", "waFuel", "nswFuel", "foodBasket", "supermarketPrices"],
+    keys: ["cascadePressure", "retailMargin", "waFuel", "nswFuel", "stationAvailability", "foodBasket", "supermarketPrices"],
     defaultExpanded: true,
   },
   {
@@ -433,6 +433,7 @@ const TEMPORAL_WINDOW: Record<string, string> = {
   retailMargin: "Daily (derived)",
   cascadePressure: "Daily (derived)",
   foodBasket: "Quarterly",
+  stationAvailability: "Daily snapshot",
   supermarketPrices: "Point-in-time scrape",
   // Layer 5: Downstream
   rbaCashRate: "Set at RBA board meetings",
@@ -452,6 +453,7 @@ const INTELLIGENCE_SIGNALS = new Set([
   "stockVolumes",
   "energyPolicyNews",
   "farmInputs",
+  "stationAvailability",
 ]);
 
 /* ─── Shared utilities ─── */
@@ -600,7 +602,7 @@ function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Si
   const supportingDetail = contextParts.length > 2 ? contextParts.slice(2).join(" ") : null;
 
   return (
-    <div className="bg-amber-50/30 border border-amber-100/60 rounded-lg p-4 sm:p-5">
+    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-5">
       {/* Header: badge + freshness */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${trendStyles[signal.trend]}`}>

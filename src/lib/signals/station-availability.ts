@@ -142,26 +142,47 @@ export function fetchStationAvailability(): Signal | null {
   const today = loadSnapshot(files[0]);
   if (!today) return null;
 
-  // If we only have one snapshot, report station counts (no gap yet)
+  const waTotal =
+    today.sources.wa_fuelwatch.diesel + today.sources.wa_fuelwatch.petrol;
+  const nswTotal =
+    today.sources.nsw_fuelcheck.diesel + today.sources.nsw_fuelcheck.petrol;
+
+  // Always show monitoring coverage as components
+  const components: SignalComponent[] = [
+    {
+      label: "WA stations",
+      value: `${waTotal.toLocaleString()} reporting`,
+      change: `${today.sources.wa_fuelwatch.diesel} diesel, ${today.sources.wa_fuelwatch.petrol} petrol`,
+      trend: "stable",
+    },
+    {
+      label: "NSW stations",
+      value: `${nswTotal.toLocaleString()} reporting`,
+      change: `${today.sources.nsw_fuelcheck.diesel} diesel, ${today.sources.nsw_fuelcheck.petrol} petrol`,
+      trend: "stable",
+    },
+  ];
+
+  // If we only have one snapshot, report coverage (no gap data yet)
   if (files.length < 2) {
     return {
-      label: "Station availability",
-      value: `${today.totalStations} reporting`,
+      label: "Fuel station monitoring",
+      value: `${today.totalStations.toLocaleString()} stations tracked daily`,
       trend: "stable",
       source: `FuelWatch WA + FuelCheck NSW — ${today.date}`,
       sourceUrl: "https://www.fuelwatch.wa.gov.au/",
       context:
-        `Monitoring ${today.totalStations} fuel stations across WA and NSW. ` +
-        `WA: ${today.sources.wa_fuelwatch.diesel + today.sources.wa_fuelwatch.petrol} stations. ` +
-        `NSW: ${today.sources.nsw_fuelcheck.diesel + today.sources.nsw_fuelcheck.petrol} stations. ` +
-        `Gap detection requires at least two daily snapshots — first snapshot collected ${today.date}. ` +
-        `Stations that stop reporting between snapshots may indicate fuel unavailability.`,
+        `We monitor ${today.totalStations.toLocaleString()} fuel stations daily across WA and NSW ` +
+        `— the only two states with fully transparent, public station-level price feeds. ` +
+        `Victoria, Queensland, South Australia, Tasmania, NT, and ACT do not publish station-level data. ` +
+        `Gap detection (stations that stop appearing in the feed) activates after the second daily snapshot.`,
       lastUpdated: today.generated,
       automated: true,
       layer: 4,
       layerLabel: "Retail impact",
       propagatesTo:
         "Station closures compound panic buying and increase travel distance for remaining supply",
+      components,
     };
   }
 
@@ -171,7 +192,6 @@ export function fetchStationAvailability(): Signal | null {
   const gaps = analyseGaps(today, yesterday);
   const stoppedCount = gaps.stoppedReporting.length;
   const newCount = gaps.newlyReporting.length;
-  const netChange = newCount - stoppedCount;
 
   // Trend based on net disappearances
   const stoppedPct = (stoppedCount / yesterday.totalStations) * 100;
@@ -184,80 +204,65 @@ export function fetchStationAvailability(): Signal | null {
           ? "up"
           : "stable";
 
-  // Components: state-level breakdown
-  const components: SignalComponent[] = [];
+  // Add gap detection results to components
   for (const [state, data] of Object.entries(gaps.byState)) {
-    if (data.stopped > 0 || data.new > 0) {
-      components.push({
-        label: `${state} stations`,
-        value: `${data.todayTotal} reporting`,
-        change:
-          data.stopped > 0
-            ? `-${data.stopped} stopped${data.new > 0 ? `, +${data.new} new` : ""}`
-            : `+${data.new} new`,
-        trend: data.stopped > data.new ? "up" : "stable",
-      });
+    // Update existing state component with gap data
+    const existing = components.find((c) => c.label === `${state} stations`);
+    if (existing && data.stopped > 0) {
+      existing.change = `${data.stopped} dropped from feed`;
+      existing.trend = data.stopped > data.new ? "up" : "stable";
     }
   }
 
-  // Product breakdown
+  // Product-level gaps
   for (const [product, data] of Object.entries(gaps.byProduct)) {
     if (data.stopped > 0) {
       components.push({
-        label: `${product.charAt(0).toUpperCase() + product.slice(1)} gaps`,
-        value: `${data.stopped} stopped`,
-        change: data.new > 0 ? `+${data.new} returned` : undefined,
+        label: `${product.charAt(0).toUpperCase() + product.slice(1)}`,
+        value: `${data.stopped} disappeared`,
+        change: data.new > 0 ? `${data.new} returned` : undefined,
         trend: data.stopped > 5 ? "up" : "stable",
       });
     }
   }
 
-  // Build context narrative
-  let context = "";
+  // Build context — lead with what we can see, then name the gap
+  let context: string;
 
   if (stoppedCount === 0) {
     context =
-      `All ${today.totalStations} monitored stations reporting normally. ` +
-      `No gaps detected between ${yesterday.date} and ${today.date}.`;
+      `All ${today.totalStations.toLocaleString()} monitored stations still appearing in public feeds ` +
+      `between ${yesterday.date} and ${today.date}. ` +
+      `This means no stations dropped out of the feed entirely — ` +
+      `but stations can be out of fuel and still appear in price data. ` +
+      `Actual outage numbers are higher than what feed monitoring alone can detect.`;
   } else {
     context =
-      `${stoppedCount} station${stoppedCount !== 1 ? "s" : ""} that reported ` +
-      `on ${yesterday.date} did not report on ${today.date}. `;
+      `${stoppedCount} station${stoppedCount !== 1 ? "s" : ""} dropped from public feeds ` +
+      `between ${yesterday.date} and ${today.date}. `;
 
     if (newCount > 0) {
-      context += `${newCount} station${newCount !== 1 ? "s" : ""} resumed or started reporting (net change: ${netChange > 0 ? "+" : ""}${netChange}). `;
-    }
-
-    // State detail
-    const stateDetails = Object.entries(gaps.byState)
-      .filter(([, d]) => d.stopped > 0)
-      .map(
-        ([state, d]) =>
-          `${state}: ${d.stopped} stopped (${((d.stopped / d.yesterdayTotal) * 100).toFixed(1)}% of ${d.yesterdayTotal})`
-      );
-
-    if (stateDetails.length > 0) {
-      context += stateDetails.join(". ") + ". ";
+      context += `${newCount} returned. `;
     }
 
     context +=
-      `This is a proxy signal — stations may stop reporting for reasons other ` +
-      `than fuel unavailability (maintenance, system errors, temporary closure). ` +
-      `The pattern across multiple stations is more informative than individual cases.`;
+      `Feed disappearances are a floor, not a ceiling — ` +
+      `stations can be out of fuel and still appear in price data.`;
   }
 
   context +=
-    ` Coverage: WA (FuelWatch, fully transparent) + NSW (FuelCheck, CKAN open data). ` +
-    `Other states lack public station-level reporting.`;
+    ` Only WA and NSW publish station-level data. ` +
+    `Victoria, Queensland, SA, Tasmania, NT, and ACT have no public station-level feeds ` +
+    `— outages in those states are invisible to independent monitoring.`;
 
-  // Value headline
+  // Value headline — lead with monitoring scale, flag gaps if any
   const value =
     stoppedCount === 0
-      ? `${today.totalStations} reporting`
-      : `${stoppedCount} stopped reporting`;
+      ? `${today.totalStations.toLocaleString()} stations tracked — no feed dropouts`
+      : `${stoppedCount} station${stoppedCount !== 1 ? "s" : ""} dropped from feed — ${today.totalStations.toLocaleString()} tracked`;
 
   return {
-    label: "Station availability",
+    label: "Fuel station monitoring",
     value,
     trend,
     source: `FuelWatch WA + FuelCheck NSW — ${today.date}`,
@@ -269,6 +274,14 @@ export function fetchStationAvailability(): Signal | null {
     layerLabel: "Retail impact",
     propagatesTo:
       "Station closures compound panic buying and increase travel distance for remaining supply",
-    components: components.length > 0 ? components : undefined,
+    components,
+    secondary: {
+      label: "Transparency gap",
+      value: "6 states and territories publish no station-level data",
+      detail:
+        "The government announced a national outage dashboard is 'under preparation'. " +
+        "This data has always existed — WA and NSW already publish it. " +
+        "The gap is political, not technical.",
+    },
   };
 }
