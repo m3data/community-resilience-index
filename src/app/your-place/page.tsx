@@ -633,35 +633,44 @@ function DiversitySection({ spectra }: { spectra: DiversitySpectrum[] }) {
   );
 }
 
+// Absolute scale max for each diversity type (Shannon index theoretical max)
+const DIVERSITY_SCALE: Record<string, number> = {
+  'Industry diversity': 4.25,   // log2(~19 ANZSIC divisions)
+  'Transport diversity': 3.0,   // log2(~8 commute modes)
+};
+
 function SpectrumBar({ spectrum }: { spectrum: DiversitySpectrum }) {
-  const position = spectrum.percentile !== null
-    ? Math.round(spectrum.percentile * 100)
-    : 50;
+  // Position dot on the absolute scale, not the percentile
+  const scaleMax = DIVERSITY_SCALE[spectrum.label] ?? 4.0;
+  const absolutePosition = Math.round(Math.min(100, (spectrum.value / scaleMax) * 100));
 
-  // Derive visual label from percentile position (matches dot placement)
-  const visualPosition = position >= 67 ? 'coherent' : position >= 33 ? 'mixed' : 'entrained';
-
+  // Use the API's spectrumPosition for label and colour (based on absolute thresholds)
   const posColors = {
     entrained: { dot: 'bg-amber-500', label: 'text-amber-700', bg: 'bg-amber-50' },
     mixed: { dot: 'bg-yellow-500', label: 'text-yellow-700', bg: 'bg-yellow-50' },
     coherent: { dot: 'bg-green-500', label: 'text-green-700', bg: 'bg-green-50' },
   };
-  const colors = posColors[visualPosition];
-  const visualLabel = visualPosition === 'entrained' ? 'Concentrated' : visualPosition === 'coherent' ? 'Diversified' : 'Moderate';
+  const colors = posColors[spectrum.spectrumPosition];
+  const label = spectrum.spectrumPosition === 'entrained' ? 'Concentrated' : spectrum.spectrumPosition === 'coherent' ? 'Diversified' : 'Moderate';
+
+  // Percentile as context, not as position
+  const pctLabel = spectrum.percentile !== null
+    ? `More diversified than ${Math.round(spectrum.percentile * 100)}% of communities`
+    : null;
 
   return (
     <div className={`rounded-lg border border-gray-100 p-4 ${colors.bg}`}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-sm font-medium text-gray-900">{spectrum.label}</span>
         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${colors.label} bg-white/80`}>
-          {visualLabel}
+          {label}
         </span>
       </div>
 
       <div className="relative h-3 bg-gradient-to-r from-amber-200 via-yellow-200 to-green-200 rounded-full mt-1">
         <div
-          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${posColors[visualPosition].dot} rounded-full border-2 border-white shadow-sm transition-all`}
-          style={{ left: `clamp(8px, ${position}% - 8px, calc(100% - 16px))` }}
+          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${colors.dot} rounded-full border-2 border-white shadow-sm transition-all`}
+          style={{ left: `clamp(8px, ${absolutePosition}% - 8px, calc(100% - 16px))` }}
         />
       </div>
       <div className="flex justify-between mt-1 text-[10px] text-gray-400">
@@ -669,7 +678,11 @@ function SpectrumBar({ spectrum }: { spectrum: DiversitySpectrum }) {
         <span>Diversified</span>
       </div>
 
-      <p className="text-sm text-gray-600 mt-3 leading-relaxed">
+      {pctLabel && (
+        <p className="text-[11px] text-gray-400 mt-1.5">{pctLabel}</p>
+      )}
+
+      <p className="text-sm text-gray-600 mt-2 leading-relaxed">
         {spectrum.interpretation}
       </p>
     </div>
