@@ -286,7 +286,7 @@ export function computePriceChain(
   } else if (primary.retailerMargin > MARGIN_NORMAL_HIGH) {
     value = `Retailers taking ${fmt(primary.retailerMargin)} per litre above cost`;
   } else {
-    value = `Retailer margin ${fmt(primary.retailerMargin)} — importers take ${fmt(primary.productAndSupply)}`;
+    value = `Retailer margin ${fmt(primary.retailerMargin)} — wholesale cost ${fmt(primary.productAndSupply)} before tax`;
   }
 
   // ── Context narrative ──────────────────────────────────────────────────────
