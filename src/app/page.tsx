@@ -38,8 +38,7 @@ export default function Home() {
               What pressures reach your community hardest?
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-green-100 max-w-2xl leading-relaxed">
-              Enter your postcode. See your community&apos;s exposure profile:
-              the structural shape that determines how fuel shocks, food prices, and
+              Enter your postcode. See how fuel shocks, food prices, and
               economic pressure hit where you live. Official data. Transparent methods.
               Actions you can take.
             </p>
@@ -221,10 +220,8 @@ export default function Home() {
             From understanding to action
           </h2>
           <p className="mt-6 text-green-100 text-lg leading-relaxed">
-            Knowing your community&apos;s exposure is the starting point.
-            What matters is what you do with it. The strongest communities
-            are the ones where people know each other, trust each other,
-            and can coordinate when it counts.
+            The strongest communities are the ones where people know each
+            other, trust each other, and can coordinate when it counts.
           </p>
           <Link
             href="/guide"
@@ -265,7 +262,7 @@ export default function Home() {
           <Principle
             icon={<Target size={22} weight="duotone" className="text-green-700" />}
             title="Action-oriented"
-            description="Every profile connects to things a person or community can do. Structural factors are not predictions. They're starting points for conversation."
+            description="Every profile connects to things a person or community can do. Structural factors aren't destiny. They're where preparation starts."
           />
         </div>
       </section>
