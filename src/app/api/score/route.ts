@@ -225,7 +225,13 @@ let cached: CachedData | null = null;
 function loadLocalities(): Record<string, string> {
   try {
     const raw = readFileSync(join(process.cwd(), 'src', 'data', 'postcode-localities.json'), 'utf-8');
-    return JSON.parse(raw) as Record<string, string>;
+    const data = JSON.parse(raw) as Record<string, string | string[]>;
+    // Normalise: new format is string[], old format was string
+    const result: Record<string, string> = {};
+    for (const [pc, val] of Object.entries(data)) {
+      result[pc] = Array.isArray(val) ? val[0] ?? '' : val;
+    }
+    return result;
   } catch {
     return {};
   }

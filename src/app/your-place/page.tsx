@@ -91,9 +91,18 @@ const SIGNAL_NAMES: Record<string, string> = {
 
 // ── Main page ────────────────────────────────────────────────────────────────
 
-// Build flat lookup for autocomplete
-const LOCALITY_ENTRIES = Object.entries(localities as Record<string, string>).map(
-  ([pc, name]) => ({ postcode: pc, name, searchable: `${pc} ${name.toLowerCase()}` }),
+// Build flat lookup for autocomplete — one entry per postcode, all suburb names searchable
+const LOCALITY_ENTRIES = Object.entries(localities as Record<string, string[]>).map(
+  ([pc, names]) => {
+    const display = names.length <= 3
+      ? names.map((n) => n.charAt(0) + n.slice(1).toLowerCase()).join(', ')
+      : names.slice(0, 2).map((n) => n.charAt(0) + n.slice(1).toLowerCase()).join(', ') + ` + ${names.length - 2} more`;
+    return {
+      postcode: pc,
+      display,
+      searchable: `${pc} ${names.join(' ').toLowerCase()}`,
+    };
+  },
 );
 
 function useSuggestions(query: string) {
@@ -234,7 +243,7 @@ export default function YourPlacePage() {
                       <span>
                         <span className="font-semibold">{s.postcode}</span>
                         <span className="text-gray-400 mx-1.5">&middot;</span>
-                        <span>{s.name}</span>
+                        <span>{s.display}</span>
                       </span>
                       <MapPin size={14} className="text-gray-300 flex-shrink-0" />
                     </li>
