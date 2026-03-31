@@ -203,7 +203,7 @@ export default function YourPlacePage() {
 
           <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 flex gap-3 max-w-md">
             <div ref={wrapperRef} className="relative flex-1">
-              <MagnifyingGlass size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" />
+              <MagnifyingGlass size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" aria-hidden="true" />
               <input
                 type="text"
                 placeholder="Postcode or suburb name"
@@ -219,6 +219,7 @@ export default function YourPlacePage() {
                 aria-label="Australian postcode or suburb"
                 autoComplete="off"
                 role="combobox"
+                aria-autocomplete="list"
                 aria-expanded={showSuggestions && suggestions.length > 0}
                 aria-controls="postcode-suggestions"
                 aria-activedescendant={selectedIdx >= 0 ? `suggestion-${selectedIdx}` : undefined}
@@ -245,7 +246,7 @@ export default function YourPlacePage() {
                         <span className="text-gray-400 mx-1.5">&middot;</span>
                         <span>{s.display}</span>
                       </span>
-                      <MapPin size={14} className="text-gray-300 flex-shrink-0" />
+                      <MapPin size={14} className="text-gray-300 flex-shrink-0" aria-hidden="true" />
                     </li>
                   ))}
                 </ul>
@@ -266,6 +267,7 @@ export default function YourPlacePage() {
       </section>
 
       {/* Profile results — ordered by user need: orientation → action → understanding */}
+      <div aria-live="polite" aria-atomic="false">
       {profile && (
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-10">
           {/* 1. Orientation */}
@@ -286,6 +288,7 @@ export default function YourPlacePage() {
           <DataVintage structural={profile.structural} completeness={profile.dataCompleteness} />
         </div>
       )}
+      </div>
     </div>
   );
 }
@@ -347,7 +350,7 @@ function TopActions({ actions }: { actions: ProfileAction[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <ArrowRight size={20} weight="duotone" className="text-green-700" />
+        <ArrowRight size={20} weight="duotone" className="text-green-700" aria-hidden="true" />
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">What to do</h3>
       </div>
 
@@ -413,8 +416,9 @@ function MoreActions({ actions }: { actions: ProfileAction[] }) {
         type="button"
         onClick={() => setExpanded(!expanded)}
         className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+        aria-expanded={expanded}
       >
-        {expanded ? <CaretDown size={14} /> : <CaretRight size={14} />}
+        {expanded ? <CaretDown size={14} aria-hidden="true" /> : <CaretRight size={14} aria-hidden="true" />}
         {actions.length} more action{actions.length !== 1 ? 's' : ''}
       </button>
       {expanded && (
@@ -461,7 +465,7 @@ function ExposureMap({ exposures }: { exposures: ExposureWeight[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Pulse size={20} weight="duotone" className="text-amber-700" />
+        <Pulse size={20} weight="duotone" className="text-amber-700" aria-hidden="true" />
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">Where pressure reaches you hardest</h3>
       </div>
       {topNames.length > 0 && (
@@ -484,8 +488,9 @@ function ExposureMap({ exposures }: { exposures: ExposureWeight[] }) {
             type="button"
             onClick={() => setShowAll(!showAll)}
             className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+            aria-expanded={showAll}
           >
-            {showAll ? <CaretDown size={14} /> : <CaretRight size={14} />}
+            {showAll ? <CaretDown size={14} aria-hidden="true" /> : <CaretRight size={14} aria-hidden="true" />}
             {restExposures.length} more domain{restExposures.length !== 1 ? 's' : ''}
           </button>
           {showAll && (
@@ -513,7 +518,13 @@ function ExposureBar({ exposure }: { exposure: ExposureWeight }) {
         <span className="text-sm font-semibold text-gray-900 flex-1">{exposure.label}</span>
         <span className={`text-xs font-bold ${colors.text}`}>{pct}%</span>
       </div>
-      <div className="h-1.5 sm:h-2 bg-white/60 rounded-full overflow-hidden">
+      <div className="h-1.5 sm:h-2 bg-white/60 rounded-full overflow-hidden"
+        role="progressbar"
+        aria-valuenow={pct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`${exposure.label} exposure: ${pct}%`}
+      >
         <div
           className={`h-full ${colors.bar} rounded-full transition-all`}
           style={{ width: `${pct}%` }}
@@ -534,7 +545,7 @@ function SignalRecommendations({ signals }: { signals: ContextualisedSignal[] })
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Pulse size={20} weight="duotone" className="text-green-700" />
+        <Pulse size={20} weight="duotone" className="text-green-700" aria-hidden="true" />
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">Signals to watch</h3>
       </div>
       <p className="text-sm text-gray-500 mb-4">
@@ -592,7 +603,7 @@ function StructuralShape({
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <TreeStructure size={20} weight="duotone" className="text-green-700" />
+        <TreeStructure size={20} weight="duotone" className="text-green-700" aria-hidden="true" />
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">What shapes this community&rsquo;s exposure</h3>
       </div>
       <p className="text-sm text-gray-500 mb-4">
@@ -614,8 +625,9 @@ function StructuralShape({
             type="button"
             onClick={() => setExpanded(!expanded)}
             className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+            aria-expanded={expanded}
           >
-            {expanded ? <CaretDown size={14} /> : <CaretRight size={14} />}
+            {expanded ? <CaretDown size={14} aria-hidden="true" /> : <CaretRight size={14} aria-hidden="true" />}
             {rest.length + withoutData.length} more characteristic{rest.length + withoutData.length !== 1 ? 's' : ''}
           </button>
           {expanded && (
@@ -658,7 +670,13 @@ function StructuralCard({ char, highlight }: { char: StructuralCharacteristic; h
       {pct !== null && (
         <div className="mt-2">
           <div className="flex items-center gap-2">
-            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"
+              role="progressbar"
+              aria-valuenow={pct}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label={`${char.label}: ${deviationLabel}, ${pct}th percentile`}
+            >
               <div
                 className={`h-full ${barColor} rounded-full transition-all`}
                 style={{ width: `${pct}%` }}
@@ -684,7 +702,7 @@ function DiversitySection({ spectra }: { spectra: DiversitySpectrum[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Eye size={20} weight="duotone" className="text-green-700" />
+        <Eye size={20} weight="duotone" className="text-green-700" aria-hidden="true" />
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">Concentrated or diversified?</h3>
         <button
           type="button"
@@ -795,7 +813,7 @@ function CascadeTimeline({ cascade }: { cascade: CascadeEstimate[] }) {
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
-        <Timer size={20} weight="duotone" className="text-amber-700" />
+        <Timer size={20} weight="duotone" className="text-amber-700" aria-hidden="true" />
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">How long before it reaches here?</h3>
         <button
           type="button"
@@ -887,7 +905,7 @@ function DataVintage({
   return (
     <section className="border-t border-gray-100 pt-8">
       <div className="flex items-center gap-2 mb-4">
-        <Database size={22} weight="duotone" className="text-gray-400" />
+        <Database size={22} weight="duotone" className="text-gray-400" aria-hidden="true" />
         <h3 className="font-heading text-sm font-bold text-gray-500 uppercase tracking-wide">Where this data comes from</h3>
         <span className="text-xs text-gray-400 ml-auto">
           {completeness.available} of {completeness.total} data points available

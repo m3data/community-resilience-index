@@ -19,7 +19,7 @@ import type { Signal, Trend, CascadeLayer } from "@/lib/signals/types";
 export const revalidate = 300; // cache rendered page for 5 minutes
 
 export const metadata: Metadata = {
-  title: "Signal Intelligence — Community Resilience Index",
+  title: "Signal Intelligence",
   description:
     "Cascading failure early warning for Australian communities. Upstream market signals, fuel supply, food prices, economic pressure, and emergency feeds — live from public data.",
 };
@@ -40,7 +40,7 @@ const CASCADE_LAYERS: {
     timing: "Global markets and currency",
     description:
       "Oil prices, refining costs, and the Australian dollar. These are the forces that set the baseline cost of fuel before it reaches Australia.",
-    icon: <ChartLine size={18} weight="duotone" />,
+    icon: <ChartLine size={18} weight="duotone" aria-hidden="true" />,
     keys: ["brentCrude", "crackSpread", "audUsd", "asxEnergy", "asxFood"],
     defaultExpanded: false,
   },
@@ -50,7 +50,7 @@ const CASCADE_LAYERS: {
     timing: "Fuel stocks and energy supply",
     description:
       "How much fuel Australia actually has on hand, and what the government is doing about it. These numbers are often hard to find. We put them in one place.",
-    icon: <Lightning size={18} weight="duotone" />,
+    icon: <Lightning size={18} weight="duotone" aria-hidden="true" />,
     keys: ["productReserves", "ieaCompliance", "stockVolumes", "energyPolicyNews", "aemoElectricity"],
     defaultExpanded: false,
   },
@@ -60,7 +60,7 @@ const CASCADE_LAYERS: {
     timing: "What retailers pay",
     description:
       "Terminal gate prices: the minimum that fuel companies charge before adding their retail margin. When these go up, pump prices follow. City-level data from BP, Ampol, Viva Energy, and ExxonMobil.",
-    icon: <TrendUp size={18} weight="duotone" />,
+    icon: <TrendUp size={18} weight="duotone" aria-hidden="true" />,
     keys: ["dieselTgp", "petrolTgp"],
     defaultExpanded: true,
   },
@@ -70,7 +70,7 @@ const CASCADE_LAYERS: {
     timing: "Pump prices and grocery costs",
     description:
       "The prices you actually see: at the bowser, at the supermarket, and in the gap between wholesale and retail.",
-    icon: <TrendUp size={18} weight="duotone" />,
+    icon: <TrendUp size={18} weight="duotone" aria-hidden="true" />,
     keys: ["priceChain", "cascadePressure", "retailMargin", "waFuel", "nswFuel", "stationAvailability", "foodBasket", "supermarketPrices"],
     defaultExpanded: true,
   },
@@ -80,7 +80,7 @@ const CASCADE_LAYERS: {
     timing: "The slower squeeze",
     description:
       "Interest rates, fertiliser costs, and other pressures that build gradually. No single one is a crisis on its own, but together they add up.",
-    icon: <CurrencyDollar size={18} weight="duotone" />,
+    icon: <CurrencyDollar size={18} weight="duotone" aria-hidden="true" />,
     keys: ["rbaCashRate", "farmInputs"],
     defaultExpanded: true,
   },
@@ -90,7 +90,7 @@ const CASCADE_LAYERS: {
     timing: "Bushfires and severe weather",
     description:
       "Natural disasters that disrupt supply chains. When these hit a region that's already under fuel or food pressure, the impact multiplies.",
-    icon: <FirstAid size={18} weight="duotone" />,
+    icon: <FirstAid size={18} weight="duotone" aria-hidden="true" />,
     keys: ["nswRfs", "vicEmv"],
     defaultExpanded: true,
   },
@@ -220,7 +220,7 @@ export default async function SignalsPage() {
       <section className="bg-amber-950 bg-topo text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
           <div className="flex items-center gap-2 mb-4 sm:mb-6">
-            <Warning size={20} weight="duotone" className="text-amber-400" />
+            <Warning size={20} weight="duotone" className="text-amber-400" aria-hidden="true" />
             <p className="text-amber-400 font-medium text-xs sm:text-sm uppercase tracking-wide">
               Live signals
             </p>
@@ -294,7 +294,7 @@ export default async function SignalsPage() {
       <section className="bg-green-50 border-y border-green-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
           <div className="flex items-center gap-2 mb-4">
-            <Pulse size={20} weight="duotone" className="text-green-700" />
+            <Pulse size={20} weight="duotone" className="text-green-700" aria-hidden="true" />
             <h2 className="font-heading text-xl font-bold text-green-900">
               How signals connect to resilience
             </h2>
@@ -376,7 +376,7 @@ function CascadeLayerSection({
             </span>
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="font-heading text-sm sm:text-base font-semibold text-green-900">
+                <h2 id={`layer-${layer.layer}-heading`} className="font-heading text-sm sm:text-base font-semibold text-green-900">
                   {layer.heading}
                 </h2>
                 <span
@@ -396,7 +396,7 @@ function CascadeLayerSection({
         </div>
       </summary>
 
-      <div className={`mt-1 border-l-4 ${layerBorderStyles[status.trend]} ml-1 sm:ml-3 pl-3 sm:pl-5 pb-2 space-y-3`}>
+      <div className={`mt-1 border-l-4 ${layerBorderStyles[status.trend]} ml-1 sm:ml-3 pl-3 sm:pl-5 pb-2 space-y-3`} role="region" aria-labelledby={`layer-${layer.layer}-heading`}>
         <p className="text-xs sm:text-sm text-gray-500 pt-2">{layer.description}</p>
 
         {signals.map(({ key, signal }) => (
@@ -529,7 +529,7 @@ function Sparkline({ values, trend, label }: { values: number[]; trend: Trend; l
 
   return (
     <div className="mt-2">
-      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="overflow-visible">
+      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="overflow-visible" aria-hidden="true">
         <path d={fillPath} fill={colors.fill} />
         <path d={linePath} fill="none" stroke={colors.stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         <circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="2" fill={colors.stroke} />
@@ -550,6 +550,7 @@ function SourceLine({ source, sourceUrl, automated }: { source: string; sourceUr
         <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-gray-600 truncate" title={source}>
           <span className="sm:hidden">{shortLabel}</span>
           <span className="hidden sm:inline">{source}</span>
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
       ) : (
         <span className="truncate" title={source}>
@@ -734,6 +735,7 @@ function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Si
               <li key={a.url} className="text-sm leading-snug">
                 <a href={a.url} target="_blank" rel="noopener noreferrer" className="text-green-800 underline underline-offset-2 hover:text-green-600">
                   {a.title}
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
                 {(a.source || a.date) && (
                   <span className="text-xs text-gray-400 ml-1">
