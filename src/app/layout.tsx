@@ -81,20 +81,27 @@ export default function RootLayout({
                   Open data. Peer-reviewed methods. Community action.
                 </p>
               </div>
-              <div className="text-sm text-gray-500">
-                <p>
-                  Free to use, adapt, and share.
-                </p>
-                <p className="mt-1">
+              <div className="text-sm text-gray-500 flex flex-col sm:items-end gap-1">
+                <div className="flex gap-4">
+                  <a href="/methodology" className="text-green-700 hover:underline">Methodology</a>
+                  <a
+                    href="https://github.com/m3data/community-resilience-index"
+                    className="text-green-700 hover:underline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub
+                  </a>
                   <a
                     href="https://collectivefuturecrafting.net"
-                    className="text-green-700 hover:underline focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 rounded"
+                    className="text-green-700 hover:underline"
                     target="_blank"
                     rel="noopener"
                   >
                     collectivefuturecrafting.net
                   </a>
-                </p>
+                </div>
+                <p>Free to use, adapt, and share.</p>
               </div>
             </div>
           </div>
