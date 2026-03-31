@@ -69,22 +69,23 @@ const DOMAIN_COLORS: Record<string, { bg: string; text: string; border: string; 
 // Signal key → human-readable name
 const SIGNAL_NAMES: Record<string, string> = {
   brentCrude: 'Brent crude oil price',
-  crackSpread: 'Refining margin (crack spread)',
+  crackSpread: 'Oil-to-fuel refining margin',
   waFuel: 'WA fuel prices',
   nswFuel: 'NSW fuel prices',
-  asxFood: 'Food & agriculture equities',
-  asxEnergy: 'Energy sector equities',
+  asxFood: 'Food & agriculture stocks',
+  asxEnergy: 'Energy sector stocks',
   farmInputs: 'Farm input costs',
   aemoElectricity: 'Wholesale electricity price',
   rbaCashRate: 'RBA cash rate',
   audUsd: 'AUD/USD exchange rate',
   nswRfs: 'NSW bushfire incidents',
   vicEmv: 'VIC emergency incidents',
-  dieselTgp: 'Diesel wholesale price (TGP)',
-  petrolTgp: 'Petrol wholesale price (TGP)',
-  foodBasket: 'Food basket price pressure',
-  cascadePressure: 'Cascade pressure indicator',
-  retailMargin: 'Wholesale→retail margin (diesel)',
+  dieselTgp: 'Diesel wholesale price',
+  petrolTgp: 'Petrol wholesale price',
+  foodBasket: 'Grocery price changes',
+  cascadePressure: 'Combined cost pressure',
+  retailMargin: 'Diesel pump markup over wholesale',
+  stationAvailability: 'Fuel station monitoring',
 };
 
 // ── Main page ────────────────────────────────────────────────────────────────
@@ -498,8 +499,8 @@ function StructuralShape({
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">What shapes this community&rsquo;s exposure</h3>
       </div>
       <p className="text-sm text-gray-500 mb-4">
-        The structural characteristics that drive the exposure profile above.
-        {outliers.length > 0 && ' Most distinctive factors shown first.'}
+        The factors that shape how exposed this community is.
+        {outliers.length > 0 && ' Most distinctive shown first.'}
       </p>
 
       {/* Outliers always visible */}
@@ -599,8 +600,8 @@ function DiversitySection({ spectra }: { spectra: DiversitySpectrum[] }) {
         </button>
       </div>
       <p className="text-sm text-gray-500 mb-4">
-        Communities with concentrated dependencies are more fragile under stress.
-        Diverse systems can reorganise; locked-in systems fail together.
+        When one thing fails in a diversified community, other options exist.
+        When everything depends on the same thing, it all falls at once.
       </p>
 
       <div className="space-y-4">
@@ -773,7 +774,7 @@ function DataVintage({
     <section className="border-t border-gray-100 pt-8">
       <div className="flex items-center gap-2 mb-4">
         <Database size={22} weight="duotone" className="text-gray-400" />
-        <h3 className="font-heading text-sm font-bold text-gray-500 uppercase tracking-wide">Data provenance</h3>
+        <h3 className="font-heading text-sm font-bold text-gray-500 uppercase tracking-wide">Where this data comes from</h3>
         <span className="text-xs text-gray-400 ml-auto">
           {completeness.available} of {completeness.total} data points available
         </span>

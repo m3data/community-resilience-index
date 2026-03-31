@@ -165,10 +165,10 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
   }
   chars.push({
     key: 'industry_diversity',
-    label: 'Industry diversity',
+    label: 'Industry spread',
     value: industryDiv,
     formatted: industryDiv !== null
-      ? `Shannon index ${industryDiv.toFixed(2)} (${industryDiv > 3 ? 'diversified' : industryDiv > 2 ? 'moderate' : 'concentrated'})`
+      ? `${industryDiv > 3 ? 'Diversified across many industries' : industryDiv > 2 ? 'Moderate spread across industries' : 'Concentrated in few industries'}`
       : 'No data',
     source: 'ABS Census 2021',
     vintage: '2021',
@@ -200,7 +200,7 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     label: 'Remoteness',
     value: remoteness,
     formatted: remoteness !== null
-      ? `${remoteArea || `MMM ${remoteness}`}`
+      ? `${remoteArea || (remoteness <= 1 ? 'Major city' : remoteness <= 2 ? 'Regional centre' : remoteness <= 3 ? 'Large rural town' : remoteness <= 4 ? 'Medium rural town' : remoteness <= 5 ? 'Small rural town' : remoteness <= 6 ? 'Remote community' : 'Very remote')}`
       : 'No data',
     source: 'ABS Modified Monash Model 2023',
     vintage: '2023',
@@ -235,10 +235,10 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
   const seifa = d.seifa?.irsd_score ?? null;
   chars.push({
     key: 'seifa_irsd',
-    label: 'Socioeconomic index (IRSD)',
+    label: 'Economic disadvantage',
     value: seifa,
     formatted: seifa !== null
-      ? `${seifa} (${seifa >= 1050 ? 'least disadvantaged' : seifa >= 1000 ? 'above average' : seifa >= 950 ? 'below average' : 'most disadvantaged'})`
+      ? `${seifa >= 1050 ? 'Least disadvantaged areas nationally' : seifa >= 1000 ? 'Above average' : seifa >= 950 ? 'Below average' : 'Among most disadvantaged areas nationally'}`
       : 'No data',
     source: 'ABS SEIFA 2021',
     vintage: '2021',
@@ -274,10 +274,10 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
   }
   chars.push({
     key: 'transport_diversity',
-    label: 'Transport mode diversity',
+    label: 'Transport options',
     value: transportDiv,
     formatted: transportDiv !== null
-      ? `Shannon index ${transportDiv.toFixed(2)} (${transportDiv > 2.5 ? 'diverse options' : transportDiv > 1.5 ? 'moderate options' : 'limited options'})`
+      ? `${transportDiv > 2.5 ? 'Diverse options (public transport, cycling, walking)' : transportDiv > 1.5 ? 'Some alternatives to driving' : 'Limited options, mostly car-dependent'}`
       : 'No data',
     source: 'ABS Census 2021',
     vintage: '2021',
@@ -480,7 +480,7 @@ function contextualiseSignals(
       key: 'crackSpread',
       domain: 'fuel',
       relevance: fuelExposure * 0.9,
-      context: `The crack spread — the gap between crude oil and refined fuel — affects how much of crude price changes reach the bowser. When refining margins widen, pump prices rise faster than crude.`,
+      context: `The gap between crude oil costs and refined fuel prices affects how much of a crude price change reaches the bowser. When refining margins widen, pump prices rise faster than crude.`,
     });
   }
 
@@ -490,7 +490,7 @@ function contextualiseSignals(
       key: 'dieselTgp',
       domain: 'fuel',
       relevance: fuelExposure * 0.95,
-      context: `The terminal gate price is the wholesale floor — what retailers pay before adding their margin. When TGP rises, pump prices follow within days${refDist !== null && refDist > 500 ? '. Regional communities further from distribution hubs may see slower decreases but faster increases' : ''}.`,
+      context: `The wholesale price retailers pay before adding their margin. When wholesale prices rise, pump prices follow within days${refDist !== null && refDist > 500 ? '. Regional communities further from distribution hubs may see slower decreases but faster increases' : ''}.`,
     });
   }
 
