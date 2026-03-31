@@ -71,7 +71,7 @@ const CASCADE_LAYERS: {
     description:
       "The prices you actually see: at the bowser, at the supermarket, and in the gap between wholesale and retail.",
     icon: <TrendUp size={18} weight="duotone" />,
-    keys: ["cascadePressure", "retailMargin", "waFuel", "nswFuel", "stationAvailability", "foodBasket", "supermarketPrices"],
+    keys: ["priceChain", "cascadePressure", "retailMargin", "waFuel", "nswFuel", "stationAvailability", "foodBasket", "supermarketPrices"],
     defaultExpanded: true,
   },
   {
@@ -431,6 +431,7 @@ const TEMPORAL_WINDOW: Record<string, string> = {
   waFuel: "Daily",
   nswFuel: "Live (5 min cache)",
   retailMargin: "Daily (derived)",
+  priceChain: "Daily (derived)",
   cascadePressure: "Daily (derived)",
   foodBasket: "Quarterly",
   stationAvailability: "Daily snapshot",
@@ -448,6 +449,7 @@ const TEMPORAL_WINDOW: Record<string, string> = {
 const INTELLIGENCE_SIGNALS = new Set([
   "cascadePressure",
   "retailMargin",
+  "priceChain",
   "productReserves",
   "ieaCompliance",
   "stockVolumes",

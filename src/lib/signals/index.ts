@@ -29,6 +29,9 @@ import { fetchSupermarketPrices } from "./supermarket-prices";
 // Derived: Cascade pressure indicator (synthesised from other signals)
 import { computeCascadePressure } from "./cascade-pressure";
 
+// Derived: Price chain transparency (where your fuel money goes)
+import { computePriceChain } from "./price-chain";
+
 
 /** Wrap a signal fetch so a rejected promise returns null instead of crashing the batch */
 function safe<T>(p: Promise<T | null>): Promise<T | null> {
@@ -108,12 +111,14 @@ export async function fetchSignals(): Promise<SignalSet> {
   // Derived signals — synthesised from primary signals
   const cascadePressure = computeCascadePressure(primarySignals);
   const retailMargin = computeRetailMargin(primarySignals);
+  const priceChain = computePriceChain(primarySignals);
 
   return {
     lastFetched: new Date().toISOString(),
     signals: {
       ...primarySignals,
       ...(retailMargin ? { retailMargin } : {}),
+      ...(priceChain ? { priceChain } : {}),
       ...(cascadePressure ? { cascadePressure } : {}),
     },
   };
