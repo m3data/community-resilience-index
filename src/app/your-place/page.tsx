@@ -135,11 +135,44 @@ export default function YourPlacePage() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  const fetchProfile = useCallback(async (pc: string) => {
+    const trimmed = pc.trim();
+    if (!trimmed) {
+      setError('Enter a postcode or suburb name.');
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    setProfile(null);
+
+    try {
+      const res = await fetch(`/api/profile?postcode=${encodeURIComponent(trimmed)}`);
+      const body = await res.json();
+      if (!res.ok) {
+        setError(body.error ?? `Request failed (${res.status})`);
+      } else {
+        setProfile(body as ExposureProfile);
+        // Sync URL for sharing/bookmarking
+        window.history.replaceState(null, '', `?postcode=${trimmed}`);
+        // Auto-scroll to results
+        setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    } catch {
+      setError('Could not reach the profile service. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   const selectSuggestion = useCallback((pc: string) => {
     setPostcode(pc);
     setShowSuggestions(false);
     setSelectedIdx(-1);
-  }, []);
+    // Auto-submit on selection
+    fetchProfile(pc);
+  }, [fetchProfile]);
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (!showSuggestions || suggestions.length === 0) return;
@@ -161,29 +194,21 @@ export default function YourPlacePage() {
     async (e: FormEvent) => {
       e.preventDefault();
       setShowSuggestions(false);
-      const trimmed = postcode.trim();
-      if (!trimmed) return;
-
-      setLoading(true);
-      setError(null);
-      setProfile(null);
-
-      try {
-        const res = await fetch(`/api/profile?postcode=${encodeURIComponent(trimmed)}`);
-        const body = await res.json();
-        if (!res.ok) {
-          setError(body.error ?? `Request failed (${res.status})`);
-        } else {
-          setProfile(body as ExposureProfile);
-        }
-      } catch {
-        setError('Could not reach the profile service. Please try again.');
-      } finally {
-        setLoading(false);
-      }
+      fetchProfile(postcode);
     },
-    [postcode],
+    [postcode, fetchProfile],
   );
+
+  // Load from URL on mount (supports shared/bookmarked links)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const pc = params.get('postcode');
+    if (pc) {
+      setPostcode(pc);
+      fetchProfile(pc);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
@@ -267,7 +292,7 @@ export default function YourPlacePage() {
       </section>
 
       {/* Profile results — ordered by user need: orientation → action → understanding */}
-      <div aria-live="polite" aria-atomic="false">
+      <div aria-live="polite" aria-atomic="false" ref={resultsRef}>
       {profile && (
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-10">
           {/* 1. Orientation */}
