@@ -638,25 +638,29 @@ function SpectrumBar({ spectrum }: { spectrum: DiversitySpectrum }) {
     ? Math.round(spectrum.percentile * 100)
     : 50;
 
+  // Derive visual label from percentile position (matches dot placement)
+  const visualPosition = position >= 67 ? 'coherent' : position >= 33 ? 'mixed' : 'entrained';
+
   const posColors = {
     entrained: { dot: 'bg-amber-500', label: 'text-amber-700', bg: 'bg-amber-50' },
     mixed: { dot: 'bg-yellow-500', label: 'text-yellow-700', bg: 'bg-yellow-50' },
     coherent: { dot: 'bg-green-500', label: 'text-green-700', bg: 'bg-green-50' },
   };
-  const colors = posColors[spectrum.spectrumPosition];
+  const colors = posColors[visualPosition];
+  const visualLabel = visualPosition === 'entrained' ? 'Concentrated' : visualPosition === 'coherent' ? 'Diversified' : 'Moderate';
 
   return (
     <div className={`rounded-lg border border-gray-100 p-4 ${colors.bg}`}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-sm font-medium text-gray-900">{spectrum.label}</span>
         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${colors.label} bg-white/80`}>
-          {spectrum.spectrumPosition === 'entrained' ? 'Concentrated' : spectrum.spectrumPosition === 'coherent' ? 'Diversified' : 'Moderate'}
+          {visualLabel}
         </span>
       </div>
 
       <div className="relative h-3 bg-gradient-to-r from-amber-200 via-yellow-200 to-green-200 rounded-full mt-1">
         <div
-          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${colors.dot} rounded-full border-2 border-white shadow-sm transition-all`}
+          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${posColors[visualPosition].dot} rounded-full border-2 border-white shadow-sm transition-all`}
           style={{ left: `clamp(8px, ${position}% - 8px, calc(100% - 16px))` }}
         />
       </div>
