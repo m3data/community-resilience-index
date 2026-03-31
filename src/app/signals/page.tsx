@@ -561,7 +561,7 @@ function MetricCard({ signalKey, signal }: { signalKey: string; signal: Signal }
   const temporalWindow = TEMPORAL_WINDOW[signalKey];
 
   return (
-    <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-5">
+    <div id={signalKey} className="bg-white border border-gray-100 rounded-lg p-4 sm:p-5 scroll-mt-16">
       {/* Header: badge + source */}
       <div className="flex items-center justify-between gap-2 mb-2">
         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${trendStyles[signal.trend]}`}>
@@ -648,7 +648,7 @@ function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Si
   const supportingDetail = contextParts.length > 2 ? contextParts.slice(2).join(" ") : null;
 
   return (
-    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-5">
+    <div id={signalKey} className="bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-5 scroll-mt-16">
       {/* Header: badge + freshness */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${trendStyles[signal.trend]}`}>

@@ -449,9 +449,9 @@ function SignalRecommendations({ signals }: { signals: ContextualisedSignal[] })
           const humanName = SIGNAL_NAMES[sig.key] ?? sig.key.replace(/([A-Z])/g, ' $1').trim();
 
           return (
-            <div key={sig.key} className="flex gap-3 p-3 sm:p-4 rounded-lg border border-gray-100 bg-white">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
-                <Icon size={14} weight="duotone" className="text-gray-500" />
+            <Link key={sig.key} href={`/signals#${sig.key}`} className="flex gap-3 p-3 sm:p-4 rounded-lg border border-gray-100 bg-white hover:border-green-200 hover:bg-green-50/30 transition-colors group">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0 group-hover:bg-green-100">
+                <Icon size={14} weight="duotone" className="text-gray-500 group-hover:text-green-700" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -459,10 +459,11 @@ function SignalRecommendations({ signals }: { signals: ContextualisedSignal[] })
                   <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-gray-100 text-gray-500">
                     {sig.domain}
                   </span>
+                  <ArrowRight size={12} weight="bold" className="text-gray-300 group-hover:text-green-600 transition-colors" />
                 </div>
                 <p className="text-sm text-gray-600 mt-1 leading-relaxed">{sig.context}</p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
