@@ -10,7 +10,8 @@
  * orientation → action → understanding (not the data model's logic)
  */
 
-import { useState, useCallback, type FormEvent } from 'react';
+import { useState, useCallback, useEffect, useRef, type FormEvent } from 'react';
+import localities from '@/data/postcode-localities.json';
 import {
   MagnifyingGlass,
   CaretDown,
@@ -90,15 +91,67 @@ const SIGNAL_NAMES: Record<string, string> = {
 
 // ── Main page ────────────────────────────────────────────────────────────────
 
+// Build flat lookup for autocomplete
+const LOCALITY_ENTRIES = Object.entries(localities as Record<string, string>).map(
+  ([pc, name]) => ({ postcode: pc, name, searchable: `${pc} ${name.toLowerCase()}` }),
+);
+
+function useSuggestions(query: string) {
+  if (query.length < 2) return [];
+  const q = query.toLowerCase();
+  return LOCALITY_ENTRIES
+    .filter((e) => e.searchable.includes(q))
+    .slice(0, 8);
+}
+
 export default function YourPlacePage() {
   const [postcode, setPostcode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<ExposureProfile | null>(null);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [selectedIdx, setSelectedIdx] = useState(-1);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const suggestions = useSuggestions(postcode);
+
+  // Close suggestions on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  const selectSuggestion = useCallback((pc: string) => {
+    setPostcode(pc);
+    setShowSuggestions(false);
+    setSelectedIdx(-1);
+  }, []);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!showSuggestions || suggestions.length === 0) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedIdx((i) => Math.min(i + 1, suggestions.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedIdx((i) => Math.max(i - 1, 0));
+    } else if (e.key === 'Enter' && selectedIdx >= 0) {
+      e.preventDefault();
+      selectSuggestion(suggestions[selectedIdx].postcode);
+    } else if (e.key === 'Escape') {
+      setShowSuggestions(false);
+    }
+  }, [showSuggestions, suggestions, selectedIdx, selectSuggestion]);
 
   const handleSubmit = useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
+      setShowSuggestions(false);
       const trimmed = postcode.trim();
       if (!trimmed) return;
 
@@ -140,19 +193,54 @@ export default function YourPlacePage() {
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 flex gap-3 max-w-md">
-            <div className="relative flex-1">
-              <MagnifyingGlass size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <div ref={wrapperRef} className="relative flex-1">
+              <MagnifyingGlass size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" />
               <input
                 type="text"
-                inputMode="numeric"
-                pattern="\d{3,4}"
-                maxLength={4}
-                placeholder="Enter postcode"
+                placeholder="Postcode or suburb name"
                 value={postcode}
-                onChange={(e) => setPostcode(e.target.value)}
+                onChange={(e) => {
+                  setPostcode(e.target.value);
+                  setShowSuggestions(true);
+                  setSelectedIdx(-1);
+                }}
+                onFocus={() => setShowSuggestions(true)}
+                onKeyDown={handleKeyDown}
                 className="w-full pl-10 pr-4 py-3 bg-white text-gray-900 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-amber-400"
-                aria-label="Australian postcode"
+                aria-label="Australian postcode or suburb"
+                autoComplete="off"
+                role="combobox"
+                aria-expanded={showSuggestions && suggestions.length > 0}
+                aria-controls="postcode-suggestions"
+                aria-activedescendant={selectedIdx >= 0 ? `suggestion-${selectedIdx}` : undefined}
               />
+              {showSuggestions && suggestions.length > 0 && (
+                <ul
+                  id="postcode-suggestions"
+                  role="listbox"
+                  className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50 max-h-64 overflow-y-auto"
+                >
+                  {suggestions.map((s, i) => (
+                    <li
+                      key={s.postcode}
+                      id={`suggestion-${i}`}
+                      role="option"
+                      aria-selected={i === selectedIdx}
+                      className={`px-4 py-2.5 cursor-pointer text-sm flex items-center justify-between ${
+                        i === selectedIdx ? 'bg-green-50 text-green-900' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                      onMouseDown={() => selectSuggestion(s.postcode)}
+                    >
+                      <span>
+                        <span className="font-semibold">{s.postcode}</span>
+                        <span className="text-gray-400 mx-1.5">&middot;</span>
+                        <span>{s.name}</span>
+                      </span>
+                      <MapPin size={14} className="text-gray-300 flex-shrink-0" />
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <button
               type="submit"
