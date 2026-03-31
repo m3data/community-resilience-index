@@ -832,21 +832,21 @@ function SpectrumBar({ spectrum }: { spectrum: DiversitySpectrum }) {
 // ── 7. Cascade timeline — "How long before it reaches here?" ─────────────────
 
 function CascadeTimeline({ cascade }: { cascade: CascadeEstimate[] }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
         <Timer size={20} weight="duotone" className="text-amber-700" aria-hidden="true" />
-        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">How long before it reaches here?</h3>
+        <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">When would you feel it?</h3>
         <button
           type="button"
           onClick={() => setModalOpen(true)}
           className="ml-auto text-xs text-gray-400 hover:text-gray-600 flex items-center gap-1"
           aria-label="Learn about cascade estimates"
         >
-          <Info size={14} />
+          <Info size={14} aria-hidden="true" />
           How estimated
         </button>
       </div>
@@ -855,9 +855,10 @@ function CascadeTimeline({ cascade }: { cascade: CascadeEstimate[] }) {
         type="button"
         onClick={() => setExpanded(!expanded)}
         className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+        aria-expanded={expanded}
       >
-        {expanded ? <CaretDown size={14} /> : <CaretRight size={14} />}
-        Estimated propagation times for upstream pressures
+        {expanded ? <CaretDown size={14} aria-hidden="true" /> : <CaretRight size={14} aria-hidden="true" />}
+        {expanded ? 'Collapse' : 'Show'} estimated timelines
       </button>
 
       {expanded && (

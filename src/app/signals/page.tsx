@@ -12,6 +12,7 @@ import {
   CurrencyDollar,
   FirstAid,
   Newspaper,
+  CaretRight,
 } from "@phosphor-icons/react/dist/ssr";
 import { fetchSignals } from "@/lib/signals";
 import type { Signal, Trend, CascadeLayer } from "@/lib/signals/types";
@@ -256,6 +257,21 @@ export default async function SignalsPage() {
 
       {/* Cascade flow */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+        {/* Jump links */}
+        <nav aria-label="Signal layers" className="mb-6 flex flex-wrap gap-2 text-xs">
+          {CASCADE_LAYERS.map((l) => {
+            const status = getLayerStatus(signals, l.keys);
+            return (
+              <a
+                key={l.layer}
+                href={`#layer-${l.layer}`}
+                className={`px-3 py-1.5 rounded-full border transition-colors hover:bg-gray-50 ${layerStatusStyles[status.trend]}`}
+              >
+                {l.heading}
+              </a>
+            );
+          })}
+        </nav>
         <div className="space-y-2">
           {CASCADE_LAYERS.map((layerDef, idx) => {
             const layerSignals = layerDef.keys
@@ -367,12 +383,12 @@ function CascadeLayerSection({
   signals: { key: string; signal: Signal }[];
 }) {
   return (
-    <details open={layer.defaultExpanded || status.trend === "critical"}>
-      <summary className={`cursor-pointer select-none rounded-lg border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-4 hover:bg-gray-50 transition-colors list-none [&::-webkit-details-marker]:hidden`}>
+    <details id={`layer-${layer.layer}`} open={layer.defaultExpanded || status.trend === "critical"} className="scroll-mt-16">
+      <summary className={`cursor-pointer select-none rounded-lg border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-4 hover:bg-gray-50 transition-colors list-none [&::-webkit-details-marker]:hidden group`}>
         <div className="flex items-center justify-between gap-2 sm:gap-3">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <span className="text-gray-400 flex-shrink-0">
-              {layer.icon}
+            <span className="text-gray-400 flex-shrink-0 transition-transform group-open:rotate-90">
+              <CaretRight size={14} aria-hidden="true" />
             </span>
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">

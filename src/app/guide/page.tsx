@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/app/components/ui";
+import { CopyButton } from "./components/CopyButton";
 import {
   MapPin,
   ArrowRight,
@@ -149,12 +150,13 @@ export default function GuidePage() {
             </p>
 
             <div className="bg-white border border-green-200 rounded-xl p-5 my-6 relative">
-              <div className="absolute -top-2 left-4 bg-white px-2">
+              <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-heading font-semibold text-green-600 uppercase tracking-wider">
                   Copy and send
                 </span>
+                <CopyButton text={`We're holding a community gathering to talk about how we can support each other. Everyone welcome. [Date, time, place].`} />
               </div>
-              <p className="text-gray-800 text-sm italic leading-relaxed mt-1">
+              <p className="text-gray-800 text-sm italic leading-relaxed">
                 &ldquo;We&apos;re holding a community gathering to talk about how
                 we can support each other. Everyone welcome. [Date, time,
                 place].&rdquo;

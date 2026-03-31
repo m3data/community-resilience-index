@@ -687,7 +687,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Build a fuel buffer',
     description: (c) => `With ${Math.round((val(c, 'car_dependency') ?? 0) * 100)}% of commuters driving, your community is directly exposed to fuel price spikes. Keep your tank above half. Know where the nearest three fuel stations are and their typical price difference.`,
     baseScore: 0.8,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#gather',
   },
   {
     domain: 'fuel',
@@ -698,7 +698,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Start a carpool or transport roster',
     description: () => `Talk to neighbours about shared school runs, shopping trips, or work commutes. A simple roster on a shared group chat can cut fuel costs 30-40% for participants. Start with one route.`,
     baseScore: 0.65,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#resource-map',
   },
   {
     domain: 'fuel',
@@ -709,7 +709,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Coordinate bulk fuel purchasing',
     description: (c) => `At ${Math.round(val(c, 'refinery_distance') ?? 0)} km from the nearest refinery, your community pays a premium for every litre. Coordinated bulk orders or community fuel days can reduce per-litre costs and build local relationships.`,
     baseScore: 0.7,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#shared-resources',
   },
   // ── Food ──
   {
@@ -721,7 +721,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Build farmer-to-community channels',
     description: () => `Your community has significant agricultural capacity. Direct farm-to-table relationships reduce supply chain exposure and keep money local. Explore a community-supported agriculture (CSA) arrangement or regular farm gate sales.`,
     baseScore: 0.7,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#food-network',
   },
   {
     domain: 'food',
@@ -732,7 +732,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Build a two-week pantry buffer',
     description: () => `Remote communities are first to feel supply chain disruptions and last to recover. Keep two weeks of non-perishable staples on hand. Rotate stock. Know what grows locally and who grows it.`,
     baseScore: 0.75,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#gather',
   },
   {
     domain: 'food',
@@ -743,7 +743,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Map local food sources',
     description: () => `Know where food comes from near you — community gardens, local farms, food co-ops, food banks. Map them. Share the map. When supply chains are disrupted, local sources become critical.`,
     baseScore: 0.5,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#resource-map',
   },
   // ── Economic ──
   {
@@ -755,7 +755,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Stress-test your household budget',
     description: (c) => `With ${Math.round((val(c, 'housing_stress') ?? 0) * 100)}% of households in housing stress, rate changes hit hard. Model what happens to your budget if rates rise another 0.5%. Identify which expenses can flex and which can't. Talk to your lender before you're in trouble, not after.`,
     baseScore: 0.8,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#gather',
   },
   {
     domain: 'economic',
@@ -778,7 +778,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Assess solar and battery options',
     description: () => `Your area has low solar uptake, meaning high grid dependency. Even a small system reduces exposure to wholesale price spikes. Check state rebates, community bulk-buy schemes, and rental options if you don't own.`,
     baseScore: 0.55,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#energy-transport',
   },
   {
     domain: 'electricity',
@@ -789,7 +789,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Shift high-draw activities off peak',
     description: () => `Run dishwashers, washing machines, and pool pumps outside 4-8pm. This reduces your bill and eases grid stress during price spikes. Set timers if your appliances support it.`,
     baseScore: 0.3,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#gather',
   },
   // ── Housing ──
   {
@@ -813,7 +813,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Build a community emergency plan',
     description: () => `Remote communities can't rely on rapid external response. Know who has first aid training, generator access, satellite phones, and water storage. Create a communication tree that works when mobile networks don't.`,
     baseScore: 0.75,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#resource-map',
   },
   {
     domain: 'emergency',
@@ -824,7 +824,7 @@ const ACTION_TEMPLATES: Array<{
     title: 'Maintain a household emergency kit',
     description: () => `Water (3L per person per day for 3 days), torch, battery radio, first aid, medications, phone charger, cash, copies of key documents. Check every 6 months.`,
     baseScore: 0.25,
-    guideLink: '/guide#organise',
+    guideLink: '/guide#gather',
   },
   // ── Diversity / entrainment ──
   {
