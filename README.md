@@ -1,5 +1,11 @@
 # Community Resilience Index
 
+![Repo Status](https://img.shields.io/badge/REPO_STATUS-Active_Research-blue?style=for-the-badge&labelColor=8b5e3c&color=e5dac1)
+![Version](https://img.shields.io/badge/VERSION-0.1.1-blue?style=for-the-badge&labelColor=3b82f6&color=1e40af)
+![License](https://img.shields.io/badge/LICENSE-CC_BY--SA_4.0-green?style=for-the-badge&labelColor=10b981&color=047857)
+![Next.js](https://img.shields.io/badge/NEXT.JS-16-black?style=for-the-badge&labelColor=171717&color=000000)
+![TypeScript](https://img.shields.io/badge/TYPESCRIPT-5-blue?style=for-the-badge&labelColor=3178c6&color=235a97)
+
 Postcode-level resilience intelligence for Australian communities. Live at [australia.communityresilienceindex.net](https://australia.communityresilienceindex.net).
 
 ## What it does
@@ -8,7 +14,7 @@ Enter a postcode. Get your community's exposure profile: what structural charact
 
 Three layers of intelligence:
 
-1. **Structural profile** — per-postcode characteristics from official data (car dependency, refinery distance, industry diversity, remoteness, housing stress, solar capacity, SEIFA). These are the shape of your community. They explain why some pressures hit you harder than others.
+1. **Structural profile** — per-postcode characteristics from official data (car dependency, industry diversity, remoteness, housing stress, solar capacity, socioeconomic position). These are the shape of your community. They explain why some pressures hit you harder than others.
 
 2. **Exposure mapping** — algorithmic computation of how exposed your community is across six domains (fuel, food, electricity, economic, housing, emergency). Driven by structural data, not opinion. Transparent rules, auditable logic.
 
@@ -46,7 +52,7 @@ Citizens deserve higher fidelity information about how systemic pressures reach 
 
 ## Methodology
 
-Structural data from ABS Census 2021, SEIFA 2021, Modified Monash Model 2023, Clean Energy Regulator, and derived refinery distance calculations. Exposure mapping uses algorithmic rules (not ML or LLM generation) documented in SPEC-003. Diversity measured via Shannon index. Coherence/entrainment spectrum distinguishes between communities that can reorganise under stress and those locked into brittle dependencies.
+Structural data from ABS Census 2021, SEIFA 2021, Modified Monash Model 2023, and Clean Energy Regulator. Exposure mapping uses algorithmic rules (not ML or LLM generation) documented in SPEC-003. Diversity measured via Shannon index. Coherence/entrainment spectrum distinguishes between communities that can reorganise under stress and those locked into brittle dependencies.
 
 Full methodology at [australia.communityresilienceindex.net/methodology](https://australia.communityresilienceindex.net/methodology).
 
