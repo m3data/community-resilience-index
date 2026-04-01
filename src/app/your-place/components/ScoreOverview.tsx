@@ -216,7 +216,6 @@ const INDICATOR_LABELS: Record<string, string> = {
   land_use_diversity: 'Land Use Diversity',
   water_security: 'Water Security',
   remoteness: 'Remoteness',
-  distance_to_refinery: 'Refinery Distance',
   local_fuel_price_relative: 'Local Fuel Price',
   fuel_station_density: 'Fuel Station Access',
   local_fuel_availability: 'Fuel Availability',

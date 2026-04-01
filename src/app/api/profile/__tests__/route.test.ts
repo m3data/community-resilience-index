@@ -60,7 +60,7 @@ function buildMockAllValues(): Record<string, number[]> {
     remoteness: [1, 1, 2, 3, 4, 5, 7],
     housing_stress: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4],
     solar_battery_penetration: [100, 500, 1000, 2000, 3200, 5000, 10000],
-    seifa_irsd: [800, 900, 950, 1000, 1050, 1080, 1100],
+    seifa_irsd: [1, 2, 3, 5, 7, 8, 10],
     median_household_income: [800, 1000, 1200, 1500, 1800, 2100, 2500],
     transport_mode_diversity: [0.5, 1.0, 1.5, 2.0, 2.3, 2.5, 3.0],
     internet_connectivity: [0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.92],

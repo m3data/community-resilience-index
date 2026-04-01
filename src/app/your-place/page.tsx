@@ -328,7 +328,7 @@ function SamplePreview({ onTry }: { onTry: (pc: string) => void }) {
   const examples = [
     { postcode: '2000', name: 'Sydney CBD', highlight: 'High housing stress, grid-dependent' },
     { postcode: '3000', name: 'Melbourne CBD', highlight: 'Economic concentration, transport options' },
-    { postcode: '6210', name: 'Mandurah, WA', highlight: 'Car dependency, refinery distance' },
+    { postcode: '6210', name: 'Mandurah, WA', highlight: 'Car dependency, regional supply chains' },
     { postcode: '2480', name: 'Lismore, NSW', highlight: 'Flood-prone, remote supply chains' },
   ];
 

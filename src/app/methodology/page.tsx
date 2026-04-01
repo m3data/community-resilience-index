@@ -84,10 +84,6 @@ export default function MethodologyOverview() {
             who drive (ABS Census 2021)
           </li>
           <li>
-            <strong>Refinery distance</strong>: kilometres to the
-            nearest operating refinery (derived)
-          </li>
-          <li>
             <strong>Industry diversity</strong>: Shannon index across
             employment sectors (ABS Census 2021)
           </li>
@@ -158,8 +154,8 @@ export default function MethodologyOverview() {
               <td>Fuel &amp; transport</td>
             </tr>
             <tr>
-              <td>Far from refinery (&gt;500km)</td>
-              <td>Fuel &amp; transport, supply chain disruption</td>
+              <td>Regional/remote location (MMM 3+)</td>
+              <td>Fuel &amp; transport</td>
             </tr>
             <tr>
               <td>High agricultural workforce (&gt;10%)</td>
@@ -197,9 +193,9 @@ export default function MethodologyOverview() {
         </p>
         <ul>
           <li>
-            A crude oil price spike matters more in a postcode with 80% car
-            dependency and 800km from a refinery than in an inner-city area
-            with strong public transport.
+            A crude oil price spike matters more in a regional postcode with
+            80% car dependency than in an inner-city area with strong public
+            transport.
           </li>
           <li>
             Farm input cost increases hit harder in communities where 15% of

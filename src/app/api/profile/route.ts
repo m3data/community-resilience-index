@@ -136,17 +136,11 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     percentile: percentileOf('car_dependency_rate', carDep),
   });
 
-  // Refinery distance
-  const refDist = d.refinery?.distance_km ?? null;
-  chars.push({
-    key: 'refinery_distance',
-    label: 'Distance to nearest refinery',
-    value: refDist,
-    formatted: refDist !== null ? `${Math.round(refDist)} km (${d.refinery?.nearest_refinery})` : 'No data',
-    source: 'Derived from refinery locations',
-    vintage: '2024',
-    percentile: percentileOf('distance_to_refinery', refDist),
-  });
+  // Refinery distance — removed from profile display (2026-04-01).
+  // Australia imports ~90% of refined fuel; distance to one of two domestic
+  // refineries is misleading. Distribution terminal proximity is what matters
+  // but that data isn't publicly available at postcode level.
+  // Data and scoring engine indicator retained for future use.
 
   // Industry diversity (Shannon)
   let industryDiv: number | null = null;
@@ -238,7 +232,7 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     label: 'Economic disadvantage',
     value: seifa,
     formatted: seifa !== null
-      ? `${seifa >= 1050 ? 'Least disadvantaged areas nationally' : seifa >= 1000 ? 'Above average' : seifa >= 950 ? 'Below average' : 'Among most disadvantaged areas nationally'}`
+      ? `${seifa >= 8 ? 'Least disadvantaged areas nationally' : seifa >= 6 ? 'Above average' : seifa >= 4 ? 'Below average' : 'Among most disadvantaged areas nationally'}`
       : 'No data',
     source: 'ABS SEIFA 2021',
     vintage: '2021',
@@ -277,7 +271,7 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     label: 'Transport options',
     value: transportDiv,
     formatted: transportDiv !== null
-      ? `${transportDiv > 2.5 ? 'Diverse options (public transport, cycling, walking)' : transportDiv > 1.5 ? 'Some alternatives to driving' : 'Limited options, mostly car-dependent'}`
+      ? `${transportDiv > 2.5 ? 'Commuters use a mix of transport modes' : transportDiv > 1.5 ? 'Some commuters use alternatives to driving' : 'Most commuters rely on private car'}`
       : 'No data',
     source: 'ABS Census 2021',
     vintage: '2021',
@@ -355,7 +349,6 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
 
   // Fuel exposure
   const carDep = get('car_dependency');
-  const refDist = get('refinery_distance');
   let fuelWeight = 0.3; // baseline — everyone uses fuel
   let fuelReasons: string[] = [];
   if (carDep !== null && carDep > 0.6) {
@@ -365,12 +358,13 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     fuelWeight += 0.15;
     fuelReasons.push(`${Math.round(carDep * 100)}% car dependency`);
   }
-  if (refDist !== null && refDist > 500) {
+  const remotenessForFuel = get('remoteness');
+  if (remotenessForFuel !== null && remotenessForFuel >= 5) {
     fuelWeight += 0.3;
-    fuelReasons.push(`${Math.round(refDist)} km from nearest refinery`);
-  } else if (refDist !== null && refDist > 200) {
+    fuelReasons.push('remote location — longer fuel supply chains');
+  } else if (remotenessForFuel !== null && remotenessForFuel >= 3) {
     fuelWeight += 0.15;
-    fuelReasons.push(`${Math.round(refDist)} km from nearest refinery`);
+    fuelReasons.push('regional location — supply chain distance');
   }
   exposures.push({
     domain: 'fuel',
@@ -526,7 +520,6 @@ function contextualiseSignals(
   const signals: ContextualisedSignal[] = [];
 
   const carDep = get('car_dependency');
-  const refDist = get('refinery_distance');
   const agPct = get('agricultural_workforce');
   const housingStress = get('housing_stress');
   const solar = get('solar_penetration');
@@ -539,7 +532,7 @@ function contextualiseSignals(
       key: 'brentCrude',
       domain: 'fuel',
       relevance: fuelExposure,
-      context: `Your community has ${carDep !== null ? `${Math.round(carDep * 100)}%` : 'significant'} car dependency${refDist !== null && refDist > 200 ? ` and is ${Math.round(refDist)} km from the nearest refinery` : ''}. Crude oil price movements flow through to your fuel costs, typically within 2-4 weeks.`,
+      context: `Your community has ${carDep !== null ? `${Math.round(carDep * 100)}%` : 'significant'} car dependency. Crude oil price movements flow through to your fuel costs, typically within 2-4 weeks.`,
     });
   }
 
@@ -559,7 +552,7 @@ function contextualiseSignals(
       key: 'dieselTgp',
       domain: 'fuel',
       relevance: fuelExposure * 0.95,
-      context: `The wholesale price retailers pay before adding their margin. When wholesale prices rise, pump prices follow within days${refDist !== null && refDist > 500 ? '. Regional communities further from distribution hubs may see slower decreases but faster increases' : ''}.`,
+      context: `The wholesale price retailers pay before adding their margin. When wholesale prices rise, pump prices follow within days.`,
     });
   }
 
@@ -568,7 +561,7 @@ function contextualiseSignals(
     key: 'reserves',
     domain: 'fuel',
     relevance: fuelExposure * 0.8,
-    context: `Australia holds less than the IEA-recommended 90 days of fuel reserves${refDist !== null && refDist > 500 ? `. At ${Math.round(refDist)} km from the nearest refinery, your community is particularly exposed to supply disruptions` : ''}. These are headline MSO figures — actual onshore controllable reserves are materially lower.`,
+    context: `Australia holds less than the IEA-recommended 90 days of fuel reserves. These are headline MSO figures — actual onshore controllable reserves are materially lower.`,
   });
 
   // ASX food
@@ -771,12 +764,12 @@ const ACTION_TEMPLATES: Array<{
   },
   {
     domain: 'fuel',
-    condition: (c) => (val(c, 'refinery_distance') ?? 0) > 500,
-    driver: (c) => `${Math.round(val(c, 'refinery_distance') ?? 0)} km from nearest refinery`,
+    condition: (c) => (val(c, 'remoteness') ?? 0) >= 4,
+    driver: (c) => 'regional/remote location — longer fuel supply chains',
     category: 'community',
     urgency: 'this_month',
     title: 'Coordinate bulk fuel purchasing',
-    description: (c) => `At ${Math.round(val(c, 'refinery_distance') ?? 0)} km from the nearest refinery, your community pays a premium for every litre. Coordinated bulk orders or community fuel days can reduce per-litre costs and build local relationships.`,
+    description: () => `Regional and remote communities pay a premium for every litre due to longer supply chains. Coordinated bulk orders or community fuel days can reduce per-litre costs and build local relationships.`,
     baseScore: 0.7,
     guideLink: '/guide#shared-resources',
   },

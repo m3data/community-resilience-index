@@ -101,13 +101,6 @@ export default function DataSourcesIndicators() {
                   description="% of commuters who drive to work"
                 />
                 <IndicatorRow
-                  name="Refinery distance"
-                  dataKey="refinery_distance"
-                  source="Derived (Lytton, Geelong)"
-                  vintage="Static"
-                  description="km to nearest operating refinery"
-                />
-                <IndicatorRow
                   name="Industry diversity"
                   dataKey="industry_diversity"
                   source="ABS Census 2021"
@@ -245,7 +238,7 @@ export default function DataSourcesIndicators() {
                   domain="Fuel & transport"
                 />
                 <MappingRow
-                  condition="Far from refinery (>500km)"
+                  condition="Regional/remote location (MMM 3+)"
                   domain="Fuel & transport"
                 />
                 <MappingRow
@@ -279,8 +272,8 @@ export default function DataSourcesIndicators() {
           <p className="text-gray-700 leading-relaxed mt-6">
             Each domain receives a weight between 0 and 1, calculated from how
             many structural factors contribute and how far each factor exceeds
-            its threshold. A postcode with high car dependency and long refinery
-            distance will have a higher fuel and transport weight than one with
+            its threshold. A postcode with high car dependency in a regional
+            location will have a higher fuel and transport weight than one with
             only high car dependency. The algorithm is deterministic: the same
             inputs always produce the same weights.
           </p>
@@ -397,7 +390,7 @@ export default function DataSourcesIndicators() {
 
           <p className="text-gray-700 leading-relaxed mb-4">
             Not every signal matters equally to every postcode. A community with
-            high car dependency and long refinery distance will see fuel price
+            high car dependency in a regional area will see fuel price
             signals ranked higher. A community with a large agricultural
             workforce will see farm input cost signals ranked higher. The
             ranking uses parameterised templates: each signal has a relevance
@@ -509,8 +502,7 @@ export default function DataSourcesIndicators() {
 
         <p className="text-xs text-gray-400 mt-8 border-t border-gray-200 pt-6">
           Data sources: ABS Census 2021, ABS SEIFA 2021, Modified Monash Model
-          2023, Clean Energy Regulator 2024, derived refinery distances
-          (Lytton QLD, Geelong VIC). Profile engine: SPEC-003.
+          2023, Clean Energy Regulator 2024. Profile engine: SPEC-003.
         </p>
       </div>
     </div>

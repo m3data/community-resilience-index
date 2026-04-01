@@ -87,9 +87,9 @@ export default function Home() {
               What shapes your exposure
             </h3>
             <p className="mt-2 sm:mt-3 text-sm text-gray-600 leading-relaxed">
-              Car dependency, refinery distance, industry concentration,
-              remoteness, housing stress. The characteristics that determine
-              how supply chain disruptions reach your community.
+              Car dependency, industry concentration, remoteness,
+              housing stress, socioeconomic position. The characteristics
+              that determine how supply chain disruptions reach your community.
             </p>
           </div>
           <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-white">
