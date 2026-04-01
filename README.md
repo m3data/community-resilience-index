@@ -2,7 +2,7 @@
 
 ![Repo Status](https://img.shields.io/badge/REPO_STATUS-Active_Research-blue?style=for-the-badge&labelColor=8b5e3c&color=e5dac1)
 ![Version](https://img.shields.io/badge/VERSION-0.1.1-blue?style=for-the-badge&labelColor=3b82f6&color=1e40af)
-![License](https://img.shields.io/badge/LICENSE-CC_BY--SA_4.0-green?style=for-the-badge&labelColor=10b981&color=047857)
+![License](https://img.shields.io/badge/LICENSE-AGPL--3.0-green?style=for-the-badge&labelColor=10b981&color=047857)
 ![Next.js](https://img.shields.io/badge/NEXT.JS-16-black?style=for-the-badge&labelColor=171717&color=000000)
 ![TypeScript](https://img.shields.io/badge/TYPESCRIPT-5-blue?style=for-the-badge&labelColor=3178c6&color=235a97)
 
@@ -116,7 +116,11 @@ All data sources are public and free. No API keys required.
 
 ## Licence
 
-Code: CC BY-SA 4.0. Data sourced under CC BY 4.0 (ABS, DCCEEW). INFORM methodology: JRC, CC BY 4.0.
+**Code:** [AGPL-3.0](LICENSE). If you modify and serve this over a network, you must share your source.
+
+**Content** (methodology text, documentation): CC BY-SA 4.0.
+
+**Data** sourced under CC BY 4.0 (ABS, DCCEEW). INFORM methodology: JRC, CC BY 4.0.
 
 ---
 
