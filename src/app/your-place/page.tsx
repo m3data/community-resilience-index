@@ -998,23 +998,23 @@ function DataVintage({
   }
 
   return (
-    <section className="border-t border-gray-100 pt-8">
+    <section className="border-t border-gray-200 pt-8">
       <div className="flex items-center gap-2 mb-4">
-        <Database size={22} weight="duotone" className="text-gray-400" aria-hidden="true" />
-        <h3 className="font-heading text-sm font-bold text-gray-500 uppercase tracking-wide">Where this data comes from</h3>
-        <span className="text-xs text-gray-400 ml-auto">
+        <Database size={22} weight="duotone" className="text-gray-500" aria-hidden="true" />
+        <h3 className="font-heading text-sm font-bold text-gray-700 uppercase tracking-wide">Where this data comes from</h3>
+        <span className="text-xs text-gray-500 ml-auto">
           {completeness.available} of {completeness.total} data points available
         </span>
       </div>
       <div className="space-y-2">
         {Array.from(vintages.entries()).map(([source, indicators]) => (
-          <div key={source} className="flex items-start gap-2 text-xs text-gray-400">
+          <div key={source} className="flex items-start gap-2 text-xs text-gray-600">
             <span className="font-medium shrink-0">{source}:</span>
             <span>{indicators.join(', ')}</span>
           </div>
         ))}
       </div>
-      <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+      <p className="text-xs text-gray-500 mt-4 leading-relaxed">
         Structural data is based on the most recent available sources. Most indicators
         use the 2021 Census, which will be refreshed after the August 2026 Census.
         Live signal data is fetched in real-time from public APIs.
