@@ -989,34 +989,73 @@ function DataVintage({
   structural: StructuralCharacteristic[];
   completeness: { available: number; total: number };
 }) {
-  const vintages = new Map<string, string[]>();
-  for (const char of structural) {
-    if (char.value === null) continue;
-    const key = `${char.source} (${char.vintage})`;
-    if (!vintages.has(key)) vintages.set(key, []);
-    vintages.get(key)!.push(char.label);
-  }
+  const withData = structural.filter((c) => c.value !== null);
+  const withoutData = structural.filter((c) => c.value === null);
 
   return (
     <section className="border-t border-gray-200 pt-8">
       <div className="flex items-center gap-2 mb-4">
         <Database size={22} weight="duotone" className="text-gray-500" aria-hidden="true" />
         <h3 className="font-heading text-sm font-bold text-gray-700 uppercase tracking-wide">Where this data comes from</h3>
-        <span className="text-xs text-gray-500 ml-auto">
-          {completeness.available} of {completeness.total} data points available
-        </span>
       </div>
-      <div className="space-y-2">
-        {Array.from(vintages.entries()).map(([source, indicators]) => (
-          <div key={source} className="flex items-start gap-2 text-xs text-gray-600">
-            <span className="font-medium shrink-0">{source}:</span>
-            <span>{indicators.join(', ')}</span>
+      <p className="text-sm text-gray-600 mb-4">
+        {completeness.available} of {completeness.total} data points available for this community.
+      </p>
+
+      {/* Table — stacks to card layout on mobile */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-xs hidden sm:table">
+          <thead>
+            <tr className="border-b border-gray-200 text-left">
+              <th className="py-2 pr-4 font-semibold text-gray-700">Indicator</th>
+              <th className="py-2 pr-4 font-semibold text-gray-700">Value</th>
+              <th className="py-2 pr-4 font-semibold text-gray-700">Source</th>
+              <th className="py-2 font-semibold text-gray-700">Vintage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {withData.map((char) => (
+              <tr key={char.key} className="border-b border-gray-100">
+                <td className="py-2 pr-4 text-gray-700">{char.label}</td>
+                <td className="py-2 pr-4 text-gray-900 font-medium">{char.formatted}</td>
+                <td className="py-2 pr-4 text-gray-500">{char.source}</td>
+                <td className="py-2 text-gray-500">{char.vintage}</td>
+              </tr>
+            ))}
+            {withoutData.map((char) => (
+              <tr key={char.key} className="border-b border-gray-100 text-gray-400">
+                <td className="py-2 pr-4">{char.label}</td>
+                <td className="py-2 pr-4 italic">No data</td>
+                <td className="py-2 pr-4">—</td>
+                <td className="py-2">—</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile: stacked cards */}
+      <div className="sm:hidden space-y-2">
+        {withData.map((char) => (
+          <div key={char.key} className="border border-gray-100 rounded-lg p-3">
+            <p className="text-xs text-gray-500">{char.label}</p>
+            <p className="text-sm font-medium text-gray-900">{char.formatted}</p>
+            <p className="text-[11px] text-gray-500 mt-1">{char.source} ({char.vintage})</p>
           </div>
         ))}
+        {withoutData.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            {withoutData.map((char) => (
+              <span key={char.key} className="text-[11px] text-gray-400 bg-gray-50 px-2 py-1 rounded">
+                {char.label} (no data)
+              </span>
+            ))}
+          </div>
+        )}
       </div>
+
       <p className="text-xs text-gray-500 mt-4 leading-relaxed">
-        Structural data is based on the most recent available sources. Most indicators
-        use the 2021 Census, which will be refreshed after the August 2026 Census.
+        Most indicators use the 2021 Census, which will be refreshed after the August 2026 Census.
         Live signal data is fetched in real-time from public APIs.
       </p>
     </section>
