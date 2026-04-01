@@ -23,6 +23,11 @@ export interface CensusRecord {
   commute_mode_counts: Record<string, number>;
   median_income: number | null;
   unemployment_rate: number | null;
+  // Vulnerability concentration (SPEC-004)
+  age_65_plus_pct?: number | null;
+  age_80_plus_pct?: number | null;
+  need_assistance_pct?: number | null;
+  lone_person_pct?: number | null;
 }
 
 export interface SolarRecord {
@@ -202,6 +207,12 @@ export function computeAllValues(rawData: RawIndicatorData): AllValuesMap {
           push('public_transport_accessibility', transit / totalCommute);
         }
       }
+
+      // Vulnerability concentration (SPEC-004)
+      push('age_65_plus', d.census.age_65_plus_pct);
+      push('age_80_plus', d.census.age_80_plus_pct);
+      push('need_assistance', d.census.need_assistance_pct);
+      push('lone_person', d.census.lone_person_pct);
 
       // Agricultural workforce from industry counts
       if (d.census.industry_counts) {

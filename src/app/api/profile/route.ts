@@ -296,6 +296,52 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     percentile: percentileOf('internet_connectivity', internet),
   });
 
+  // ── Vulnerability concentration (SPEC-004) ──────────────────────────────
+
+  const age65 = d.census?.age_65_plus_pct ?? null;
+  chars.push({
+    key: 'age_65_plus',
+    label: 'Residents aged 65+',
+    value: age65,
+    formatted: age65 !== null ? `${Math.round(age65 * 100)}% of population` : 'No data',
+    source: 'ABS Census 2021',
+    vintage: '2021',
+    percentile: percentileOf('age_65_plus', age65),
+  });
+
+  const age80 = d.census?.age_80_plus_pct ?? null;
+  chars.push({
+    key: 'age_80_plus',
+    label: 'Residents aged 80+',
+    value: age80,
+    formatted: age80 !== null ? `${Math.round(age80 * 100)}% of population` : 'No data',
+    source: 'ABS Census 2021',
+    vintage: '2021',
+    percentile: percentileOf('age_80_plus', age80),
+  });
+
+  const needAssist = d.census?.need_assistance_pct ?? null;
+  chars.push({
+    key: 'need_assistance',
+    label: 'Need assistance with daily activities',
+    value: needAssist,
+    formatted: needAssist !== null ? `${Math.round(needAssist * 100)}% of population` : 'No data',
+    source: 'ABS Census 2021',
+    vintage: '2021',
+    percentile: percentileOf('need_assistance', needAssist),
+  });
+
+  const lonePerson = d.census?.lone_person_pct ?? null;
+  chars.push({
+    key: 'lone_person',
+    label: 'People living alone',
+    value: lonePerson,
+    formatted: lonePerson !== null ? `${Math.round(lonePerson * 100)}% of households` : 'No data',
+    source: 'ABS Census 2021',
+    vintage: '2021',
+    percentile: percentileOf('lone_person', lonePerson),
+  });
+
   return chars;
 }
 
@@ -439,6 +485,29 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
       : 'Standard emergency access',
     signalKeys: ['nswRfs', 'vicEmv'],
   });
+
+  // ── Vulnerability amplification (SPEC-004) ──────────────────────────────
+  // High elderly proportion intensifies existing exposures — fixed incomes
+  // have less buffer, mobility constraints compound fuel/food access issues.
+  const age65 = get('age_65_plus');
+  const needAssist = get('need_assistance');
+  if (age65 !== null && age65 > 0.20) {
+    const amplifier = Math.min(1.5, 1 + (age65 - 0.16) * 2);
+    for (const exp of exposures) {
+      if (['fuel', 'food', 'emergency'].includes(exp.domain)) {
+        exp.weight = Math.min(1, exp.weight * amplifier);
+        exp.reason += ` (amplified: ${Math.round(age65 * 100)}% over-65 on fixed incomes)`;
+      }
+    }
+  }
+  if (needAssist !== null && needAssist > 0.06) {
+    for (const exp of exposures) {
+      if (exp.domain === 'emergency') {
+        exp.weight = Math.min(1, exp.weight * 1.3);
+        exp.reason += ` (${Math.round(needAssist * 100)}% need daily assistance)`;
+      }
+    }
+  }
 
   return exposures.sort((a, b) => b.weight - a.weight);
 }
@@ -843,6 +912,51 @@ const ACTION_TEMPLATES: Array<{
     },
     baseScore: 0.6,
     guideLink: '/guide#advocate',
+  },
+  // ── Vulnerability concentration (SPEC-004) ──
+  {
+    domain: 'emergency',
+    condition: (c) => (val(c, 'age_65_plus') ?? 0) > 0.20,
+    driver: (c) => `${Math.round((val(c, 'age_65_plus') ?? 0) * 100)}% residents over 65`,
+    category: 'community',
+    urgency: 'this_month',
+    title: 'Know your vulnerable neighbours',
+    description: (c) => `${Math.round((val(c, 'age_65_plus') ?? 0) * 100)}% of this community is over 65. In a crisis, these are the people who need a knock on the door. Start with your street. Do you know who lives alone? Who can't drive? Who depends on delivered medications?`,
+    baseScore: 0.75,
+    guideLink: '/guide#connect-neighbours',
+  },
+  {
+    domain: 'emergency',
+    condition: (c) => (val(c, 'age_65_plus') ?? 0) > 0.20 && (val(c, 'lone_person') ?? 0) > 0.25,
+    driver: (c) => `high elderly + ${Math.round((val(c, 'lone_person') ?? 0) * 100)}% living alone`,
+    category: 'community',
+    urgency: 'this_month',
+    title: 'Set up a heatwave and outage check-in roster',
+    description: () => `When the power goes out or temperatures spike, people living alone are most at risk. A simple phone tree or street-level check-in roster means someone notices. Set one up before summer.`,
+    baseScore: 0.7,
+    guideLink: '/guide#resource-map',
+  },
+  {
+    domain: 'emergency',
+    condition: (c) => (val(c, 'age_80_plus') ?? 0) > 0.05 && (val(c, 'remoteness') ?? 0) >= 3,
+    driver: (c) => `${Math.round((val(c, 'age_80_plus') ?? 0) * 100)}% over 80 in a regional/remote area`,
+    category: 'community',
+    urgency: 'now',
+    title: 'Map medication and mobility dependencies',
+    description: () => `People over 80 in regional areas depend on medication deliveries, community transport, and home care services that fail silently during supply disruptions. Know who depends on what. A disruption to pharmacy deliveries is invisible until someone runs out.`,
+    baseScore: 0.8,
+    guideLink: '/guide#resource-map',
+  },
+  {
+    domain: 'fuel',
+    condition: (c) => (val(c, 'age_65_plus') ?? 0) > 0.20 && (val(c, 'car_dependency') ?? 0) > 0.5,
+    driver: (c) => `${Math.round((val(c, 'age_65_plus') ?? 0) * 100)}% over 65 + ${Math.round((val(c, 'car_dependency') ?? 0) * 100)}% car dependency`,
+    category: 'community',
+    urgency: 'this_month',
+    title: 'Coordinate community transport for isolated elderly',
+    description: () => `In car-dependent communities with a high elderly population, fuel price spikes hit hardest — many older residents are on fixed incomes and can't absorb the increase. A volunteer transport roster for medical appointments and shopping trips builds the ties that matter in a crisis.`,
+    baseScore: 0.7,
+    guideLink: '/guide#shared-resources',
   },
 ];
 
