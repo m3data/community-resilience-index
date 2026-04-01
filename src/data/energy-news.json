@@ -1,10 +1,10 @@
 {
   "meta": {
-    "scraped": "2026-03-31T19:04:22.510Z",
+    "scraped": "2026-04-01T03:04:37.116Z",
     "sources": 7,
-    "totalArticles": 180,
-    "highRelevance": 42,
-    "newSinceLastRun": 160,
+    "totalArticles": 204,
+    "highRelevance": 54,
+    "newSinceLastRun": 178,
     "queries": [
       "fuel-security",
       "fuel-deals",
@@ -14,17 +14,17 @@
       "food-supply"
     ],
     "authority": {
-      "authoritative": 6,
-      "established": 48,
-      "unrated": 126,
-      "biased": 20
+      "authoritative": 7,
+      "established": 62,
+      "unrated": 135,
+      "biased": 27
     }
   },
   "articles": [
     {
       "title": "Australia to amend export-finance laws to boost fuel security, PM Albanese says - Reuters",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZ1FrUDVEWGJ4V1pteFZzMTloWFJlUDVFQURCNktfLURaVnRfODFuM1N3Z3BFdEVmRlNtaWdPNkUxLTJlZFVLdFE3YmV5Q2NyWHhrN3NpZnRuVVZfN29weXZVSkU2V2JyNnlUU3ZfLWpWcTI1a09jcFVlaU5nTUVSQkVBclg0bzVHdHIybktrY3JiSS0wbEllV2pkNl9aMy10TkpPamY1NldteVBvWTlENnFJWGNsUE1nYkgyRENlMDRGZw?oc=5",
-      "published": "2026-03-28T00:39:43.000Z",
+      "published": "2026-03-28T00:36:00.000Z",
       "source": "Reuters",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZ1FrUDVEWGJ4V1pteFZzMTloWFJlUDVFQURCNktfLURaVnRfODFuM1N3Z3BFdEVmRlNtaWdPNkUxLTJlZFVLdFE3YmV5Q2NyWHhrN3NpZnRuVVZfN29weXZVSkU2V2JyNnlUU3ZfLWpWcTI1a09jcFVlaU5nTUVSQkVBclg0bzVHdHIybktrY3JiSS0wbEllV2pkNl9aMy10TkpPamY1NldteVBvWTlENnFJWGNsUE1nYk",
       "relevance": 3,
@@ -50,10 +50,51 @@
       "queryLabel": "Energy policy & regulation"
     },
     {
-      "title": "Man Who Moved Our Petrol Reserves To US When Energy Minister Complains About Fuel Security - betootaadvocate.com",
+      "title": "Albanese to address the nation on the Middle East war and fuel crisis - The Conversation",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQV2s1eGNYLXNEOVVheVlFYTFvU0o1bjRNUHRaUUJRYkxxRllWVlJiZ3BlMm11Z3VabXlmQjdlbFpNR3k0MlBPQmJ5OU5Eek5VeVZmQ0pmMXNHTTBJMWVDR0NoVVlUWjJoZGFtS1FieWQ2QktXdlZ1M3l5NUhsdkZWYXBDNEdHV0N2UXBhV1NuVlotQzE2aW8tYjE0NE41NW50N2lDbXVHMA?oc=5",
+      "published": "2026-04-01T01:08:00.000Z",
+      "source": "The Conversation",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQV2s1eGNYLXNEOVVheVlFYTFvU0o1bjRNUHRaUUJRYkxxRllWVlJiZ3BlMm11Z3VabXlmQjdlbFpNR3k0MlBPQmJ5OU5Eek5VeVZmQ0pmMXNHTTBJMWVDR0NoVVlUWjJoZGFtS1FieWQ2QktXdlZ1M3l5NUhsdkZWYXBDNEdHV0N2UXBhV1NuVlotQzE2aW8tYjE0NE41NW50N2lDbXVHMA?oc=5\" target=\"_blank\">A",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 10,
+      "queryId": "fuel-deals",
+      "queryLabel": "International fuel agreements"
+    },
+    {
+      "title": "Prime Minister’s Address to the Nation: Anthony Albanese to speak on response to Middle East conflict and fuel security - 7NEWS",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPVWFzSld2NDhQUldSVDFPNG5JZTBuZTYyTzdXbFdhcTRQd0NmVnJFakx0aWFlSXIxYU5yRm9vY2VJdmJjV1BiYmloWnRjS2VQenkxTDZGM0U1cld3a2FkcHpWRmNPRHBkVHR3TGVYelY0dW90N2RPZG9HZnpYeGFhZEszUGJMRHkyUDQwejFGRzJlSDZnS016V1d3cDBfQzRXWV84YVFaODB2MmF3UFhsOW1idFhJclNIcWY0MjBRalZoT25uVjgtMjlKVlR2ZkdyTWp5VWJtRzY5S3NBQWRUYmJ2VC1FTzR1bFHSAe8BQVVfeXFMTWZFanVsVkhzamlpTzI0cGc2ek82emk3eFBpRlEyaWlsdzgzaENmalFTUzRCdUU2ZEx5VTBJQUUtQmdJaGJqbjhtSEIyelJ3cHNQMDgwZFJEeFZQY3N3eHk1a2paQjVIcnpFME1qbkFmQmxHeU16REM4ZWVoYmFySWZuTTdBak85TWNvZHZhUzFsejRzUkhUWmlHaTR3RURyUFBRWXZzc1B3c3g0VFlXUzBWbG1Ed1hUbm53Qk44ZC1RTzJ1Zmo4U05nWXlUWFVhTGZCU2Zac2ViTnc2UEg4bml3YXJFYTYwVWdDUGJacE0?oc=5",
+      "published": "2026-04-01T00:20:00.000Z",
+      "source": "7NEWS",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6gFBVV95cUxPVWFzSld2NDhQUldSVDFPNG5JZTBuZTYyTzdXbFdhcTRQd0NmVnJFakx0aWFlSXIxYU5yRm9vY2VJdmJjV1BiYmloWnRjS2VQenkxTDZGM0U1cld3a2FkcHpWRmNPRHBkVHR3TGVYelY0dW90N2RPZG9HZnpYeGFhZEszUGJMRHkyUDQwejFGRzJlSDZnS016V1d3cDBfQzRXWV84YVFaODB2MmF3UFhsOW1idFhJclNIcW",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 10,
+      "queryId": "fuel-security",
+      "queryLabel": "Fuel security & reserves"
+    },
+    {
+      "title": "Australia fuel crisis: Panic buying prompts PM to reassure nation over fuel supply - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4xOEZ0OXlQVVRCbGkwZjg5c1NhYVlkRW5VaU53dmRvempESFlaNnRVd0pHOHJ5NGUydkluUVJSTjZnR29fZXZXR2cxSUtoa2lYMElsd1UwNXNoUQ?oc=5",
+      "published": "2026-03-27T06:32:59.000Z",
+      "source": "BBC",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE4xOEZ0OXlQVVRCbGkwZjg5c1NhYVlkRW5VaU53dmRvempESFlaNnRVd0pHOHJ5NGUydkluUVJSTjZnR29fZXZXR2cxSUtoa2lYMElsd1UwNXNoUQ?oc=5\" target=\"_blank\">Australia fuel crisis: Panic buying prompts PM to reassure nation over fuel supply</a>&nbsp;&nbsp;<font c",
+      "relevance": 3,
+      "authority": "authoritative",
+      "bias": null,
+      "combinedScore": 9,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
+    },
+    {
+      "title": "Man Who Moved Our Petrol Reserves To US When Energy Minister Complains About Fuel Security - The Betoota Advocate",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNS0ZaSXZwcl9XSFNPckx1VFdUdnZET2RmUXFkdnFuQUZ2TFE0OFk1MGs1VTNMN1lGZkliczRMZUcxOW11bVlrYVFlYzBIbUtfVWVjS3l3SGJGZlZrQ0d2MWdYR2RKZUk3dEtLVGZsYm5GYWtXZ082Rm5vV0xzOGEwbTN3SUR4bTRSY2xhdEhKUkNOcHF4elpBQTd3MXpSRjAtaW53SElsOTRTX3JNa2ZoRHkteGxQOVFDNDRwWmxsNHY?oc=5",
       "published": "2026-03-27T03:22:37.000Z",
-      "source": "betootaadvocate.com",
+      "source": "The Betoota Advocate",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxNS0ZaSXZwcl9XSFNPckx1VFdUdnZET2RmUXFkdnFuQUZ2TFE0OFk1MGs1VTNMN1lGZkliczRMZUcxOW11bVlrYVFlYzBIbUtfVWVjS3l3SGJGZlZrQ0d2MWdYR2RKZUk3dEtLVGZsYm5GYWtXZ082Rm5vV0xzOGEwbTN3SUR4bTRSY2xhdEhKUkNOcHF4elpBQTd3MXpSRjAtaW53SElsOTRTX3JNa2ZoRHkteGxQOVFDND",
       "relevance": 6,
       "authority": "unrated",
@@ -64,10 +105,24 @@
       "queryLabel": "Fuel security & reserves"
     },
     {
-      "title": "Albanese ‘irritated’ under pressure instead of leading country through fuel crisis - Sky News Australia",
+      "title": "‘Keep walking out the door’: Anthony Albanese’s slick social media blitz angers Australians enduring the fuel crisis - skynews.com.au",
+      "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxNWGN4OUZILWZPaEFrVFo5Nll1OUdZQmVHNGxnTU5MMFg2TlF6dmpqX3JyZW5SZjlFSGxPUFlUYWFrSFhtc251U1NUd2JPeUVRTXJBekxoV3BpdW95OFVjTFBTejJ5bnlDTjZPWWNkZDZfR05IaDR5VWR2cUhnMklqVjhqU2d2Y1dIQU1id1RjR2Z0am00SW11c0lPQkpzLVFCb2FTaWJza1NVMXFqZ1RTTjY4eG9SSHJoNTVhRGM4NWVNTUJDaXR2NzZqZzhvOGVLdk1uWFRMcUlYZkNjNmtST0RnMnJJRmRqb2VHTVVMc3dqYjVZc2ZCYkZNMWxqX2pmOVZqb3NlQVlMSmZaNUFRamJqOFNkRDJVTW84QlRmLXJBUHRlclRoYjdjUzdOLXRiYjlBWC1SOGNBZ9IBvwJBVV95cUxPMkljdHY4SHJNWkU2ZGY1eFNHWGd6QktQRkIzSFkxMy1nZG10REg0Njd3MDBfN3Jzc21NcUpGRjhUSWY0Yk80ZUU0ejVKUGU4dS13RnBvemJyWGV1UExFeEJGYzd4dlczU1d2bGxGUGwyTlBSY21MODZmbnFCTHNOOHRwa3Nndzh0MVViRmFtVm5oMXlycFpsVVM1OG5HVHVZb1QtazAtUGRlbGFQUzhnRUpqaTQwTnQ3XzhXRHI1UTU4bnp4S0JVWENQNkVRLVdUQzMybHYtMU01TWUyWTF4ZTQ2UDgzejB4d0lGV2RSVnlyZE02VTNwYmg4QkV3OEJRdHBOUmIxdmV1RmZjNno0d21MejhvUGgwZUNuUkxSNVYzYWtjT1hndF8zTy1Nd1l3N24wc0Qzb3otRjBJdjNJ?oc=5",
+      "published": "2026-04-01T01:34:12.000Z",
+      "source": "skynews.com.au",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugJBVV95cUxNWGN4OUZILWZPaEFrVFo5Nll1OUdZQmVHNGxnTU5MMFg2TlF6dmpqX3JyZW5SZjlFSGxPUFlUYWFrSFhtc251U1NUd2JPeUVRTXJBekxoV3BpdW95OFVjTFBTejJ5bnlDTjZPWWNkZDZfR05IaDR5VWR2cUhnMklqVjhqU2d2Y1dIQU1id1RjR2Z0am00SW11c0lPQkpzLVFCb2FTaWJza1NVMXFqZ1RTTjY4eG9SSHJoNT",
+      "relevance": 3,
+      "authority": "established",
+      "bias": "news-corp-right-leaning",
+      "directQuote": true,
+      "combinedScore": 8,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
+    },
+    {
+      "title": "Albanese ‘irritated’ under pressure instead of leading country through fuel crisis - skynews.com.au",
       "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxNN2pyNXdnTWF6TVZXdjNNZVVGOHphUXdLeFEzdXdsRnZPRURjbXV3ZWtwNkY5NjREZFQxdWRydWEzbGY3QW5kdDQtN3lkRjY4QjNBVWQteF9Fck9ZTEd4OGphOXJVaHVwdGFYNGkxWW1RZUJCZG5xQjJnSW56MkNCano2VFVKbUJ0dlJvQnVUT282TUx6VE1YTU1rZlN1bnN5LXNGUjRILVRRQ1A1dXNrOVJiUVc1NkhvY1ZBZUphb0tEY3YtVDF0blMtZ3BnTDFDckRQZlNXUVpoTHFhXzdoV09xbENxT0lXaXltTTZsZERqR2FtNjRwTEEtLXlGajB4VDZzdVZlamRvcU9jc0pjcVk3Y1lUcTlWMXRTRTVQcW81c1IwYUFoQTNPcW1VSVpUdF9kdGZmdlJCS1FWTnF5TUFqNm5NNy1TN0dqb291a3NXSkY2RTNFN1JzVdIB4AJBVV95cUxNRlFHS2ZDR19BdG1kV2lkeDRYcUhCc1VLV1NHTks0WVVySWZROHYtdTgyWE0tYjhPa3R4b0VaNEo2REk2NXJIcFNRaXJKdkxxTTY0ODdMU250ZW5PRG50alY2OEllQ0Z1ZjAwbW1aMkVibEZaOFV1cXlxVWtqMFRJdl9DZkxDQllUVy1ra2pmbkkyTWFfbW5Wc1djLVQ4VDU3Y3lQM3FVdUI2Rno1dzhaUmJTTjZPSXkyeFdJMTY3TDJKd3Qxbl9iRHNFN244UEg2WURNUjR6MERNX2pkWWxaaVpSWmpxTUdHTWpUaG9FWXZvS2M2c3lUd1AtV09fS1o3SU43MTFzVXRubmRNNmlhUmYzS2lmcTIzSnh4aVQ0dTUwbzhUZXpPdnluWXpMOFRZSkVuU0Nac0t2aGZQelFMQ0ZXWThiUDlMTV9xU1VaZHFrOThzZDdiMkxKN01JRUNK?oc=5",
       "published": "2026-03-31T18:00:51.000Z",
-      "source": "Sky News Australia",
+      "source": "skynews.com.au",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2wJBVV95cUxNN2pyNXdnTWF6TVZXdjNNZVVGOHphUXdLeFEzdXdsRnZPRURjbXV3ZWtwNkY5NjREZFQxdWRydWEzbGY3QW5kdDQtN3lkRjY4QjNBVWQteF9Fck9ZTEd4OGphOXJVaHVwdGFYNGkxWW1RZUJCZG5xQjJnSW56MkNCano2VFVKbUJ0dlJvQnVUT282TUx6VE1YTU1rZlN1bnN5LXNGUjRILVRRQ1A1dXNrOVJiUVc1NkhvY1",
       "relevance": 3,
       "authority": "established",
@@ -78,10 +133,10 @@
       "queryLabel": "Fuel supply disruption"
     },
     {
-      "title": "Albanese govt announces new fuel security powers, calls out panic buyers - Sky News Australia",
+      "title": "Albanese govt announces new fuel security powers, calls out panic buyers - skynews.com.au",
       "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxPMDVfTzJXVjE3djBSQnpKdXhXWjR1SDVoUWhwS0ZZSk5vNFQ4UFI4bnFBemdYSWZsdTJ2YXM3OFIxN2Y4eWdXdHpXeXFlZm5xZGNZX0hlaWZGUGFMUDg0Qko4YVZZNGtIREJJMVRhRzhlZ1BsMFBvUlhNRFdLajh0VmZvVVRYN1BFajk1S3R6Q0NmblVmWVo2Njdab0YzYjNaRDZQNjdSM1F3Wm9feFE5VjE4NkpocElUX3N0ejJ2bHFHOWhMeTAzOWFFekhCLU1lcndNWWVVdUE3OHE5WkROR1ZFYnFDMlFFZFkyVjdEU21PUVdRVi1vZmN5djFUQUxZcXpVNnVod3hSWTljNkJ5SElycnJsaXVJbk9abWZKVjJmRTJDQzBz0gGsAkFVX3lxTFBFbXNCbUxtVzNyd2NJb0dORXhIZERMY1M3emlVTm0ySEx5d3htb3ZSc0lDdGJCdGNqVnR2U25MTW9CaEZEb0RUNVNRRU1CWkRzTTItOWtQYmdoMk84N2o4UFgyX2Q5bVZBT1RPeTRIb2htWTZrTGpNN2dVZzNOV01aZDlmQWJRY1RDUnBSYlQwSkVFdXFzRnl4aVBOaVJfUGZNa0xfMzBscDlqWXJQUDh3OUVadGNuMWRJcm5zUVg5SzYybllIYkhMMmE4ZHJfSWx0Zm1XRVdCNmVnRFdMRW9wTzd0RzFDM1ZXeGFFSjFsS0xja2w1bDJjTXJiSzVZQlVqdElPaUI0cS16cnJjVlVUWlZEQ1hUaGZDYzlGaFY1NDZkS2hQSGxMWnUtSg?oc=5",
       "published": "2026-03-28T01:29:48.000Z",
-      "source": "Sky News Australia",
+      "source": "skynews.com.au",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwJBVV95cUxPMDVfTzJXVjE3djBSQnpKdXhXWjR1SDVoUWhwS0ZZSk5vNFQ4UFI4bnFBemdYSWZsdTJ2YXM3OFIxN2Y4eWdXdHpXeXFlZm5xZGNZX0hlaWZGUGFMUDg0Qko4YVZZNGtIREJJMVRhRzhlZ1BsMFBvUlhNRFdLajh0VmZvVVRYN1BFajk1S3R6Q0NmblVmWVo2Njdab0YzYjNaRDZQNjdSM1F3Wm9feFE5VjE4NkpocElUX3",
       "relevance": 3,
       "authority": "established",
@@ -106,10 +161,10 @@
       "queryLabel": "Fuel security & reserves"
     },
     {
-      "title": "Australia's ACCC Says Diesel Prices Rising Faster Than Petrol - TradingView",
+      "title": "Australia's ACCC Says Diesel Prices Rising Faster Than Petrol - tradingview.com",
       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPaFZsQk5wSFVTRzNGV1hhRnNlR1NNekFVdzBZYTVJWnUxMkU4QUlXV1U5UXJDV3VLNVowYV9ldHYwYk5IZmk3RDg3anFubmtIRGpMVVBCM2tzTk1NUzB4SjBpSDdNN3p1bHhGTWZJVzdndXB3ZXk2YmJkMzdBTVdrei1KRUYyUFRlT184N0xlM1dmQ284N2pQRGxkbG0tU2JXRndJMjhidDdFdzZaLWlXM3FLZGN4ZFMwOFA3WFIwbHJHMndBVUxDYUlhUQ?oc=5",
       "published": "2026-03-27T03:09:00.000Z",
-      "source": "TradingView",
+      "source": "tradingview.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxPaFZsQk5wSFVTRzNGV1hhRnNlR1NNekFVdzBZYTVJWnUxMkU4QUlXV1U5UXJDV3VLNVowYV9ldHYwYk5IZmk3RDg3anFubmtIRGpMVVBCM2tzTk1NUzB4SjBpSDdNN3p1bHhGTWZJVzdndXB3ZXk2YmJkMzdBTVdrei1KRUYyUFRlT184N0xlM1dmQ284N2pQRGxkbG0tU2JXRndJMjhidDdFdzZaLWlXM3FLZGN4ZFMwOF",
       "relevance": 4,
       "authority": "established",
@@ -119,10 +174,10 @@
       "queryLabel": "Energy policy & regulation"
     },
     {
-      "title": "Albanese government denies considering $40 fuel cap after secret petrol rationing plan unearthed - Sky News Australia",
+      "title": "Albanese government denies considering $40 fuel cap after secret petrol rationing plan unearthed - skynews.com.au",
       "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxNaVYyQXlkdXVJZG9hRXlaZVV1LTYyVHJ3Njh3dHhQYVV0OTJNaHdrOUxUV0czZ285a1pFRlhKZE9sbVJpVlV3dVZjSkR0MkljcVV3eW1PMDlCc3VvUlVlQ0I3TDJaZDZWRk10Wl85TnJMODQ2bXh1ekV1RmQwUFBBMERhM2dFUjRqc2RoREtkdFd4T3VxRVdsUkpZVkFSNnpPVDZ6YnVOd2d1NjVJazZQUVFfWXdzRV9pQ2lZVUN1MHBnaV9RV1FIa1cwdlJWVWZrM0ZUSzExZGphZWE0WEJRRWZRYmdudjdYSzAxTHAyWFIzcWhhRzFhMnF6dDBqT0lrYm4xYVhEVHRVdjJDSEMxaUF1LXMxbkdZTVHSAZ8CQVVfeXFMTmhNSmkxTUtUV0dSZG5JZ2pQS0poemxiekNkX3VsVUFWa2NSREtzZU5uSTBfOHVEUThGd3BvVE9TcVFIMEhySGoybU9UQXd6WWVicmROMi1tSDEtRF9VeHBicWo5NGFIQ05qWHdXeXl1cDJPVzE1eXpiOFFaa1dpLVFHQTloNGI5aU1xczlKVG9Qem1RU0Qybjl4WWJDMGZvbENQQnF4cHJuYnU5cmpBRkZodWNpMnF0T1RpSmdKUm5EMTNqSFZzM3VkZzhrUEZXT1dPNXAzV09VYldqWGZvMTZETmxuNVdTR3hUclBpbURiYVBkTzZiX2JtMlZrVFVQMWF2MmtERVRRbEhMdzBTRDQxMV9RZzZscVFfMDJod0E?oc=5",
       "published": "2026-03-25T07:17:15.000Z",
-      "source": "Sky News Australia",
+      "source": "skynews.com.au",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgJBVV95cUxNaVYyQXlkdXVJZG9hRXlaZVV1LTYyVHJ3Njh3dHhQYVV0OTJNaHdrOUxUV0czZ285a1pFRlhKZE9sbVJpVlV3dVZjSkR0MkljcVV3eW1PMDlCc3VvUlVlQ0I3TDJaZDZWRk10Wl85TnJMODQ2bXh1ekV1RmQwUFBBMERhM2dFUjRqc2RoREtkdFd4T3VxRVdsUkpZVkFSNnpPVDZ6YnVOd2d1NjVJazZQUVFfWXdzRV9pQ2",
       "relevance": 3,
       "authority": "established",
@@ -133,9 +188,36 @@
       "queryLabel": "Fuel supply disruption"
     },
     {
+      "title": "Chalmers says small business ‘paying the price’ for Middle East conflict as he unveils support measures - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQWHJ4UVFWbEp1RXFDYkpEdVRXRUtjZXk2eVdEbGZyVFdhSEtQbjVodzFCNnNFYTJ4Z0kzdy1qQVQ1QmZhYXpWc0g1OVdlNjhobmRaWFdqRnoxMW5yMURNTGlNSWxfbUJkeVliTjRGWUtEeXJHcFVhR1ZOZHRYSFBGYVZhd1llaFRrLTdKZUxYZFJKeEpha3VYMzVRcGg3aFN3MUJtbFJWLWtaSS1lZmdxc3lMRTBwSFNxUEJBckNid2NOSGE3VHRneTUzQ2Yya1Vrel8wUlRtUmZOZzMwTUMwUzVTWjE1Q01DYS1tRQ?oc=5",
+      "published": "2026-04-01T01:44:00.000Z",
+      "source": "The Guardian",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxQWHJ4UVFWbEp1RXFDYkpEdVRXRUtjZXk2eVdEbGZyVFdhSEtQbjVodzFCNnNFYTJ4Z0kzdy1qQVQ1QmZhYXpWc0g1OVdlNjhobmRaWFdqRnoxMW5yMURNTGlNSWxfbUJkeVliTjRGWUtEeXJHcFVhR1ZOZHRYSFBGYVZhd1llaFRrLTdKZUxYZFJKeEpha3VYMzVRcGg3aFN3MUJtbFJWLWtaSS1lZmdxc3lMRTBwSFNxUE",
+      "relevance": 0,
+      "authority": "established",
+      "bias": null,
+      "directQuote": true,
+      "combinedScore": 7,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
+    },
+    {
+      "title": "PM to make COVID-style address to nation on fuel crisis - The Canberra Times",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVHVfLS03eGNkNmVCODk2WEkwbGpSVmV1MVUza1Z4ZjZScVJLcUNYVGRaMy10QmxXWlZiMzc3cGEyZHdHRG5xWjhQRktHNXc0M2RJM1JyM093LWdpdlNMTHMwNjJQVy04b2ZMSTY5Zjl3bTlUYW1DYUtvMXpqQWNCZWJpQTV3bU9BbUJKNEpiYmZyM19QNGZOMG81em9tY3E4UmRCakNR?oc=5",
+      "published": "2026-04-01T00:30:51.000Z",
+      "source": "The Canberra Times",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxNVHVfLS03eGNkNmVCODk2WEkwbGpSVmV1MVUza1Z4ZjZScVJLcUNYVGRaMy10QmxXWlZiMzc3cGEyZHdHRG5xWjhQRktHNXc0M2RJM1JyM093LWdpdlNMTHMwNjJQVy04b2ZMSTY5Zjl3bTlUYW1DYUtvMXpqQWNCZWJpQTV3bU9BbUJKNEpiYmZyM19QNGZOMG81em9tY3E4UmRCakNR?oc=5\" target=\"_blank\">PM ",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "combinedScore": 7,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
+    },
+    {
       "title": "‘Not a fix’: the three questionable ideas politicians are pitching to solve Australia’s fuel crisis - The Guardian",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSTE3Q05hTnNhNWZaay1xSVd4R0hjbFpPSVhlMDBpQk9BV283ZXFySC12MldPX0Z0SWVBUThTVlpyeXNzOVVLVVljREh5REd0OUNEYVhrNFhrVlBKOFVwbzM3MlF6VnZrdEViekk0a3ZPNFY5dVZYdE93akNwY2otUnRialdETVZMOTY3RUJvRldnbHZ2YWFKdzNEY0xTTGI1ekxEQkFWTGk4T3FHWlA2SG9Pdw?oc=5",
-      "published": "2026-03-31T14:01:00.000Z",
+      "published": "2026-03-31T14:01:07.000Z",
       "source": "The Guardian",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxOSTE3Q05hTnNhNWZaay1xSVd4R0hjbFpPSVhlMDBpQk9BV283ZXFySC12MldPX0Z0SWVBUThTVlpyeXNzOVVLVVljREh5REd0OUNEYVhrNFhrVlBKOFVwbzM3MlF6VnZrdEViekk0a3ZPNFY5dVZYdE93akNwY2otUnRialdETVZMOTY3RUJvRldnbHZ2YWFKdzNEY0xTTGI1ekxEQkFWTGk4T3FHWlA2SG9Pdw?oc=5\" t",
       "relevance": 3,
@@ -172,38 +254,11 @@
       "queryLabel": "Fuel supply disruption"
     },
     {
-      "title": "Distancing himself from Trump and a badly waged war in Iran might be the smartest move Albanese can make - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcFRLYjFsVHBBdTd1aFdXbkFpSGtpUFBzVkFJd1c2X1VyaWdjSTVKZFEtemVUaWgxZkV2Y3JMUWFkaWRPSi1vaUdPTnJ2QnBYYXlFSU9KRTUyOVFrSnpIM3VXa1lRRnBCclNsNkVVOTFuTGdQUVRCMnBTc2p6TWtRMlpUN3RHYWhJSlpFcEJCR09hSHI2Z2NUd2d1Y0VYZw?oc=5",
-      "published": "2026-03-31T03:43:00.000Z",
+      "title": "As the fuel crisis worsens and more sectors call for help, Labor must be prepared to make tough choices - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNOEFIY3Vra2xadUk0TUZaSkFrc0pQdk5EUWVoWkVUT20yeVdGOUlpQkJNckFJNF8tcXFyODJjOVFtS1QxdTRqSWRSQzFkTmlyeDVobXJRZjZzVjFMSVFUejdJczEzSm5mdTJtN2xVWk9iMEJjUVdmUi1YSUlvR2dzcXNDV2NhV3ZBRzljbzVqSmJuYjRzRFJRX0IwTWpYTllCXzNCMXZIRHQ4MGg2ZUtuUDEtTHhmdWtCT3ltcXlRRGdfS2NhbEstUDVPSGJEZlBGSlRDY21sT2VPalI4blREZ0JUTlp3UmNxWFFldXZ3?oc=5",
+      "published": "2026-03-30T03:42:00.000Z",
       "source": "The Guardian",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMingFBVV95cUxPcFRLYjFsVHBBdTd1aFdXbkFpSGtpUFBzVkFJd1c2X1VyaWdjSTVKZFEtemVUaWgxZkV2Y3JMUWFkaWRPSi1vaUdPTnJ2QnBYYXlFSU9KRTUyOVFrSnpIM3VXa1lRRnBCclNsNkVVOTFuTGdQUVRCMnBTc2p6TWtRMlpUN3RHYWhJSlpFcEJCR09hSHI2Z2NUd2d1Y0VYZw?oc=5\" target=\"_blank\">Distancing hi",
-      "relevance": 0,
-      "authority": "established",
-      "bias": null,
-      "directQuote": true,
-      "combinedScore": 7,
-      "queryId": "diesel-crisis",
-      "queryLabel": "Fuel supply disruption"
-    },
-    {
-      "title": "Australia to cut taxes on petrol and diesel use as part of National 'Fuel Security' plan - TradingView",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOQmFUeXRkRXdxZl8xVTdNanRlQll6ZjIzREJUaHE5SFZ1NHVjbVZ1MVpURTBhMlVSUVRIY0JLU1lHVU1oam4zT1MzX2xMU3NxY0ViNVM3VjJ3V2F1UEdjRWdhQmswNWc1N0FkQWRDU0tlSUpYdTZfSV82OFJwb19PcHU5SURLU3E3TWJwOHR5S29tcHItT1V1NzdwQmhjelFBTTZfbXhjZmROLVg2YlVUNFU3a2FnaUlSQmFfeDZFVXprbFA0Nl9PN2ZlTHpQQ05tSS1NRDFPa2txQkVOVUhZ?oc=5",
-      "published": "2026-03-30T01:47:00.000Z",
-      "source": "TradingView",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3wFBVV95cUxOQmFUeXRkRXdxZl8xVTdNanRlQll6ZjIzREJUaHE5SFZ1NHVjbVZ1MVpURTBhMlVSUVRIY0JLU1lHVU1oam4zT1MzX2xMU3NxY0ViNVM3VjJ3V2F1UEdjRWdhQmswNWc1N0FkQWRDU0tlSUpYdTZfSV82OFJwb19PcHU5SURLU3E3TWJwOHR5S29tcHItT1V1NzdwQmhjelFBTTZfbXhjZmROLVg2YlVUNFU3a2FnaUlSQm",
-      "relevance": 3,
-      "authority": "established",
-      "bias": null,
-      "combinedScore": 7,
-      "queryId": "fuel-security",
-      "queryLabel": "Fuel security & reserves"
-    },
-    {
-      "title": "Trump’s unpopularity shields Labor in Newspoll and other polls despite fuel crisis - The Conversation",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOUmo4TUdfRHhLLTlsSXBGaWxTVUNpVl95Qk9sakJfR3Z4cWtyOEs5d1N0NTdXWVQ3cXMzVEt2MXVVcERLbjRrQ1QtQnZjV2I2MVBvWkR3Smp4Q3F4RUluSlVSSGlCWlVGZEZPTXpaLWpEa2YtbFlPTk9kRjJjQ3BQOWt2WWNUVnpVaVVJX3VmYWdlNk43UEZzSFNNSTYydmZzU3llWGNPaDUzWHpUM0U3OExORFZkNmM?oc=5",
-      "published": "2026-03-29T22:23:02.000Z",
-      "source": "The Conversation",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxOUmo4TUdfRHhLLTlsSXBGaWxTVUNpVl95Qk9sakJfR3Z4cWtyOEs5d1N0NTdXWVQ3cXMzVEt2MXVVcERLbjRrQ1QtQnZjV2I2MVBvWkR3Smp4Q3F4RUluSlVSSGlCWlVGZEZPTXpaLWpEa2YtbFlPTk9kRjJjQ3BQOWt2WWNUVnpVaVVJX3VmYWdlNk43UEZzSFNNSTYydmZzU3llWGNPaDUzWHpUM0U3OExORFZkNmM?oc",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxNOEFIY3Vra2xadUk0TUZaSkFrc0pQdk5EUWVoWkVUT20yeVdGOUlpQkJNckFJNF8tcXFyODJjOVFtS1QxdTRqSWRSQzFkTmlyeDVobXJRZjZzVjFMSVFUejdJczEzSm5mdTJtN2xVWk9iMEJjUVdmUi1YSUlvR2dzcXNDV2NhV3ZBRzljbzVqSmJuYjRzRFJRX0IwTWpYTllCXzNCMXZIRHQ4MGg2ZUtuUDEtTHhmdWtCT3",
       "relevance": 3,
       "authority": "established",
       "bias": null,
@@ -249,6 +304,19 @@
       "combinedScore": 7,
       "queryId": "energy-policy",
       "queryLabel": "Energy policy & regulation"
+    },
+    {
+      "title": "Government to use taxpayer funds to underwrite cost of petrol in bid to ease fuel crisis - 9News",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNUDZObFlBSEdWSTJEV2VaUXJHQXczM0RlOTlFY1NZc0cwTkNXeVVHVlJJcFBQN2wxN1gxRm00VGd4Xzd3NUpWQ25IdlJHSGlycm5BVDhITDdlazJGaGpyVUtKTkVuNWx5TVNwb3k1YWN0ODBNRS1rYUtTUm1TeVVnemRDdnRzcHRCTW1oU2tJYnpTMHA2ckU2Nl9GMGhFZFcxN2ticGJMbDgzQVZBRzhPcHRUa05HUVF3czJENll5d2dqZmxvZ2tWZUQ3N3VIZGxidnJJM0Q0ZG9NOUJBNlhjQlJUXzZ3Z9IBeEFVX3lxTE1POTBUSHRzWjlBS3lOOGJ5cl94NVRXQzhXaW05dl9GcWtpUloxMEVPa0djMDZSMk1wdzIwbHMwRm1jdlF4NDRsU3JJUmg4Z1dpMEVqVmc2SjZRNnBQRExqaW1zNXJLU2NKdm1BU3RjdllMMGoydEtSaQ?oc=5",
+      "published": "2026-03-29T01:22:58.000Z",
+      "source": "9News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxNUDZObFlBSEdWSTJEV2VaUXJHQXczM0RlOTlFY1NZc0cwTkNXeVVHVlJJcFBQN2wxN1gxRm00VGd4Xzd3NUpWQ25IdlJHSGlycm5BVDhITDdlazJGaGpyVUtKTkVuNWx5TVNwb3k1YWN0ODBNRS1rYUtTUm1TeVVnemRDdnRzcHRCTW1oU2tJYnpTMHA2ckU2Nl9GMGhFZFcxN2ticGJMbDgzQVZBRzhPcHRUa05HUVF3cz",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "combinedScore": 7,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
     },
     {
       "title": "Labor to use new fuel security powers to underwrite extra shipments to Australia - The Guardian",
@@ -317,6 +385,19 @@
       "queryLabel": "Energy policy & regulation"
     },
     {
+      "title": "Tradies hit hardest by fuel crisis forced to raise prices or go bust - and every Aussie will pay for it - 9News",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZ2NKRnd3MHR5NW1YbkRnSW9mYmxlVm5YOUo1bE1Ma1FiOENHLU1uMXU5eC1Pd2pYV2pKX21HLThKR2Vja0phbjZjWkY3UmQwUVl6MXhIOEQyUVpncGxjYXVSUWJYcHBOZjZrTWs2VFk3THFEaVlmczc5cFc3ZjhCeWZuUHBmVHhtMWM0S0tqajFrRy1QczBnWlBqbTNISVdLNkVQemNoU0dXbWpIOW5vSFlyc2R5bG5EUkVEdkkzM1Z5NGxRT3ROUGlnbWhWd9IBeEFVX3lxTE16NnB0YmVNWHBPT0JPSHdCZGNsRi0xWGFBYmxJOWlQcTgyM2QwTDN0anVSM0NFQWFuZTFMTlk5THV5Sm9reTU3U3h6cUNRNktvTEJCbkxOWU1Db3pHd0RWNl9tazJpYXI0c2xlNzBOdDhsUHVQbjNQNA?oc=5",
+      "published": "2026-03-25T19:29:49.000Z",
+      "source": "9News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxQZ2NKRnd3MHR5NW1YbkRnSW9mYmxlVm5YOUo1bE1Ma1FiOENHLU1uMXU5eC1Pd2pYV2pKX21HLThKR2Vja0phbjZjWkY3UmQwUVl6MXhIOEQyUVpncGxjYXVSUWJYcHBOZjZrTWs2VFk3THFEaVlmczc5cFc3ZjhCeWZuUHBmVHhtMWM0S0tqajFrRy1QczBnWlBqbTNISVdLNkVQemNoU0dXbWpIOW5vSFlyc2R5bG5EUk",
+      "relevance": 3,
+      "authority": "established",
+      "bias": null,
+      "combinedScore": 7,
+      "queryId": "diesel-crisis",
+      "queryLabel": "Fuel supply disruption"
+    },
+    {
       "title": "Seven charts that reveal how unprepared Australia was for the fuel crisis - The Guardian",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZTl5cHoyWmc4ZnBqdXBsRW9fWU9jSUNGSTBVVE9MRVVoMlFRRzF5NGp1WVF0MDJyNF9zWGh1d0lmYmx6ZElKZU1jRDJ2Q200VWpudEY3Sk5PMFRSVzZPcXhSaE91bVhnWGZ3WXV5eml1dHB6MlpWLVhfNXZOa3NMSmVXQkdRQWt3THNMM3BxUTNoTXhsWHlvOVBxRFJSN3g3azhtemlWSDFJMF9CczhHWFpWdUVGeXk5VXlrX1FTbw?oc=5",
       "published": "2026-03-25T03:29:00.000Z",
@@ -330,105 +411,25 @@
       "queryLabel": "Refinery & supply chain"
     },
     {
-      "title": "Australia does use Hormuz oil, contrary to claims - aap.com.au",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPTjViVWtDYWtTa1hRR3QyMERFN2hSc0JmTEh0WVhSZExkcFR3SFk5bHJaSkVSMTRRbGJkWUNIOUJnb2F1dFhKWmlzQ0hJeVNiU3lnTWRwTWtIbWdVeEMxRW14bkpJMU9QQjkyQ1JYTFliQUdOZmlQelNvdFQwTE9ZZEkyZ0NQZy1uN2c?oc=5",
-      "published": "2026-03-31T09:05:47.000Z",
-      "source": "aap.com.au",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxPTjViVWtDYWtTa1hRR3QyMERFN2hSc0JmTEh0WVhSZExkcFR3SFk5bHJaSkVSMTRRbGJkWUNIOUJnb2F1dFhKWmlzQ0hJeVNiU3lnTWRwTWtIbWdVeEMxRW14bkpJMU9QQjkyQ1JYTFliQUdOZmlQelNvdFQwTE9ZZEkyZ0NQZy1uN2c?oc=5\" target=\"_blank\">Australia does use Hormuz oil, contrary ",
-      "relevance": 0,
-      "authority": "authoritative",
-      "bias": null,
-      "combinedScore": 6,
-      "queryId": "fuel-deals",
-      "queryLabel": "International fuel agreements"
-    },
-    {
-      "title": "Fuel rations and free buses: How countries are responding to rising oil prices - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA2YjBJZ3BDTkpxalpJT1NVMmFxSGtnSVlDaFRJVEJ5QnAtcktOMk1DLVhnbUlpc1VZbWVaRi1NZWRYMk5JdXZ6ZjZxSXlRSjktMk1SWGZEOUJXUQ?oc=5",
-      "published": "2026-03-30T15:07:13.000Z",
-      "source": "BBC",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTFA2YjBJZ3BDTkpxalpJT1NVMmFxSGtnSVlDaFRJVEJ5QnAtcktOMk1DLVhnbUlpc1VZbWVaRi1NZWRYMk5JdXZ6ZjZxSXlRSjktMk1SWGZEOUJXUQ?oc=5\" target=\"_blank\">Fuel rations and free buses: How countries are responding to rising oil prices</a>&nbsp;&nbsp;<font color",
-      "relevance": 0,
-      "authority": "authoritative",
-      "bias": null,
-      "combinedScore": 6,
-      "queryId": "fuel-deals",
-      "queryLabel": "International fuel agreements"
-    },
-    {
-      "title": "Albanese unveils national fuel security plan as demand drives prices higher - NT News",
-      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQU1ZfTE1objFhblVSOVRkYjVEUnFLUXdvcURuRU9aVzlPQ2Z0cVRCQ1lCU2R4QlpzM3E2cWlKczZlZmFqT2Z6YngySkxnc3dsNU5aWjIzd1FvcDN1WEJ1T3R1MlpwUTU5RloyVnFjNGd3S1ZyeGpxNjhvU1p2ajNPeHJJNm5rUmtfcnlSWHNjaDlNQjRkeFRfbmNGckZsWVNnMllCOFVsS0l0ZHhCV2c0cTcxa1BaUXZXYjlTZ3RLSnMyakh2cEJ4YlphendTeF9BQk9OR0pjYldGV0luUUQ4bVFCTkFXSE9KcHc?oc=5",
-      "published": "2026-03-30T09:52:48.000Z",
-      "source": "NT News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6gFBVV95cUxQU1ZfTE1objFhblVSOVRkYjVEUnFLUXdvcURuRU9aVzlPQ2Z0cVRCQ1lCU2R4QlpzM3E2cWlKczZlZmFqT2Z6YngySkxnc3dsNU5aWjIzd1FvcDN1WEJ1T3R1MlpwUTU5RloyVnFjNGd3S1ZyeGpxNjhvU1p2ajNPeHJJNm5rUmtfcnlSWHNjaDlNQjRkeFRfbmNGckZsWVNnMllCOFVsS0l0ZHhCV2c0cTcxa1BaUXZXYj",
+      "title": "Anthony Albanese to address the nation amid fuel crisis - Gold Coast Bulletin",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNZWx0NHQ5XzhQT3pkc1FrQjNPUmszbnRCQkcxcFZsdXV2THdEOXBwMzhiUG1iNVROaDYwWGtIbTJidXJSUE80ZFpLSS1ZeE9nOE1leGh2MGhyX3AtWHJDbUEwZXJmdUhHSER1LU1sNHViUXpVTXI0eXYxdW5lTHVTRTB6eWRvRWdfSTh1bXBtLUMwWlJnRDZmYi01cW1tRC03NlY3WUlRZHk0V2l0aUhJTFRRWXFEalNaMGtHbTZzdy00dFZTTkJlWE9kT3pqUFRlbEtzOFluX1Q0RzBheG1yaldfZGJMZ0dMR3hn?oc=5",
+      "published": "2026-04-01T01:03:13.000Z",
+      "source": "Gold Coast Bulletin",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxNZWx0NHQ5XzhQT3pkc1FrQjNPUmszbnRCQkcxcFZsdXV2THdEOXBwMzhiUG1iNVROaDYwWGtIbTJidXJSUE80ZFpLSS1ZeE9nOE1leGh2MGhyX3AtWHJDbUEwZXJmdUhHSER1LU1sNHViUXpVTXI0eXYxdW5lTHVTRTB6eWRvRWdfSTh1bXBtLUMwWlJnRDZmYi01cW1tRC03NlY3WUlRZHk0V2l0aUhJTFRRWXFEalNaMG",
       "relevance": 3,
       "authority": "unrated",
       "bias": null,
       "directQuote": true,
-      "combinedScore": 6,
-      "queryId": "fuel-security",
-      "queryLabel": "Fuel security & reserves"
-    },
-    {
-      "title": "Fuel tax halved and free public transport offered as war pushes up prices in Australia - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9tVUtja0JqbHpZYUJDZzJyRXFoODlHYjBMdGl6QTk3NjV3Q0Z4dU9fcjV0MUVuRWVzaGl5ZWVsQXI1OE8xeEF3NmJrNHEwTE9xVmZtdzl3aW1GQQ?oc=5",
-      "published": "2026-03-30T05:38:26.000Z",
-      "source": "BBC",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE9tVUtja0JqbHpZYUJDZzJyRXFoODlHYjBMdGl6QTk3NjV3Q0Z4dU9fcjV0MUVuRWVzaGl5ZWVsQXI1OE8xeEF3NmJrNHEwTE9xVmZtdzl3aW1GQQ?oc=5\" target=\"_blank\">Fuel tax halved and free public transport offered as war pushes up prices in Australia</a>&nbsp;&nbsp;<fo",
-      "relevance": 0,
-      "authority": "authoritative",
-      "bias": null,
       "combinedScore": 6,
       "queryId": "diesel-crisis",
       "queryLabel": "Fuel supply disruption"
-    },
-    {
-      "title": "Albanese reduces fuel cost and announces national fuel security plan - The Greek Herald",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNWEdvNWxTQkdWUFZBem5Eak1yNzkzNlk1Y1ItYmFmTUgwVnlTTDhvWHVnWHByR1BGZm13LUhLai01WWpVTWxCbk5xTmFnQ1B6WnRBMXlBVm56Y3l6X3o2REFVUmpmWXYzVzhUclhWc2hfOHdYMmwzZWNCamVodDBPSGtZa3BwQ1hzNEdxWmt4WThkZzRJeG1RaWhTVG85VlVJcVhj?oc=5",
-      "published": "2026-03-30T02:45:15.000Z",
-      "source": "The Greek Herald",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxNWEdvNWxTQkdWUFZBem5Eak1yNzkzNlk1Y1ItYmFmTUgwVnlTTDhvWHVnWHByR1BGZm13LUhLai01WWpVTWxCbk5xTmFnQ1B6WnRBMXlBVm56Y3l6X3o2REFVUmpmWXYzVzhUclhWc2hfOHdYMmwzZWNCamVodDBPSGtZa3BwQ1hzNEdxWmt4WThkZzRJeG1RaWhTVG85VlVJcVhj?oc=5\" target=\"_blank\">Albanes",
-      "relevance": 3,
-      "authority": "unrated",
-      "bias": null,
-      "directQuote": true,
-      "combinedScore": 6,
-      "queryId": "fuel-security",
-      "queryLabel": "Fuel security & reserves"
-    },
-    {
-      "title": "Weeks-Long Australian LNG Outage Will Further Tighten Supply - Bloomberg.com",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeVVpZml4X01lN3lTcEpOajFJeDRxUXFpa3ZXRHRyM0c4YWpOMFdKZlVYWWM4cjd2bllBT1VnWjJ0X3B4cEpvWGREU1JGU0VPWVJVakhkQVJwcmlvZmx5SkMyLVB0NVJEVG1nY1FoMlJJTnc0RkM3amFfM1NFcTFpQlpsem5ONVI0cGMzLVhFZTQxTUdVd1I1OE90NDRtR0FtMEhzOUFOakRkM0VuWk9yejlrbHJDZw?oc=5",
-      "published": "2026-03-29T22:57:42.000Z",
-      "source": "Bloomberg.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitgFBVV95cUxQeVVpZml4X01lN3lTcEpOajFJeDRxUXFpa3ZXRHRyM0c4YWpOMFdKZlVYWWM4cjd2bllBT1VnWjJ0X3B4cEpvWGREU1JGU0VPWVJVakhkQVJwcmlvZmx5SkMyLVB0NVJEVG1nY1FoMlJJTnc0RkM3amFfM1NFcTFpQlpsem5ONVI0cGMzLVhFZTQxTUdVd1I1OE90NDRtR0FtMEhzOUFOakRkM0VuWk9yejlrbHJDZw?oc=",
-      "relevance": 0,
-      "authority": "authoritative",
-      "bias": null,
-      "combinedScore": 6,
-      "queryId": "fuel-deals",
-      "queryLabel": "International fuel agreements"
-    },
-    {
-      "title": "Iran war live updates: Albanese announces new fuel security powers - msn.com",
-      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQeGFkYkktaE1mUFlIV1Z3ZTVWdEdqRXlNV3loaS1xdXY1YXQyNnA0ek5CVzQyeHE4MmotOVM4VWk5clIwRE5paE1NaEhWOXdZa1ZjVHUtelJJNUt6dVBFWXJVTERFUVM1RW5mOWdKb3FVR21mM3JnYUFaZklhSHVpMGZ0b0JiWE43WXZibEJfNm5uc1AtWVZlZzl3dUVSV2ZZM2pZVWZCWHhSLTJLNk1PczFfNHc4M0JySEd6WWdLampZLTZSRGtVXy1sbXZGRWpfemN3RXZYY2UxNWtjbm5NX2hhZnM4RE5xVG1QVXBpREx1YjRrUHJvdU1WaE8tNTM5?oc=5",
-      "published": "2026-03-28T05:07:43.000Z",
-      "source": "msn.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxQeGFkYkktaE1mUFlIV1Z3ZTVWdEdqRXlNV3loaS1xdXY1YXQyNnA0ek5CVzQyeHE4MmotOVM4VWk5clIwRE5paE1NaEhWOXdZa1ZjVHUtelJJNUt6dVBFWXJVTERFUVM1RW5mOWdKb3FVR21mM3JnYUFaZklhSHVpMGZ0b0JiWE43WXZibEJfNm5uc1AtWVZlZzl3dUVSV2ZZM2pZVWZCWHhSLTJLNk1PczFfNHc4M0JySE",
-      "relevance": 3,
-      "authority": "unrated",
-      "bias": null,
-      "directQuote": true,
-      "combinedScore": 6,
-      "queryId": "fuel-security",
-      "queryLabel": "Fuel security & reserves"
     }
   ],
   "critical": [
     {
       "title": "Australia to amend export-finance laws to boost fuel security, PM Albanese says - Reuters",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZ1FrUDVEWGJ4V1pteFZzMTloWFJlUDVFQURCNktfLURaVnRfODFuM1N3Z3BFdEVmRlNtaWdPNkUxLTJlZFVLdFE3YmV5Q2NyWHhrN3NpZnRuVVZfN29weXZVSkU2V2JyNnlUU3ZfLWpWcTI1a09jcFVlaU5nTUVSQkVBclg0bzVHdHIybktrY3JiSS0wbEllV2pkNl9aMy10TkpPamY1NldteVBvWTlENnFJWGNsUE1nYkgyRENlMDRGZw?oc=5",
-      "published": "2026-03-28T00:39:43.000Z",
+      "published": "2026-03-28T00:36:00.000Z",
       "source": "Reuters",
       "authority": "authoritative",
       "bias": null,
@@ -444,31 +445,30 @@
       "directQuote": true
     },
     {
-      "title": "Albanese ‘irritated’ under pressure instead of leading country through fuel crisis - Sky News Australia",
-      "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxNN2pyNXdnTWF6TVZXdjNNZVVGOHphUXdLeFEzdXdsRnZPRURjbXV3ZWtwNkY5NjREZFQxdWRydWEzbGY3QW5kdDQtN3lkRjY4QjNBVWQteF9Fck9ZTEd4OGphOXJVaHVwdGFYNGkxWW1RZUJCZG5xQjJnSW56MkNCano2VFVKbUJ0dlJvQnVUT282TUx6VE1YTU1rZlN1bnN5LXNGUjRILVRRQ1A1dXNrOVJiUVc1NkhvY1ZBZUphb0tEY3YtVDF0blMtZ3BnTDFDckRQZlNXUVpoTHFhXzdoV09xbENxT0lXaXltTTZsZERqR2FtNjRwTEEtLXlGajB4VDZzdVZlamRvcU9jc0pjcVk3Y1lUcTlWMXRTRTVQcW81c1IwYUFoQTNPcW1VSVpUdF9kdGZmdlJCS1FWTnF5TUFqNm5NNy1TN0dqb291a3NXSkY2RTNFN1JzVdIB4AJBVV95cUxNRlFHS2ZDR19BdG1kV2lkeDRYcUhCc1VLV1NHTks0WVVySWZROHYtdTgyWE0tYjhPa3R4b0VaNEo2REk2NXJIcFNRaXJKdkxxTTY0ODdMU250ZW5PRG50alY2OEllQ0Z1ZjAwbW1aMkVibEZaOFV1cXlxVWtqMFRJdl9DZkxDQllUVy1ra2pmbkkyTWFfbW5Wc1djLVQ4VDU3Y3lQM3FVdUI2Rno1dzhaUmJTTjZPSXkyeFdJMTY3TDJKd3Qxbl9iRHNFN244UEg2WURNUjR6MERNX2pkWWxaaVpSWmpxTUdHTWpUaG9FWXZvS2M2c3lUd1AtV09fS1o3SU43MTFzVXRubmRNNmlhUmYzS2lmcTIzSnh4aVQ0dTUwbzhUZXpPdnluWXpMOFRZSkVuU0Nac0t2aGZQelFMQ0ZXWThiUDlMTV9xU1VaZHFrOThzZDdiMkxKN01JRUNK?oc=5",
-      "published": "2026-03-31T18:00:51.000Z",
-      "source": "Sky News Australia",
+      "title": "Albanese to address the nation on the Middle East war and fuel crisis - The Conversation",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQV2s1eGNYLXNEOVVheVlFYTFvU0o1bjRNUHRaUUJRYkxxRllWVlJiZ3BlMm11Z3VabXlmQjdlbFpNR3k0MlBPQmJ5OU5Eek5VeVZmQ0pmMXNHTTBJMWVDR0NoVVlUWjJoZGFtS1FieWQ2QktXdlZ1M3l5NUhsdkZWYXBDNEdHV0N2UXBhV1NuVlotQzE2aW8tYjE0NE41NW50N2lDbXVHMA?oc=5",
+      "published": "2026-04-01T01:08:00.000Z",
+      "source": "The Conversation",
       "authority": "established",
-      "bias": "news-corp-right-leaning",
+      "bias": null,
       "directQuote": true
     },
     {
-      "title": "Albanese govt announces new fuel security powers, calls out panic buyers - Sky News Australia",
-      "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxPMDVfTzJXVjE3djBSQnpKdXhXWjR1SDVoUWhwS0ZZSk5vNFQ4UFI4bnFBemdYSWZsdTJ2YXM3OFIxN2Y4eWdXdHpXeXFlZm5xZGNZX0hlaWZGUGFMUDg0Qko4YVZZNGtIREJJMVRhRzhlZ1BsMFBvUlhNRFdLajh0VmZvVVRYN1BFajk1S3R6Q0NmblVmWVo2Njdab0YzYjNaRDZQNjdSM1F3Wm9feFE5VjE4NkpocElUX3N0ejJ2bHFHOWhMeTAzOWFFekhCLU1lcndNWWVVdUE3OHE5WkROR1ZFYnFDMlFFZFkyVjdEU21PUVdRVi1vZmN5djFUQUxZcXpVNnVod3hSWTljNkJ5SElycnJsaXVJbk9abWZKVjJmRTJDQzBz0gGsAkFVX3lxTFBFbXNCbUxtVzNyd2NJb0dORXhIZERMY1M3emlVTm0ySEx5d3htb3ZSc0lDdGJCdGNqVnR2U25MTW9CaEZEb0RUNVNRRU1CWkRzTTItOWtQYmdoMk84N2o4UFgyX2Q5bVZBT1RPeTRIb2htWTZrTGpNN2dVZzNOV01aZDlmQWJRY1RDUnBSYlQwSkVFdXFzRnl4aVBOaVJfUGZNa0xfMzBscDlqWXJQUDh3OUVadGNuMWRJcm5zUVg5SzYybllIYkhMMmE4ZHJfSWx0Zm1XRVdCNmVnRFdMRW9wTzd0RzFDM1ZXeGFFSjFsS0xja2w1bDJjTXJiSzVZQlVqdElPaUI0cS16cnJjVlVUWlZEQ1hUaGZDYzlGaFY1NDZkS2hQSGxMWnUtSg?oc=5",
-      "published": "2026-03-28T01:29:48.000Z",
-      "source": "Sky News Australia",
+      "title": "Prime Minister’s Address to the Nation: Anthony Albanese to speak on response to Middle East conflict and fuel security - 7NEWS",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPVWFzSld2NDhQUldSVDFPNG5JZTBuZTYyTzdXbFdhcTRQd0NmVnJFakx0aWFlSXIxYU5yRm9vY2VJdmJjV1BiYmloWnRjS2VQenkxTDZGM0U1cld3a2FkcHpWRmNPRHBkVHR3TGVYelY0dW90N2RPZG9HZnpYeGFhZEszUGJMRHkyUDQwejFGRzJlSDZnS016V1d3cDBfQzRXWV84YVFaODB2MmF3UFhsOW1idFhJclNIcWY0MjBRalZoT25uVjgtMjlKVlR2ZkdyTWp5VWJtRzY5S3NBQWRUYmJ2VC1FTzR1bFHSAe8BQVVfeXFMTWZFanVsVkhzamlpTzI0cGc2ek82emk3eFBpRlEyaWlsdzgzaENmalFTUzRCdUU2ZEx5VTBJQUUtQmdJaGJqbjhtSEIyelJ3cHNQMDgwZFJEeFZQY3N3eHk1a2paQjVIcnpFME1qbkFmQmxHeU16REM4ZWVoYmFySWZuTTdBak85TWNvZHZhUzFsejRzUkhUWmlHaTR3RURyUFBRWXZzc1B3c3g0VFlXUzBWbG1Ed1hUbm53Qk44ZC1RTzJ1Zmo4U05nWXlUWFVhTGZCU2Zac2ViTnc2UEg4bml3YXJFYTYwVWdDUGJacE0?oc=5",
+      "published": "2026-04-01T00:20:00.000Z",
+      "source": "7NEWS",
       "authority": "established",
-      "bias": "news-corp-right-leaning",
+      "bias": null,
       "directQuote": true
     },
     {
-      "title": "Anthony Albanese announces new fuel security powers - News.com.au",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZzVJdGRubW5INnlvSDBKQzRhYlk5eDJ4UldERmpYYUtGZElvdkp1THplWGFUU3gteUF5TmVXZW1QdW5tV0VXd0ZNdHYtMV92QzZJc0paM3hGTUxwdmNnNzRCU3BwQ3J1eVY4VWhGaFNVNHZkNDV0d0pmRkRUTWRiSHlOR3dET2RCX2V3NTZ3MWFuMWpyb3ZnYS1sbDQ5YWpRVHRfZ05NUFVFWHRRaGFVMkZOXy1iQ2FkZnhhNUhKdnfSAcYBQVVfeXFMT1otanBwdHU4SHM0WFo0THZBNGd5WVJCTDZRWWFhR29MU2NnNkFlVUVhSHludy1QbmRFYVh3TW5NWFhUZDJKZjJnNXpTaGF4TG9fakp5X19tX0t1SWZJdVhWTzVNUzlmZy1mQVlSalJyaU4yNENGQXdzSUMyNl9rT1ZmUEdzeHZQbmlsQTVBOFlucnlKaE1ldUpnSDZfdm5iWnF1X3FpQnlTa3NtX0lhZ1pWTHVhaF8zclVqWHlsc0oxLS1PZHJ3?oc=5",
-      "published": "2026-03-28T01:17:42.000Z",
-      "source": "News.com.au",
-      "authority": "established",
-      "bias": "news-corp-right-leaning",
-      "directQuote": true
+      "title": "Australia fuel crisis: Panic buying prompts PM to reassure nation over fuel supply - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4xOEZ0OXlQVVRCbGkwZjg5c1NhYVlkRW5VaU53dmRvempESFlaNnRVd0pHOHJ5NGUydkluUVJSTjZnR29fZXZXR2cxSUtoa2lYMElsd1UwNXNoUQ?oc=5",
+      "published": "2026-03-27T06:32:59.000Z",
+      "source": "BBC",
+      "authority": "authoritative",
+      "bias": null
     }
   ]
 }
