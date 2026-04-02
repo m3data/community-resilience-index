@@ -55,17 +55,31 @@ const DOMAIN_ICONS: Record<string, typeof GasPump> = {
   emergency: FirstAid,
 };
 
-// Two-tone palette: amber for pressure/exposure, green for capacity, gray for neutral.
-// Icons differentiate domains — colour is reserved for meaning, not decoration.
-const EXPOSURE_STYLE = { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', bar: 'bg-amber-500' };
-const DOMAIN_COLORS: Record<string, { bg: string; text: string; border: string; bar: string }> = {
-  fuel: EXPOSURE_STYLE,
-  food: EXPOSURE_STYLE,
-  electricity: EXPOSURE_STYLE,
-  economic: EXPOSURE_STYLE,
-  housing: EXPOSURE_STYLE,
-  emergency: EXPOSURE_STYLE,
+// One-line descriptors for radar legend
+const RADAR_ONELINER: Record<string, string> = {
+  fuel: 'Car dependency and distance from major centres',
+  food: 'Income, distance from distribution, local disadvantage',
+  electricity: 'Solar capacity and grid dependency',
+  economic: 'Housing costs relative to income and earnings',
+  housing: 'Rent or mortgage payments relative to income',
+  emergency: 'Remoteness and proportion living alone',
 };
+
+function exposureLevel(weight: number): string {
+  if (weight <= 0.15) return 'Low';
+  if (weight <= 0.35) return 'Moderate';
+  if (weight <= 0.6) return 'Higher';
+  return 'High';
+}
+
+// Colour by exposure level — green (low), warm gray (moderate), amber (higher), deep amber (high).
+// Colour conveys intensity, not domain identity.
+function exposureColors(weight: number) {
+  if (weight <= 0.15) return { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200', bar: 'bg-green-500' };
+  if (weight <= 0.35) return { bg: 'bg-stone-50', text: 'text-stone-600', border: 'border-stone-200', bar: 'bg-stone-400' };
+  if (weight <= 0.6) return { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', bar: 'bg-amber-500' };
+  return { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200', bar: 'bg-orange-500' };
+}
 
 // Signal key → human-readable name
 const SIGNAL_NAMES: Record<string, string> = {
@@ -392,7 +406,7 @@ function SamplePreview({ onTry }: { onTry: (pc: string) => void }) {
 function ProfileHeader({ profile }: { profile: ExposureProfile }) {
   const top = profile.exposures[0];
   const second = profile.exposures[1];
-  const topColor = top ? DOMAIN_COLORS[top.domain] : null;
+  const topColor = top ? exposureColors(top.weight) : null;
 
   return (
     <div>
@@ -412,12 +426,16 @@ function ProfileHeader({ profile }: { profile: ExposureProfile }) {
             <strong className={topColor.text}>{top.label} </strong> is this
             community&rsquo;s highest exposure
             {second && second.weight > 0.3 ? (
-              <>, followed by <strong className={DOMAIN_COLORS[second.domain]?.text ?? ''}>{second.label.toLowerCase()}</strong></>
+              <>, followed by <strong className={exposureColors(second.weight).text}>{second.label.toLowerCase()}</strong></>
             ) : null}.{' '}
             <span className="text-gray-600">{top.reason}.</span>
           </p>
         </div>
       )}
+
+      <p className="mt-3 text-xs text-gray-400">
+        * Profile based on ABS Census 2021 and other public datasets. Structural characteristics may not reflect current conditions.
+      </p>
     </div>
   );
 }
@@ -546,14 +564,172 @@ function MoreActions({ actions }: { actions: ProfileAction[] }) {
 
 // ── 3. Exposure map — where pressure reaches you hardest ─────────────────────
 
-function ExposureMap({ exposures }: { exposures: ExposureWeight[] }) {
-  const [showAll, setShowAll] = useState(false);
-  const topExposures = exposures.slice(0, 3);
-  const restExposures = exposures.slice(3);
+// ── Exposure Radar — SVG spider chart for 6 domains ──────────────────────────
 
+function ExposureRadar({ exposures }: { exposures: ExposureWeight[] }) {
+  const padX = 90; // horizontal padding for labels
+  const padY = 40; // vertical padding for labels
+  const chartSize = 368;
+  const width = chartSize + padX * 2;
+  const height = chartSize + padY * 2;
+  const cx = width / 2;
+  const cy = height / 2;
+  const maxR = chartSize / 2; // max radius for outermost ring
+  const rings = [0.25, 0.5, 0.75, 1.0];
+  const n = exposures.length;
+  if (n === 0) return null;
+
+  // Each axis starts from top (12 o'clock), going clockwise
+  const angleStep = (2 * Math.PI) / n;
+  const startAngle = -Math.PI / 2;
+
+  const polarToXY = (fraction: number, i: number) => {
+    const angle = startAngle + i * angleStep;
+    return {
+      x: cx + fraction * maxR * Math.cos(angle),
+      y: cy + fraction * maxR * Math.sin(angle),
+    };
+  };
+
+  // Build the filled shape path from exposure weights
+  const shapePoints = exposures.map((exp, i) => {
+    const w = Math.max(exp.weight, 0.04); // minimum visible dot
+    return polarToXY(w, i);
+  });
+  const shapePath = shapePoints.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ') + ' Z';
+
+  // Short labels for the chart axes
+  const DOMAIN_SHORT: Record<string, string> = {
+    fuel: 'Fuel',
+    food: 'Food',
+    electricity: 'Electricity',
+    economic: 'Economic',
+    housing: 'Housing',
+    emergency: 'Emergency',
+  };
+
+  // Plain language tooltips per domain + level
+  const DOMAIN_TOOLTIPS: Record<string, string> = {
+    fuel: 'How much your community depends on fuel for transport and daily life',
+    food: 'How exposed your community is to rising grocery and food costs',
+    electricity: 'How vulnerable your community is to power price changes and grid disruptions',
+    economic: 'How much general cost-of-living pressure affects households here',
+    housing: 'How stretched local households are by housing costs',
+    emergency: 'How easily your community can access emergency services and support',
+  };
+
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; domain: string; level: string } | null>(null);
+
+  return (
+    <div className="flex justify-center relative bg-white rounded-xl border border-gray-200 p-4 sm:p-6" role="img" aria-label={`Exposure shape: ${exposures.map(e => `${DOMAIN_SHORT[e.domain] ?? e.label}: ${exposureLevel(e.weight)}`).join(', ')}`}>
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full max-w-[550px] h-auto">
+        {/* Concentric ring grid */}
+        {rings.map((r) => {
+          const ringPoints = Array.from({ length: n }, (_, i) => polarToXY(r, i));
+          const ringPath = ringPoints.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ') + ' Z';
+          return (
+            <path
+              key={r}
+              d={ringPath}
+              fill="none"
+              stroke="#d1d5db"
+              strokeWidth={r === 1.0 ? 1 : 0.5}
+              opacity={0.5}
+            />
+          );
+        })}
+
+        {/* Axis lines from centre to outer ring */}
+        {exposures.map((_, i) => {
+          const outer = polarToXY(1, i);
+          return (
+            <line
+              key={`axis-${i}`}
+              x1={cx} y1={cy}
+              x2={outer.x} y2={outer.y}
+              stroke="#d1d5db"
+              strokeWidth={0.5}
+              opacity={0.5}
+            />
+          );
+        })}
+
+        {/* Filled exposure shape */}
+        <path
+          d={shapePath}
+          fill="rgba(245, 158, 11, 0.2)"
+          stroke="rgb(217, 119, 6)"
+          strokeWidth={2}
+          strokeLinejoin="round"
+        />
+
+        {/* Data point dots */}
+        {shapePoints.map((p, i) => (
+          <circle
+            key={`dot-${i}`}
+            cx={p.x} cy={p.y}
+            r={3}
+            fill="rgb(217, 119, 6)"
+          />
+        ))}
+
+        {/* Axis labels */}
+        {exposures.map((exp, i) => {
+          const labelR = maxR + 18;
+          const angle = startAngle + i * angleStep;
+          const lx = cx + labelR * Math.cos(angle);
+          const ly = cy + labelR * Math.sin(angle);
+          // Determine text-anchor based on position
+          const isLeft = Math.cos(angle) < -0.1;
+          const isRight = Math.cos(angle) > 0.1;
+          const anchor = isLeft ? 'end' : isRight ? 'start' : 'middle';
+          const label = DOMAIN_SHORT[exp.domain] ?? exp.label;
+          return (
+            <g
+              key={`label-${i}`}
+              className="cursor-pointer"
+              onMouseEnter={() => setTooltip({ x: lx, y: ly, domain: exp.domain, level: exposureLevel(exp.weight) })}
+              onMouseLeave={() => setTooltip(null)}
+              onClick={() => setTooltip(prev => prev?.domain === exp.domain ? null : { x: lx, y: ly, domain: exp.domain, level: exposureLevel(exp.weight) })}
+            >
+              <text
+                x={lx} y={ly}
+                textAnchor={anchor}
+                dominantBaseline="central"
+                className="fill-gray-700"
+                fontSize="16"
+                fontWeight="600"
+              >
+                {label}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      {tooltip && (
+        <div
+          className="absolute z-10 bg-gray-900 text-white text-xs rounded-lg px-3 py-2 max-w-[220px] shadow-lg pointer-events-none"
+          style={{
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <p className="font-semibold text-amber-300 mb-1">
+            {DOMAIN_SHORT[tooltip.domain]}: {tooltip.level}
+          </p>
+          <p className="leading-relaxed">{DOMAIN_TOOLTIPS[tooltip.domain]}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ExposureMap({ exposures }: { exposures: ExposureWeight[] }) {
   // Name the top exposures explicitly
-  const topNames = topExposures
+  const topNames = exposures
     .filter((e) => e.weight > 0.3)
+    .slice(0, 3)
     .map((e) => e.label.toLowerCase());
 
   return (
@@ -570,39 +746,51 @@ function ExposureMap({ exposures }: { exposures: ExposureWeight[] }) {
         </p>
       )}
 
-      <div className="space-y-3">
-        {topExposures.map((exp) => (
-          <ExposureBar key={exp.domain} exposure={exp} />
-        ))}
+      {/* Radar + dimension context side by side on desktop, stacked on mobile */}
+      <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
+        <div className="lg:flex-shrink-0">
+          <ExposureRadar exposures={exposures} />
+        </div>
+        <div className="flex-1 flex flex-col justify-center space-y-2">
+          {exposures.map((exp) => {
+            const Icon = DOMAIN_ICONS[exp.domain] ?? Lightning;
+            const level = exposureLevel(exp.weight);
+            const colors = exposureColors(exp.weight);
+            return (
+              <div key={exp.domain} className="flex items-start gap-2">
+                <Icon size={14} weight="duotone" className={`${colors.text} mt-0.5 flex-shrink-0`} />
+                <div>
+                  <span className="text-sm font-semibold text-gray-900">{exp.label}</span>
+                  <span className={`text-xs font-semibold ${colors.text} ml-1.5`}>{level}</span>
+                  <p className="text-xs text-gray-500 mt-0.5">{RADAR_ONELINER[exp.domain]}</p>
+                </div>
+              </div>
+            );
+          })}
+          <p className="text-xs text-gray-400 pt-1">Hover chart labels for detail</p>
+        </div>
       </div>
 
-      {restExposures.length > 0 && (
-        <div className="mt-3">
-          <button
-            type="button"
-            onClick={() => setShowAll(!showAll)}
-            className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
-            aria-expanded={showAll}
-          >
-            {showAll ? <CaretDown size={14} aria-hidden="true" /> : <CaretRight size={14} aria-hidden="true" />}
-            {restExposures.length} more domain{restExposures.length !== 1 ? 's' : ''}
-          </button>
-          {showAll && (
-            <div className="mt-3 space-y-3">
-              {restExposures.map((exp) => (
-                <ExposureBar key={exp.domain} exposure={exp} />
-              ))}
-            </div>
-          )}
+      {/* Domain detail — structural reasons behind each weight */}
+      <details className="mt-4 group">
+        <summary className="text-sm text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1">
+          <CaretRight size={14} className="group-open:hidden" aria-hidden="true" />
+          <CaretDown size={14} className="hidden group-open:inline" aria-hidden="true" />
+          Show what drives each domain
+        </summary>
+        <div className="mt-3 space-y-3">
+          {exposures.map((exp) => (
+            <ExposureBar key={exp.domain} exposure={exp} />
+          ))}
         </div>
-      )}
+      </details>
     </section>
   );
 }
 
 function ExposureBar({ exposure }: { exposure: ExposureWeight }) {
   const Icon = DOMAIN_ICONS[exposure.domain] ?? Lightning;
-  const colors = DOMAIN_COLORS[exposure.domain] ?? DOMAIN_COLORS.fuel;
+  const colors = exposureColors(exposure.weight);
   const pct = Math.round(exposure.weight * 100);
 
   return (
@@ -687,11 +875,36 @@ function StructuralShape({
   const withData = structural.filter((c) => c.value !== null);
   const withoutData = structural.filter((c) => c.value === null);
 
-  // Find outliers — characteristics furthest from median (percentile far from 0.5)
+  // Surface the characteristics that most shape exposure — high values on
+  // pressure indicators (housing stress, car dependency) and low values on
+  // capacity indicators (income, solar, transport diversity) are most relevant.
+  const PRESSURE_KEYS = new Set(['housing_stress', 'car_dependency', 'agricultural_workforce', 'age_65_plus', 'age_80_plus', 'need_assistance', 'lone_person']);
+  const CAPACITY_KEYS = new Set(['median_income', 'solar_penetration', 'industry_diversity', 'transport_diversity', 'internet']);
+  // Remoteness and SEIFA are contextual — useful but not the lead
+  const CONTEXT_KEYS = new Set(['remoteness', 'seifa_irsd']);
+
   const ranked = [...withData]
     .filter((c) => c.percentile !== null)
-    .sort((a, b) => Math.abs((b.percentile ?? 0.5) - 0.5) - Math.abs((a.percentile ?? 0.5) - 0.5));
-  const outliers = ranked.slice(0, 3);
+    .map((c) => {
+      const pctl = c.percentile ?? 0.5;
+      let relevance: number;
+      if (PRESSURE_KEYS.has(c.key)) {
+        // High percentile = more pressure = more relevant
+        relevance = pctl;
+      } else if (CAPACITY_KEYS.has(c.key)) {
+        // Low percentile = less capacity = more relevant
+        relevance = 1 - pctl;
+      } else if (CONTEXT_KEYS.has(c.key)) {
+        // Contextual — relevant when extreme, but deprioritised
+        relevance = Math.abs(pctl - 0.5) * 0.6;
+      } else {
+        relevance = Math.abs(pctl - 0.5);
+      }
+      return { char: c, relevance };
+    })
+    .sort((a, b) => b.relevance - a.relevance);
+
+  const outliers = ranked.slice(0, 3).map((r) => r.char);
   const rest = withData.filter((c) => !outliers.includes(c));
 
   return (
@@ -701,8 +914,7 @@ function StructuralShape({
         <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900">What shapes this community&rsquo;s exposure</h3>
       </div>
       <p className="text-sm text-gray-500 mb-4">
-        The factors that shape how exposed this community is.
-        {outliers.length > 0 && ' Most distinctive shown first.'}
+        The structural factors that most shape this community&rsquo;s exposure.
       </p>
 
       {/* Outliers always visible */}
@@ -764,7 +976,7 @@ function StructuralCard({ char, highlight }: { char: StructuralCharacteristic; h
       {pct !== null && (
         <div className="mt-2">
           <div className="flex items-center gap-2">
-            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"
+            <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden"
               role="progressbar"
               aria-valuenow={pct}
               aria-valuemin={0}
@@ -849,47 +1061,28 @@ const DIVERSITY_SCALE: Record<string, number> = {
 };
 
 function SpectrumBar({ spectrum }: { spectrum: DiversitySpectrum }) {
-  // Position dot on the absolute scale, not the percentile
+  // Position dot on the absolute scale
   const scaleMax = DIVERSITY_SCALE[spectrum.label] ?? 4.0;
-  const absolutePosition = Math.round(Math.min(100, (spectrum.value / scaleMax) * 100));
+  const pct = Math.min(100, (spectrum.value / scaleMax) * 100);
 
-  // Use the API's spectrumPosition for label and colour (based on absolute thresholds)
-  const posColors = {
-    entrained: { dot: 'bg-amber-500', label: 'text-amber-700', bg: 'bg-amber-50' },
-    mixed: { dot: 'bg-yellow-500', label: 'text-yellow-700', bg: 'bg-yellow-50' },
-    coherent: { dot: 'bg-green-500', label: 'text-green-700', bg: 'bg-green-50' },
-  };
-  const colors = posColors[spectrum.spectrumPosition];
-  const label = spectrum.spectrumPosition === 'entrained' ? 'Concentrated' : spectrum.spectrumPosition === 'coherent' ? 'Diversified' : 'Moderate';
-
-  // Percentile as context, not as position
-  const pctLabel = spectrum.percentile !== null
-    ? `More diversified than ${Math.round(spectrum.percentile * 100)}% of communities`
-    : null;
+  // Colour follows the dot position on the gradient — no bucketing
+  const dotColor = pct >= 70 ? 'bg-green-500' : pct >= 40 ? 'bg-yellow-500' : 'bg-amber-500';
+  const bgColor = pct >= 70 ? 'bg-green-50' : pct >= 40 ? 'bg-yellow-50' : 'bg-amber-50';
 
   return (
-    <div className={`rounded-lg border border-gray-100 p-4 ${colors.bg}`}>
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-gray-900">{spectrum.label}</span>
-        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${colors.label} bg-white/80`}>
-          {label}
-        </span>
-      </div>
+    <div className={`rounded-lg border border-gray-100 p-4 ${bgColor}`}>
+      <span className="text-sm font-medium text-gray-900">{spectrum.label}</span>
 
-      <div className="relative h-3 bg-gradient-to-r from-amber-200 via-yellow-200 to-green-200 rounded-full mt-1">
+      <div className="relative h-3 bg-gradient-to-r from-amber-200 via-yellow-200 to-green-200 rounded-full mt-2">
         <div
-          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${colors.dot} rounded-full border-2 border-white shadow-sm transition-all`}
-          style={{ left: `clamp(8px, ${absolutePosition}% - 8px, calc(100% - 16px))` }}
+          className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${dotColor} rounded-full border-2 border-white shadow-sm transition-all`}
+          style={{ left: `clamp(8px, ${Math.round(pct)}% - 8px, calc(100% - 16px))` }}
         />
       </div>
       <div className="flex justify-between mt-1 text-[10px] text-gray-400">
         <span>Concentrated</span>
         <span>Diversified</span>
       </div>
-
-      {pctLabel && (
-        <p className="text-[11px] text-gray-400 mt-1.5">{pctLabel}</p>
-      )}
 
       <p className="text-sm text-gray-600 mt-2 leading-relaxed">
         {spectrum.interpretation}
@@ -934,7 +1127,7 @@ function CascadeTimeline({ cascade }: { cascade: CascadeEstimate[] }) {
         <div className="mt-4 grid sm:grid-cols-2 gap-3">
           {cascade.map((c) => {
             const Icon = DOMAIN_ICONS[c.domain] ?? Lightning;
-            const colors = DOMAIN_COLORS[c.domain] ?? DOMAIN_COLORS.fuel;
+            const colors = exposureColors(0.25); // neutral — cascade cards are informational
 
             return (
               <div key={c.domain} className={`rounded-lg border ${colors.border} p-4 ${colors.bg}`}>

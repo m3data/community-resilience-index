@@ -213,13 +213,20 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     percentile: percentileOf('housing_stress', housingStress),
   });
 
-  // Solar penetration
-  const solarKw = d.solar?.capacity_kw ?? null;
+  // Solar penetration — require minimum installations to be meaningful
+  const solarInstallations = d.solar?.installations ?? 0;
+  const solarKw = (solarInstallations >= 10 && d.solar?.capacity_kw != null)
+    ? d.solar.capacity_kw
+    : null;
   chars.push({
     key: 'solar_penetration',
     label: 'Solar capacity',
     value: solarKw,
-    formatted: solarKw !== null ? `${Math.round(solarKw).toLocaleString()} kW installed` : 'No data',
+    formatted: solarKw !== null
+      ? `${Math.round(solarKw).toLocaleString()} kW installed`
+      : (solarInstallations > 0 && solarInstallations < 10)
+        ? `Insufficient data (${solarInstallations} installations)`
+        : 'No data',
     source: 'Clean Energy Regulator',
     vintage: '2024',
     percentile: percentileOf('solar_battery_penetration', solarKw),
@@ -347,6 +354,10 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
 
   const exposures: ExposureWeight[] = [];
 
+  // Shared structural values used across multiple domains
+  const remoteness = get('remoteness');
+  const seifaIrsd = get('seifa_irsd');
+
   // Fuel exposure
   const carDep = get('car_dependency');
   let fuelWeight = 0.3; // baseline — everyone uses fuel
@@ -358,11 +369,10 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     fuelWeight += 0.15;
     fuelReasons.push(`${Math.round(carDep * 100)}% car dependency`);
   }
-  const remotenessForFuel = get('remoteness');
-  if (remotenessForFuel !== null && remotenessForFuel >= 5) {
+  if (remoteness !== null && remoteness >= 5) {
     fuelWeight += 0.3;
     fuelReasons.push('remote location — longer fuel supply chains');
-  } else if (remotenessForFuel !== null && remotenessForFuel >= 3) {
+  } else if (remoteness !== null && remoteness >= 3) {
     fuelWeight += 0.15;
     fuelReasons.push('regional location — supply chain distance');
   }
@@ -376,42 +386,79 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     signalKeys: ['brentCrude', 'crackSpread', 'dieselTgp', 'waFuel', 'nswFuel', 'reserves', 'stationAvailability'],
   });
 
-  // Food & agriculture exposure
+  // Food & grocery costs — consumption-first framing
+  // Primary question: "how much does it hurt when food prices move?"
+  const foodIncome = get('median_income');
   const agPct = get('agricultural_workforce');
-  let foodWeight = 0.2;
+  let foodWeight = 0.25; // higher baseline — everyone eats
   let foodReasons: string[] = [];
+
+  // Income is the primary driver — lower income = larger budget share on food
+  if (foodIncome !== null) {
+    if (foodIncome < 600) {
+      foodWeight += 0.3;
+      foodReasons.push('low income — food takes a larger share of household budget');
+    } else if (foodIncome < 1000) {
+      // Gradient: $600 → +0.3, $1000 → +0.05
+      const contrib = 0.3 - (foodIncome - 600) * (0.25 / 400);
+      foodWeight += contrib;
+      foodReasons.push('moderate income — food costs are a meaningful budget share');
+    }
+  }
+
+  // Remoteness — supply chain distance, fewer retailers, higher shelf prices
+  if (remoteness !== null) {
+    if (remoteness >= 5) {
+      foodWeight += 0.25;
+      foodReasons.push('remote — longer supply chains, fewer retailers, higher prices');
+    } else if (remoteness >= 3) {
+      // Gradient: 3 → +0.08, 5 → +0.25
+      foodWeight += 0.08 + (remoteness - 3) * (0.17 / 2);
+      foodReasons.push('regional — some supply chain distance');
+    }
+  }
+
+  // SEIFA — compounding disadvantage reduces household buffer
+  if (seifaIrsd !== null && seifaIrsd <= 3) {
+    foodWeight += 0.1;
+    foodReasons.push('higher socioeconomic disadvantage — less buffer for price rises');
+  }
+
+  // Agricultural workforce — local economy exposure to food system disruption
   if (agPct !== null && agPct > 0.1) {
-    foodWeight += 0.4;
-    foodReasons.push(`${Math.round(agPct * 100)}% agricultural workforce`);
+    foodWeight += 0.15;
+    foodReasons.push(`${Math.round(agPct * 100)}% agricultural workforce — local economy tied to food system`);
   } else if (agPct !== null && agPct > 0.05) {
-    foodWeight += 0.2;
+    foodWeight += 0.08;
     foodReasons.push(`${Math.round(agPct * 100)}% agricultural workforce`);
   }
-  const remoteness = get('remoteness');
-  if (remoteness !== null && remoteness >= 5) {
-    foodWeight += 0.2;
-    foodReasons.push('remote location — longer supply chains');
-  }
+
   exposures.push({
     domain: 'food',
-    label: 'Food & agriculture',
+    label: 'Food & grocery costs',
     weight: Math.min(1, foodWeight),
     reason: foodReasons.length > 0
-      ? `Elevated: ${foodReasons.join(', ')}`
-      : 'Standard food supply dependency',
+      ? foodReasons.join('. ') + '.'
+      : 'Standard food cost exposure',
     signalKeys: ['asxFood', 'farmInputs', 'food', 'foodBasket'],
   });
 
-  // Electricity exposure
+  // Electricity exposure — gradient based on solar capacity
   const solar = get('solar_penetration');
   let elecWeight = 0.2;
   let elecReasons: string[] = [];
-  if (solar !== null && solar < 500) {
-    elecWeight += 0.3;
-    elecReasons.push('low solar capacity — grid dependent');
-  } else if (solar !== null && solar > 5000) {
-    elecWeight -= 0.1;
-    elecReasons.push('strong solar capacity');
+  if (solar !== null) {
+    if (solar < 200) {
+      elecWeight += 0.35;
+      elecReasons.push('very low solar capacity — heavily grid dependent');
+    } else if (solar < 1000) {
+      // Linear gradient: 200kW → +0.3, 1000kW → +0.05
+      elecWeight += 0.3 - (solar - 200) * (0.25 / 800);
+      elecReasons.push('limited solar capacity — mostly grid dependent');
+    } else if (solar > 5000) {
+      elecWeight -= 0.1;
+      elecReasons.push('strong solar capacity');
+    }
   }
   exposures.push({
     domain: 'electricity',
@@ -423,18 +470,32 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     signalKeys: ['aemoElectricity'],
   });
 
-  // Economic pressure
+  // Economic pressure — gradient on housing stress + income
   const housingStress = get('housing_stress');
   const income = get('median_income');
   let econWeight = 0.2;
   let econReasons: string[] = [];
-  if (housingStress !== null && housingStress > 0.3) {
-    econWeight += 0.3;
-    econReasons.push(`${Math.round(housingStress * 100)}% housing stress`);
+  if (housingStress !== null) {
+    if (housingStress > 0.35) {
+      econWeight += 0.3;
+      econReasons.push(`${Math.round(housingStress * 100)}% housing stress`);
+    } else if (housingStress > 0.2) {
+      // Gradient: 20% → +0.05, 35% → +0.3
+      const contrib = 0.05 + (housingStress - 0.2) * (0.25 / 0.15);
+      econWeight += contrib;
+      econReasons.push(`${Math.round(housingStress * 100)}% housing stress`);
+    }
   }
-  if (income !== null && income < 1200) {
-    econWeight += 0.2;
-    econReasons.push('lower median income');
+  if (income !== null) {
+    if (income < 800) {
+      econWeight += 0.25;
+      econReasons.push('low median income');
+    } else if (income < 1200) {
+      // Gradient: $800 → +0.25, $1200 → +0.05
+      const contrib = 0.25 - (income - 800) * (0.2 / 400);
+      econWeight += contrib;
+      econReasons.push('lower median income');
+    }
   }
   exposures.push({
     domain: 'economic',
@@ -446,29 +507,51 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     signalKeys: ['rbaCashRate', 'audUsd', 'asxEnergy'],
   });
 
-  // Housing
+  // Housing — gradient on housing stress + SEIFA as secondary driver
   let housingWeight = 0.1;
   let housingReasons: string[] = [];
-  if (housingStress !== null && housingStress > 0.3) {
-    housingWeight += 0.4;
-    housingReasons.push(`${Math.round(housingStress * 100)}% of households in housing stress`);
+  if (housingStress !== null) {
+    if (housingStress > 0.35) {
+      housingWeight += 0.4;
+      housingReasons.push(`${Math.round(housingStress * 100)}% of households in housing stress`);
+    } else if (housingStress > 0.2) {
+      // Gradient: 20% → +0.05, 35% → +0.4
+      const contrib = 0.05 + (housingStress - 0.2) * (0.35 / 0.15);
+      housingWeight += contrib;
+      housingReasons.push(`${Math.round(housingStress * 100)}% housing cost-to-income ratio`);
+    }
+  }
+  if (seifaIrsd !== null && seifaIrsd <= 3) {
+    housingWeight += 0.1;
+    housingReasons.push('higher socioeconomic disadvantage');
   }
   exposures.push({
     domain: 'housing',
     label: 'Housing affordability',
     weight: Math.min(1, housingWeight),
     reason: housingReasons.length > 0
-      ? `High pressure: ${housingReasons.join(', ')}`
+      ? `Pressure: ${housingReasons.join(', ')}`
       : 'Manageable housing costs',
     signalKeys: ['rbaCashRate'],
   });
 
-  // Emergency
+  // Emergency — gradient on remoteness + elderly population as secondary
   let emerWeight = 0.1;
   let emerReasons: string[] = [];
-  if (remoteness !== null && remoteness >= 5) {
-    emerWeight += 0.3;
-    emerReasons.push('remote — fewer emergency options');
+  if (remoteness !== null) {
+    if (remoteness >= 5) {
+      emerWeight += 0.3;
+      emerReasons.push('remote — fewer emergency options');
+    } else if (remoteness >= 3) {
+      // Gradient: 3 → +0.1, 5 → +0.3
+      emerWeight += 0.1 + (remoteness - 3) * (0.2 / 2);
+      emerReasons.push('regional — some distance from major services');
+    }
+  }
+  const lonePersonPct = get('lone_person');
+  if (lonePersonPct !== null && lonePersonPct > 0.3) {
+    emerWeight += 0.1;
+    emerReasons.push(`${Math.round(lonePersonPct * 100)}% living alone — fewer household resources in emergencies`);
   }
   exposures.push({
     domain: 'emergency',
@@ -690,35 +773,54 @@ function computeCascade(chars: StructuralCharacteristic[]): CascadeEstimate[] {
 function computeDiversitySpectrum(chars: StructuralCharacteristic[]): DiversitySpectrum[] {
   const spectra: DiversitySpectrum[] = [];
 
+  // Spectrum position uses absolute thresholds, but percentile can upgrade:
+  // if a community is in the top 20% nationally, theoretical maximums shouldn't
+  // hold it at "moderate" when it's among the most diversified in reality.
+  function resolvePosition(
+    absolutePos: 'entrained' | 'mixed' | 'coherent',
+    percentile: number | null,
+  ): 'entrained' | 'mixed' | 'coherent' {
+    if (percentile === null) return absolutePos;
+    if (percentile >= 0.8 && absolutePos !== 'coherent') return 'coherent';
+    if (percentile >= 0.5 && absolutePos === 'entrained') return 'mixed';
+    return absolutePos;
+  }
+
   const industryDiv = chars.find((c) => c.key === 'industry_diversity');
   if (industryDiv?.value !== null && industryDiv?.value !== undefined) {
     const v = industryDiv.value;
+    const pctl = industryDiv.percentile;
+    const absPos = v > 3 ? 'coherent' as const : v > 2 ? 'mixed' as const : 'entrained' as const;
+    const pos = resolvePosition(absPos, pctl);
     spectra.push({
       label: 'Industry diversity',
       value: v,
-      percentile: industryDiv.percentile,
-      interpretation: v > 3
+      percentile: pctl,
+      interpretation: pos === 'coherent'
         ? 'Diversified economy — multiple sectors can absorb shocks independently'
-        : v > 2
+        : pos === 'mixed'
           ? 'Moderate diversity — some capacity to absorb sector-specific shocks'
           : 'Concentrated economy — a downturn in the dominant industry affects everything',
-      spectrumPosition: v > 3 ? 'coherent' : v > 2 ? 'mixed' : 'entrained',
+      spectrumPosition: pos,
     });
   }
 
   const transportDiv = chars.find((c) => c.key === 'transport_diversity');
   if (transportDiv?.value !== null && transportDiv?.value !== undefined) {
     const v = transportDiv.value;
+    const pctl = transportDiv.percentile;
+    const absPos = v > 2.5 ? 'coherent' as const : v > 1.5 ? 'mixed' as const : 'entrained' as const;
+    const pos = resolvePosition(absPos, pctl);
     spectra.push({
       label: 'Transport diversity',
       value: v,
-      percentile: transportDiv.percentile,
-      interpretation: v > 2.5
+      percentile: pctl,
+      interpretation: pos === 'coherent'
         ? 'Multiple transport options — community can adapt if one mode is disrupted'
-        : v > 1.5
+        : pos === 'mixed'
           ? 'Some transport alternatives, but most commuters rely on one mode'
           : 'Limited transport options — high dependency on a single mode (likely private car)',
-      spectrumPosition: v > 2.5 ? 'coherent' : v > 1.5 ? 'mixed' : 'entrained',
+      spectrumPosition: pos,
     });
   }
 
@@ -1075,6 +1177,23 @@ export async function GET(request: Request): Promise<Response> {
   if (!raw[postcode]) {
     return Response.json(
       { error: `Postcode not found: ${postcode}`, status: 404 },
+      { status: 404 },
+    );
+  }
+
+  // Require minimum data to show a meaningful profile
+  const d = raw[postcode];
+  const hasCensus = d.census && (
+    d.census.car_dependency !== null ||
+    d.census.housing_stress !== null ||
+    d.census.median_income !== null
+  );
+  if (!hasCensus) {
+    return Response.json(
+      {
+        error: `Not enough data for postcode ${postcode}. This may be a PO box or non-residential postcode. Census data is not available for this area.`,
+        status: 404,
+      },
       { status: 404 },
     );
   }
