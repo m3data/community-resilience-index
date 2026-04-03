@@ -423,7 +423,7 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     reason: foodReasons.length > 0
       ? foodReasons.join('. ') + '.'
       : 'Standard food cost exposure',
-    signalKeys: ['asxFood', 'farmInputs', 'food', 'foodBasket'],
+    signalKeys: ['asxFood', 'farmInputs', 'foodBasket', 'supermarketPrices'],
   });
 
   // Electricity exposure — gradient based on solar capacity
@@ -655,6 +655,18 @@ function contextualiseSignals(
       : `Food price changes by category — bread, meat, dairy, fruit and vegetables — show where household budgets are under most pressure. Sub-group breakdowns reveal which items are driving overall inflation.`,
   });
 
+  // Supermarket shelf prices — scraped retailer prices vs baseline
+  if (foodExposure > 0.25) {
+    signals.push({
+      key: 'supermarketPrices',
+      domain: 'food',
+      relevance: foodExposure * 0.9,
+      context: remoteness !== null && remoteness >= 3
+        ? `Shelf prices at major supermarkets compared to a Dec 2025 baseline. Regional communities often see price rises earlier and with less retailer competition to moderate them.`
+        : `Real shelf prices at Coles and Woolworths compared to a Dec 2025 baseline. Shows which product categories are moving and by how much — the closest thing to what you actually see at the checkout.`,
+    });
+  }
+
   // Farm inputs
   if (agPct !== null && agPct > 0.05) {
     signals.push({
@@ -863,6 +875,21 @@ const ACTION_TEMPLATES: Array<{
     guideLink: '/guide#shared-resources',
   },
   // ── Food ──
+  // SPEC-005 v0.2.0 design decision: consumption-first for urban (remoteness <= 2),
+  // production-focused actions can lead for regional/remote (remoteness >= 3).
+  // Urban consumers have retailer choice and community food programs nearby;
+  // regional/remote communities benefit more from local production and direct channels.
+  {
+    domain: 'food',
+    condition: (c) => (val(c, 'remoteness') ?? 1) <= 2,
+    driver: () => 'urban location — consumption exposure',
+    category: 'household',
+    urgency: 'now',
+    title: 'Review your grocery budget and compare retailers',
+    description: () => `Track what you spend on groceries for two weeks. Compare prices across Coles, Woolworths, Aldi, and local independent grocers — price gaps on staples can be 15-25%. Check community food programs, food rescue organisations, and bulk-buy co-ops in your area. Small shifts in where and how you shop compound over months.`,
+    baseScore: 0.75,
+    guideLink: '/guide#gather',
+  },
   {
     domain: 'food',
     condition: (c) => (val(c, 'agricultural_workforce') ?? 0) > 0.1,
@@ -871,7 +898,10 @@ const ACTION_TEMPLATES: Array<{
     urgency: 'this_month',
     title: 'Build farmer-to-community channels',
     description: () => `Your community has significant agricultural capacity. Direct farm-to-table relationships reduce supply chain exposure and keep money local. Explore a community-supported agriculture (CSA) arrangement or regular farm gate sales.`,
-    baseScore: 0.7,
+    // Lower base score for urban postcodes; computeActions multiplies by exposure weight,
+    // so this naturally ranks below the consumption action in cities but can lead in
+    // regional/remote areas where food exposure weight is amplified.
+    baseScore: 0.6,
     guideLink: '/guide#food-network',
   },
   {
@@ -893,7 +923,7 @@ const ACTION_TEMPLATES: Array<{
     urgency: 'ongoing',
     title: 'Map local food sources',
     description: () => `Know where food comes from near you — community gardens, local farms, food co-ops, food banks. Map them. Share the map. When supply chains are disrupted, local sources become critical.`,
-    baseScore: 0.5,
+    baseScore: 0.55,
     guideLink: '/guide#resource-map',
   },
   // ── Economic ──

@@ -449,7 +449,8 @@ export function computeCascadePressure(
     if (basketImpact) {
       basketContext =
         ` Weekly household basket (18 staple items): $${basketImpact.weeklyBasketBase.toFixed(2)} at baseline prices.` +
-        ` Estimated freight-driven increase at current diesel: +$${basketImpact.weeklyBasketIncrease.toFixed(2)}/week (~$${basketImpact.annualIncrease.toFixed(0)}/year).`;
+        ` Estimated freight-driven increase at current diesel: +$${basketImpact.weeklyBasketIncrease.toFixed(2)}/week (~$${basketImpact.annualIncrease.toFixed(0)}/year).` +
+        ` This is a structural estimate based on published freight cost shares, not a forecast of what you will pay.`;
 
       // Add highest-impact categories
       const topCats = basketImpact.categoryBreakdown.slice(0, 3);
@@ -461,9 +462,9 @@ export function computeCascadePressure(
 
       // Add basket impact as a component
       components.push({
-        label: "Weekly basket freight impact",
+        label: "Est. freight cost on groceries",
         value: `+$${basketImpact.weeklyBasketIncrease.toFixed(2)}/week`,
-        change: `~$${basketImpact.annualIncrease.toFixed(0)}/year`,
+        change: `~$${basketImpact.annualIncrease.toFixed(0)}/year (structural estimate)`,
         trend: basketImpact.weeklyBasketIncrease > 5 ? "critical" :
           basketImpact.weeklyBasketIncrease > 2 ? "up" : "stable",
       });

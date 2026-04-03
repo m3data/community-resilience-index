@@ -22,7 +22,7 @@ export const revalidate = 300; // cache rendered page for 5 minutes
 export const metadata: Metadata = {
   title: "Signal Intelligence",
   description:
-    "Cascading failure early warning for Australian communities. Upstream market signals, fuel supply, food prices, economic pressure, and emergency feeds — live from public data.",
+    "Live supply chain pressure signals for Australian communities. Upstream market signals, fuel supply, food prices, economic pressure, and emergency feeds — sourced from public data.",
 };
 
 /** Cascade layer definitions — the propagation path */

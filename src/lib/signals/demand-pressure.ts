@@ -96,7 +96,7 @@ export async function fetchDemandPressure(): Promise<Signal | null> {
       automated: false,
       layer: 4,
       layerLabel: "Retail impact",
-      propagatesTo: "Station availability, rationing risk, and community anxiety",
+      propagatesTo: "Station availability, queue pressure, and community stress",
     };
   } catch {
     return null;

@@ -354,7 +354,7 @@ export default function References() {
               <td>Station availability (gap detection)</td>
               <td>WA FuelWatch + NSW FuelCheck</td>
               <td>Daily snapshot</td>
-              <td>WA + NSW (~10,800 stations)</td>
+              <td>WA + NSW</td>
             </tr>
             <tr>
               <td>Energy policy news</td>

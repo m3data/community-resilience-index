@@ -907,6 +907,10 @@ function StructuralShape({
   const outliers = ranked.slice(0, 3).map((r) => r.char);
   const rest = withData.filter((c) => !outliers.includes(c));
 
+  // Derive role for colour semantics
+  const roleOf = (key: string): 'pressure' | 'capacity' | 'context' =>
+    PRESSURE_KEYS.has(key) ? 'pressure' : CONTEXT_KEYS.has(key) ? 'context' : 'capacity';
+
   return (
     <section>
       <div className="flex items-center gap-2 mb-2">
@@ -920,7 +924,7 @@ function StructuralShape({
       {/* Outliers always visible */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {outliers.map((char) => (
-          <StructuralCard key={char.key} char={char} highlight />
+          <StructuralCard key={char.key} char={char} role={roleOf(char.key)} highlight />
         ))}
       </div>
 
@@ -940,7 +944,7 @@ function StructuralShape({
             <>
               <div className="mt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {rest.map((char) => (
-                  <StructuralCard key={char.key} char={char} />
+                  <StructuralCard key={char.key} char={char} role={roleOf(char.key)} />
                 ))}
               </div>
               {withoutData.length > 0 && (
@@ -960,14 +964,31 @@ function StructuralShape({
   );
 }
 
-function StructuralCard({ char, highlight }: { char: StructuralCharacteristic; highlight?: boolean }) {
-  // Colour the percentile bar based on deviation from median
+function StructuralCard({ char, highlight, role = 'capacity' }: { char: StructuralCharacteristic; highlight?: boolean; role?: 'pressure' | 'capacity' | 'context' }) {
+  // Colour the percentile bar based on deviation from median,
+  // with semantics that match the indicator's role:
+  //   pressure:  high = bad (amber), low = good (green)
+  //   capacity:  high = good (green), low = bad (amber)
+  //   context:   neutral gray in both directions
   const pct = char.percentile !== null ? Math.round(char.percentile * 100) : null;
   const isHigh = pct !== null && pct >= 75;
   const isLow = pct !== null && pct <= 25;
-  const barColor = isHigh ? 'bg-green-500' : isLow ? 'bg-amber-500' : 'bg-gray-400';
+
+  let barColor: string;
+  let deviationColor: string;
+  if (role === 'context') {
+    barColor = isHigh || isLow ? 'bg-gray-500' : 'bg-gray-400';
+    deviationColor = 'text-gray-500';
+  } else if (role === 'pressure') {
+    // Inverted: high percentile on a pressure indicator is bad
+    barColor = isHigh ? 'bg-amber-500' : isLow ? 'bg-green-500' : 'bg-gray-400';
+    deviationColor = isHigh ? 'text-amber-600' : isLow ? 'text-green-600' : 'text-gray-400';
+  } else {
+    // capacity (default): high = good
+    barColor = isHigh ? 'bg-green-500' : isLow ? 'bg-amber-500' : 'bg-gray-400';
+    deviationColor = isHigh ? 'text-green-600' : isLow ? 'text-amber-600' : 'text-gray-400';
+  }
   const deviationLabel = isHigh ? 'Above average' : isLow ? 'Below average' : pct !== null ? 'Near average' : null;
-  const deviationColor = isHigh ? 'text-green-600' : isLow ? 'text-amber-600' : 'text-gray-400';
 
   return (
     <div className={`p-3 rounded-lg border ${highlight ? 'border-green-200 bg-green-50/30' : 'border-gray-100 bg-white'}`}>
