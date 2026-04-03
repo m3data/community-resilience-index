@@ -103,7 +103,7 @@ npm test
 | DCCEEW Petroleum Statistics | Weekly | No |
 | AIP Terminal Gate Prices | Daily | No |
 | WA FuelWatch | Daily | No |
-| NSW FuelCheck | Daily | No |
+| NSW FuelCheck | Daily | Yes (API key) |
 | Yahoo Finance | Intraday (delayed) | No |
 | AEMO NEM | 5-minute dispatch | No |
 | RBA Statistical Tables | Monthly | No |
@@ -112,7 +112,7 @@ npm test
 | Google News RSS | Rolling | No |
 | Coles/Woolworths prices | Manual scrape | No |
 
-All data sources are public and free. No API keys required.
+All data sources are public and free. NSW FuelCheck requires an API key (apply via data.nsw.gov.au).
 
 ## Licence
 
