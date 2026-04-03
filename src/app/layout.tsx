@@ -22,26 +22,27 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://communityresilience.au"),
+  metadataBase: new URL("https://australia.communityresilienceindex.net"),
   title: {
     default: "Community Resilience Index — Australia",
     template: "%s — Community Resilience Index",
   },
   description:
-    "Postcode-level resilience intelligence for Australian communities. Structural capacity, crisis exposure, and what you can do about it.",
+    "Postcode-level exposure profiles for Australian communities. See where supply chain pressure reaches your postcode, track live signals across 6 cascade layers, and find out what your community can do about it. Built on ABS Census data and 17+ live public data feeds.",
+  authors: [{ name: "Mat Mytka", url: "https://matmytka.com" }],
   openGraph: {
-    title: "Community Resilience Index",
+    title: "Community Resilience Index — Australia",
     description:
-      "See your community's structural resilience and crisis exposure. Built on peer-reviewed methodology, powered by open data.",
+      "Where the pressure is, who it reaches, and what your community can do about it. Postcode-level exposure profiles powered by live public data across fuel, food, electricity, housing, economic, and emergency domains.",
     siteName: "Community Resilience Index",
     type: "website",
     locale: "en_AU",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Community Resilience Index",
+    title: "Community Resilience Index — Australia",
     description:
-      "How resilient is your community? Postcode-level resilience intelligence for Australia.",
+      "Where the pressure is, who it reaches, and what your community can do about it. Postcode-level exposure profiles for Australian communities.",
   },
 };
 
