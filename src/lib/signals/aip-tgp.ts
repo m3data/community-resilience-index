@@ -40,13 +40,13 @@ const CITY_COL: Record<string, number> = {
 };
 const NATIONAL_COL = 9;
 
-interface TgpRow {
+export interface TgpRow {
   date: Date;
   cities: Record<string, number>;
   national: number;
 }
 
-function toDate(val: unknown): Date | null {
+export function toDate(val: unknown): Date | null {
   if (val instanceof Date) return val;
   if (typeof val === "number") {
     // Excel serial number
@@ -59,7 +59,7 @@ function toDate(val: unknown): Date | null {
   return null;
 }
 
-function parseTgpSheet(wb: ExcelJS.Workbook, sheetName: string): TgpRow[] {
+export function parseTgpSheet(wb: ExcelJS.Workbook, sheetName: string): TgpRow[] {
   const ws = wb.getWorksheet(sheetName);
   if (!ws) {
     console.warn(`[aip-tgp] Sheet "${sheetName}" not found`);
@@ -134,7 +134,7 @@ function formatDate(date: Date): string {
   });
 }
 
-function computeTrend(
+export function computeTrend(
   latest: number,
   weekAgo: number | undefined
 ): "up" | "down" | "stable" | "critical" {
