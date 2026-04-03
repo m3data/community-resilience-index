@@ -1056,8 +1056,8 @@ function DiversitySection({ spectra }: { spectra: DiversitySpectrum[] }) {
 
 // Absolute scale max for each diversity type (Shannon index theoretical max)
 const DIVERSITY_SCALE: Record<string, number> = {
-  'Industry diversity': 4.25,   // log2(~19 ANZSIC divisions)
-  'Transport diversity': 3.0,   // log2(~8 commute modes)
+  'Industry diversity': 2.94,   // ln(~19 ANZSIC divisions)
+  'Transport diversity': 2.08,  // ln(~8 commute modes)
 };
 
 function SpectrumBar({ spectrum }: { spectrum: DiversitySpectrum }) {

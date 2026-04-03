@@ -10,6 +10,7 @@
 
 import { getCachedData, isValidPostcode, scorePostcode } from '../score/route';
 import type { PostcodeRecord } from '../score/route';
+import { computeShannonDiversity } from '../../../lib/scoring/diversity';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -142,27 +143,19 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
   // but that data isn't publicly available at postcode level.
   // Data and scoring engine indicator retained for future use.
 
-  // Industry diversity (Shannon)
-  let industryDiv: number | null = null;
-  if (d.census?.industry_counts && Object.keys(d.census.industry_counts).length > 0) {
-    const counts = Object.values(d.census.industry_counts);
-    const total = counts.reduce((s, v) => s + v, 0);
-    if (total > 0) {
-      industryDiv = 0;
-      for (const c of counts) {
-        if (c > 0) {
-          const p = c / total;
-          industryDiv -= p * Math.log2(p);
-        }
-      }
-    }
-  }
+  // Industry diversity (Shannon) — uses computeShannonDiversity to match
+  // the reference population in the data loader (both use natural log).
+  // Previously computed inline with Math.log2, producing values ~44% larger
+  // than the reference population and inflating percentiles. (SPEC-005 R1)
+  const industryDiv = (d.census?.industry_counts && Object.keys(d.census.industry_counts).length > 0)
+    ? computeShannonDiversity(d.census.industry_counts)
+    : null;
   chars.push({
     key: 'industry_diversity',
     label: 'Industry spread',
     value: industryDiv,
     formatted: industryDiv !== null
-      ? `${industryDiv > 3 ? 'Diversified across many industries' : industryDiv > 2 ? 'Moderate spread across industries' : 'Concentrated in few industries'}`
+      ? `${industryDiv > 2.1 ? 'Diversified across many industries' : industryDiv > 1.4 ? 'Moderate spread across industries' : 'Concentrated in few industries'}`
       : 'No data',
     source: 'ABS Census 2021',
     vintage: '2021',
@@ -258,27 +251,17 @@ function extractStructural(postcode: string): StructuralCharacteristic[] {
     percentile: percentileOf('median_household_income', income),
   });
 
-  // Transport diversity
-  let transportDiv: number | null = null;
-  if (d.census?.commute_mode_counts && Object.keys(d.census.commute_mode_counts).length > 0) {
-    const counts = Object.values(d.census.commute_mode_counts);
-    const total = counts.reduce((s, v) => s + v, 0);
-    if (total > 0) {
-      transportDiv = 0;
-      for (const c of counts) {
-        if (c > 0) {
-          const p = c / total;
-          transportDiv -= p * Math.log2(p);
-        }
-      }
-    }
-  }
+  // Transport diversity (Shannon) — same fix as industry diversity.
+  // Uses computeShannonDiversity to match reference population. (SPEC-005 R1)
+  const transportDiv = (d.census?.commute_mode_counts && Object.keys(d.census.commute_mode_counts).length > 0)
+    ? computeShannonDiversity(d.census.commute_mode_counts)
+    : null;
   chars.push({
     key: 'transport_diversity',
     label: 'Transport options',
     value: transportDiv,
     formatted: transportDiv !== null
-      ? `${transportDiv > 2.5 ? 'Commuters use a mix of transport modes' : transportDiv > 1.5 ? 'Some commuters use alternatives to driving' : 'Most commuters rely on private car'}`
+      ? `${transportDiv > 1.7 ? 'Commuters use a mix of transport modes' : transportDiv > 1.0 ? 'Some commuters use alternatives to driving' : 'Most commuters rely on private car'}`
       : 'No data',
     source: 'ABS Census 2021',
     vintage: '2021',
@@ -790,7 +773,8 @@ function computeDiversitySpectrum(chars: StructuralCharacteristic[]): DiversityS
   if (industryDiv?.value !== null && industryDiv?.value !== undefined) {
     const v = industryDiv.value;
     const pctl = industryDiv.percentile;
-    const absPos = v > 3 ? 'coherent' as const : v > 2 ? 'mixed' as const : 'entrained' as const;
+    // Thresholds calibrated for natural log (ln). ln(19 ANZSIC) ≈ 2.94 max.
+    const absPos = v > 2.1 ? 'coherent' as const : v > 1.4 ? 'mixed' as const : 'entrained' as const;
     const pos = resolvePosition(absPos, pctl);
     spectra.push({
       label: 'Industry diversity',
@@ -809,7 +793,8 @@ function computeDiversitySpectrum(chars: StructuralCharacteristic[]): DiversityS
   if (transportDiv?.value !== null && transportDiv?.value !== undefined) {
     const v = transportDiv.value;
     const pctl = transportDiv.percentile;
-    const absPos = v > 2.5 ? 'coherent' as const : v > 1.5 ? 'mixed' as const : 'entrained' as const;
+    // Thresholds calibrated for natural log (ln). ln(8 modes) ≈ 2.08 max.
+    const absPos = v > 1.7 ? 'coherent' as const : v > 1.0 ? 'mixed' as const : 'entrained' as const;
     const pos = resolvePosition(absPos, pctl);
     spectra.push({
       label: 'Transport diversity',
@@ -995,7 +980,7 @@ const ACTION_TEMPLATES: Array<{
     domain: 'economic',
     condition: (c) => {
       const id = val(c, 'industry_diversity');
-      return id !== null && id < 2;
+      return id !== null && id < 1.4; // natural log threshold (was 2 in log2)
     },
     driver: () => 'concentrated economy — entrainment risk',
     category: 'advocacy',

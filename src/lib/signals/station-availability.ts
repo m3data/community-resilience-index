@@ -147,6 +147,10 @@ export function fetchStationAvailability(): Signal | null {
   const nswTotal =
     today.sources.nsw_fuelcheck.diesel + today.sources.nsw_fuelcheck.petrol;
 
+  // Use unique IDs for the station count — historical snapshots may have
+  // inflated totalStations due to duplicate records. (SPEC-005 R2)
+  const uniqueStationCount = new Set(today.stations.map((s) => s.id)).size;
+
   // Always show monitoring coverage as components
   const components: SignalComponent[] = [
     {
@@ -167,12 +171,12 @@ export function fetchStationAvailability(): Signal | null {
   if (files.length < 2) {
     return {
       label: "Fuel station monitoring",
-      value: `${today.totalStations.toLocaleString()} stations tracked daily`,
+      value: `${uniqueStationCount.toLocaleString()} stations tracked daily`,
       trend: "stable",
       source: `FuelWatch WA + FuelCheck NSW — ${today.date}`,
       sourceUrl: "https://www.fuelwatch.wa.gov.au/",
       context:
-        `We monitor ${today.totalStations.toLocaleString()} fuel stations daily across WA and NSW ` +
+        `We monitor ${uniqueStationCount.toLocaleString()} fuel stations daily across WA and NSW ` +
         `— the only two states with fully transparent, public station-level price feeds. ` +
         `Victoria, Queensland, South Australia, Tasmania, NT, and ACT do not publish station-level data. ` +
         `Gap detection (stations that stop appearing in the feed) activates after the second daily snapshot.`,
@@ -193,8 +197,13 @@ export function fetchStationAvailability(): Signal | null {
   const stoppedCount = gaps.stoppedReporting.length;
   const newCount = gaps.newlyReporting.length;
 
-  // Trend based on net disappearances
-  const stoppedPct = (stoppedCount / yesterday.totalStations) * 100;
+  // Trend based on net disappearances.
+  // Use unique IDs as denominator, not raw totalStations, so the
+  // threshold is reachable with realistic disappearance counts. (SPEC-005 R2)
+  const yesterdayUniqueCount = new Set(yesterday.stations.map((s) => s.id)).size;
+  const stoppedPct = yesterdayUniqueCount > 0
+    ? (stoppedCount / yesterdayUniqueCount) * 100
+    : 0;
   const trend: Signal["trend"] =
     stoppedPct > 5
       ? "critical"
@@ -231,7 +240,7 @@ export function fetchStationAvailability(): Signal | null {
 
   if (stoppedCount === 0) {
     context =
-      `All ${today.totalStations.toLocaleString()} monitored stations still appearing in public feeds ` +
+      `All ${uniqueStationCount.toLocaleString()} monitored stations still appearing in public feeds ` +
       `between ${yesterday.date} and ${today.date}. ` +
       `This means no stations dropped out of the feed entirely — ` +
       `but stations can be out of fuel and still appear in price data. ` +
@@ -258,8 +267,8 @@ export function fetchStationAvailability(): Signal | null {
   // Value headline — lead with monitoring scale, flag gaps if any
   const value =
     stoppedCount === 0
-      ? `${today.totalStations.toLocaleString()} stations tracked — no feed dropouts`
-      : `${stoppedCount} station${stoppedCount !== 1 ? "s" : ""} dropped from feed — ${today.totalStations.toLocaleString()} tracked`;
+      ? `${uniqueStationCount.toLocaleString()} stations tracked — no feed dropouts`
+      : `${stoppedCount} station${stoppedCount !== 1 ? "s" : ""} dropped from feed — ${uniqueStationCount.toLocaleString()} tracked`;
 
   return {
     label: "Fuel station monitoring",
