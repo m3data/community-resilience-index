@@ -21,9 +21,13 @@
 
 import type { Signal, SignalComponent } from "./types";
 
-// Diesel excise rate: 50.6 c/L as at 1 February 2025
-// Indexed to CPI twice yearly (February and August)
-const DIESEL_EXCISE = 50.6;
+// Diesel excise rate (c/L), CPI-indexed twice yearly (February and August).
+// Source: ATO — Excise duty rates for fuel and petroleum products
+//   https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/excise-on-fuel-and-petroleum-products/excise-duty-rates-for-fuel-and-petroleum-products
+// Effective: 2 February 2026 (CPI indexation factor 1.019)
+// Previous: 51.6 c/L (4 Aug 2025), 50.6 c/L (3 Feb 2025)
+// Next indexation expected: August 2026
+const DIESEL_EXCISE = 52.6;
 
 // 1 barrel = 158.987 litres
 const LITRES_PER_BARREL = 158.987;

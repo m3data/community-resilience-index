@@ -427,21 +427,23 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
   });
 
   // Electricity exposure — gradient based on solar capacity
+  // Missing data defaults to vulnerability, not resilience. (SPEC-005 R3.4)
   const solar = get('solar_penetration');
   let elecWeight = 0.2;
   let elecReasons: string[] = [];
-  if (solar !== null) {
-    if (solar < 200) {
-      elecWeight += 0.35;
-      elecReasons.push('very low solar capacity — heavily grid dependent');
-    } else if (solar < 1000) {
-      // Linear gradient: 200kW → +0.3, 1000kW → +0.05
-      elecWeight += 0.3 - (solar - 200) * (0.25 / 800);
-      elecReasons.push('limited solar capacity — mostly grid dependent');
-    } else if (solar > 5000) {
-      elecWeight -= 0.1;
-      elecReasons.push('strong solar capacity');
-    }
+  if (solar === null) {
+    elecWeight += 0.35;
+    elecReasons.push('no solar data — assumed grid dependent');
+  } else if (solar < 200) {
+    elecWeight += 0.35;
+    elecReasons.push('very low solar capacity — heavily grid dependent');
+  } else if (solar < 1000) {
+    // Linear gradient: 200kW → +0.3, 1000kW → +0.05
+    elecWeight += 0.3 - (solar - 200) * (0.25 / 800);
+    elecReasons.push('limited solar capacity — mostly grid dependent');
+  } else if (solar > 5000) {
+    elecWeight -= 0.1;
+    elecReasons.push('strong solar capacity');
   }
   exposures.push({
     domain: 'electricity',
