@@ -7,6 +7,7 @@ import { fetchWaFuel, computeRetailMargin } from "./wa-fuelwatch";
 import { fetchNswFuel } from "./nsw-fuelcheck";
 import { fetchStationAvailability } from "./station-availability";
 import { fetchFarmInputs } from "./farm-inputs";
+import { fetchAbaresFertiliser } from "./abares-fertiliser";
 
 // Tier 1 signal modules — direct API integrations (no scraping)
 import { fetchBrentCrude } from "./brent-crude";
@@ -14,6 +15,7 @@ import { fetchAsxEnergy } from "./asx-energy";
 import { fetchAsxFood } from "./asx-food";
 import { fetchAudUsd } from "./aud-usd";
 import { fetchCrackSpread } from "./crack-spread";
+import { fetchFreightIndex } from "./freight-index";
 import { fetchAemoElectricity } from "./aemo-electricity";
 import { fetchRbaCashRate } from "./rba-cash-rate";
 import { fetchNswRfs } from "./nsw-rfs";
@@ -43,7 +45,8 @@ export async function fetchSignals(): Promise<SignalSet> {
   const [
     productReserves, ieaCompliance, stockVolumes, energyPolicyNews,
     foodBasket, supermarketPrices, waFuel, nswFuel, stationAvailability, farmInputs,
-    brentCrude, asxEnergy, asxFood, audUsd, crackSpread, aemoElectricity,
+    abaresFertiliser,
+    brentCrude, asxEnergy, asxFood, audUsd, crackSpread, freightIndex, aemoElectricity,
     dieselTgp, petrolTgp,
     rbaCashRate, nswRfs, vicEmv,
   ] = await Promise.all([
@@ -60,12 +63,15 @@ export async function fetchSignals(): Promise<SignalSet> {
     safe(fetchNswFuel()),
     safe(Promise.resolve(fetchStationAvailability())),
     safe(fetchFarmInputs()),
+    // Layer 5: ABARES farm commodity prices
+    safe(fetchAbaresFertiliser()),
     // Layer 1: Upstream market signals
     safe(fetchBrentCrude()),
     safe(fetchAsxEnergy()),
     safe(fetchAsxFood()),
     safe(fetchAudUsd()),
     safe(fetchCrackSpread()),
+    safe(fetchFreightIndex()),
     // Layer 2: Supply position
     safe(fetchAemoElectricity()),
     // Layer 3: Wholesale price transmission
@@ -86,12 +92,14 @@ export async function fetchSignals(): Promise<SignalSet> {
     ...(foodBasket ? { foodBasket } : {}),
     ...(supermarketPrices ? { supermarketPrices } : {}),
     ...(farmInputs ? { farmInputs } : {}),
+    ...(abaresFertiliser ? { abaresFertiliser } : {}),
     // Layer 1: Upstream market signals
     ...(brentCrude ? { brentCrude } : {}),
     ...(asxEnergy ? { asxEnergy } : {}),
     ...(asxFood ? { asxFood } : {}),
     ...(audUsd ? { audUsd } : {}),
     ...(crackSpread ? { crackSpread } : {}),
+    ...(freightIndex ? { freightIndex } : {}),
     // Layer 2: Supply position
     ...(productReserves ? { productReserves } : {}),
     ...(ieaCompliance ? { ieaCompliance } : {}),

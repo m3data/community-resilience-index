@@ -423,7 +423,7 @@ function computeExposures(chars: StructuralCharacteristic[]): ExposureWeight[] {
     reason: foodReasons.length > 0
       ? foodReasons.join('. ') + '.'
       : 'Standard food cost exposure',
-    signalKeys: ['asxFood', 'farmInputs', 'foodBasket', 'supermarketPrices'],
+    signalKeys: ['asxFood', 'farmInputs', 'abaresFertiliser', 'foodBasket', 'supermarketPrices'],
   });
 
   // Electricity exposure — gradient based on solar capacity
