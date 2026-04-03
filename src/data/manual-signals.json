@@ -1,7 +1,7 @@
 {
   "_schema": "Manual signals data — update this file to change Tier 3 signal values without code changes. Push to trigger redeploy.",
-  "_updated": "2026-03-25",
-  "_updatedBy": "Mat Mytka",
+  "_updated": "2026-04-03",
+  "_updatedBy": "Kairos (verified via Perplexity search)",
 
   "demandPressure": {
     "stationsDry": 166,
@@ -26,11 +26,11 @@
   },
 
   "farmInputs": {
-    "fertiliserIncreasePercent": 30,
-    "source": "Industry reporting / ABARES — March 2026",
-    "sourceUrl": "https://www.agriculture.gov.au/abares/data",
-    "context": "Fertiliser prices up ~30% since the Strait of Hormuz disruption. Australia imports the majority of its fertiliser (urea, DAP, MAP) — primarily from the Middle East and Asia, through the same shipping routes now under pressure. This is a double hit for agriculture: fuel costs up AND input costs up simultaneously. Planting decisions for winter crops are being made now. Downstream effect: food prices will follow with a 3–6 month lag.",
-    "asOf": "2026-03-25"
+    "fertiliserIncreasePercent": 60,
+    "source": "Industry reporting / al-Monitor / Trading Economics — April 2026",
+    "sourceUrl": "https://tradingeconomics.com/commodity/urea",
+    "context": "Urea prices at AUD $1,350-$1,420/tonne, up ~60% since the Hormuz closure. Bank of America estimates 65-70% of global urea supply is at risk. Australia imports the majority of its fertiliser (urea, DAP, MAP) — primarily from the Middle East and Asia, through the same shipping routes now blocked. Australian growers are shifting to less fertiliser-intensive crops for winter planting. This is a double hit for agriculture: fuel costs up AND input costs up simultaneously. Downstream effect: food prices will follow with a 3-6 month lag.",
+    "asOf": "2026-04-03"
   },
 
   "crisisContext": {
