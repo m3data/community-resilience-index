@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-04-02T19:04:23.135Z",
+    "generated": "2026-04-03T03:04:29.232Z",
     "baselineVersion": "2025.12.16",
     "baselineRegion": "AU-NSW",
     "baselineDate": "2025-12-16T12:00:00Z"
@@ -8,7 +8,7 @@
   "retailers": [
     {
       "source": "Coles Online",
-      "scrapedAt": "2026-04-02T19:02:07.581Z",
+      "scrapedAt": "2026-04-03T03:02:12.039Z",
       "matches": [
         {
           "ingredientKey": "bananas",
@@ -25,8 +25,8 @@
           "delta": 0.25,
           "deltaPercent": 5.9,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 6
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 4
         },
         {
           "ingredientKey": "broccoli",
@@ -43,44 +43,26 @@
           "delta": 0.5,
           "deltaPercent": 8.3,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 1
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 3
         },
         {
           "ingredientKey": "carrots",
-          "productName": "Coles Carrots",
-          "category": "Fruit & Vegetables",
+          "productName": "Coles Frozen Carrot Corn & Peas",
+          "category": "Frozen",
           "baselineCategory": "produce",
           "baselinePrice": 3,
-          "currentPrice": 1,
-          "shelfPrice": 1,
+          "currentPrice": 4.2,
+          "shelfPrice": 4.2,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": -2,
-          "deltaPercent": -66.7,
+          "delta": 1.2,
+          "deltaPercent": 40,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 1
-        },
-        {
-          "ingredientKey": "oranges",
-          "productName": "Coles Orange Navel",
-          "category": "Fruit & Vegetables",
-          "baselineCategory": "produce",
-          "baselinePrice": 4.54,
-          "currentPrice": 6.92,
-          "shelfPrice": 1.73,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "kg",
-          "delta": 2.38,
-          "deltaPercent": 52.4,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 3
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 4
         },
         {
           "ingredientKey": "zucchini",
@@ -97,80 +79,170 @@
           "delta": -0.1,
           "deltaPercent": -1.7,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
           "candidateCount": 1
+        },
+        {
+          "ingredientKey": "oranges",
+          "productName": "Nudie Nothing But 100% Juice Orange Pulp Free",
+          "category": "Drinks",
+          "baselineCategory": "produce",
+          "baselinePrice": 4.54,
+          "currentPrice": 4.75,
+          "shelfPrice": 9.5,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": 0.21,
+          "deltaPercent": 4.6,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
+        },
+        {
+          "ingredientKey": "pumpkin",
+          "productName": "Coles Wrapped Butternut Pumpkin",
+          "category": "Fruit & Vegetables",
+          "baselineCategory": "produce",
+          "baselinePrice": 3.5,
+          "currentPrice": 3.9,
+          "shelfPrice": 2.73,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": 0.4,
+          "deltaPercent": 11.4,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
+        },
+        {
+          "ingredientKey": "potatoes",
+          "productName": "Coles Potatoes Washed",
+          "category": "Fruit & Vegetables",
+          "baselineCategory": "produce",
+          "baselinePrice": 3.89,
+          "currentPrice": 4.25,
+          "shelfPrice": 8.5,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": 0.36,
+          "deltaPercent": 9.3,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "apples",
+          "productName": "Coles Apple Granny Smith Medium",
+          "category": "Fruit & Vegetables",
+          "baselineCategory": "produce",
+          "baselinePrice": 4.97,
+          "currentPrice": 7.88,
+          "shelfPrice": 1.34,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": 2.91,
+          "deltaPercent": 58.6,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "mozzarella",
+          "productName": "Coles Mozzarella Shredded Cheese",
+          "category": "Dairy, Eggs & Fridge",
+          "baselineCategory": "dairy",
+          "baselinePrice": 14,
+          "currentPrice": 13.57,
+          "shelfPrice": 9.5,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": -0.43,
+          "deltaPercent": -3.1,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "parmesan",
+          "productName": "Coles Dairy Shredded Parmesan Cheese",
+          "category": "Dairy, Eggs & Fridge",
+          "baselineCategory": "dairy",
+          "baselinePrice": 32,
+          "currentPrice": 25.6,
+          "shelfPrice": 6.4,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": -6.4,
+          "deltaPercent": -20,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
+        },
+        {
+          "ingredientKey": "cheddar_cheese",
+          "productName": "Coles Simply Cheddar Cheese Block",
+          "category": "Dairy, Eggs & Fridge",
+          "baselineCategory": "dairy",
+          "baselinePrice": 13.84,
+          "currentPrice": 9.3,
+          "shelfPrice": 9.3,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": -4.54,
+          "deltaPercent": -32.8,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
         },
         {
           "ingredientKey": "chicken_breast",
-          "productName": "Coles RSPCA Approved Free Range Chicken Breast Large Pack",
-          "category": "Meat & Seafood",
+          "productName": "Steggles Frozen Classic Crumb Chicken Breast Tenders",
+          "category": "Frozen",
           "baselineCategory": "meat",
           "baselinePrice": 13,
-          "currentPrice": 14,
-          "shelfPrice": 17.5,
+          "currentPrice": 13.5,
+          "shelfPrice": 13.5,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": 1,
-          "deltaPercent": 7.7,
+          "delta": 0.5,
+          "deltaPercent": 3.8,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 10
-        },
-        {
-          "ingredientKey": "honey",
-          "productName": "Uncle Tobys Oats Quick Sachets Breakfast Cereal Creamy Honey Big Bowl",
-          "category": "Pantry",
-          "baselineCategory": "condiments",
-          "baselinePrice": 12,
-          "currentPrice": 9.51,
-          "shelfPrice": 3.5,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "kg",
-          "delta": -2.49,
-          "deltaPercent": -20.7,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 4
-        },
-        {
-          "ingredientKey": "lamb_leg",
-          "productName": "Coles Lamb Leg Roast Half",
-          "category": "Meat & Seafood",
-          "baselineCategory": "meat",
-          "baselinePrice": 16,
-          "currentPrice": 13,
-          "shelfPrice": 22.62,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "kg",
-          "delta": -3,
-          "deltaPercent": -18.7,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 1
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 15
         },
         {
           "ingredientKey": "chicken_thigh",
-          "productName": "Coles RSPCA Approved Chicken Thigh Fillets Large Pack",
+          "productName": "Coles RSPCA Approved Chicken Thigh Cutlets",
           "category": "Meat & Seafood",
           "baselineCategory": "meat",
           "baselinePrice": 10,
-          "currentPrice": 14.5,
-          "shelfPrice": 17.4,
+          "currentPrice": 9,
+          "shelfPrice": 9.9,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": 4.5,
-          "deltaPercent": 45,
+          "delta": -1,
+          "deltaPercent": -10,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 2
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 4
         },
         {
           "ingredientKey": "beef_mince",
@@ -187,275 +259,311 @@
           "delta": -2,
           "deltaPercent": -14.3,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 1
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
         },
         {
-          "ingredientKey": "cheddar_cheese",
-          "productName": "Coles Chicken Burgers Zucchini & Cheddar Cheese",
+          "ingredientKey": "pork_mince",
+          "productName": "Coles Regular Pork Mince",
           "category": "Meat & Seafood",
-          "baselineCategory": "dairy",
-          "baselinePrice": 13.84,
-          "currentPrice": 18.89,
-          "shelfPrice": 8.5,
+          "baselineCategory": "meat",
+          "baselinePrice": 12,
+          "currentPrice": 13,
+          "shelfPrice": 6.5,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": 5.05,
-          "deltaPercent": 36.5,
+          "delta": 1,
+          "deltaPercent": 8.3,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
+        },
+        {
+          "ingredientKey": "lamb_leg",
+          "productName": "Coles Lamb Leg Roast Half",
+          "category": "Meat & Seafood",
+          "baselineCategory": "meat",
+          "baselinePrice": 16,
+          "currentPrice": 13,
+          "shelfPrice": 22.62,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": -3,
+          "deltaPercent": -18.7,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "whole_chicken",
+          "productName": "Coles RSPCA Approved Medium Whole Chicken",
+          "category": "Meat & Seafood",
+          "baselineCategory": "meat",
+          "baselinePrice": 7,
+          "currentPrice": 5.5,
+          "shelfPrice": 9.07,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": -1.5,
+          "deltaPercent": -21.5,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "all_purpose_flour",
+          "productName": "Coles White Plain Flour",
+          "category": "Pantry",
+          "baselineCategory": "pantry_staples",
+          "baselinePrice": 2.45,
+          "currentPrice": 1.3,
+          "shelfPrice": 1.3,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": -1.15,
+          "deltaPercent": -46.9,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
           "candidateCount": 2
         },
         {
           "ingredientKey": "basmati_rice",
-          "productName": "Sunrice Basmati Rice",
+          "productName": "Coles Basmati Rice",
           "category": "Pantry",
           "baselineCategory": "grains",
           "baselinePrice": 5,
-          "currentPrice": 3.4,
-          "shelfPrice": 3.4,
+          "currentPrice": 4,
+          "shelfPrice": 4,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": -1.6,
-          "deltaPercent": -32,
+          "delta": -1,
+          "deltaPercent": -20,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
           "candidateCount": 1
         },
         {
-          "ingredientKey": "jasmine_rice",
-          "productName": "Sunrice Microwave Jasmine Rice Cup 2x125g",
+          "ingredientKey": "self_raising_flour",
+          "productName": "Coles White Self Raising Flour",
           "category": "Pantry",
-          "baselineCategory": "grains",
-          "baselinePrice": 4.5,
-          "currentPrice": 28,
-          "shelfPrice": 3.5,
+          "baselineCategory": "pantry_staples",
+          "baselinePrice": 2.6,
+          "currentPrice": 1.25,
+          "shelfPrice": 2.5,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": 23.5,
-          "deltaPercent": 522.2,
+          "delta": -1.35,
+          "deltaPercent": -51.9,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
           "candidateCount": 1
         },
         {
-          "ingredientKey": "pumpkin",
-          "productName": "Campbell's Country Ladle Soup Can Butternut Pumpkin",
+          "ingredientKey": "cornflour",
+          "productName": "Coles Cornflour",
           "category": "Pantry",
-          "baselineCategory": "produce",
-          "baselinePrice": 3.5,
-          "currentPrice": 4.46,
-          "shelfPrice": 2.25,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "kg",
-          "delta": 0.96,
-          "deltaPercent": 27.3,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 2
-        },
-        {
-          "ingredientKey": "canola_oil",
-          "productName": "Gold Sunset Canola Oil",
-          "category": "Pantry",
-          "baselineCategory": "oils",
-          "baselinePrice": 4.5,
-          "currentPrice": 4.25,
-          "shelfPrice": 17,
-          "comparisonUnit": "per litre",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "litre",
-          "delta": -0.25,
-          "deltaPercent": -5.6,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 1
-        },
-        {
-          "ingredientKey": "vegetable_oil",
-          "productName": "Gold Sunset Vegetable Oil",
-          "category": "Pantry",
-          "baselineCategory": "oils",
+          "baselineCategory": "pantry_staples",
           "baselinePrice": 4,
-          "currentPrice": 4.25,
-          "shelfPrice": 17,
-          "comparisonUnit": "per litre",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "litre",
-          "delta": 0.25,
-          "deltaPercent": 6.3,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
-          "candidateCount": 1
-        },
-        {
-          "ingredientKey": "mozzarella",
-          "productName": "Coles Kitchen Mozzarella Bites 10 Pack",
-          "category": "Frozen",
-          "baselineCategory": "dairy",
-          "baselinePrice": 14,
-          "currentPrice": 17.58,
-          "shelfPrice": 5.8,
+          "currentPrice": 4.5,
+          "shelfPrice": 1.35,
           "comparisonUnit": "per kg",
           "method": "per_unit",
           "unit": "each",
           "baselineUnit": "kg",
-          "delta": 3.58,
-          "deltaPercent": 25.5,
+          "delta": 0.5,
+          "deltaPercent": 12.5,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:02:07.581Z",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
           "candidateCount": 1
+        },
+        {
+          "ingredientKey": "corn",
+          "productName": "Coles Frozen Corn Cobs",
+          "category": "Frozen",
+          "baselineCategory": "produce",
+          "baselinePrice": 1.5,
+          "currentPrice": 5.5,
+          "shelfPrice": 5.5,
+          "comparisonUnit": "per each",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "each",
+          "delta": 4,
+          "deltaPercent": 266.7,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "honey",
+          "productName": "Thomson's Deli Honey Ham Sliced Quad Pack",
+          "category": "Deli",
+          "baselineCategory": "condiments",
+          "baselinePrice": 12,
+          "currentPrice": 16.25,
+          "shelfPrice": 6.5,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "each",
+          "baselineUnit": "kg",
+          "delta": 4.25,
+          "deltaPercent": 35.4,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:02:12.039Z",
+          "candidateCount": 2
         }
       ],
-      "unmatchedCount": 415,
+      "unmatchedCount": 406,
       "categories": [
-        {
-          "category": "grains",
-          "supermarketCategory": "Pantry",
-          "itemCount": 2,
-          "avgDeltaPercent": 245.1,
-          "maxIncrease": 522.2,
-          "maxDecrease": -32
-        },
-        {
-          "category": "dairy",
-          "supermarketCategory": "Dairy, Eggs & Fridge",
-          "itemCount": 2,
-          "avgDeltaPercent": 31,
-          "maxIncrease": 36.5,
-          "maxDecrease": 25.5
-        },
-        {
-          "category": "meat",
-          "supermarketCategory": "Meat & Seafood",
-          "itemCount": 4,
-          "avgDeltaPercent": 4.9,
-          "maxIncrease": 45,
-          "maxDecrease": -18.7
-        },
         {
           "category": "produce",
           "supermarketCategory": "Fruit & Vegetables",
-          "itemCount": 6,
-          "avgDeltaPercent": 4.3,
-          "maxIncrease": 52.4,
-          "maxDecrease": -66.7
-        },
-        {
-          "category": "oils",
-          "supermarketCategory": "Pantry",
-          "itemCount": 2,
-          "avgDeltaPercent": 0.4,
-          "maxIncrease": 6.3,
-          "maxDecrease": -5.6
+          "itemCount": 9,
+          "avgDeltaPercent": 44.8,
+          "maxIncrease": 266.7,
+          "maxDecrease": -1.7
         },
         {
           "category": "condiments",
           "supermarketCategory": "Pantry",
           "itemCount": 1,
-          "avgDeltaPercent": -20.7,
-          "maxIncrease": -20.7,
-          "maxDecrease": -20.7
+          "avgDeltaPercent": 35.4,
+          "maxIncrease": 35.4,
+          "maxDecrease": 35.4
+        },
+        {
+          "category": "meat",
+          "supermarketCategory": "Meat & Seafood",
+          "itemCount": 6,
+          "avgDeltaPercent": -8.7,
+          "maxIncrease": 8.3,
+          "maxDecrease": -21.5
+        },
+        {
+          "category": "dairy",
+          "supermarketCategory": "Dairy, Eggs & Fridge",
+          "itemCount": 3,
+          "avgDeltaPercent": -18.6,
+          "maxIncrease": -3.1,
+          "maxDecrease": -32.8
+        },
+        {
+          "category": "grains",
+          "supermarketCategory": "Pantry",
+          "itemCount": 1,
+          "avgDeltaPercent": -20,
+          "maxIncrease": -20,
+          "maxDecrease": -20
+        },
+        {
+          "category": "pantry_staples",
+          "supermarketCategory": "Pantry",
+          "itemCount": 3,
+          "avgDeltaPercent": -28.8,
+          "maxIncrease": 12.5,
+          "maxDecrease": -51.9
         }
       ],
       "basket": {
-        "matchedProducts": 17,
-        "totalBaseline": 138.13,
-        "totalCurrent": 168.66,
-        "totalDelta": 30.53,
-        "avgDeltaPercent": 22.1,
-        "increasing": 10,
-        "decreasing": 7,
+        "matchedProducts": 23,
+        "totalBaseline": 195.54,
+        "totalCurrent": 189.15,
+        "totalDelta": -6.39,
+        "avgDeltaPercent": -3.3,
+        "increasing": 12,
+        "decreasing": 11,
         "stable": 0,
         "topIncreases": [
           {
-            "name": "Sunrice Microwave Jasmine Rice Cup 2x125g",
-            "key": "jasmine_rice",
-            "delta": "+522.2%",
-            "from": "$4.50",
-            "to": "$28.00"
+            "name": "Coles Frozen Corn Cobs",
+            "key": "corn",
+            "delta": "+266.7%",
+            "from": "$1.50",
+            "to": "$5.50"
           },
           {
-            "name": "Coles Orange Navel",
-            "key": "oranges",
-            "delta": "+52.4%",
-            "from": "$4.54",
-            "to": "$6.92"
+            "name": "Coles Apple Granny Smith Medium",
+            "key": "apples",
+            "delta": "+58.6%",
+            "from": "$4.97",
+            "to": "$7.88"
           },
           {
-            "name": "Coles RSPCA Approved Chicken Thigh Fillets Large Pack",
-            "key": "chicken_thigh",
-            "delta": "+45%",
-            "from": "$10.00",
-            "to": "$14.50"
+            "name": "Coles Frozen Carrot Corn & Peas",
+            "key": "carrots",
+            "delta": "+40%",
+            "from": "$3.00",
+            "to": "$4.20"
           },
           {
-            "name": "Coles Chicken Burgers Zucchini & Cheddar Cheese",
-            "key": "cheddar_cheese",
-            "delta": "+36.5%",
-            "from": "$13.84",
-            "to": "$18.89"
+            "name": "Thomson's Deli Honey Ham Sliced Quad Pack",
+            "key": "honey",
+            "delta": "+35.4%",
+            "from": "$12.00",
+            "to": "$16.25"
           },
           {
-            "name": "Campbell's Country Ladle Soup Can Butternut Pumpkin",
-            "key": "pumpkin",
-            "delta": "+27.3%",
-            "from": "$3.50",
-            "to": "$4.46"
+            "name": "Coles Cornflour",
+            "key": "cornflour",
+            "delta": "+12.5%",
+            "from": "$4.00",
+            "to": "$4.50"
           }
         ],
         "topDecreases": [
           {
-            "name": "Coles Carrots",
-            "key": "carrots",
-            "delta": "-66.7%",
-            "from": "$3.00",
-            "to": "$1.00"
+            "name": "Coles White Self Raising Flour",
+            "key": "self_raising_flour",
+            "delta": "-51.9%",
+            "from": "$2.60",
+            "to": "$1.25"
           },
           {
-            "name": "Sunrice Basmati Rice",
+            "name": "Coles White Plain Flour",
+            "key": "all_purpose_flour",
+            "delta": "-46.9%",
+            "from": "$2.45",
+            "to": "$1.30"
+          },
+          {
+            "name": "Coles Simply Cheddar Cheese Block",
+            "key": "cheddar_cheese",
+            "delta": "-32.8%",
+            "from": "$13.84",
+            "to": "$9.30"
+          },
+          {
+            "name": "Coles RSPCA Approved Medium Whole Chicken",
+            "key": "whole_chicken",
+            "delta": "-21.5%",
+            "from": "$7.00",
+            "to": "$5.50"
+          },
+          {
+            "name": "Coles Basmati Rice",
             "key": "basmati_rice",
-            "delta": "-32%",
+            "delta": "-20%",
             "from": "$5.00",
-            "to": "$3.40"
-          },
-          {
-            "name": "Uncle Tobys Oats Quick Sachets Breakfast Cereal Creamy Honey Big Bowl",
-            "key": "honey",
-            "delta": "-20.7%",
-            "from": "$12.00",
-            "to": "$9.51"
-          },
-          {
-            "name": "Coles Lamb Leg Roast Half",
-            "key": "lamb_leg",
-            "delta": "-18.7%",
-            "from": "$16.00",
-            "to": "$13.00"
-          },
-          {
-            "name": "Drovers Choice Big Pack Value Beef Mince",
-            "key": "beef_mince",
-            "delta": "-14.3%",
-            "from": "$14.00",
-            "to": "$12.00"
+            "to": "$4.00"
           }
         ]
       }
     },
     {
       "source": "Woolworths Online",
-      "scrapedAt": "2026-04-02T19:04:23.032Z",
+      "scrapedAt": "2026-04-03T03:04:29.063Z",
       "matches": [
         {
           "ingredientKey": "carrots",
@@ -472,7 +580,7 @@
           "delta": -2,
           "deltaPercent": -66.7,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 5
         },
         {
@@ -490,7 +598,7 @@
           "delta": -0.89,
           "deltaPercent": -22.9,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -508,7 +616,7 @@
           "delta": -1.78,
           "deltaPercent": -25.4,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -526,7 +634,7 @@
           "delta": 12.75,
           "deltaPercent": 300,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 3
         },
         {
@@ -544,7 +652,7 @@
           "delta": -0.5,
           "deltaPercent": -27.8,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -562,7 +670,7 @@
           "delta": -0.28,
           "deltaPercent": -13.3,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -580,7 +688,7 @@
           "delta": -3.71,
           "deltaPercent": -74.6,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -598,7 +706,7 @@
           "delta": -2.47,
           "deltaPercent": -71.6,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -616,26 +724,8 @@
           "delta": 2.41,
           "deltaPercent": 53.1,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 5
-        },
-        {
-          "ingredientKey": "mushrooms",
-          "productName": "per 200 grams. Mushrooms Cups Loose per 200g",
-          "category": "Fruit & Veg",
-          "baselineCategory": "produce",
-          "baselinePrice": 12,
-          "currentPrice": 11.5,
-          "shelfPrice": 2.3,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "each",
-          "baselineUnit": "kg",
-          "delta": -0.5,
-          "deltaPercent": -4.2,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 1
         },
         {
           "ingredientKey": "lamb_leg",
@@ -652,7 +742,7 @@
           "delta": -7.87,
           "deltaPercent": -49.2,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -670,26 +760,26 @@
           "delta": -2.45,
           "deltaPercent": -35.1,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
           "ingredientKey": "parmesan",
-          "productName": "Essentials Parmesan Cheese 100g",
-          "category": "Dairy, Eggs & Fridge",
+          "productName": "25% Off. On special. Save $3.00 . Leggo's Fresh Beef Tomato & Parmesan Ravioli 630g",
+          "category": "Meat & Seafood",
           "baselineCategory": "dairy",
           "baselinePrice": 32,
-          "currentPrice": 20,
-          "shelfPrice": 2,
+          "currentPrice": 12.7,
+          "shelfPrice": 8,
           "comparisonUnit": "per kg",
           "method": "per_unit",
-          "unit": "kg",
+          "unit": "100g",
           "baselineUnit": "kg",
-          "delta": -12,
-          "deltaPercent": -37.5,
+          "delta": -19.3,
+          "deltaPercent": -60.3,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 2
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
+          "candidateCount": 1
         },
         {
           "ingredientKey": "chicken_thigh",
@@ -706,7 +796,7 @@
           "delta": 5.45,
           "deltaPercent": 54.5,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 2
         },
         {
@@ -724,8 +814,8 @@
           "delta": 0,
           "deltaPercent": 0,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 12
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
+          "candidateCount": 10
         },
         {
           "ingredientKey": "chicken_breast",
@@ -742,7 +832,7 @@
           "delta": -1,
           "deltaPercent": -7.7,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 6
         },
         {
@@ -760,7 +850,7 @@
           "delta": 9,
           "deltaPercent": 75,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -778,7 +868,7 @@
           "delta": -0.75,
           "deltaPercent": -6.2,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 2
         },
         {
@@ -796,7 +886,7 @@
           "delta": -1,
           "deltaPercent": -5,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -814,7 +904,25 @@
           "delta": -0.5,
           "deltaPercent": -3,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "mozzarella",
+          "productName": "Dairyworks Grated Mozzarella Cheese 500g",
+          "category": "Dairy, Eggs & Fridge",
+          "baselineCategory": "dairy",
+          "baselinePrice": 14,
+          "currentPrice": 15,
+          "shelfPrice": 7.5,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "kg",
+          "baselineUnit": "kg",
+          "delta": 1,
+          "deltaPercent": 7.1,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -832,8 +940,8 @@
           "delta": 2.7,
           "deltaPercent": 45,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 3
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
+          "candidateCount": 4
         },
         {
           "ingredientKey": "sour_cream",
@@ -850,26 +958,8 @@
           "delta": -3.33,
           "deltaPercent": -47.6,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 3
-        },
-        {
-          "ingredientKey": "mozzarella",
-          "productName": "Dairyworks Grated Mozzarella Cheese 500g",
-          "category": "Dairy, Eggs & Fridge",
-          "baselineCategory": "dairy",
-          "baselinePrice": 14,
-          "currentPrice": 15,
-          "shelfPrice": 7.5,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "kg",
-          "baselineUnit": "kg",
-          "delta": 1,
-          "deltaPercent": 7.1,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 1
         },
         {
           "ingredientKey": "canola_oil",
@@ -886,7 +976,7 @@
           "delta": 0.3,
           "deltaPercent": 6.7,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -904,7 +994,7 @@
           "delta": -1,
           "deltaPercent": -22.2,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 2
         },
         {
@@ -922,7 +1012,7 @@
           "delta": -1.5,
           "deltaPercent": -30,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -940,26 +1030,8 @@
           "delta": -3.32,
           "deltaPercent": -66.4,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 2
-        },
-        {
-          "ingredientKey": "spaghetti",
-          "productName": "Woolworths Pasta Spaghetti 500g",
-          "category": "Pantry",
-          "baselineCategory": "grains",
-          "baselinePrice": 3.5,
-          "currentPrice": 2,
-          "shelfPrice": 1,
-          "comparisonUnit": "per kg",
-          "method": "per_unit",
-          "unit": "100g",
-          "baselineUnit": "kg",
-          "delta": -1.5,
-          "deltaPercent": -42.9,
-          "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 1
         },
         {
           "ingredientKey": "all_purpose_flour",
@@ -976,7 +1048,25 @@
           "delta": -1.15,
           "deltaPercent": -46.9,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
+          "candidateCount": 1
+        },
+        {
+          "ingredientKey": "spaghetti",
+          "productName": "Woolworths Pasta Spaghetti 500g",
+          "category": "Pantry",
+          "baselineCategory": "grains",
+          "baselinePrice": 3.5,
+          "currentPrice": 2,
+          "shelfPrice": 1,
+          "comparisonUnit": "per kg",
+          "method": "per_unit",
+          "unit": "100g",
+          "baselineUnit": "kg",
+          "delta": -1.5,
+          "deltaPercent": -42.9,
+          "baselineDate": "2025-12-16",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -994,8 +1084,8 @@
           "delta": -0.42,
           "deltaPercent": -3.5,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
-          "candidateCount": 4
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
+          "candidateCount": 3
         },
         {
           "ingredientKey": "penne",
@@ -1012,7 +1102,7 @@
           "delta": -1.7,
           "deltaPercent": -48.6,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 1
         },
         {
@@ -1030,17 +1120,17 @@
           "delta": 0.3,
           "deltaPercent": 7.5,
           "baselineDate": "2025-12-16",
-          "scrapedDate": "2026-04-02T19:04:23.032Z",
+          "scrapedDate": "2026-04-03T03:04:29.063Z",
           "candidateCount": 2
         }
       ],
-      "unmatchedCount": 321,
+      "unmatchedCount": 331,
       "categories": [
         {
           "category": "produce",
           "supermarketCategory": "Fruit & Vegetables",
-          "itemCount": 5,
-          "avgDeltaPercent": 51.9,
+          "itemCount": 4,
+          "avgDeltaPercent": 65.9,
           "maxIncrease": 300,
           "maxDecrease": -66.7
         },
@@ -1088,9 +1178,9 @@
           "category": "dairy",
           "supermarketCategory": "Dairy, Eggs & Fridge",
           "itemCount": 5,
-          "avgDeltaPercent": -7.2,
+          "avgDeltaPercent": -11.8,
           "maxIncrease": 45,
-          "maxDecrease": -47.6
+          "maxDecrease": -60.3
         },
         {
           "category": "grains",
@@ -1110,13 +1200,13 @@
         }
       ],
       "basket": {
-        "matchedProducts": 27,
-        "totalBaseline": 251.63,
-        "totalCurrent": 242.66,
-        "totalDelta": -8.97,
-        "avgDeltaPercent": -3.6,
+        "matchedProducts": 26,
+        "totalBaseline": 239.63,
+        "totalCurrent": 223.86,
+        "totalDelta": -15.77,
+        "avgDeltaPercent": -6.6,
         "increasing": 8,
-        "decreasing": 18,
+        "decreasing": 17,
         "stable": 1,
         "topIncreases": [
           {
@@ -1171,6 +1261,13 @@
             "to": "$1.68"
           },
           {
+            "name": "25% Off. On special. Save $3.00 . Leggo's Fresh Beef Tomato & Parmesan Ravioli 630g",
+            "key": "parmesan",
+            "delta": "-60.3%",
+            "from": "$32.00",
+            "to": "$12.70"
+          },
+          {
             "name": "20% Off. On special. Save $6.40 . Woolworths Lamb Leg Roast Half 750g - 1.6kg, Minimum price $9.75, Maximum price $20.8. $20.8",
             "key": "lamb_leg",
             "delta": "-49.2%",
@@ -1183,32 +1280,24 @@
             "delta": "-48.6%",
             "from": "$3.50",
             "to": "$1.80"
-          },
-          {
-            "name": "Woolworths Sour Cream 300mL. Was $3.40 - 13/05/2025. Non-member price $3.3",
-            "key": "sour_cream",
-            "delta": "-47.6%",
-            "from": "$7.00",
-            "to": "$3.67"
           }
         ]
       }
     }
   ],
   "crossRetailer": {
-    "matchedIngredients": 34,
-    "avgMovement": -0.8,
+    "matchedIngredients": 35,
+    "avgMovement": -0.9,
     "items": [
       {
-        "ingredientKey": "jasmine_rice",
+        "ingredientKey": "corn",
         "retailers": [
-          "Sunrice Microwave Jasmine Rice Cup 2x125g",
-          "Sunrice Premium Thai Hom Mali Jasmine Rice 5kg"
+          "Coles Frozen Corn Cobs"
         ],
-        "avgDeltaPercent": 250,
+        "avgDeltaPercent": 266.7,
         "priceRange": {
-          "min": 3.5,
-          "max": 28
+          "min": 5.5,
+          "max": 5.5
         }
       },
       {
@@ -1224,27 +1313,15 @@
         }
       },
       {
-        "ingredientKey": "oranges",
+        "ingredientKey": "honey",
         "retailers": [
-          "Coles Orange Navel",
-          "Gatorade Sports Drinks Sugar Free Orange Electrolyte Hydration 600mL. 5 for $10.00 - $3.33/1L . Non-member price $2.5"
+          "Thomson's Deli Honey Ham Sliced Quad Pack",
+          "per 100 grams. D'Orsogna Honey Ham Shaved From The Deli per 100g"
         ],
-        "avgDeltaPercent": 52.8,
+        "avgDeltaPercent": 55.2,
         "priceRange": {
-          "min": 6.92,
-          "max": 6.95
-        }
-      },
-      {
-        "ingredientKey": "chicken_thigh",
-        "retailers": [
-          "Coles RSPCA Approved Chicken Thigh Fillets Large Pack",
-          "Australian Chicken. Macro Free Range Chicken Thigh Fillet 800g - 1.1kg, Minimum price $13.6, Maximum price $18.7. $18.7"
-        ],
-        "avgDeltaPercent": 49.8,
-        "priceRange": {
-          "min": 14.5,
-          "max": 15.45
+          "min": 16.25,
+          "max": 21
         }
       },
       {
@@ -1259,38 +1336,38 @@
         }
       },
       {
-        "ingredientKey": "cheddar_cheese",
+        "ingredientKey": "oranges",
         "retailers": [
-          "Coles Chicken Burgers Zucchini & Cheddar Cheese"
+          "Nudie Nothing But 100% Juice Orange Pulp Free",
+          "Gatorade Sports Drinks Sugar Free Orange Electrolyte Hydration 600mL. 5 for $10.00 - $3.33/1L . Non-member price $2.5"
         ],
-        "avgDeltaPercent": 36.5,
+        "avgDeltaPercent": 28.9,
         "priceRange": {
-          "min": 18.89,
-          "max": 18.89
+          "min": 4.75,
+          "max": 6.95
         }
       },
       {
-        "ingredientKey": "honey",
+        "ingredientKey": "chicken_thigh",
         "retailers": [
-          "Uncle Tobys Oats Quick Sachets Breakfast Cereal Creamy Honey Big Bowl",
-          "per 100 grams. D'Orsogna Honey Ham Shaved From The Deli per 100g"
+          "Coles RSPCA Approved Chicken Thigh Cutlets",
+          "Australian Chicken. Macro Free Range Chicken Thigh Fillet 800g - 1.1kg, Minimum price $13.6, Maximum price $18.7. $18.7"
         ],
-        "avgDeltaPercent": 27.2,
+        "avgDeltaPercent": 22.3,
         "priceRange": {
-          "min": 9.51,
-          "max": 21
+          "min": 9,
+          "max": 15.45
         }
       },
       {
-        "ingredientKey": "mozzarella",
+        "ingredientKey": "cornflour",
         "retailers": [
-          "Coles Kitchen Mozzarella Bites 10 Pack",
-          "Dairyworks Grated Mozzarella Cheese 500g"
+          "Coles Cornflour"
         ],
-        "avgDeltaPercent": 16.3,
+        "avgDeltaPercent": 12.5,
         "priceRange": {
-          "min": 15,
-          "max": 17.58
+          "min": 4.5,
+          "max": 4.5
         }
       },
       {
@@ -1305,50 +1382,50 @@
         }
       },
       {
-        "ingredientKey": "vegetable_oil",
-        "retailers": [
-          "Gold Sunset Vegetable Oil"
-        ],
-        "avgDeltaPercent": 6.3,
-        "priceRange": {
-          "min": 4.25,
-          "max": 4.25
-        }
-      },
-      {
-        "ingredientKey": "pumpkin",
-        "retailers": [
-          "Campbell's Country Ladle Soup Can Butternut Pumpkin",
-          "Fresh Butternut Pumpkin Whole each"
-        ],
-        "avgDeltaPercent": 1,
-        "priceRange": {
-          "min": 4.46,
-          "max": 5.22
-        }
-      },
-      {
         "ingredientKey": "canola_oil",
         "retailers": [
-          "Gold Sunset Canola Oil",
           "GEO Extra Virgin Canola Oil Cold Pressed 4L"
         ],
-        "avgDeltaPercent": 0.6,
+        "avgDeltaPercent": 6.7,
         "priceRange": {
-          "min": 4.25,
+          "min": 4.8,
           "max": 4.8
+        }
+      },
+      {
+        "ingredientKey": "mozzarella",
+        "retailers": [
+          "Coles Mozzarella Shredded Cheese",
+          "Dairyworks Grated Mozzarella Cheese 500g"
+        ],
+        "avgDeltaPercent": 2,
+        "priceRange": {
+          "min": 13.57,
+          "max": 15
+        }
+      },
+      {
+        "ingredientKey": "pork_mince",
+        "retailers": [
+          "Coles Regular Pork Mince",
+          "Australian Pork. Woolworths Pork Mince 800g"
+        ],
+        "avgDeltaPercent": 1.1,
+        "priceRange": {
+          "min": 11.25,
+          "max": 13
         }
       },
       {
         "ingredientKey": "chicken_breast",
         "retailers": [
-          "Coles RSPCA Approved Free Range Chicken Breast Large Pack",
+          "Steggles Frozen Classic Crumb Chicken Breast Tenders",
           "Australian Chicken. Woolworths RSPCA Approved Chicken Breast Fillet per 300g"
         ],
-        "avgDeltaPercent": 0,
+        "avgDeltaPercent": -1.9,
         "priceRange": {
           "min": 12,
-          "max": 14
+          "max": 13.5
         }
       },
       {
@@ -1386,17 +1463,6 @@
         }
       },
       {
-        "ingredientKey": "mushrooms",
-        "retailers": [
-          "per 200 grams. Mushrooms Cups Loose per 200g"
-        ],
-        "avgDeltaPercent": -4.2,
-        "priceRange": {
-          "min": 11.5,
-          "max": 11.5
-        }
-      },
-      {
         "ingredientKey": "bacon",
         "retailers": [
           "Woolworths Short Cut Bacon 200g"
@@ -1408,14 +1474,27 @@
         }
       },
       {
-        "ingredientKey": "pork_mince",
+        "ingredientKey": "potatoes",
         "retailers": [
-          "Australian Pork. Woolworths Pork Mince 800g"
+          "Coles Potatoes Washed",
+          "Woolworths Washed Potatoes Bag 2kg"
         ],
-        "avgDeltaPercent": -6.2,
+        "avgDeltaPercent": -6.8,
         "priceRange": {
-          "min": 11.25,
-          "max": 11.25
+          "min": 3,
+          "max": 4.25
+        }
+      },
+      {
+        "ingredientKey": "pumpkin",
+        "retailers": [
+          "Coles Wrapped Butternut Pumpkin",
+          "Fresh Butternut Pumpkin Whole each"
+        ],
+        "avgDeltaPercent": -7,
+        "priceRange": {
+          "min": 3.9,
+          "max": 5.22
         }
       },
       {
@@ -1431,6 +1510,30 @@
         }
       },
       {
+        "ingredientKey": "apples",
+        "retailers": [
+          "Coles Apple Granny Smith Medium",
+          "Apple Royal Gala each"
+        ],
+        "avgDeltaPercent": -8,
+        "priceRange": {
+          "min": 1.26,
+          "max": 7.88
+        }
+      },
+      {
+        "ingredientKey": "carrots",
+        "retailers": [
+          "Coles Frozen Carrot Corn & Peas",
+          "Woolworths Australian Grown Carrots 1kg"
+        ],
+        "avgDeltaPercent": -13.3,
+        "priceRange": {
+          "min": 1,
+          "max": 4.2
+        }
+      },
+      {
         "ingredientKey": "zucchini",
         "retailers": [
           "Coles Green Zucchini",
@@ -1443,26 +1546,49 @@
         }
       },
       {
-        "ingredientKey": "potatoes",
+        "ingredientKey": "jasmine_rice",
         "retailers": [
-          "Woolworths Washed Potatoes Bag 2kg"
+          "Sunrice Premium Thai Hom Mali Jasmine Rice 5kg"
         ],
-        "avgDeltaPercent": -22.9,
+        "avgDeltaPercent": -22.2,
         "priceRange": {
-          "min": 3,
-          "max": 3
+          "min": 3.5,
+          "max": 3.5
         }
       },
       {
         "ingredientKey": "basmati_rice",
         "retailers": [
-          "Sunrice Basmati Rice",
+          "Coles Basmati Rice",
           "Sunrice Indian Grown Basmati Rice Classic 5kg"
         ],
-        "avgDeltaPercent": -31,
+        "avgDeltaPercent": -25,
         "priceRange": {
-          "min": 3.4,
-          "max": 3.5
+          "min": 3.5,
+          "max": 4
+        }
+      },
+      {
+        "ingredientKey": "whole_chicken",
+        "retailers": [
+          "Coles RSPCA Approved Medium Whole Chicken",
+          "20% Off. On special. Save $3.30 . Macro Free Range Australian Whole Chicken 1.1kg - 2.2kg, Minimum price $5.5, Maximum price $11. $11"
+        ],
+        "avgDeltaPercent": -28.3,
+        "priceRange": {
+          "min": 4.55,
+          "max": 5.5
+        }
+      },
+      {
+        "ingredientKey": "cheddar_cheese",
+        "retailers": [
+          "Coles Simply Cheddar Cheese Block"
+        ],
+        "avgDeltaPercent": -32.8,
+        "priceRange": {
+          "min": 9.3,
+          "max": 9.3
         }
       },
       {
@@ -1478,25 +1604,15 @@
         }
       },
       {
-        "ingredientKey": "whole_chicken",
-        "retailers": [
-          "20% Off. On special. Save $3.30 . Macro Free Range Australian Whole Chicken 1.1kg - 2.2kg, Minimum price $5.5, Maximum price $11. $11"
-        ],
-        "avgDeltaPercent": -35.1,
-        "priceRange": {
-          "min": 4.55,
-          "max": 4.55
-        }
-      },
-      {
         "ingredientKey": "parmesan",
         "retailers": [
-          "Essentials Parmesan Cheese 100g"
+          "Coles Dairy Shredded Parmesan Cheese",
+          "25% Off. On special. Save $3.00 . Leggo's Fresh Beef Tomato & Parmesan Ravioli 630g"
         ],
-        "avgDeltaPercent": -37.5,
+        "avgDeltaPercent": -40.1,
         "priceRange": {
-          "min": 20,
-          "max": 20
+          "min": 12.7,
+          "max": 25.6
         }
       },
       {
@@ -1513,6 +1629,7 @@
       {
         "ingredientKey": "all_purpose_flour",
         "retailers": [
+          "Coles White Plain Flour",
           "Essentials Plain Flour 1kg. Was $1.40 - 13/05/2025. Non-member price $1.3"
         ],
         "avgDeltaPercent": -46.9,
@@ -1544,6 +1661,17 @@
         }
       },
       {
+        "ingredientKey": "self_raising_flour",
+        "retailers": [
+          "Coles White Self Raising Flour"
+        ],
+        "avgDeltaPercent": -51.9,
+        "priceRange": {
+          "min": 1.25,
+          "max": 1.25
+        }
+      },
+      {
         "ingredientKey": "tomato_sauce",
         "retailers": [
           "MasterFoods Tomato Sauce 500mL. 2 for $6.00 - $0.60/100ML . Non-member price $4.2"
@@ -1555,18 +1683,6 @@
         }
       },
       {
-        "ingredientKey": "carrots",
-        "retailers": [
-          "Coles Carrots",
-          "Woolworths Australian Grown Carrots 1kg"
-        ],
-        "avgDeltaPercent": -66.7,
-        "priceRange": {
-          "min": 1,
-          "max": 1
-        }
-      },
-      {
         "ingredientKey": "tomatoes",
         "retailers": [
           "Tomato Roma Red each"
@@ -1575,17 +1691,6 @@
         "priceRange": {
           "min": 0.98,
           "max": 0.98
-        }
-      },
-      {
-        "ingredientKey": "apples",
-        "retailers": [
-          "Apple Royal Gala each"
-        ],
-        "avgDeltaPercent": -74.6,
-        "priceRange": {
-          "min": 1.26,
-          "max": 1.26
         }
       }
     ]
