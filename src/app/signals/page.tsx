@@ -16,6 +16,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { fetchSignals } from "@/lib/signals";
 import type { Signal, Trend, CascadeLayer } from "@/lib/signals/types";
+import { ViewToggle } from "./ViewToggle";
 
 export const revalidate = 300; // cache rendered page for 5 minutes
 
@@ -255,56 +256,89 @@ export default async function SignalsPage() {
         </div>
       </section>
 
-      {/* Cascade flow */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-        {/* Jump links */}
-        <nav aria-label="Signal layers" className="mb-6 flex flex-wrap gap-2 text-xs">
-          {CASCADE_LAYERS.map((l) => {
-            const status = getLayerStatus(signals, l.keys);
-            return (
-              <a
-                key={l.layer}
-                href={`#layer-${l.layer}`}
-                className={`px-3 py-1.5 rounded-full border transition-colors hover:bg-gray-50 ${layerStatusStyles[status.trend]}`}
-              >
-                {l.heading}
-              </a>
-            );
-          })}
-        </nav>
-        <div className="space-y-2">
-          {CASCADE_LAYERS.map((layerDef, idx) => {
-            const layerSignals = layerDef.keys
-              .filter((key) => key in signals && signals[key] !== null)
-              .map((key) => ({ key, signal: signals[key] }));
-
-            if (layerSignals.length === 0) return null;
-
-            const layerStatus = getLayerStatus(signals, layerDef.keys);
-            const isLast = idx === CASCADE_LAYERS.length - 1;
-
-            return (
-              <div key={layerDef.layer}>
-                <CascadeLayerSection
-                  layer={layerDef}
-                  status={layerStatus}
-                  signals={layerSignals}
-                />
-                {/* Propagation arrow between layers */}
-                {!isLast && (
-                  <div className="flex justify-center py-1">
-                    <ArrowDown
-                      size={20}
-                      weight="bold"
-                      className="text-gray-300"
-                    />
-                  </div>
+      {/* View toggle: Dashboard (default) / Cascade flow */}
+      <ViewToggle
+        dashboardContent={
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+            <div className="flex items-center justify-between mb-4">
+              <p className="text-xs text-gray-400">
+                {fetchTime}
+              </p>
+              {automatedCount > 0 && (
+                <span className="inline-flex items-center gap-1.5 text-xs text-gray-400">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  {automatedCount} live sources
+                </span>
+              )}
+            </div>
+            <div className="space-y-4">
+              {signals.cascadePressure && (
+                <CascadeSummaryCard signal={signals.cascadePressure} foodBasket={signals.foodBasket} />
+              )}
+              {signals.priceChain && (
+                <PriceChainCard signal={signals.priceChain} />
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <MarketDriversCard brent={signals.brentCrude} aud={signals.audUsd} />
+                <RetailFuelCard wa={signals.waFuel} nsw={signals.nswFuel} />
+                {signals.foodBasket && (
+                  <FoodBasketCard signal={signals.foodBasket} />
                 )}
               </div>
-            );
-          })}
-        </div>
-      </section>
+            </div>
+          </section>
+        }
+        cascadeContent={
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+            {/* Jump links */}
+            <nav aria-label="Signal layers" className="mb-6 flex flex-wrap gap-2 text-xs">
+              {CASCADE_LAYERS.map((l) => {
+                const status = getLayerStatus(signals, l.keys);
+                return (
+                  <a
+                    key={l.layer}
+                    href={`#layer-${l.layer}`}
+                    className={`px-3 py-1.5 rounded-full border transition-colors hover:bg-gray-50 ${layerStatusStyles[status.trend]}`}
+                  >
+                    {l.heading}
+                  </a>
+                );
+              })}
+            </nav>
+            <div className="space-y-2">
+              {CASCADE_LAYERS.map((layerDef, idx) => {
+                const layerSignals = layerDef.keys
+                  .filter((key) => key in signals && signals[key] !== null)
+                  .map((key) => ({ key, signal: signals[key] }));
+
+                if (layerSignals.length === 0) return null;
+
+                const layerStatus = getLayerStatus(signals, layerDef.keys);
+                const isLast = idx === CASCADE_LAYERS.length - 1;
+
+                return (
+                  <div key={layerDef.layer}>
+                    <CascadeLayerSection
+                      layer={layerDef}
+                      status={layerStatus}
+                      signals={layerSignals}
+                    />
+                    {!isLast && (
+                      <div className="flex justify-center py-1">
+                        <ArrowDown
+                          size={20}
+                          weight="bold"
+                          className="text-gray-300"
+                        />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        }
+      />
 
       {/* How signals connect to resilience */}
       <section className="bg-green-50 border-y border-green-100">
@@ -523,11 +557,11 @@ const SPARKLINE_COLORS: Record<Trend, { stroke: string; fill: string }> = {
   stable: { stroke: "#4d7c0f", fill: "rgba(77,124,15,0.08)" },
 };
 
-function Sparkline({ values, trend, label }: { values: number[]; trend: Trend; label?: string }) {
+function Sparkline({ values, trend, label, expanded }: { values: number[]; trend: Trend; label?: string; expanded?: boolean }) {
   if (values.length < 2) return null;
 
   const w = 120;
-  const h = 32;
+  const h = expanded ? 48 : 32;
   const pad = 1;
   const min = Math.min(...values);
   const max = Math.max(...values);
@@ -545,7 +579,14 @@ function Sparkline({ values, trend, label }: { values: number[]; trend: Trend; l
 
   return (
     <div className="mt-2">
-      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="overflow-visible" aria-hidden="true">
+      <svg
+        width={expanded ? "100%" : w}
+        height={h}
+        viewBox={`0 0 ${w} ${h}`}
+        preserveAspectRatio="none"
+        className="overflow-visible"
+        aria-hidden="true"
+      >
         <path d={fillPath} fill={colors.fill} />
         <path d={linePath} fill="none" stroke={colors.stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         <circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="2" fill={colors.stroke} />
@@ -784,4 +825,463 @@ function SignalCard({ signalKey, signal }: { signalKey: string; signal: Signal }
     return <IntelligenceCard signalKey={signalKey} signal={signal} />;
   }
   return <MetricCard signalKey={signalKey} signal={signal} />;
+}
+
+/* ─── Dashboard View ─── */
+
+const CHAIN_SUFFIXES = [
+  "crude oil", "refining", "shipping + terminal",
+  "importer margin", "excise", "retailer margin", "GST",
+  "product + supply",
+];
+
+const CHAIN_COLORS: Record<string, { bg: string; text: string; dot: string }> = {
+  "crude oil":            { bg: "bg-stone-400",   text: "text-white",       dot: "bg-stone-400" },
+  "refining":             { bg: "bg-stone-300",   text: "text-stone-700",   dot: "bg-stone-300" },
+  "shipping + terminal":  { bg: "bg-stone-200",   text: "text-stone-600",   dot: "bg-stone-200" },
+  "importer margin":      { bg: "bg-amber-500",   text: "text-white",       dot: "bg-amber-500" },
+  "excise":               { bg: "bg-emerald-300",  text: "text-emerald-900", dot: "bg-emerald-300" },
+  "retailer margin":      { bg: "bg-sky-200",     text: "text-sky-800",     dot: "bg-sky-200" },
+  "GST":                  { bg: "bg-emerald-200",  text: "text-emerald-800", dot: "bg-emerald-200" },
+  "product + supply":     { bg: "bg-stone-300",   text: "text-stone-700",   dot: "bg-stone-300" },
+};
+
+function getChainType(label: string): string {
+  const lower = label.toLowerCase();
+  for (const suffix of CHAIN_SUFFIXES) {
+    if (lower.endsWith(suffix)) return suffix;
+  }
+  return label;
+}
+
+interface ChainSegment {
+  type: string;
+  displayName: string;
+  pct: number;
+  value: string;
+  isImporter: boolean;
+}
+
+function parseChainSegments(signal: Signal): { city: string; segments: ChainSegment[] } | null {
+  if (!signal.components || signal.components.length === 0) return null;
+
+  // Get primary city from first component label
+  const firstLabel = signal.components[0].label;
+  const firstType = getChainType(firstLabel);
+  const city = firstLabel.slice(0, firstLabel.length - firstType.length).trim();
+  if (!city) return null;
+
+  // Filter to primary city only
+  const cityComponents = signal.components.filter((c) => c.label.startsWith(city));
+
+  const segments = cityComponents
+    .map((c) => {
+      const type = getChainType(c.label);
+      const pctMatch = c.change?.match(/^(\d+)%/);
+      const pct = pctMatch ? parseInt(pctMatch[1]) : 0;
+      const names: Record<string, string> = {
+        "crude oil": "Crude oil",
+        "refining": "Refining",
+        "shipping + terminal": "Shipping",
+        "importer margin": "Importer margin",
+        "excise": "Excise",
+        "retailer margin": "Retailer",
+        "GST": "GST",
+        "product + supply": "Product + supply",
+      };
+      return {
+        type,
+        displayName: names[type] || type,
+        pct,
+        value: c.value,
+        isImporter: type === "importer margin",
+      };
+    })
+    .filter((s) => s.pct > 0);
+
+  return segments.length > 0 ? { city, segments } : null;
+}
+
+function CascadeSummaryCard({
+  signal,
+  foodBasket,
+}: {
+  signal: Signal;
+  foodBasket?: Signal | null;
+}) {
+  const elevatedChannels =
+    signal.components
+      ?.filter((c) => c.trend === "up" || c.trend === "critical")
+      .filter((c) => !c.label.toLowerCase().includes("freight cost")) || [];
+
+  return (
+    <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
+        <div>
+          <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
+            Cascade pressure
+          </p>
+          <p
+            className={`font-heading text-2xl sm:text-3xl font-bold mt-1 ${
+              signal.trend === "critical"
+                ? "text-red-700"
+                : signal.trend === "up"
+                  ? "text-amber-700"
+                  : signal.trend === "down"
+                    ? "text-blue-700"
+                    : "text-green-700"
+            }`}
+          >
+            {signal.value}
+          </p>
+        </div>
+        {foodBasket && (
+          <div className="sm:text-right">
+            <p className="text-xs text-gray-500">Food prices (YoY)</p>
+            <p
+              className={`font-heading text-xl sm:text-2xl font-bold mt-1 ${
+                foodBasket.trend === "critical"
+                  ? "text-red-700"
+                  : foodBasket.trend === "up"
+                    ? "text-amber-700"
+                    : foodBasket.trend === "down"
+                      ? "text-blue-700"
+                      : "text-green-700"
+              }`}
+            >
+              {foodBasket.value}
+            </p>
+            <p className="text-xs text-gray-400 mt-0.5">ABS CPI quarterly</p>
+          </div>
+        )}
+      </div>
+
+      {elevatedChannels.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {elevatedChannels.map((ch) => (
+            <span
+              key={ch.label}
+              className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${trendStyles[ch.trend || "stable"]}`}
+            >
+              {ch.label}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PriceChainCard({ signal }: { signal: Signal }) {
+  const parsed = parseChainSegments(signal);
+  if (!parsed) return null;
+  const { city, segments } = parsed;
+
+  // Extract the retail price from the signal context
+  const priceMatch = signal.context.match(/\$(\d+\.\d+)\/L/);
+  const retailPrice = priceMatch ? priceMatch[1] : null;
+
+  // Split into known vs estimated segments
+  const knownTypes = new Set(["excise", "retailer margin", "GST"]);
+  const opaqueTypes = new Set(["crude oil", "refining", "shipping + terminal", "importer margin", "product + supply"]);
+
+  const knownSegments = segments.filter((s) => knownTypes.has(s.type));
+  const opaqueSegments = segments.filter((s) => opaqueTypes.has(s.type));
+  const opaqueTotalPct = opaqueSegments.reduce((sum, s) => sum + s.pct, 0);
+  const opaqueTotalValue = opaqueSegments.reduce((sum, s) => {
+    const match = s.value.match(/([\d.]+)/);
+    return sum + (match ? parseFloat(match[1]) : 0);
+  }, 0);
+  const hasDetailedBreakdown = opaqueSegments.length > 1;
+
+  return (
+    <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-6">
+      <div className="flex items-start justify-between gap-2 mb-1">
+        <div>
+          <h3 className="font-heading text-base sm:text-lg font-semibold text-green-900">
+            Where your fuel money goes
+          </h3>
+          <p className="text-xs text-gray-500 mt-0.5">
+            {city} diesel{retailPrice ? ` at $${retailPrice}/L` : ""}
+          </p>
+        </div>
+        <span
+          className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border flex-shrink-0 ${trendStyles[signal.trend]}`}
+        >
+          {intelBadgeLabel[signal.trend]}
+        </span>
+      </div>
+
+      {/* Primary bar: known sections + opaque wholesale block */}
+      <div
+        className="flex h-10 sm:h-12 rounded-lg overflow-hidden mt-4"
+        role="img"
+        aria-label={`Fuel price breakdown: product and supply ${opaqueTotalPct}%, ${knownSegments.map((s) => `${s.displayName} ${s.pct}%`).join(", ")}`}
+      >
+        {/* Opaque wholesale block */}
+        <div
+          style={{ width: `${opaqueTotalPct}%` }}
+          className="flex items-center justify-center text-xs font-semibold bg-amber-500 text-white"
+          title={`Product + supply: ${opaqueTotalValue.toFixed(1)} c/L (${opaqueTotalPct}%) — set by fuel importers`}
+        >
+          <span className="truncate px-1">{opaqueTotalPct}%</span>
+        </div>
+        {/* Known segments */}
+        {knownSegments.map((s, i) => {
+          const colors = CHAIN_COLORS[s.type] || CHAIN_COLORS["product + supply"];
+          const isLast = i === knownSegments.length - 1;
+          return (
+            <div
+              key={s.type}
+              style={{ width: `${s.pct}%`, ...(isLast ? { flexGrow: 1 } : {}) }}
+              className={`flex items-center justify-center text-xs font-semibold ${colors.bg} ${colors.text}`}
+              title={`${s.displayName}: ${s.value} (${s.pct}%)`}
+            >
+              {s.pct >= 8 && <span className="truncate px-1">{s.pct}%</span>}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Legend */}
+      <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-3 text-xs">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-sm flex-shrink-0 bg-amber-500" />
+          <span className="font-semibold text-amber-800">Product + supply</span>
+          <span className="text-gray-400">{opaqueTotalValue.toFixed(1)} c/L</span>
+        </div>
+        {knownSegments.map((s) => {
+          const colors = CHAIN_COLORS[s.type] || CHAIN_COLORS["product + supply"];
+          return (
+            <div key={s.type} className="flex items-center gap-1.5">
+              <span className={`w-2.5 h-2.5 rounded-sm flex-shrink-0 ${colors.dot}`} />
+              <span className="text-gray-600">{s.displayName}</span>
+              <span className="text-gray-400">{s.value}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* The editorial callout */}
+      <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2.5">
+        <p className="text-xs text-amber-800 leading-relaxed">
+          <span className="font-semibold">{opaqueTotalPct}% of what you pay</span> goes to
+          four fuel importers (Ampol, Viva Energy, BP, ExxonMobil) who set the
+          wholesale price via the Australian Institute of Petroleum.
+          The public breakdown of this cost is not published.
+          The retailer at the bowser keeps{" "}
+          {knownSegments.find((s) => s.type === "retailer margin")?.pct || "~3"}%.
+        </p>
+      </div>
+
+      {/* Estimated breakdown of the opaque block */}
+      {!hasDetailedBreakdown && (
+        <p className="mt-3 text-[11px] text-gray-400 leading-relaxed">
+          When market data is available (Brent crude, AUD/USD, crack spread),
+          we estimate the breakdown within this block. Currently unavailable — check the cascade view for detail when live.
+        </p>
+      )}
+      {hasDetailedBreakdown && (
+        <div className="mt-3 border border-gray-200 rounded-lg p-3 sm:p-4">
+          <p className="text-xs font-medium text-gray-700 mb-2">
+            Estimated breakdown of the {opaqueTotalPct}%
+          </p>
+          <div className="flex h-8 rounded overflow-hidden">
+            {opaqueSegments.map((s, i) => {
+              const colors = CHAIN_COLORS[s.type] || CHAIN_COLORS["product + supply"];
+              const isLast = i === opaqueSegments.length - 1;
+              const widthPct = opaqueTotalPct > 0 ? (s.pct / opaqueTotalPct) * 100 : 0;
+              return (
+                <div
+                  key={s.type}
+                  style={{ width: `${widthPct}%`, ...(isLast ? { flexGrow: 1 } : {}) }}
+                  className={`flex items-center justify-center text-[10px] sm:text-xs font-semibold ${colors.bg} ${colors.text} ${s.isImporter ? "ring-2 ring-amber-600 ring-inset" : ""}`}
+                  title={`${s.displayName}: ${s.value} (est. ${s.pct}% of retail)`}
+                >
+                  {widthPct >= 15 && <span className="truncate px-1">{s.pct}%</span>}
+                </div>
+              );
+            })}
+          </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-2.5 text-xs">
+            {opaqueSegments.map((s) => {
+              const colors = CHAIN_COLORS[s.type] || CHAIN_COLORS["product + supply"];
+              return (
+                <div key={s.type} className="flex items-center gap-1.5">
+                  <span className={`w-2.5 h-2.5 rounded-sm flex-shrink-0 ${colors.dot}`} />
+                  <span className={`${s.isImporter ? "font-semibold text-amber-800" : "text-gray-600"}`}>
+                    {s.displayName}
+                  </span>
+                  <span className="text-gray-400">{s.value}</span>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-[11px] text-gray-400 mt-2.5 leading-relaxed">
+            Derived from Brent crude + AUD/USD, US crack spread (proxy for
+            refining), and ACCC shipping benchmarks. The importer margin is
+            the residual — it carries the estimation error from the other
+            components. These are structural estimates, not published figures.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MarketDriversCard({
+  brent,
+  aud,
+}: {
+  brent?: Signal | null;
+  aud?: Signal | null;
+}) {
+  if (!brent && !aud) return null;
+
+  return (
+    <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-5">
+      <p className="text-xs text-gray-500 uppercase tracking-wide font-medium mb-3">
+        Market drivers
+      </p>
+      <div className="space-y-4">
+        {brent && (
+          <div>
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-sm text-gray-600">Brent crude</p>
+              <span
+                className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${trendStyles[brent.trend]}`}
+              >
+                {metricBadgeLabel[brent.trend]}
+              </span>
+            </div>
+            <p className="font-heading text-lg font-bold text-green-900">{brent.value}</p>
+            {brent.sparkline && (
+              <Sparkline values={brent.sparkline.values} trend={brent.trend} label={brent.sparkline.label} expanded />
+            )}
+            <DashboardFreshness signal={brent} window="Intraday" />
+          </div>
+        )}
+        {aud && (
+          <div>
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-sm text-gray-600">AUD/USD</p>
+              <span
+                className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${trendStyles[aud.trend]}`}
+              >
+                {metricBadgeLabel[aud.trend]}
+              </span>
+            </div>
+            <p className="font-heading text-lg font-bold text-green-900">{aud.value}</p>
+            {aud.sparkline && (
+              <Sparkline values={aud.sparkline.values} trend={aud.trend} label={aud.sparkline.label} expanded />
+            )}
+            <DashboardFreshness signal={aud} window="Intraday" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RetailFuelCard({
+  wa,
+  nsw,
+}: {
+  wa?: Signal | null;
+  nsw?: Signal | null;
+}) {
+  if (!wa && !nsw) return null;
+
+  return (
+    <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-5">
+      <p className="text-xs text-gray-500 uppercase tracking-wide font-medium mb-3">
+        At the bowser
+      </p>
+      <div className="space-y-4">
+        {wa && (
+          <div>
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-sm text-gray-600">WA (FuelWatch)</p>
+              <span
+                className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${trendStyles[wa.trend]}`}
+              >
+                {metricBadgeLabel[wa.trend]}
+              </span>
+            </div>
+            <p className="font-heading text-lg font-bold text-green-900">{wa.value}</p>
+            <DashboardFreshness signal={wa} window="Daily" />
+          </div>
+        )}
+        {nsw && (
+          <div>
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-sm text-gray-600">NSW (FuelCheck)</p>
+              <span
+                className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${trendStyles[nsw.trend]}`}
+              >
+                {metricBadgeLabel[nsw.trend]}
+              </span>
+            </div>
+            <p className="font-heading text-lg font-bold text-green-900">{nsw.value}</p>
+            <DashboardFreshness signal={nsw} window="Live" />
+          </div>
+        )}
+      </div>
+      <p className="text-[11px] text-gray-400 mt-3 pt-2 border-t border-gray-100">
+        6 states publish no station-level data
+      </p>
+    </div>
+  );
+}
+
+function FoodBasketCard({ signal }: { signal: Signal }) {
+  return (
+    <div className="bg-white border border-gray-100 rounded-lg p-4 sm:p-5">
+      <p className="text-xs text-gray-500 uppercase tracking-wide font-medium mb-3">
+        In the basket
+      </p>
+      <div className="flex items-baseline justify-between gap-2">
+        <p className="text-sm text-gray-600">Food prices (CPI)</p>
+        <span
+          className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${trendStyles[signal.trend]}`}
+        >
+          {metricBadgeLabel[signal.trend]}
+        </span>
+      </div>
+      <p className="font-heading text-lg font-bold text-green-900">{signal.value}</p>
+      <DashboardFreshness signal={signal} window="Quarterly" />
+      {signal.components && signal.components.length > 0 && (
+        <div className="mt-3 space-y-1.5 border-t border-gray-100 pt-2">
+          {signal.components.slice(0, 4).map((c) => (
+            <div key={c.label} className="flex items-baseline justify-between">
+              <span className="text-xs text-gray-600">{c.label}</span>
+              <span
+                className={`font-medium text-xs tabular-nums ${
+                  c.trend === "up" || c.trend === "critical"
+                    ? "text-amber-600"
+                    : c.trend === "down"
+                      ? "text-blue-600"
+                      : "text-gray-600"
+                }`}
+              >
+                {c.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Dashboard freshness indicator ─── */
+
+function DashboardFreshness({ signal, window }: { signal: Signal; window: string }) {
+  const updated = formatLastUpdated(signal.lastUpdated);
+  return (
+    <div className="flex items-center gap-2 mt-1 text-[11px] text-gray-400">
+      <span className="bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded font-medium">{window}</span>
+      {updated && <span>{updated}</span>}
+    </div>
+  );
 }
