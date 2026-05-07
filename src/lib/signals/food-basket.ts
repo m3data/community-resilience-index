@@ -48,6 +48,14 @@ function formatQuarter(period: string): string {
   return `${months[quarter - 1]} ${year}`;
 }
 
+function quarterEndIso(period: string): string {
+  const { year, quarter } = parseQuarter(period);
+  // ABS quarters end Mar/Jun/Sep/Dec. Use UTC end-of-month.
+  const endMonth = quarter * 3; // 3, 6, 9, 12
+  const endDay = [31, 30, 30, 31][quarter - 1];
+  return new Date(Date.UTC(year, endMonth - 1, endDay)).toISOString();
+}
+
 function getQueryRange(): { start: string; end: string } {
   const now = new Date();
   const year = now.getFullYear();
@@ -170,7 +178,7 @@ export async function fetchFoodBasket(): Promise<Signal | null> {
       sourceUrl:
         "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia",
       context,
-      lastUpdated: null, // quarterly, no specific date
+      lastUpdated: quarterEndIso(latestPeriod),
       automated: true,
       layer: 4,
       layerLabel: "Retail impact",
