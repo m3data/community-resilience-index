@@ -548,6 +548,98 @@ function formatLastUpdated(iso: string | null): string | null {
   return d.toLocaleDateString("en-AU", { day: "numeric", month: "short" });
 }
 
+/* ─── Freshness classification ─── */
+
+type FreshnessLevel = "fresh" | "stale" | "very-stale" | "unknown";
+
+/** Per-signal acceptable age in days before the data is considered stale.
+ *  Thresholds reflect the underlying source cadence — daily feeds go stale
+ *  faster than quarterly ABS releases. */
+const FRESHNESS_THRESHOLDS: Record<string, { stale: number; veryStale: number }> = {
+  // Intraday / live API feeds
+  brentCrude: { stale: 1, veryStale: 3 },
+  crackSpread: { stale: 1, veryStale: 3 },
+  audUsd: { stale: 1, veryStale: 3 },
+  asxEnergy: { stale: 1, veryStale: 3 },
+  asxFood: { stale: 1, veryStale: 3 },
+  aemoElectricity: { stale: 1, veryStale: 3 },
+  nswFuel: { stale: 1, veryStale: 3 },
+  nswRfs: { stale: 1, veryStale: 3 },
+  vicEmv: { stale: 1, veryStale: 3 },
+  // Daily feeds / scrapes
+  waFuel: { stale: 2, veryStale: 7 },
+  dieselTgp: { stale: 3, veryStale: 7 },
+  petrolTgp: { stale: 3, veryStale: 7 },
+  retailMargin: { stale: 2, veryStale: 7 },
+  priceChain: { stale: 2, veryStale: 7 },
+  cascadePressure: { stale: 2, veryStale: 7 },
+  stationAvailability: { stale: 3, veryStale: 7 },
+  supermarketPrices: { stale: 7, veryStale: 14 },
+  energyPolicyNews: { stale: 3, veryStale: 7 },
+  // Weekly DCCEEW reports
+  productReserves: { stale: 10, veryStale: 21 },
+  ieaCompliance: { stale: 10, veryStale: 21 },
+  stockVolumes: { stale: 10, veryStale: 21 },
+  // Periodic / manually maintained
+  farmInputs: { stale: 14, veryStale: 30 },
+  // Monetary policy — RBA board meets ~6-weekly
+  rbaCashRate: { stale: 60, veryStale: 90 },
+  // Quarterly ABARES / ABS
+  abaresFertiliser: { stale: 100, veryStale: 180 },
+  foodBasket: { stale: 120, veryStale: 200 },
+};
+
+function classifyFreshness(
+  signalKey: string,
+  iso: string | null
+): FreshnessLevel {
+  if (!iso) return "unknown";
+  const t = FRESHNESS_THRESHOLDS[signalKey];
+  if (!t) return "fresh";
+  const ageMs = Date.now() - new Date(iso).getTime();
+  const ageDays = ageMs / (1000 * 60 * 60 * 24);
+  if (ageDays > t.veryStale) return "very-stale";
+  if (ageDays > t.stale) return "stale";
+  return "fresh";
+}
+
+const freshnessStyles: Record<FreshnessLevel, string> = {
+  fresh: "text-gray-400",
+  unknown: "text-gray-400",
+  stale: "text-amber-700 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded",
+  "very-stale": "text-red-700 bg-red-50 border border-red-200 px-1.5 py-0.5 rounded font-medium",
+};
+
+function FreshnessBadge({
+  signalKey,
+  signal,
+}: {
+  signalKey: string;
+  signal: Signal;
+}) {
+  const label = formatLastUpdated(signal.lastUpdated);
+  if (!label) return null;
+  const level = classifyFreshness(signalKey, signal.lastUpdated);
+  const title =
+    level === "very-stale"
+      ? "Data is significantly out of date — refresh job may be down"
+      : level === "stale"
+        ? "Data is older than expected for this signal's cadence"
+        : undefined;
+  return (
+    <span
+      className={`inline-flex items-center gap-1 ${freshnessStyles[level]}`}
+      title={title}
+    >
+      {(level === "stale" || level === "very-stale") && (
+        <Warning size={11} weight="fill" aria-hidden="true" />
+      )}
+      <span>{label}</span>
+      {level === "very-stale" && <span className="sr-only"> (out of date)</span>}
+    </span>
+  );
+}
+
 /* ─── Sparkline ─── */
 
 const SPARKLINE_COLORS: Record<Trend, { stroke: string; fill: string }> = {
@@ -627,7 +719,6 @@ function SourceLine({ source, sourceUrl, automated }: { source: string; sourceUr
 /* ─── Metric Card ─── */
 
 function MetricCard({ signalKey, signal }: { signalKey: string; signal: Signal }) {
-  const updatedLabel = formatLastUpdated(signal.lastUpdated);
   const temporalWindow = TEMPORAL_WINDOW[signalKey];
 
   return (
@@ -652,11 +743,11 @@ function MetricCard({ signalKey, signal }: { signalKey: string; signal: Signal }
       )}
 
       {/* Freshness */}
-      <div className="flex items-center gap-2 mt-1.5 text-[11px] text-gray-400">
+      <div className="flex items-center gap-2 mt-1.5 text-[11px]">
         {temporalWindow && (
           <span className="bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded font-medium">{temporalWindow}</span>
         )}
-        {updatedLabel && <span>{updatedLabel}</span>}
+        <FreshnessBadge signalKey={signalKey} signal={signal} />
       </div>
 
       {/* Secondary insight (e.g. futures curve) */}
@@ -710,8 +801,6 @@ function MetricCard({ signalKey, signal }: { signalKey: string; signal: Signal }
 /* ─── Intelligence Card ─── */
 
 function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Signal }) {
-  const updatedLabel = formatLastUpdated(signal.lastUpdated);
-
   // Split context: first sentence becomes the lead, rest is supporting detail
   const contextParts = signal.context.split(/(?<=\.)\s+/);
   const leadInsight = contextParts.slice(0, 2).join(" ");
@@ -724,8 +813,8 @@ function IntelligenceCard({ signalKey, signal }: { signalKey: string; signal: Si
         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${trendStyles[signal.trend]}`}>
           {intelBadgeLabel[signal.trend]}
         </span>
-        <div className="flex items-center gap-2 text-[11px] text-gray-400">
-          {updatedLabel && <span>{updatedLabel}</span>}
+        <div className="flex items-center gap-2 text-[11px]">
+          <FreshnessBadge signalKey={signalKey} signal={signal} />
           <SourceLine source={signal.source} sourceUrl={signal.sourceUrl} automated={signal.automated} />
         </div>
       </div>
@@ -1158,7 +1247,7 @@ function MarketDriversCard({
             {brent.sparkline && (
               <Sparkline values={brent.sparkline.values} trend={brent.trend} label={brent.sparkline.label} expanded />
             )}
-            <DashboardFreshness signal={brent} window="Intraday" />
+            <DashboardFreshness signalKey="brentCrude" signal={brent} window="Intraday" />
           </div>
         )}
         {aud && (
@@ -1175,7 +1264,7 @@ function MarketDriversCard({
             {aud.sparkline && (
               <Sparkline values={aud.sparkline.values} trend={aud.trend} label={aud.sparkline.label} expanded />
             )}
-            <DashboardFreshness signal={aud} window="Intraday" />
+            <DashboardFreshness signalKey="audUsd" signal={aud} window="Intraday" />
           </div>
         )}
       </div>
@@ -1209,7 +1298,7 @@ function RetailFuelCard({
               </span>
             </div>
             <p className="font-heading text-lg font-bold text-green-900">{wa.value}</p>
-            <DashboardFreshness signal={wa} window="Daily" />
+            <DashboardFreshness signalKey="waFuel" signal={wa} window="Daily" />
           </div>
         )}
         {nsw && (
@@ -1223,7 +1312,7 @@ function RetailFuelCard({
               </span>
             </div>
             <p className="font-heading text-lg font-bold text-green-900">{nsw.value}</p>
-            <DashboardFreshness signal={nsw} window="Live" />
+            <DashboardFreshness signalKey="nswFuel" signal={nsw} window="Live" />
           </div>
         )}
       </div>
@@ -1249,7 +1338,7 @@ function FoodBasketCard({ signal }: { signal: Signal }) {
         </span>
       </div>
       <p className="font-heading text-lg font-bold text-green-900">{signal.value}</p>
-      <DashboardFreshness signal={signal} window="Quarterly" />
+      <DashboardFreshness signalKey="foodBasket" signal={signal} window="Quarterly" />
       {signal.components && signal.components.length > 0 && (
         <div className="mt-3 space-y-1.5 border-t border-gray-100 pt-2">
           {signal.components.slice(0, 4).map((c) => (
@@ -1276,12 +1365,19 @@ function FoodBasketCard({ signal }: { signal: Signal }) {
 
 /* ─── Dashboard freshness indicator ─── */
 
-function DashboardFreshness({ signal, window }: { signal: Signal; window: string }) {
-  const updated = formatLastUpdated(signal.lastUpdated);
+function DashboardFreshness({
+  signalKey,
+  signal,
+  window,
+}: {
+  signalKey: string;
+  signal: Signal;
+  window: string;
+}) {
   return (
-    <div className="flex items-center gap-2 mt-1 text-[11px] text-gray-400">
+    <div className="flex items-center gap-2 mt-1 text-[11px]">
       <span className="bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded font-medium">{window}</span>
-      {updated && <span>{updated}</span>}
+      <FreshnessBadge signalKey={signalKey} signal={signal} />
     </div>
   );
 }
